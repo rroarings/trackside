@@ -1,0 +1,157 @@
+---
+import BaseHead from "../../../components/BaseHead.astro"
+import Header from "../../../components/Header.astro"
+import Footer from "../../../components/Footer.astro"
+import LatestPosts from "../../../components/LatestPosts.astro"
+import { SITE_TITLE } from "../../../consts"
+import { Image } from "astro:assets"
+import teams25Img from "/src/assets/circuits/02china/cn05.jpg"
+import teams24Img from "/src/assets/circuits/08monaco/mc02.jpg"
+---
+
+<!doctype html>
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-950">
+	<head>
+		<BaseHead
+			title={`F1 Seasons | ${SITE_TITLE}`}
+			description="Formula 1 seasons coverage and archives"
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Seasons Overview Header -->
+			<section class="py-16 text-center">
+				<div class="mx-auto">
+					<h1 class="text-4xl font-bold mb-4 dark:text-slate-100">Formula 1 Seasons</h1>
+					<p class="text-lg text-gray-700 dark:text-slate-400">
+						Comprehensive coverage of F1 seasons, drivers, and teams
+					</p>
+				</div>
+			</section>
+
+			<!-- Seasons Grid -->
+			<section class="py-8 mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<!-- 2025 Season -->
+					<div class="dark:text-slate-100">
+						<Image
+							src={teams25Img}
+							alt="2025 F1 Season China"
+							class="w-full h-48 object-cover"
+							loading="eager"
+						/>
+						<div class="py-4 flex flex-col flex-grow">
+							<h2 class="text-2xl font-bold mb-2">2025 Formula 1 Season</h2>
+							<p class="text-gray-700 dark:text-slate-400 mb-4 flex-grow">
+								The current Formula 1 season with the latest races, driver standings, and
+								championship battles.
+							</p>
+							<div class="space-y-2">
+								<a
+									href="/seasons/2025"
+									class="flex-1 block border-2 border-transparent transition-all duration-300 bg-rose-600 hover:bg-rose-700 dark:bg-rose-600 dark:hover:bg-rose-700 dark:hover:border-rose-500 dark:text-slate-100 text-white py-2 px-4 rounded text-center">
+									View 2025 Season
+								</a>
+								<div class="flex gap-2">
+									<a
+										href="/seasons/2025/drivers"
+										class="flex-1 block border-2 border-transparent transition-all duration-300 bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600 text-white py-2 px-4 rounded text-center text-sm">
+										Drivers
+									</a>
+									<a
+										href="/seasons/2025/teams"
+										class="flex-1 border-2 border-transparent transition-all duration-300 bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600 text-white py-2 px-4 rounded text-center text-sm">
+										Teams
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 2024 Season -->
+					<div class="dark:text-slate-100">
+						<Image
+							src={teams24Img}
+							alt="2025 F1 Season Monaco"
+							class="w-full h-48 object-cover"
+							loading="eager"
+						/>
+						<div class="py-4">
+							<h2 class="text-2xl font-bold mb-2">2024 Formula 1 Season</h2>
+							<p class="text-gray-700 dark:text-slate-400 mb-4">
+								Complete coverage of the 2024 season including race results, championship standings,
+								and season highlights.
+							</p>
+							<div class="space-y-2">
+								<a
+									href="/seasons/2024"
+									class="block border-2 border-transparent transition-all duration-300 bg-red-600 hover:bg-red-700 dark:bg-slate-700 dark:hover:bg-rose-700 dark:hover:border-rose-500 dark:text-slate-100 text-white py-2 px-4 rounded text-center">
+									View 2024 Season
+								</a>
+								<div class="flex gap-2">
+									<a
+										href="/seasons/2024/drivers"
+										class="flex-1 border-2 border-transparent transition-all duration-300 bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600 text-white py-2 px-4 rounded text-center text-sm">
+										Drivers
+									</a>
+									<a
+										href="/seasons/2024/teams"
+										class="flex-1 border-2 border-transparent transition-all duration-300 bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600 text-white py-2 px-4 rounded text-center text-sm">
+										Teams
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Features Section -->
+			<section class="py-12 bg-gray-100 dark:bg-slate-950">
+				<div class="mx-auto px-4">
+					<h2 class="text-3xl font-bold text-center mb-8 dark:text-slate-100">What You'll Find</h2>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6 dark:text-slate-200">
+						<div class="text-center">
+							<i class="bi bi-calendar3 text-4xl text-gray-700 dark:text-slate-200 mb-4"></i>
+							<h3 class="text-xl font-bold mb-2">Race Calendars</h3>
+							<p class="text-gray-600 dark:text-slate-400">
+								Complete schedules with dates, circuits, and race information
+							</p>
+						</div>
+						<div class="text-center">
+							<i class="bi bi-person-badge text-4xl text-gray-700 dark:text-slate-200 mb-4"></i>
+							<h3 class="text-xl font-bold mb-2">Driver Profiles</h3>
+							<p class="text-gray-600 dark:text-slate-400">
+								In-depth coverage of all Formula 1 drivers and their statistics
+							</p>
+						</div>
+						<div class="text-center">
+							<i class="bi bi-flag text-4xl text-gray-700 dark:text-slate-200 mb-4"></i>
+							<h3 class="text-xl font-bold mb-2">Team Analysis</h3>
+							<p class="text-gray-600 dark:text-slate-400">
+								Constructor teams, their cars, and performance insights
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Standings Section -->
+			<section class="py-16 bg-gray-100 dark:bg-slate-950">
+				<div class="container mx-auto px-4">
+					<h2 class="text-2xl font-bold mb-6 text-center dark:text-slate-100">
+						2025 Championship Standings
+					</h2>
+
+				</div>
+			</section>
+
+			<!-- Latest Blog Posts Section -->
+			<LatestPosts />
+		</main>
+		<Footer />
+	</body>
+</html>
