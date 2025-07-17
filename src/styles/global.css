@@ -39,7 +39,6 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -48,7 +47,7 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
+	width: 1200px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -60,7 +59,6 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
 	line-height: 1.2;
 }
 h1 {
@@ -83,10 +81,8 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
 }
 a:hover {
-	color: var(--accent);
 }
 p {
 	margin-bottom: 1em;
