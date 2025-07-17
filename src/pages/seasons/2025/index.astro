@@ -1,0 +1,65 @@
+---
+import BaseHead from "../../../components/BaseHead.astro"
+import Header from "../../../components/Header.astro"
+import Footer from "../../../components/Footer.astro"
+import { SITE_TITLE } from "../../../consts"
+import BreakpointIndicator from "../../../components/BreakpointIndicator.astro"
+import LatestPosts from "../../../components/LatestPosts.astro"
+---
+
+<!doctype html>
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-950">
+	<head>
+		<BaseHead
+			title={`2025 F1 Season | ${SITE_TITLE}`}
+			description="Complete 2025 Formula 1 race calendar and season overview"
+		/>
+	</head>
+	<body>
+		<BreakpointIndicator />
+		<Header />
+		<main>
+			
+			<!-- 2025 Season Header -->
+			<section class="pt-6 pb-6 text-center dark:text-slate-100">
+				<div class="container mx-auto px-4">
+					<h1 class="text-4xl font-bold mb-4">State of the Season</h1>
+					<p class="max-w-3xl mx-auto text-lg text-gray-700 dark:text-slate-400">
+						The 2025 season is shaping up to be a thriller. With new regulations shaking up the grid
+						and fierce rivalries igniting, follow along for real-time standings, race results, and
+						in-depth analysis.
+					</p>
+				</div>
+			</section>
+
+			<!-- Driver / Constructor Nav Cards -->
+
+			<!-- Standings Section -->
+			<section class="py-16 bg-gray-100 dark:bg-slate-950">
+				<div class="container mx-auto px-4">
+					<h2 class="text-2xl font-bold mb-6 text-center dark:text-slate-100">
+						2025 Championship Standings
+					</h2>
+
+					
+				</div>
+			</section>
+
+			<!-- Race Calendar -->
+			<section class="py-16 bg-gray-100 dark:bg-slate-950">
+				<div class="container mx-auto px-4">
+					<h2 class="text-2xl font-bold mb-8 text-center dark:text-slate-100">
+						Race Spotlight: What's Next on the Calendar
+					</h2>
+					
+				</div>
+			</section>
+
+			<!-- Latest Blog Posts Section -->
+			<LatestPosts />
+		</main>
+		<Footer />
+	</body>
+</html>
