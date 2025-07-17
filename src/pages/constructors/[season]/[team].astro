@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets"
+import { type CollectionEntry, getCollection } from "astro:content"
+import { render } from "astro:content"
+import "../../../styles/global.css"
+import BaseHead from "../../../components/BaseHead.astro"
+import Header from "../../../components/Header.astro"
+import Footer from "../../../components/Footer.astro"
+
+export async function getStaticPaths() {
+	const teams = await getCollection("constructors", ({ data }) => data.season === "2025")
+	return teams.map((team) => {
+		const [season, teamName] = team.id.split("/")
+		return {
+			params: { season, team: teamName },
+			props: team ,
+		}
+	})
+}
+type Props = CollectionEntry<"constructors">
+
+const entry = Astro.props;
+const { Content } = await render(entry)
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={entry.data.constructorName}
+			description={entry.data.description}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="max-w-3xl mx-auto py-10 px-4 bg-slate-300">
+			<section class="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+				{
+					entry.data.carImage && (
+						<Image
+							width={720}
+							height={360}
+							src={entry.data.carImage}
+							alt={entry.data.carImageAlt || `${entry.data.constructorName} car`}
+							class="w-full max-w-xl rounded mb-6 shadow-lg"
+						/>
+					)
+				}
+				<h1 class="text-3xl font-bold mb-2 text-center">{entry.data.constructorName}</h1>
+				<p class="text-gray-600 mb-4 text-center">{entry.data.description}</p>
+				<div class="prose max-w-none w-full mt-6">
+					<Content />
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
