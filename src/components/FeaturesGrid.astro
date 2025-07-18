@@ -1,0 +1,67 @@
+---
+interface Feature {
+  title: string;
+  description: string;
+  icon?: string; // Bootstrap icon class name
+}
+
+interface Props {
+  title?: string;
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+  background?: "white" | "gray";
+}
+
+const { title, features, columns = 2, background = "white" } = Astro.props;
+
+const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
+const gridCols = {
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-4",
+}[columns];
+---
+
+<section class={`py-12 bg-gray-100 dark:bg-slate-950`}>
+  <div class="mx-auto max-w-7xl px-4">
+    {
+      title && (
+        <div class="mb-6 border-b border-gray-200 pb-2">
+          <h2 class="text-2xl font-bold dark:text-slate-100">{title}</h2>
+        </div>
+      )
+    }
+
+    <div class={`grid grid-cols-1 ${gridCols} gap-6`}>
+      {
+        features.map((feature) => (
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-slate-600">
+                {feature.icon ? (
+                  <i class={`bi ${feature.icon} text-xl`} />
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <div>
+              <h3 class="font-medium dark:text-slate-200">{feature.title}</h3>
+              <p class="text-gray-600 dark:text-slate-400">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
