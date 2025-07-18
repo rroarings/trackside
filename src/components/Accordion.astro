@@ -1,97 +1,110 @@
 ---
-import { Icon } from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 
 interface Props {
-	items: {
-		question: string
-		answer: string
-	}[]
+  items: {
+    question: string;
+    answer: string;
+  }[];
 }
 
-const { items } = Astro.props
+const { items } = Astro.props;
 ---
 
 {
-	items.map((item) => (
-		<div class="accordion group relative rounded-md dark:bg-slate-900 border border-slate-200 dark:border-slate-700 mb-4 last:mb-0">
-			<button
-				class="accordion__button flex w-full items-center justify-between p-4 text-lg font-medium text-gray-900 dark:text-slate-300 transition cursor-pointer"
-				type="button"
-				id={`${item.question}-button`}
-				aria-expanded="false"
-				aria-controls={`${item.question}-content`}>
-				{item.question}
-				<Icon
-					name="mdi:chevron-down"
-					aria-hidden="true"
-					class="accordion__chevron h-6 w-6 shrink-0 transition-all duration-200 text-gray-400 group-hover:text-blue-600"
-				/>
-			</button>
-			<div
-				id={`${item.question}-content`}
-				aria-labelledby={`${item.question}-button`}
-				class="accordion__content hidden max-h-0 overflow-hidden px-4 transition-all duration-300 ease-in-out">
-				<div class="text-gray-600 dark:text-slate-400 prose pb-4 pt-2">
-					<Fragment set:html={item.answer} />
-				</div>
-			</div>
-		</div>
-	))
+  items.map((item) => (
+    <div class="accordion group relative mb-4 rounded-md border border-slate-200 last:mb-0 dark:border-slate-700 dark:bg-slate-900">
+      <button
+        class="accordion__button flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-gray-900 transition dark:text-slate-300"
+        type="button"
+        id={`${item.question}-button`}
+        aria-expanded="false"
+        aria-controls={`${item.question}-content`}
+      >
+        {item.question}
+        <Icon
+          name="mdi:chevron-down"
+          aria-hidden="true"
+          class="accordion__chevron h-6 w-6 shrink-0 text-gray-400 transition-all duration-200 group-hover:text-blue-600"
+        />
+      </button>
+      <div
+        id={`${item.question}-content`}
+        aria-labelledby={`${item.question}-button`}
+        class="accordion__content hidden max-h-0 overflow-hidden px-4 transition-all duration-300 ease-in-out"
+      >
+        <div class="prose pb-4 pt-2 text-gray-600 dark:text-slate-400">
+          <Fragment set:html={item.answer} />
+        </div>
+      </div>
+    </div>
+  ))
 }
 
 <script>
-	function accordionSetup() {
-		const accordionMenus = document.querySelectorAll(".accordion") as NodeListOf<HTMLElement>
+  function accordionSetup() {
+    const accordionMenus = document.querySelectorAll(
+      ".accordion",
+    ) as NodeListOf<HTMLElement>;
 
-		accordionMenus.forEach((accordionMenu) => {
-			const accordionButton = accordionMenu.querySelector(".accordion__button") as HTMLElement
-			const accordionContent = accordionMenu.querySelector(".accordion__content") as HTMLElement
-			const accordionChevron = accordionMenu.querySelector(".accordion__chevron") as HTMLElement
+    accordionMenus.forEach((accordionMenu) => {
+      const accordionButton = accordionMenu.querySelector(
+        ".accordion__button",
+      ) as HTMLElement;
+      const accordionContent = accordionMenu.querySelector(
+        ".accordion__content",
+      ) as HTMLElement;
+      const accordionChevron = accordionMenu.querySelector(
+        ".accordion__chevron",
+      ) as HTMLElement;
 
-			if (accordionButton && accordionContent && accordionChevron) {
-				accordionButton.addEventListener("click", () => {
-					const isExpanded = accordionButton.getAttribute("aria-expanded") === "true"
+      if (accordionButton && accordionContent && accordionChevron) {
+        accordionButton.addEventListener("click", () => {
+          const isExpanded =
+            accordionButton.getAttribute("aria-expanded") === "true";
 
-					if (!isExpanded) {
-						// Open accordion
-						accordionButton.setAttribute("aria-expanded", "true")
-						// First set maxHeight to 0
-						accordionContent.style.maxHeight = "0px"
-						// Remove hidden class
-						accordionContent.classList.remove("hidden")
-						// Force a reflow
-						void accordionContent.offsetHeight
-						// Now set the actual height to trigger the animation
-						accordionContent.style.maxHeight = accordionContent.scrollHeight + "px"
-						accordionChevron.classList.add("rotate-180")
-					} else {
-						// Close accordion
-						accordionButton.setAttribute("aria-expanded", "false")
-						// Set height to current height first
-						accordionContent.style.maxHeight = accordionContent.scrollHeight + "px"
-						// Force a reflow
-						void accordionContent.offsetHeight
-						// Now animate to 0
-						accordionContent.style.maxHeight = "0px"
-						accordionChevron.classList.remove("rotate-180")
-						setTimeout(() => {
-							accordionContent.classList.add("hidden")
-						}, 300)
-					}
-				})
-			}
-		})
-	}
+          if (!isExpanded) {
+            // Open accordion
+            accordionButton.setAttribute("aria-expanded", "true");
+            // First set maxHeight to 0
+            accordionContent.style.maxHeight = "0px";
+            // Remove hidden class
+            accordionContent.classList.remove("hidden");
+            // Force a reflow
+            void accordionContent.offsetHeight;
+            // Now set the actual height to trigger the animation
+            accordionContent.style.maxHeight =
+              accordionContent.scrollHeight + "px";
+            accordionChevron.classList.add("rotate-180");
+          } else {
+            // Close accordion
+            accordionButton.setAttribute("aria-expanded", "false");
+            // Set height to current height first
+            accordionContent.style.maxHeight =
+              accordionContent.scrollHeight + "px";
+            // Force a reflow
+            void accordionContent.offsetHeight;
+            // Now animate to 0
+            accordionContent.style.maxHeight = "0px";
+            accordionChevron.classList.remove("rotate-180");
+            setTimeout(() => {
+              accordionContent.classList.add("hidden");
+            }, 300);
+          }
+        });
+      }
+    });
+  }
 
-	// Run on page load
-	accordionSetup()
+  // Run on page load
+  accordionSetup();
 
-	// Run on view transitions
-	document.addEventListener("astro:after-swap", accordionSetup)
+  // Run on view transitions
+  document.addEventListener("astro:after-swap", accordionSetup);
 </script>
 
 <style>
-	.accordion__button {
-		cursor: pointer;
-	}
+  .accordion__button {
+    cursor: pointer;
+  }
 </style>
