@@ -1,0 +1,111 @@
+---
+import type { CollectionEntry } from "astro:content"
+import { Image } from "astro:assets"
+import { teamBgMap } from "../utils/teamBgMap"
+import placeholderBG from "../assets/component/teamCard-placeholder.png"
+
+interface Props {
+	team: CollectionEntry<"constructors">
+	driverMap: Map<string, { profileImage: string; slug: string; countryCode: string }>
+	teamIndex: number
+	eagerCount?: number
+}
+
+const { team, driverMap, teamIndex, eagerCount = 4 } = Astro.props
+const teamBg = teamBgMap[team.data.constructorName] || null
+const teamSlug = team.id.split("/").pop()
+---
+
+<a
+	href={`/seasons/2025/constructors/${teamSlug}`}
+	class="group block h-full">
+	<article
+		class="relative flex h-full flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-shadow hover:shadow-lg dark:border-slate-800"
+		style={teamBg ?
+			`background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+		:	""}>
+		<div class="relative z-10 flex h-full flex-1 flex-col">
+			{/* Team Section */}
+			<div class="border-b border-gray-100/20 text-gray-100">
+				<div class="p-4">
+					<h3 class="mb-2 flex items-center justify-between text-lg font-bold">
+						<span class="group-hover:underline">
+							{team.data.constructorName}
+						</span>
+						<span class="text-2xl font-semibold">
+							{team.data.constructorPoints}
+							<span class="text-base font-normal">pts</span>
+						</span>
+					</h3>
+
+					{/* Driver Name + Avatars */}
+					<div
+						class="mt-2 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-start lg:gap-6">
+						{
+							team.data.teamDrivers.map((driverName) => {
+								let driverInfo = driverMap.get(driverName)
+								return (
+									<div class="mb-1 flex items-center gap-2">
+										<div class="flex size-6 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-gray-50/30 bg-gray-300/20">
+											{driverInfo ?
+												<Image
+													src={driverInfo.profileImage}
+													alt={driverName}
+													class="object-cover"
+													width={32}
+													height={32}
+													loading={teamIndex < eagerCount ? "eager" : "lazy"}
+												/>
+											:	<Image
+													src={placeholderBG}
+													alt={driverName}
+													class="object-cover"
+													width={32}
+													height={32}
+													loading={teamIndex < eagerCount ? "eager" : "lazy"}
+												/>
+											}
+										</div>
+										<span class="text-sm">{driverName}</span>
+									</div>
+								)
+							})
+						}
+					</div>
+				</div>
+			</div>
+
+			{/* Team Details (optional, still hidden) */}
+			<div class="hidden p-4 pt-2">
+				<div class="mt-2 space-y-2 text-sm text-gray-100">
+					<div class="flex items-center justify-between">
+						<span>Team Principal:</span>
+						<span class="font-medium">
+							{team.data.teamPrincipal}
+						</span>
+					</div>
+					<div class="flex items-center justify-between">
+						<span>Engine:</span>
+						<span>{team.data.engineSupplier}</span>
+					</div>
+					<div class="flex items-center justify-between">
+						<span>Car:</span>
+						<span>{team.data.carModel}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		{/* Car Image - always flush to bottom, with blur overlay only here */}
+		<div class="relative overflow-hidden bg-gradient-to-t from-gray-900 to-gray-900/20">
+			{/* Blurred background layer */}
+			<div class="pointer-events-none absolute inset-0 z-0 backdrop-blur-[4px]"></div>
+			{/* Car image stays sharp above the blur */}
+			<Image
+				src={team.data.carImageLarge || team.data.carImage}
+				alt={`${team.data.constructorName} ${team.data.carModel}`}
+				class="relative z-10 h-48 w-full object-cover"
+				loading={teamIndex < eagerCount ? "eager" : "lazy"}
+			/>
+		</div>
+	</article>
+</a>
