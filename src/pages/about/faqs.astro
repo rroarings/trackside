@@ -1,97 +1,101 @@
 ---
-import BaseHead from "../../components/BaseHead.astro"
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
-import Accordion from "../../components/Accordion.astro"
-import { SITE_TITLE } from "../../consts"
-import QuestionsCard from "../../components/QuestionsCard.astro"
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Accordion from "../../components/Accordion.astro";
+import { SITE_TITLE } from "../../consts";
+import QuestionsCard from "../../components/QuestionsCard.astro";
 
 const generalFaqs = [
-	{
-		question: "What is Trackside?",
-		answer:
-			"Trackside is a fan-driven platform offering in-depth coverage of Formula 1, focusing on the 2024-2025 seasons with race calendars, standings, and more.",
-	},
-	{
-		question: "What can I find on the site?",
-		answer:
-			"You can explore race calendars, driver and constructor standings, as well as detailed profiles and stats for each season from 2024 to 2025.",
-	},
-	{
-		question: "How frequently is Trackside updated?",
-		answer:
-			"The website and all its features are currently in active development. Some features and insights may not be fully added into the website yet.",
-	},
-	{
-		question: "Is Trackside an official F1 website?",
-		answer:
-			"No, Trackside is an independent fan site. This website is unofficial and is not associated in any way with the Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trade marks of Formula One Licensing B.V.",
-	},
-]
+  {
+    question: "What is Trackside?",
+    answer:
+      "Trackside is a fan-driven platform offering in-depth coverage of Formula 1, focusing on the 2024-2025 seasons with race calendars, standings, and more.",
+  },
+  {
+    question: "What can I find on the site?",
+    answer:
+      "You can explore race calendars, driver and constructor standings, as well as detailed profiles and stats for each season from 2024 to 2025.",
+  },
+  {
+    question: "How frequently is Trackside updated?",
+    answer:
+      "The website and all its features are currently in active development. Some features and insights may not be fully added into the website yet.",
+  },
+  {
+    question: "Is Trackside an official F1 website?",
+    answer:
+      "No, Trackside is an independent fan site. This website is unofficial and is not associated in any way with the Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trade marks of Formula One Licensing B.V.",
+  },
+];
 
 const raceFaqs = [
-	{
-		question: "Where can I find the full race calendar for each season?",
-		answer:
-			"You can find detailed race calendars for both the 2024 and 2025 Formula 1 seasons in our Seasons section. Each calendar includes race dates, circuit information, and key details about the Grand Prix weekends. Navigate to the specific season page through the Seasons menu in the navigation bar.",
-	},
-	{
-		question: "What time are Formula 1 races held?",
-		answer:
-			"We do not have the times of the races in local times. You can find the date of the race on the website but we do not provide any tools or features for time conversion.",
-	},
-	{
-		question: "How can I access race highlights and replays?",
-		answer:
-			"We do not offer any 'race highlights' or 'race replay' features through the website. Some race pages might feature some video clips of original footage captured within <i>F1 2023</i> and <i>F1 2024</i> by ourselves. These are recreations of moments in the race. To see official race highlights and replays, please refer to the official Formula 1 website.",
-	},
-]
+  {
+    question: "Where can I find the full race calendar for each season?",
+    answer:
+      "You can find detailed race calendars for both the 2024 and 2025 Formula 1 seasons in our Seasons section. Each calendar includes race dates, circuit information, and key details about the Grand Prix weekends. Navigate to the specific season page through the Seasons menu in the navigation bar.",
+  },
+  {
+    question: "What time are Formula 1 races held?",
+    answer:
+      "We do not have the times of the races in local times. You can find the date of the race on the website but we do not provide any tools or features for time conversion.",
+  },
+  {
+    question: "How can I access race highlights and replays?",
+    answer:
+      "We do not offer any 'race highlights' or 'race replay' features through the website. Some race pages might feature some video clips of original footage captured within <i>F1 2023</i> and <i>F1 2024</i> by ourselves. These are recreations of moments in the race. To see official race highlights and replays, please refer to the official Formula 1 website.",
+  },
+];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`FAQs | ${SITE_TITLE}`}
-			description={`Frequently asked questions about ${SITE_TITLE}`}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<!-- FAQs Hero -->
-			<section class="container mx-auto mt-8 max-w-6xl px-4 py-8">
-				<div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
-					<div>
-						<h1 class="text-4xl font-bold dark:text-slate-100">Trackside FAQs</h1>
-					</div>
-					<div class="flex flex-col justify-end">
-						<p class="text-lg text-gray-600 dark:text-slate-400">
-							Welcome to the FAQs hub for Trackside, your dedicated Formula 1 fan site. Here, you'll
-							find answers about navigating the site, season-specific details, and what we are
-							about.
-						</p>
-					</div>
-				</div>
-			</section>
+<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <BaseHead
+      title={`FAQs | ${SITE_TITLE}`}
+      description={`Frequently asked questions about ${SITE_TITLE}`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- FAQs Hero -->
+      <section class="container mx-auto mt-8 max-w-6xl px-4 py-8">
+        <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <h1 class="text-4xl font-bold dark:text-slate-100">
+              Trackside FAQs
+            </h1>
+          </div>
+          <div class="flex flex-col justify-end">
+            <p class="text-lg text-gray-600 dark:text-slate-400">
+              Welcome to the FAQs hub for Trackside, your dedicated Formula 1
+              fan site. Here, you'll find answers about navigating the site,
+              season-specific details, and what we are about.
+            </p>
+          </div>
+        </div>
+      </section>
 
-			<!-- General FAQs -->
-			<section class="container mx-auto max-w-6xl px-4 py-12">
-				<h2 class="mb-6 text-2xl font-bold dark:text-slate-200">General FAQs</h2>
-				<Accordion items={generalFaqs} />
-			</section>
+      <!-- General FAQs -->
+      <section class="container mx-auto max-w-6xl px-4 py-12">
+        <h2 class="mb-6 text-2xl font-bold dark:text-slate-200">
+          General FAQs
+        </h2>
+        <Accordion items={generalFaqs} />
+      </section>
 
-			<!-- Race Information FAQs -->
-			<section class="container mx-auto max-w-6xl px-4 py-12 pb-16">
-				<h2 class="mb-6 text-2xl font-bold dark:text-slate-200">Race Information FAQs</h2>
-				<Accordion items={raceFaqs} />
-			</section>
+      <!-- Race Information FAQs -->
+      <section class="container mx-auto max-w-6xl px-4 py-12 pb-16">
+        <h2 class="mb-6 text-2xl font-bold dark:text-slate-200">
+          Race Information FAQs
+        </h2>
+        <Accordion items={raceFaqs} />
+      </section>
 
-			<!-- Still Have Questions -->
-			<QuestionsCard />
-		</main>
-		<Footer />
-	</body>
+      <!-- Still Have Questions -->
+      <QuestionsCard />
+    </main>
+    <Footer />
+  </body>
 </html>
