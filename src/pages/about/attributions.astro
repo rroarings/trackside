@@ -1,317 +1,356 @@
 ---
-import { Image } from "astro:assets"
-import BaseHead from "../../components/BaseHead.astro"
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts"
-import { Icon } from "astro-icon/components"
-import astroLogo from "../../assets/logos/astro-logo-dark.svg"
-import astroLogoDark from "../../assets/logos/astro-logo-light.svg"
-import tailwindLogo from "../../assets/logos/tailwindcss-mark.svg"
-import typescriptLogo from "../../assets/logos/ts-logo-128.svg"
-import mdxLogo from "../../assets/logos/mdx-svgrepo-com.svg"
-import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg"
-import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg"
-import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg"
+import { Image } from "astro:assets";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { Icon } from "astro-icon/components";
+import astroLogo from "../../assets/logos/astro-logo-dark.svg";
+import astroLogoDark from "../../assets/logos/astro-logo-light.svg";
+import tailwindLogo from "../../assets/logos/tailwindcss-mark.svg";
+import typescriptLogo from "../../assets/logos/ts-logo-128.svg";
+import mdxLogo from "../../assets/logos/mdx-svgrepo-com.svg";
+import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg";
+import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg";
+import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg";
 
 interface Tool {
-	name: string
-	description: string
-	logo: ImageMetadata
-	url: string
+  name: string;
+  description: string;
+  logo: ImageMetadata;
+  url: string;
 }
 
 const tools: Tool[] = [
-	{
-		name: "Astro",
-		description:
-			"The all-in-one web framework designed for speed, powering our modern F1 blog with optimal performance.",
-		logo: astroLogoDark,
-		url: "https://astro.build/",
-	},
-	{
-		name: "Tailwind CSS",
-		description:
-			"The utility-first CSS framework that helps us create a sleek, responsive design as precise as F1 engineering.",
-		logo: tailwindLogo,
-		url: "https://tailwindcss.com",
-	},
-	{
-		name: "TypeScript",
-		description: "Brings type safety and enhanced developer experience to our codebase.",
-		logo: typescriptLogo,
-		url: "https://www.typescriptlang.org/",
-	},
-	{
-		name: "MDX",
-		description:
-			"Enables interactive content in our blog posts, combining Markdown with dynamic components for engaging stories.",
-		logo: mdxLogo,
-		url: "https://mdxjs.com",
-	},
-	{
-		name: "Prettier",
-		description: "Maintains our code formatting standards across the project.",
-		logo: prettierLogo,
-		url: "https://prettier.io",
-	},
-	{
-		name: "Formula 1",
-		description:
-			"The pinnacle of motorsport that inspires our content. We use official F1 references while respecting their trademarks.",
-		logo: f1Logo,
-		url: "https://www.formula1.com",
-	},
-	{
-		name: "SVG Repo",
-		description:
-			"Provides our site with high-quality vector icons and images, ensuring scalable graphics across all devices.",
-		logo: svgRepoLogo,
-		url: "https://www.svgrepo.com",
-	},
-]
+  {
+    name: "Astro",
+    description:
+      "The all-in-one web framework designed for speed, powering our modern F1 blog with optimal performance.",
+    logo: astroLogoDark,
+    url: "https://astro.build/",
+  },
+  {
+    name: "Tailwind CSS",
+    description:
+      "The utility-first CSS framework that helps us create a sleek, responsive design as precise as F1 engineering.",
+    logo: tailwindLogo,
+    url: "https://tailwindcss.com",
+  },
+  {
+    name: "TypeScript",
+    description:
+      "Brings type safety and enhanced developer experience to our codebase.",
+    logo: typescriptLogo,
+    url: "https://www.typescriptlang.org/",
+  },
+  {
+    name: "MDX",
+    description:
+      "Enables interactive content in our blog posts, combining Markdown with dynamic components for engaging stories.",
+    logo: mdxLogo,
+    url: "https://mdxjs.com",
+  },
+  {
+    name: "Prettier",
+    description: "Maintains our code formatting standards across the project.",
+    logo: prettierLogo,
+    url: "https://prettier.io",
+  },
+  {
+    name: "Formula 1",
+    description:
+      "The pinnacle of motorsport that inspires our content. We use official F1 references while respecting their trademarks.",
+    logo: f1Logo,
+    url: "https://www.formula1.com",
+  },
+  {
+    name: "SVG Repo",
+    description:
+      "Provides our site with high-quality vector icons and images, ensuring scalable graphics across all devices.",
+    logo: svgRepoLogo,
+    url: "https://www.svgrepo.com",
+  },
+];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`Attributions | ${SITE_TITLE}`}
-			description={SITE_DESCRIPTION}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<!-- Hero Section -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
-				<div class="container mx-auto mb-12 text-center">
-					<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">Site Attributions</h1>
-					<p class="text-xl text-gray-600 dark:text-slate-400">
-						Our Formula 1 fan site is powered by cutting-edge tools and inspired by the sport's
-						innovation.
-					</p>
-				</div>
-			</section>
+<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <BaseHead
+      title={`Attributions | ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-950">
+        <div class="container mx-auto mb-12 text-center">
+          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+            Site Attributions
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-slate-400">
+            Our Formula 1 fan site is powered by cutting-edge tools and inspired
+            by the sport's innovation.
+          </p>
+        </div>
+      </section>
 
-			<!-- Tools Grid -->
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-				{
-					tools.map((tool) => (
-						<div class="group flex h-full flex-col rounded border-2 border-transparent p-6 transition-colors duration-300 hover:bg-gray-700 hover:text-slate-200 dark:bg-slate-900 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<div class="mb-4">
-								<Image
-									src={tool.logo}
-									width={64}
-									height={64}
-									class=""
-									alt={`${tool.name} logo`}
-									loading="eager"
-								/>
-							</div>
-							<h3 class="mb-2 text-xl font-semibold dark:text-slate-200">{tool.name}</h3>
-							<p class="group-hover:text-slate-300 mb-auto text-gray-600 transition-colors duration-300 dark:text-slate-400">
-								{tool.description}
-							</p>
-							<a
-								href={tool.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="group-hover:text-blue-300 mt-2 inline-flex items-center gap-2 text-blue-600 transition-all duration-200 ease-in-out group-hover:underline">
-								Visit {tool.name} →
-							</a>
-						</div>
-					))
-				}
-			</div>
+      <!-- Tools Grid -->
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          tools.map((tool) => (
+            <div class="group flex h-full flex-col rounded border-2 border-transparent p-6 transition-colors duration-300 hover:bg-gray-700 hover:text-slate-200 dark:bg-slate-900 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+              <div class="mb-4">
+                <Image
+                  src={tool.logo}
+                  width={64}
+                  height={64}
+                  class=""
+                  alt={`${tool.name} logo`}
+                  loading="eager"
+                />
+              </div>
+              <h3 class="mb-2 text-xl font-semibold dark:text-slate-200">
+                {tool.name}
+              </h3>
+              <p class="mb-auto text-gray-600 transition-colors duration-300 group-hover:text-slate-300 dark:text-slate-400">
+                {tool.description}
+              </p>
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center gap-2 text-blue-600 transition-all duration-200 ease-in-out group-hover:text-blue-300 group-hover:underline"
+              >
+                Visit {tool.name} →
+              </a>
+            </div>
+          ))
+        }
+      </div>
 
-			<!-- Contact Section -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
-				<div class="container">
-					<h2 class="mb-4 text-3xl font-bold dark:text-slate-100">Connect with us</h2>
-					<p class="text-gray-600 dark:text-slate-400">
-						Have feedback or questions? Reach out to us via email at
-						<a
-							href="mailto:trackside@example.com"
-							class="text-blue-600 transition-colors duration-200 hover:text-blue-800">
-							trackside@example.com
-						</a>
-						or connect with us on our social media channels. Thank you for being part of our journey.
-						Together, we celebrate the exhilarating world of Formula 1!
-					</p>
-					<div class="mx-auto mt-8">
-						<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-							<!-- Contact Information -->
-							<div
-								class="flex flex-col justify-between rounded-2xl border border-gray-200 p-8 dark:border-slate-700 dark:bg-slate-900">
-								<div>
-									<h3 class="mb-6 text-2xl font-bold text-gray-900 dark:text-slate-200">
-										Contact Information
-									</h3>
-									<div class="space-y-6">
-										<div class="group flex items-center">
-											<div class="mr-4 rounded-full bg-gray-200 p-3 dark:bg-slate-300">
-												<svg
-													class="h-6 w-6 text-gray-600 dark:text-slate-900"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-													></path>
-												</svg>
-											</div>
-											<div>
-												<p class="text-sm font-medium text-gray-500 dark:text-slate-400">Email</p>
-												<a
-													href="mailto:nick.calvo007@gmail.com"
-													class="text-lg text-gray-900 hover:text-rose-600 dark:text-slate-300"
-													>nick.calvo007@gmail.com</a
-												>
-											</div>
-										</div>
-										<div class="group flex items-center">
-											<div class="mr-4 rounded-full bg-gray-200 p-3 dark:bg-slate-300">
-												<svg
-													class="h-6 w-6 text-gray-600 dark:text-slate-900"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-													></path>
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-													></path>
-												</svg>
-											</div>
-											<div>
-												<p class="text-sm font-medium text-gray-500 dark:text-slate-400">
-													Location
-												</p>
-												<p class="text-lg text-gray-900 dark:text-slate-300">Houston, TX</p>
-											</div>
-										</div>
-										<div class="group flex">
-											<a
-												href="mailto:nick.calvo007@gmail.com"
-												class="rounded border-2 border-transparent bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-												Send an email
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
+      <!-- Contact Section -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-950">
+        <div class="container">
+          <h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
+            Connect with us
+          </h2>
+          <p class="text-gray-600 dark:text-slate-400">
+            Have feedback or questions? Reach out to us via email at
+            <a
+              href="mailto:trackside@example.com"
+              class="text-blue-600 transition-colors duration-200 hover:text-blue-800"
+            >
+              trackside@example.com
+            </a>
+            or connect with us on our social media channels. Thank you for being
+            part of our journey. Together, we celebrate the exhilarating world of
+            Formula 1!
+          </p>
+          <div class="mx-auto mt-8">
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Contact Information -->
+              <div
+                class="flex flex-col justify-between rounded-2xl border border-gray-200 p-8 dark:border-slate-700 dark:bg-slate-900"
+              >
+                <div>
+                  <h3
+                    class="mb-6 text-2xl font-bold text-gray-900 dark:text-slate-200"
+                  >
+                    Contact Information
+                  </h3>
+                  <div class="space-y-6">
+                    <div class="group flex items-center">
+                      <div
+                        class="mr-4 rounded-full bg-gray-200 p-3 dark:bg-slate-300"
+                      >
+                        <svg
+                          class="h-6 w-6 text-gray-600 dark:text-slate-900"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <p
+                          class="text-sm font-medium text-gray-500 dark:text-slate-400"
+                        >
+                          Email
+                        </p>
+                        <a
+                          href="mailto:nick.calvo007@gmail.com"
+                          class="text-lg text-gray-900 hover:text-rose-600 dark:text-slate-300"
+                          >nick.calvo007@gmail.com</a
+                        >
+                      </div>
+                    </div>
+                    <div class="group flex items-center">
+                      <div
+                        class="mr-4 rounded-full bg-gray-200 p-3 dark:bg-slate-300"
+                      >
+                        <svg
+                          class="h-6 w-6 text-gray-600 dark:text-slate-900"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          ></path>
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <p
+                          class="text-sm font-medium text-gray-500 dark:text-slate-400"
+                        >
+                          Location
+                        </p>
+                        <p class="text-lg text-gray-900 dark:text-slate-300">
+                          Houston, TX
+                        </p>
+                      </div>
+                    </div>
+                    <div class="group flex">
+                      <a
+                        href="mailto:nick.calvo007@gmail.com"
+                        class="rounded border-2 border-transparent bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+                      >
+                        Send an email
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-							<!-- Connect With Me -->
-							<div
-								class="group flex flex-col justify-between rounded-2xl border border-gray-200 p-8 transition-all duration-300 dark:border-slate-700 dark:bg-slate-900">
-								<div>
-									<h3
-										class="mb-6 text-2xl font-bold text-gray-900 transition-colors duration-300 dark:text-slate-200">
-										Connect With Me
-									</h3>
-									<div class="flex flex-col gap-6">
-										<a
-											href="https://github.com/rroarings"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
-											aria-label="GitHub">
-											<div class="flex items-center gap-3">
-												<div
-													class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300">
-													<Icon
-														name="mdi:github"
-														size={24}
-														class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
-													/>
-												</div>
-												<div>
-													<p
-														class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400">
-														GitHub
-													</p>
-													<p
-														class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-slate-300">
-														View my repositories
-													</p>
-												</div>
-											</div>
-										</a>
-										<a
-											href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
-											aria-label="LinkedIn">
-											<div class="flex items-center gap-3">
-												<div
-													class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300">
-													<Icon
-														name="mdi:linkedin"
-														size={24}
-														class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
-													/>
-												</div>
-												<div>
-													<p
-														class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400">
-														LinkedIn
-													</p>
-													<p
-														class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-gray-300">
-														Connect with me
-													</p>
-												</div>
-											</div>
-										</a>
-										<a
-											href="https://notnickcalvo.com"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
-											aria-label="Website">
-											<div class="flex items-center gap-3">
-												<div
-													class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300">
-													<Icon
-														name="mdi:web"
-														size={24}
-														class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
-													/>
-												</div>
-												<div>
-													<p
-														class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400">
-														Personal Website
-													</p>
-													<p
-														class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-slate-300">
-														Explore my projects and blog
-													</p>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+              <!-- Connect With Me -->
+              <div
+                class="group flex flex-col justify-between rounded-2xl border border-gray-200 p-8 transition-all duration-300 dark:border-slate-700 dark:bg-slate-900"
+              >
+                <div>
+                  <h3
+                    class="mb-6 text-2xl font-bold text-gray-900 transition-colors duration-300 dark:text-slate-200"
+                  >
+                    Connect With Me
+                  </h3>
+                  <div class="flex flex-col gap-6">
+                    <a
+                      href="https://github.com/rroarings"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
+                      aria-label="GitHub"
+                    >
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300"
+                        >
+                          <Icon
+                            name="mdi:github"
+                            size={24}
+                            class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
+                          />
+                        </div>
+                        <div>
+                          <p
+                            class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400"
+                          >
+                            GitHub
+                          </p>
+                          <p
+                            class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-slate-300"
+                          >
+                            View my repositories
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
+                      aria-label="LinkedIn"
+                    >
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300"
+                        >
+                          <Icon
+                            name="mdi:linkedin"
+                            size={24}
+                            class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
+                          />
+                        </div>
+                        <div>
+                          <p
+                            class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400"
+                          >
+                            LinkedIn
+                          </p>
+                          <p
+                            class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-gray-300"
+                          >
+                            Connect with me
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="https://notnickcalvo.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group/link flex items-center rounded-xl p-4 transition-all duration-300 hover:bg-rose-100"
+                      aria-label="Website"
+                    >
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="mr-4 rounded-full bg-gray-200 p-3 transition-all duration-300 group-hover/link:bg-rose-200 dark:bg-slate-300"
+                        >
+                          <Icon
+                            name="mdi:web"
+                            size={24}
+                            class={"h-6 w-6 text-gray-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-rose-600 xl:size-8"}
+                          />
+                        </div>
+                        <div>
+                          <p
+                            class="text-lg font-medium text-gray-900 transition-colors duration-300 group-hover/link:text-rose-600 dark:text-slate-400"
+                          >
+                            Personal Website
+                          </p>
+                          <p
+                            class="text-sm text-gray-500 transition-colors duration-300 group-hover/link:text-rose-400 dark:text-slate-300"
+                          >
+                            Explore my projects and blog
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
