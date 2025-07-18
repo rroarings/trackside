@@ -2,54 +2,51 @@
 
 ---
 
-<div
-	id="breakpoint"
-	class="breakpoint-size">
-</div>
+<div id="breakpoint" class="breakpoint-size"></div>
 
 <style>
-	.breakpoint-size {
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
-		z-index: 9999;
-		padding: 0.5rem 1rem;
-		font-size: 12px;
-		font-weight: 700;
-		color: rgb(239, 68, 68); /* Tailwind red-600 */
-		letter-spacing: 1px;
-		background-color: rgba(247, 210, 213, 0.73);
-		border-color: rgb(239, 68, 68);
-		border-style: dashed;
-		border-width: 1px;
-		border-radius: 5px;
-	}
+  .breakpoint-size {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(239, 68, 68); /* Tailwind red-600 */
+    letter-spacing: 1px;
+    background-color: rgba(247, 210, 213, 0.73);
+    border-color: rgb(239, 68, 68);
+    border-style: dashed;
+    border-width: 1px;
+    border-radius: 5px;
+  }
 </style>
 
 <script>
-	function updateBreakpoint() {
-		const width = window.innerWidth
-		const breakpoint = document.getElementById("breakpoint")
+  function updateBreakpoint() {
+    const width = window.innerWidth;
+    const breakpoint = document.getElementById("breakpoint");
 
-		if (!breakpoint) return
+    if (!breakpoint) return;
 
-		// Check window width and update breakpoint text based on Tailwind's breakpoints
-		if (width < 640) {
-			breakpoint.textContent = "XS"
-		} else if (width >= 640 && width < 768) {
-			breakpoint.textContent = "SM"
-		} else if (width >= 768 && width < 1024) {
-			breakpoint.textContent = "MD"
-		} else if (width >= 1024 && width < 1280) {
-			breakpoint.textContent = "LG"
-		} else if (width >= 1280 && width < 1536) {
-			breakpoint.textContent = "XL"
-		} else {
-			breakpoint.textContent = "2XL"
-		}
-	}
+    // Check window width and update breakpoint text based on Tailwind's breakpoints
+    if (width < 640) {
+      breakpoint.textContent = "XS";
+    } else if (width >= 640 && width < 768) {
+      breakpoint.textContent = "SM";
+    } else if (width >= 768 && width < 1024) {
+      breakpoint.textContent = "MD";
+    } else if (width >= 1024 && width < 1280) {
+      breakpoint.textContent = "LG";
+    } else if (width >= 1280 && width < 1536) {
+      breakpoint.textContent = "XL";
+    } else {
+      breakpoint.textContent = "2XL";
+    }
+  }
 
-	// Initialize the breakpoint size on page load and resize
-	window.addEventListener("load", updateBreakpoint)
-	window.addEventListener("resize", updateBreakpoint)
+  // Initialize the breakpoint size on page load and resize
+  window.addEventListener("load", updateBreakpoint);
+  window.addEventListener("resize", updateBreakpoint);
 </script>
