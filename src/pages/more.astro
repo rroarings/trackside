@@ -51,9 +51,9 @@ const links = [
 					links.map(({ title, href, description }) => (
 						<a
 							href={href}
-							class="block rounded-lg border-2 border-transparent bg-slate-300 p-6 transition-all duration-300 hover:border-gray-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h2 class="mb-2 text-2xl font-bold dark:text-slate-100">{title}</h2>
-							<p class="text-slate-600 dark:text-slate-300">{description}</p>
+							class="group block rounded-lg border-2 border-transparent p-6 transition-colors duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h2 class="mb-2 text-2xl font-bold group-hover:text-slate-200 dark:text-slate-100">{title}</h2>
+							<p class="text-slate-600 group-hover:text-slate-300 dark:text-slate-300">{description}</p>
 						</a>
 					))
 				}
