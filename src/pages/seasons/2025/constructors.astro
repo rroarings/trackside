@@ -1,96 +1,100 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro"
-import Header from "../../../components/Header.astro"
-import Footer from "../../../components/Footer.astro"
-import BreakpointIndicator from "../../../components/BreakpointIndicator.astro"
-import SeasonButtons from "../../../components/SeasonButtons.astro"
-import TeamCard from "../../../components/TeamCard.astro"
-import { SITE_TITLE } from "../../../consts"
-import { getCollection } from "astro:content"
-import { teamBgMap } from "../../../utils/teamBgMap"
-import { Image } from "astro:assets"
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import BreakpointIndicator from "../../../components/BreakpointIndicator.astro";
+import SeasonButtons from "../../../components/SeasonButtons.astro";
+import TeamCard from "../../../components/TeamCard.astro";
+import { SITE_TITLE } from "../../../consts";
+import { getCollection } from "astro:content";
+import { teamBgMap } from "../../../utils/teamBgMap";
+import { Image } from "astro:assets";
 
 // Get all teams for 2025 season
 const teams = await getCollection("constructors", ({ data }) => {
-	return data.season === "2025"
-})
+  return data.season === "2025";
+});
 
 // Get all drivers for 2025 season to match with teams
 const drivers = await getCollection("drivers", ({ data }) => {
-	return data.season === "2025"
-})
+  return data.season === "2025";
+});
 
 // Map driver names to their profile image and slug
-const driverMap = new Map()
+const driverMap = new Map();
 drivers.forEach((driver) => {
-	const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`
-	driverMap.set(fullName, {
-		profileImage: driver.data.profileImage,
-		slug: driver.id,
-		countryCode: driver.data.countryCode,
-	})
-})
+  const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`;
+  driverMap.set(fullName, {
+    profileImage: driver.data.profileImage,
+    slug: driver.id,
+    countryCode: driver.data.countryCode,
+  });
+});
 
 // Sort teams by championship position (1-10), falling back to constructor points
 const sortedTeams = teams.sort((a, b) => {
-	// Use championship position first, if equal fall back to constructor points
-	if ((a.data.championshipPosition ?? 0) !== (b.data.championshipPosition ?? 0)) {
-		return (a.data.championshipPosition ?? 0) - (b.data.championshipPosition ?? 0)
-	}
-	if ((b.data.constructorPoints ?? 0) !== (a.data.constructorPoints ?? 0)) {
-		return (b.data.constructorPoints ?? 0) - (a.data.constructorPoints ?? 0)
-	}
-	// Fallback: sort by championships if available, otherwise 0
-	return (b.data.championships ?? 0) - (a.data.championships ?? 0)
-})
+  // Use championship position first, if equal fall back to constructor points
+  if (
+    (a.data.championshipPosition ?? 0) !== (b.data.championshipPosition ?? 0)
+  ) {
+    return (
+      (a.data.championshipPosition ?? 0) - (b.data.championshipPosition ?? 0)
+    );
+  }
+  if ((b.data.constructorPoints ?? 0) !== (a.data.constructorPoints ?? 0)) {
+    return (b.data.constructorPoints ?? 0) - (a.data.constructorPoints ?? 0);
+  }
+  // Fallback: sort by championships if available, otherwise 0
+  return (b.data.championships ?? 0) - (a.data.championships ?? 0);
+});
 
-const eagerCount = 4
+const eagerCount = 4;
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`2025 F1 Teams | ${SITE_TITLE}`}
-			description="2025 Formula 1 constructor teams and their cars"
-		/>
-	</head>
-	<body>
-		<BreakpointIndicator />
-		<Header />
-		<main>
-			<!-- Teams Header -->
-			<section class="py-16 text-center">
-				<div class="container mx-auto px-4">
-					<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">2025 Formula 1 Constructors</h1>
-					<p class="text-lg text-gray-700 dark:text-slate-400">
-						Constructor teams and their racing machines
-					</p>
-				</div>
-			</section>
+<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <BaseHead
+      title={`2025 F1 Teams | ${SITE_TITLE}`}
+      description="2025 Formula 1 constructor teams and their cars"
+    />
+  </head>
+  <body>
+    <BreakpointIndicator />
+    <Header />
+    <main>
+      <!-- Teams Header -->
+      <section class="py-16 text-center">
+        <div class="container mx-auto px-4">
+          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+            2025 Formula 1 Constructors
+          </h1>
+          <p class="text-lg text-gray-700 dark:text-slate-400">
+            Constructor teams and their racing machines
+          </p>
+        </div>
+      </section>
 
-			<!-- Teams Grid -->
-			<section class="py-12">
-				<div class="container mx-auto px-4">
-					<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-						{
-							sortedTeams.map((team, teamIndex) => (
-								<TeamCard
-									team={team}
-									driverMap={driverMap}
-									teamIndex={teamIndex}
-									eagerCount={eagerCount}
-								/>
-							))
-						}
-					</div>
-				</div>
-			</section>
+      <!-- Teams Grid -->
+      <section class="py-12">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {
+              sortedTeams.map((team, teamIndex) => (
+                <TeamCard
+                  team={team}
+                  driverMap={driverMap}
+                  teamIndex={teamIndex}
+                  eagerCount={eagerCount}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
-			<SeasonButtons season="2025" />
-		</main>
-		<Footer />
-	</body>
+      <SeasonButtons season="2025" />
+    </main>
+    <Footer />
+  </body>
 </html>
