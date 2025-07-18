@@ -29,7 +29,6 @@ careerStats:
   polePositions: 171
   podiumPositions: 435
   fastestLaps: 162
-
 ---
 
 # McLaren
