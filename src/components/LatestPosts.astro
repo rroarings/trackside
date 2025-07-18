@@ -1,49 +1,50 @@
 ---
-import { getCollection } from "astro:content"
-import { Image } from "astro:assets"
-import FormattedDate from "../components/FormattedDate.astro"
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-)
-const latestPosts = posts.slice(0, 3)
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latestPosts = posts.slice(0, 3);
 ---
 
-<section class="py-12 bg-gray-100 dark:bg-gray-950">
-	<div class="mx-auto">
-		<div class="p-6">
-			<header class="flex items-center gap-3 mb-6">
-				<h2 class="text-2xl font-bold dark:text-slate-100">Recent Posts</h2>
-			</header>
-			<ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
-				{
-					latestPosts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`}>
-								{post.data.heroImage && (
-									<Image
-										width={720}
-										height={360}
-										src={post.data.heroImage}
-										alt=""
-									/>
-								)}
-								<h4 class="title mt-4">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-			<div class="mt-8 text-center">
-				<a
-					href="/blog"
-					class="border-2 border-transparent transition-all duration-300 bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600 text-white py-2 px-4 rounded">
-					Explore the blog
-				</a>
-			</div>
-		</div>
-	</div>
+<section class="bg-gray-100 py-12 dark:bg-gray-950">
+  <div class="mx-auto">
+    <div class="p-6">
+      <header class="mb-6 flex items-center gap-3">
+        <h2 class="text-2xl font-bold dark:text-slate-100">Recent Posts</h2>
+      </header>
+      <ul class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {
+          latestPosts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}/`}>
+                {post.data.heroImage && (
+                  <Image
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt=""
+                  />
+                )}
+                <h4 class="title mt-4">{post.data.title}</h4>
+                <p class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-8 text-center">
+        <a
+          href="/blog"
+          class="rounded border-2 border-transparent bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+        >
+          Explore the blog
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
