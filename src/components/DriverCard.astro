@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { teamBgMap } from "../utils/teamBgMap";
+import placeholderBG from "../assets/component/teamCard-placeholder.png";
+
+interface Props {
+  driver: CollectionEntry<"drivers">;
+  year?: string;
+  index: number;
+  eagerCount?: number;
+}
+
+const { driver, year = "2025", index, eagerCount = 0 } = Astro.props;
+const teamBg = teamBgMap[driver.data.driverTeam] || null;
+const imageLoading = index < eagerCount ? "eager" : "lazy";
+// Extract just the slug for the driver
+const driverSlug = driver.id.split("/").pop();
+---
+
+<a href={`/seasons/${year}/drivers/${driverSlug}`} class="block h-full">
+  <article
+    class="rounded-4xl group relative h-full overflow-hidden border border-slate-600 transition-all duration-300"
+    style={teamBg
+      ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+      : ""}
+  >
+    {/* Overlay for readability */}
+    <div class="pointer-events-none absolute inset-0 bg-gray-900/20"></div>
+    <div class="relative z-10 flex h-full flex-col justify-between p-4 pb-0">
+      <div class="flex items-start justify-between gap-4">
+        {/* Driver Info */}
+        <div class="flex flex-col">
+          {/* Driver Name */}
+          <div class="flex items-start gap-2">
+            <h3 class="">
+              <span class="block text-lg text-gray-100"
+                >{driver.data.driverFirstName}</span
+              >
+              <span
+                class="group mt-2 block text-4xl font-bold text-gray-100 transition-all duration-300 group-hover:dark:underline"
+                >{driver.data.driverLastName}</span
+              >
+            </h3>
+          </div>
+          {/* Team */}
+          <div class="text-gray-200">
+            <span class="text-gray-200">{driver.data.driverTeam}</span>
+          </div>
+          {/* Number */}
+          <span class="text-gray-200">#{driver.data.driverNumber}</span>
+          {/* Flag */}
+          <span
+            class={`my-2 fi fi-${driver.data.countryCode} border border-gray-100 rounded`}
+            aria-hidden="true"></span>
+        </div>
+        {/* Points in top right */}
+        <span class="block text-2xl font-semibold text-gray-100 text-right">
+          {driver.data.driverPoints}
+          <span class="text-base font-normal">pts</span>
+        </span>
+      </div>
+      {/* Driver Image */}
+      <div class="mt-4 flex justify-end overflow-hidden">
+        <Image
+          src={driver.data.profileImage || placeholderBG}
+          alt={`${driver.data.driverFirstName} ${driver.data.driverLastName}`}
+          class="object-contain"
+          height={400}
+          width={400}
+          loading={imageLoading}
+        />
+      </div>
+    </div>
+  </article>
+</a>
