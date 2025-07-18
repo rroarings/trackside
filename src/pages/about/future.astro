@@ -18,6 +18,45 @@ import lawsonPortrait from "../../assets/constructors/racing-bulls/drivers/lawso
 const pageTitle = "Future of Formula 1"
 const description =
 	"Discover what lies ahead for Formula 1 as we explore emerging technologies, sustainability initiatives, and the next generation of racing talent."
+const rookies = [
+	{
+		name: "Kimi Antonelli",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: kimiPortrait,
+		alt: "Kimi Antonelli driver portrait",
+	},
+	{
+		name: "Oliver Bearman",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: bearmanPortrait,
+		alt: "Oliver Bearman driver portrait",
+	},
+	{
+		name: "Isack Hadjar",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: hadjarPortrait,
+		alt: "Isack Hadjar driver portrait",
+	},
+	{
+		name: "Gabriel Bortoleto",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: bortoletoPortrait,
+		alt: "Gabriel Bortoleto driver portrait",
+	},
+	{
+		name: "Jack Doohan",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: doohanPortrait,
+		alt: "Jack Doohan driver portrait",
+	},
+	{
+		name: "Liam Lawson",
+		desc: "Mercedes junior driver making waves in Formula 2 with exceptional race craft and maturity beyond his years.",
+		img: lawsonPortrait,
+		alt: "Liam Lawson driver portrait",
+	},
+	// ...other rookies
+]
 ---
 
 <!doctype html>
@@ -149,106 +188,23 @@ const description =
 					</div>
 
 					<div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-						<!-- Kimi Antonelli -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Kimi Antonelli</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									Mercedes junior driver making waves in Formula 2 with exceptional race craft and
-									maturity beyond his years.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={kimiPortrait}
-									alt="Kimi Antonelli driver portrait"
-								/>
-							</div>
-						</div>
-
-						<!-- Oliver Bearman -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Oliver Bearman</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									Ferrari Academy standout showing impressive pace and consistency in Formula 2.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={bearmanPortrait}
-									alt="Oliver Bearman driver portrait"
-								/>
-							</div>
-						</div>
-
-						<!-- Isack Hadjar -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Isack Hadjar</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									Red Bull junior proving his worth with aggressive yet calculated racing style in
-									Formula 2.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={hadjarPortrait}
-									alt="Isack Hadjar driver portrait"
-								/>
-							</div>
-						</div>
-
-						<!-- Gabriel Bortoleto -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Gabriel Bortoleto</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									McLaren junior talent displaying remarkable adaptability and raw speed in his
-									rookie F2 campaign.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={bortoletoPortrait}
-									alt="Gabriel Bortoleto driver portrait"
-								/>
-							</div>
-						</div>
-
-						<!-- Jack Doohan -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Jack Doohan</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									Alpine Academy driver showcasing F1-level pace and technical understanding in
-									Formula 2.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={doohanPortrait}
-									alt="Jack Doohan driver portrait"
-								/>
-							</div>
-						</div>
-
-						<!-- Liam Lawson -->
-						<div class="rounded-xl bg-gray-200/80 dark:bg-slate-800">
-							<div class="p-6">
-								<h3 class="mb-2 text-xl font-bold dark:text-slate-100">Liam Lawson</h3>
-								<p class="text-gray-600 dark:text-slate-400">
-									Red Bull reserve driver with F1 experience, known for his adaptability and
-									race-winning potential.
-								</p>
-							</div>
-							<div class="overflow-hidden">
-								<Image
-									src={lawsonPortrait}
-									alt="Liam Lawson driver portrait"
-								/>
-							</div>
-						</div>
+						{
+							rookies.map((rookie) => (
+								<div class="flex h-full flex-col rounded-xl bg-gray-200/80 dark:bg-slate-800">
+									<div class="flex-1 p-6">
+										<h4 class="mb-2 text-xl font-bold dark:text-slate-100">{rookie.name}</h4>
+										<p class="text-gray-600 dark:text-slate-400">{rookie.desc}</p>
+									</div>
+									<div class="flex h-64 items-end overflow-hidden">
+										<Image
+											src={rookie.img}
+											alt={rookie.alt}
+											class="h-full w-full object-cover"
+										/>
+									</div>
+								</div>
+							))
+						}
 					</div>
 				</div>
 			</section>
