@@ -1,7 +1,7 @@
 ---
 driverFirstName: "Oscar"
 driverLastName: "Piastri"
-number: 4
+driverNumber: 81
 driverTeam: "McLaren"
 nationality: "Australian"
 countryCode: "au"
@@ -9,18 +9,18 @@ age: 25
 season: "2025"
 championships: 0
 championshipPosition: 1
-raceWins: 4
+driverPoints: 234
+grandPrixWins: 4
 podiums: 14
-points: 234
 description: "test description"
-profileImage: ""
+profileImage: "../../../assets/constructors/mclaren/drivers/piastri-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Oscar Piastri"
 profileImageLargeAlt: "Portrait of Oscar Piastri"
 pubDate: "July 16, 2025"
 ---
 
-# Lando Norris
+# Oscar Piastri
 
 Rising British talent Lando Norris has established himself as one of the brightest young stars in Formula 1, consistently delivering strong performances for McLaren.
 
