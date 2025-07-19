@@ -10,14 +10,14 @@ import racingBullsBG from "../assets/component/teamCard-racing-bulls.png";
 import redBullBG from "../assets/component/teamCard-red-bull.png";
 
 export const teamBgMap: Record<string, any> = {
-  McLaren: mclarenBG,
-  Ferrari: ferrariBG,
-  Mercedes: mercedesBG,
-  Williams: williamsBG,
+  "McLaren": mclarenBG,
+  "Ferrari": ferrariBG,
+  "Mercedes": mercedesBG,
+  "Williams": williamsBG,
   "Red Bull Racing": redBullBG,
   "Kick Sauber": kickSauberBG,
   "Racing Bulls": racingBullsBG,
   "Aston Martin": astonMartinBG,
-  Haas: haasBG,
-  Alpine: alpineBG,
+  "Haas": haasBG,
+  "Alpine": alpineBG,
 };
