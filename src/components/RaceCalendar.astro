@@ -1,0 +1,97 @@
+---
+import { getCollection } from "astro:content";
+import RaceCard from "./RaceCard.astro";
+
+interface Props {
+  season: string;
+  showAllRaces?: boolean;
+  showTitle?: boolean;
+  customClass?: string;
+  eagerCount?: number;
+}
+
+const {
+  season,
+  showAllRaces = false,
+  showTitle = true,
+  customClass = "",
+  eagerCount = 0,
+} = Astro.props;
+
+const races = await getCollection("races", ({ data }) => {
+  return data.season === season;
+});
+
+type DateInput = string | number | Date;
+const toUTCMidnight = (date: DateInput): Date => {
+  const d = new Date(date);
+  d.setUTCHours(0, 0, 0, 0);
+  return d;
+};
+
+const nowUTC = toUTCMidnight(new Date());
+
+const sortedRaces = races.slice().sort((a, b) => {
+  const aDate = toUTCMidnight(a.data.raceDate);
+  const bDate = toUTCMidnight(b.data.raceDate);
+  return aDate.getTime() - bDate.getTime();
+});
+
+const completedRaces = sortedRaces.filter((race) => {
+  const raceDate = toUTCMidnight(race.data.raceDate);
+  return race.data.raceCompleted || raceDate < nowUTC;
+});
+const upcomingRaces = sortedRaces.filter((race) => {
+  const raceDate = toUTCMidnight(race.data.raceDate);
+  return !race.data.raceCompleted && raceDate >= nowUTC;
+});
+
+const lastCompletedRace = [...completedRaces].reverse().find(Boolean);
+
+const nextTwoRaces = upcomingRaces.slice(0, 2);
+
+const racesToDisplay = showAllRaces
+  ? sortedRaces
+  : [...(lastCompletedRace ? [lastCompletedRace] : []), ...nextTwoRaces];
+
+const nextUpcomingRace = sortedRaces.find(
+  (race) =>
+    !race.data.raceCompleted && toUTCMidnight(race.data.raceDate) >= nowUTC,
+);
+---
+
+<div class={`bg-gray-100 dark:bg-slate-950 rounded ${customClass}`}>
+  {
+    showTitle && (
+      <div class="mb-6 flex items-center justify-end">
+        <i
+          class="bi bi-calendar3 mr-4 text-3xl text-gray-700 dark:text-slate-400"
+          aria-label="Race Calendar Icon"
+        />
+        {lastCompletedRace && (
+          <a
+            href={`/seasons/${season}/races`}
+            class="font-medium text-gray-500 transition-colors duration-200 hover:text-red-600 dark:text-slate-400 dark:hover:text-slate-300"
+          >
+            View All Races
+          </a>
+        )}
+      </div>
+    )
+  }
+
+  <div
+    class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-4"
+  >
+    {
+      racesToDisplay.map((race, index) => (
+        <RaceCard
+          race={race}
+          completedRaces={completedRaces}
+          isNextRace={nextUpcomingRace && race.id === nextUpcomingRace.id}
+          {...(index < eagerCount ? { loading: "eager" } : {})}
+        />
+      ))
+    }
+  </div>
+</div>
