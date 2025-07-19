@@ -5,6 +5,8 @@ import Footer from "../../../components/Footer.astro";
 import { SITE_TITLE } from "../../../consts";
 import BreakpointIndicator from "../../../components/BreakpointIndicator.astro";
 import SeasonNavCards from "../../../components/SeasonNavCards.astro";
+import Standings from "../../../components/Standings.astro";
+import RaceCalendar from "../../../components/RaceCalendar.astro";
 import LatestPosts from "../../../components/LatestPosts.astro";
 ---
 
@@ -43,6 +45,8 @@ import LatestPosts from "../../../components/LatestPosts.astro";
           <h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
             2025 Championship Standings
           </h2>
+
+          <Standings season="2025" imageLoading="eager" />
         </div>
       </section>
 
@@ -52,6 +56,12 @@ import LatestPosts from "../../../components/LatestPosts.astro";
           <h2 class="mb-8 text-center text-2xl font-bold dark:text-slate-100">
             Race Spotlight: What's Next on the Calendar
           </h2>
+          <RaceCalendar
+            season="2025"
+            showAllRaces={false}
+            showTitle={true}
+            eagerCount={0}
+          />
         </div>
       </section>
 
