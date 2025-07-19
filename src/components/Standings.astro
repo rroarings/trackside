@@ -1,0 +1,250 @@
+---
+import { getCollection } from "astro:content";
+import RaceCard from "./RaceCard.astro";
+import StandingsCard from "./StandingsCard.astro";
+import TeamStandingsCards from "./TeamStandingsCards.astro";
+
+interface Props {
+  season: "2024" | "2025";
+  imageLoading?: "eager" | "lazy";
+}
+
+const { season, imageLoading = "lazy" } = Astro.props;
+
+// Drivers
+const drivers = await getCollection(
+  "drivers",
+  ({ data }) => data.season === season,
+);
+const sortedDrivers = drivers.sort(
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
+const top5Drivers = sortedDrivers.slice(0, 5);
+
+// Constructors (Teams)
+const teams = await getCollection(
+  "constructors",
+  ({ data }) => data.season === season,
+);
+const sortedTeams = teams.sort(
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
+const top5Teams = sortedTeams.slice(0, 5);
+
+// Last Race
+const races = await getCollection(
+  "races",
+  ({ data }) => data.season === season,
+);
+const toUTCMidnight = (date: Date) => {
+  const d = new Date(date);
+  d.setUTCHours(0, 0, 0, 0);
+  return d;
+};
+const nowUTC = toUTCMidnight(new Date());
+const completedRaces = races
+  .filter(
+    (race) =>
+      race.data.raceCompleted ||
+      toUTCMidnight(new Date(race.data.raceDate)) < nowUTC,
+  )
+  .sort(
+    (a, b) =>
+      new Date(b.data.raceDate).getTime() - new Date(a.data.raceDate).getTime(),
+  );
+
+const lastRace = completedRaces.length > 0 ? completedRaces[0] : null;
+
+// Unique IDs for tabs
+const driversTabId = `drivers-tab-${season}`;
+const constructorsTabId = `constructors-tab-${season}`;
+const lastRaceTabId = `last-race-tab-${season}`;
+---
+
+<div class="standings-component mx-auto w-full max-w-6xl rounded-lg">
+  <!-- Hidden radio buttons for state management -->
+  <input
+    type="radio"
+    name="standings-tab-{season}"
+    id={driversTabId}
+    class="hidden"
+    checked
+  />
+  <input
+    type="radio"
+    name="standings-tab-{season}"
+    id={constructorsTabId}
+    class="hidden"
+  />
+  {
+    lastRace && (
+      <input
+        type="radio"
+        name="standings-tab-{season}"
+        id={lastRaceTabId}
+        class="hidden"
+      />
+    )
+  }
+
+  <!-- Tabs -->
+  <div class="flex border-b border-gray-200">
+    <label
+      for={driversTabId}
+      class="tab-button drivers-label cursor-pointer px-6 py-3">Drivers</label
+    >
+    <label
+      for={constructorsTabId}
+      class="tab-button constructors-label cursor-pointer px-6 py-3"
+      >Constructors</label
+    >
+    {
+      lastRace && (
+        <label
+          for={lastRaceTabId}
+          class="tab-button last-race-label cursor-pointer px-6 py-3"
+        >
+          Last Race
+        </label>
+      )
+    }
+  </div>
+
+  <!-- Tab Content -->
+  <div class="p-6">
+    <!-- Drivers Table -->
+    <div class="tab-content drivers-content">
+      <StandingsCard season={season} imageLoading={imageLoading} />
+      <table class="w-full dark:text-slate-200">
+        <thead>
+          <tr class="border-b dark:border-slate-400">
+            <th class="w-16 py-2">Pos</th>
+            <th class="w-1/3 py-2">Driver</th>
+            <th class="w-1/3 py-2">Team</th>
+            <th class="py-2 text-right">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            top5Drivers.map((driver) => (
+              <tr class="border-b border-gray-300 dark:border-slate-500">
+                <td class="py-3">{driver.data.championshipPosition}</td>
+                <td class="py-3">
+                  {driver.data.driverFirstName} {driver.data.driverLastName}
+                </td>
+                <td class="py-3">{driver.data.driverTeam}</td>
+                <td class="py-3 text-right">{driver.data.driverPoints}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <div class="mt-8 text-center">
+        <a
+          href={`/seasons/${season}/drivers`}
+          class="rounded border-2 border-transparent bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+          >View All Drivers</a
+        >
+      </div>
+    </div>
+
+    <!-- Constructors Table -->
+    <div class="tab-content constructors-content">
+      <TeamStandingsCards season={season} />
+      <table class="w-full text-left dark:text-slate-200">
+        <thead>
+          <tr class="border-b">
+            <th class="w-16 py-2">Pos</th>
+            <th class="w-1/3 py-2">Team</th>
+            <th class="w-1/3 py-2">Drivers</th>
+            <th class="py-2 text-right">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            top5Teams.map((team) => (
+              <tr class="border-b border-gray-300">
+                <td class="py-3">{team.data.championshipPosition}</td>
+                <td class="py-3">{team.data.constructorName}</td>
+                <td class="py-3">{team.data.teamDrivers.join(", ")}</td>
+                <td class="py-3 text-right">{team.data.constructorPoints}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <div class="mt-8 text-center">
+        <a
+          href={`/seasons/${season}/constructors`}
+          class="rounded border-2 border-transparent bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+          >View All Constructors</a
+        >
+      </div>
+    </div>
+
+    <!-- Last Race -->
+    {
+      lastRace && (
+        <div class="tab-content last-race-content">
+          <RaceCard race={lastRace} />
+        </div>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .tab-content {
+    display: none;
+  }
+  .tab-button {
+    color: oklch(86.9% 0.022 252.894); /* text-gray-500 */
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+  }
+  .dark .tab-button {
+    color: #a1a1aa; /* text-gray-400 */
+  }
+  .standings-component input[id^="drivers-tab"]:checked ~ .p-6 .drivers-content,
+  .standings-component
+    input[id^="constructors-tab"]:checked
+    ~ .p-6
+    .constructors-content,
+  .standings-component
+    input[id^="last-race-tab"]:checked
+    ~ .p-6
+    .last-race-content {
+    display: block;
+  }
+  .standings-component input[id^="drivers-tab"]:checked ~ .flex .drivers-label,
+  .standings-component
+    input[id^="constructors-tab"]:checked
+    ~ .flex
+    .constructors-label,
+  .standings-component
+    input[id^="last-race-tab"]:checked
+    ~ .flex
+    .last-race-label {
+    color: oklch(92.9% 0.013 255.508); /* text-gray-800 */
+    font-weight: 600;
+    border-bottom-color: #dc2626; /* border-red-600 */
+  }
+  .dark
+    .standings-component
+    input[id^="drivers-tab"]:checked
+    ~ .flex
+    .drivers-label,
+  .dark
+    .standings-component
+    input[id^="constructors-tab"]:checked
+    ~ .flex
+    .constructors-label,
+  .dark
+    .standings-component
+    input[id^="last-race-tab"]:checked
+    ~ .flex
+    .last-race-label {
+    color: #fff;
+    border-bottom-color: #f87171; /* red-400 or your accent */
+  }
+</style>
