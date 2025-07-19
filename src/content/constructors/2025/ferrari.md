@@ -10,10 +10,16 @@ championshipPosition: 2
 championships: 16
 teamLogo: ""
 carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
-carImageAlt: "Ferriar 2025 Constructor car"
+carImageAlt: "Ferria 2025 Constructor car"
 carImageLargeAlt: "Ferrari 2025 Constructor car"
 pubDate: "July 17, 2025"
 description: "Ferrari team description"
+# Career stats (all-time)
+careerStats:
+  championships: 16
+  grandPrixWins: 249
+  polePositions: 253
+  podiumPositions: 636
 ---
 
 # Ferrari
