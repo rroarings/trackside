@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+interface Props {
+  season: "2024" | "2025";
+}
+
+const { season } = Astro.props;
+
+// Fetch all teams and filter by the specified season
+const allTeams = await getCollection("constructors");
+const seasonTeams = allTeams.filter((team) => team.data.season === season);
+
+// Sort teams by championship position
+const sortedTeams = seasonTeams.sort(
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
+
+// Get the top 3 teams
+const topThree = sortedTeams.slice(0, 3);
+
+// Reorder to place the 1st team in the middle
+const displayOrder =
+  topThree.length === 3 ? [topThree[1], topThree[0], topThree[2]] : topThree;
+---
+
+<div class="grid grid-cols-1 items-center gap-8 pb-16 pt-8 md:grid-cols-3">
+  {
+    displayOrder.map((team) => (
+      <div
+        class:list={[
+          "rounded-lg p-6 text-left transition-transform duration-300",
+          {
+            "border-1 transform border-red-300 md:scale-110 dark:border-slate-500":
+              team.data.championshipPosition === 1,
+            "border border-gray-200 dark:border-slate-700":
+              team.data.championshipPosition !== 1,
+          },
+        ]}
+      >
+        {team.data.carImage && (
+          <Image
+            src={team.data.carImage}
+            alt={`F1 car for ${team.data.constructorName}`}
+            class="mb-4 h-48 w-full rounded-lg object-cover"
+          />
+        )}
+        <h3 class="text-xl font-bold text-gray-900 dark:text-slate-100">
+          {team.data.constructorName}
+        </h3>
+        <p class="text-sm text-gray-500 dark:text-slate-300">
+          {team.data.teamDrivers.join(", ")}
+        </p>
+
+        <div class="mt-4 text-center dark:text-slate-100">
+          <p class="text-3xl font-bold">
+            {team.data.constructorPoints} <span class="text-sm">pts</span>
+          </p>
+          <p class="text-sm text-gray-500 dark:text-slate-200">
+            P{team.data.championshipPosition}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>
