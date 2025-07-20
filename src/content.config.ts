@@ -114,6 +114,7 @@ const races = defineCollection({
       trackImageAlt: z.string(),
       trackImageLargeAlt: z.string(),
       trackName: z.string(),
+      raceName: z.string(),
       trackLocation: z.string(),
       trackCountry: z.string(),
       raceDate: z.coerce.date(),
