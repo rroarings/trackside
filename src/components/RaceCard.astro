@@ -42,21 +42,23 @@ const isPreviousRace =
   race.data.raceCompleted &&
   raceDateUTC.getTime() === lastCompletedRaceDate;
 
-let statusLabel = null;
-let statusLabelClass = "";
-if (isNextRace) {
-  statusLabel = "Next Race";
-  statusLabelClass = "bg-red-500 text-white motion-safe:animate-pulse";
-} else if (isPreviousRace) {
-  statusLabel = "Previous Race";
-  statusLabelClass = "bg-blue-500 text-white";
-} else if (race.data.raceCompleted) {
-  statusLabel = "Completed";
-  statusLabelClass = "bg-green-600 text-white";
-} else {
-  statusLabel = "Upcoming";
-  statusLabelClass = "bg-gray-500 text-white";
-}
+const getStatusLabel = () => {
+  if (isNextRace) {
+    return {
+      label: "Next Race",
+      class: "bg-red-500 text-white motion-safe:animate-pulse",
+    };
+  }
+  if (isPreviousRace) {
+    return { label: "Previous Race", class: "bg-blue-500 text-white" };
+  }
+  if (race.data.raceCompleted) {
+    return { label: "Completed", class: "bg-green-600 text-white" };
+  }
+  return { label: "Upcoming", class: "bg-gray-500 text-white" };
+};
+
+const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
 ---
 
 <a href={`/seasons/${race.data.season}/races/${raceSlug}`} class="block h-full">
@@ -106,7 +108,7 @@ if (isNextRace) {
       <h3
         class="mb-2 text-xl font-bold dark:text-slate-100 dark:group-hover:underline"
       >
-        {race.data.trackLocation}
+        {race.data.raceName}
       </h3>
       <p class="mb-3 text-gray-600 dark:text-slate-100">
         {race.data.trackName}
