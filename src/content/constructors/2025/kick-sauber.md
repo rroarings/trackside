@@ -1,28 +1,28 @@
 ---
-constructorName: "Ferrari"
-carModel: "SF-25"
+constructorName: "Kick Sauber"
+carModel: "C45"
 season: "2025"
-teamDrivers: ["Charles Leclerc", "Lewis Hamilton"]
-teamPrincipal: "Frédéric Vasseur"
+teamDrivers: ["Nico Hulkenberg", "Gabriel Bortoleto"]
+teamPrincipal: "Jonathan Wheatley"
 engineSupplier: "Ferrari"
-constructorPoints: 222
-championshipPosition: 2
-championships: 16
+constructorPoints: 41
+championshipPosition: 6
+championships: 0
 teamLogo: ""
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
-carImageAlt: "Ferrari 2025 Constructor car"
-carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-side-main.png"
+carImageAlt: "Kick Sauber 2025 Constructor car"
+carImageLargeAlt: "Kick Sauber 2025 Constructor car"
 pubDate: "July 17, 2025"
-description: "Ferrari team description"
+description: "Kick Sauber team description"
 # Career stats (all-time)
 careerStats:
-  championships: 16
-  grandPrixWins: 249
-  polePositions: 253
-  podiumPositions: 636
+  championships: 6
+  grandPrixWins: 124
+  polePositions: 107
+  podiumPositions: 223
 ---
 
-# Ferrari
+# Kick Sauber
 
 The historic British team McLaren has returned to competitiveness in recent years, with their young driver pairing showing great promise for the future.
 

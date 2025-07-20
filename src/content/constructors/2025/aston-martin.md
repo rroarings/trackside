@@ -1,19 +1,19 @@
 ---
-constructorName: "Ferrari"
-carModel: "SF-25"
+constructorName: "Aston Martin"
+carModel: "AMR25"
 season: "2025"
-teamDrivers: ["Charles Leclerc", "Lewis Hamilton"]
-teamPrincipal: "Frédéric Vasseur"
-engineSupplier: "Ferrari"
-constructorPoints: 222
-championshipPosition: 2
-championships: 16
+teamDrivers: ["Lance Stroll", "Fernando Alonso"]
+teamPrincipal: "Andy Cowell"
+engineSupplier: "Mercedes"
+constructorPoints: 36
+championshipPosition: 8
+championships: 0
 teamLogo: ""
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
-carImageAlt: "Ferrari 2025 Constructor car"
-carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImage: "../../../assets/constructors/aston-martin/car/car-aston-martin-side-main.png"
+carImageAlt: "Aston Martin 2025 Constructor car"
+carImageLargeAlt: "Aston Martin 2025 Constructor car"
 pubDate: "July 17, 2025"
-description: "Ferrari team description"
+description: "Aston Martin team description"
 # Career stats (all-time)
 careerStats:
   championships: 16
@@ -22,7 +22,7 @@ careerStats:
   podiumPositions: 636
 ---
 
-# Ferrari
+# Aston Martin
 
 The historic British team McLaren has returned to competitiveness in recent years, with their young driver pairing showing great promise for the future.
 

@@ -1,27 +1,27 @@
 ---
-raceName: "Formula 1 Louis Vuitton Australian Grand Prix 2025"
-trackName: "Albert Park Circuit"
-trackLocation: "Australia"
-trackCountry: "Australia"
-trackImage: "../../../assets/circuits/01australia/aus01.jpg"
-trackImageLarge: "../../../assets/circuits/01australia/aus01.jpg"
+raceName: "Formula 1 Gulf Air Bahrain Grand Prix 2025"
+trackName: "Bahrain International Circuit"
+trackLocation: "Sakhir"
+trackCountry: "Bahrain"
+trackImage: "../../../assets/circuits/04bahrain/bh01.jpg"
+trackImageLarge: "../../../assets/circuits/04bahrain/bh01.jpg"
 trackImageAlt: "Albert Park Circuit image"
 trackImageLargeAlt: "Albert Park Circuit image"
-raceDate: "March 15, 2025"
+raceDate: "April 13, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: "Lando Norris"
+winningDriver: "Oscar Piastri"
 winningConstructor: "McLaren"
 fastestLapDriver: z.string().optional(),
 fastestLapConstructor: z.string().optional(),
 fastestLapTime: z.string().optional(),
-raceNumber: 1
+raceNumber: 4
 raceCompleted: true
 pubDate: "July, 19, 2025"
-heroImage: "../../../assets/circuits/01australia/aus01.jpg"
+heroImage: "../../../assets/circuits/04bahrain/bh01.jpg"
 ---
 
 # Australian Grand Prix 2025

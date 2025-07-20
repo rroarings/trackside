@@ -1,28 +1,28 @@
 ---
-constructorName: "Ferrari"
-carModel: "SF-25"
+constructorName: "Red Bull Racing"
+carModel: "RB21"
 season: "2025"
-teamDrivers: ["Charles Leclerc", "Lewis Hamilton"]
-teamPrincipal: "Frédéric Vasseur"
-engineSupplier: "Ferrari"
-constructorPoints: 222
-championshipPosition: 2
-championships: 16
+teamDrivers: ["Max Verstappen", "Yuki Tsunoda"]
+teamPrincipal: "Laurent Mekies"
+engineSupplier: "Honda RBPT"
+constructorPoints: 172
+championshipPosition: 4
+championships: 6
 teamLogo: ""
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
-carImageAlt: "Ferrari 2025 Constructor car"
-carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImage: "../../../assets/constructors/red-bull-racing/car/car-red-bull-side-main.png"
+carImageAlt: "Red Bull Racing 2025 Constructor car"
+carImageLargeAlt: "Red Bull Racing 2025 Constructor car"
 pubDate: "July 17, 2025"
-description: "Ferrari team description"
+description: "Red Bull Racing team description"
 # Career stats (all-time)
 careerStats:
-  championships: 16
-  grandPrixWins: 249
-  polePositions: 253
-  podiumPositions: 636
+  championships: 6
+  grandPrixWins: 124
+  polePositions: 107
+  podiumPositions: 223
 ---
 
-# Ferrari
+# Red Bull Racing
 
 The historic British team McLaren has returned to competitiveness in recent years, with their young driver pairing showing great promise for the future.
 

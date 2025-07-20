@@ -1,19 +1,19 @@
 ---
-constructorName: "Ferrari"
-carModel: "SF-25"
+constructorName: "Alpine"
+carModel: "A525"
 season: "2025"
-teamDrivers: ["Charles Leclerc", "Lewis Hamilton"]
-teamPrincipal: "Frédéric Vasseur"
-engineSupplier: "Ferrari"
-constructorPoints: 222
-championshipPosition: 2
-championships: 16
+teamDrivers: ["Pierre Gasly", "Franco Colapinto"]
+teamPrincipal: "Flavio Briatore"
+engineSupplier: "Renault"
+constructorPoints: 19
+championshipPosition: 10
+championships: 2
 teamLogo: ""
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
-carImageAlt: "Ferrari 2025 Constructor car"
-carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImage: "../../../assets/constructors/alpine/car/car-alpine-side-main.png"
+carImageAlt: "Alpine 2025 Constructor car"
+carImageLargeAlt: "Alpine 2025 Constructor car"
 pubDate: "July 17, 2025"
-description: "Ferrari team description"
+description: "Alpine team description"
 # Career stats (all-time)
 careerStats:
   championships: 16
@@ -22,7 +22,7 @@ careerStats:
   podiumPositions: 636
 ---
 
-# Ferrari
+# Alpine
 
 The historic British team McLaren has returned to competitiveness in recent years, with their young driver pairing showing great promise for the future.
 

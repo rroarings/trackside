@@ -1,30 +1,30 @@
 ---
-raceName: "Formula 1 Louis Vuitton Australian Grand Prix 2025"
-trackName: "Albert Park Circuit"
-trackLocation: "Australia"
-trackCountry: "Australia"
-trackImage: "../../../assets/circuits/01australia/aus01.jpg"
-trackImageLarge: "../../../assets/circuits/01australia/aus01.jpg"
-trackImageAlt: "Albert Park Circuit image"
-trackImageLargeAlt: "Albert Park Circuit image"
-raceDate: "March 15, 2025"
+raceName: "Formula 1 Heineken Chinese Grand Prix 2025"
+trackName: "Shangai International Circuit"
+trackLocation: "Shanghai"
+trackCountry: "China"
+trackImage: "../../../assets/circuits/02china/cn01.jpg"
+trackImageLarge: "../../../assets/circuits/02china/cn01.jpg"
+trackImageAlt: "Shanghai International Circuit image"
+trackImageLargeAlt: "Shanghai International Circuit image"
+raceDate: "March 23, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: "Lando Norris"
+winningDriver: "Oscar Piastri"
 winningConstructor: "McLaren"
 fastestLapDriver: z.string().optional(),
 fastestLapConstructor: z.string().optional(),
 fastestLapTime: z.string().optional(),
-raceNumber: 1
+raceNumber: 2
 raceCompleted: true
 pubDate: "July, 19, 2025"
-heroImage: "../../../assets/circuits/01australia/aus01.jpg"
+heroImage: "../../../assets/circuits/02china/cn02.jpg"
 ---
 
-# Australian Grand Prix 2025
+# Chinese Grand Prix 2025
 
 The Australian Grand Prix at Albert Park saw home hero Oscar Piastri claim his maiden Formula 1 victory in front of an ecstatic Melbourne crowd. The young Australian driver delivered a flawless performance to secure McLaren's first win of the 2025 season.
 

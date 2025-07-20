@@ -1,30 +1,30 @@
 ---
-raceName: "Formula 1 Louis Vuitton Australian Grand Prix 2025"
-trackName: "Albert Park Circuit"
-trackLocation: "Australia"
-trackCountry: "Australia"
-trackImage: "../../../assets/circuits/01australia/aus01.jpg"
-trackImageLarge: "../../../assets/circuits/01australia/aus01.jpg"
+raceName: "Formula 1 AWS Gran Premio Del Made In Italy E Dell'Emilia-Romagna 2025"
+trackName: "Imola Circuit"
+trackLocation: "Imola"
+trackCountry: "Italy"
+trackImage: "../../../assets/circuits/07emilia-romagna/er01.jpg"
+trackImageLarge: "../../../assets/circuits/07emilia-romagna/er01.jpg"
 trackImageAlt: "Albert Park Circuit image"
 trackImageLargeAlt: "Albert Park Circuit image"
-raceDate: "March 15, 2025"
+raceDate: "May 18, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: "Lando Norris"
-winningConstructor: "McLaren"
+winningDriver: "Max Verstappen"
+winningConstructor: "Red Bull Racing"
 fastestLapDriver: z.string().optional(),
 fastestLapConstructor: z.string().optional(),
 fastestLapTime: z.string().optional(),
-raceNumber: 1
+raceNumber: 7
 raceCompleted: true
 pubDate: "July, 19, 2025"
-heroImage: "../../../assets/circuits/01australia/aus01.jpg"
+heroImage: "../../../assets/circuits/07emilia-romagna/er01.jpg"
 ---
 
-# Australian Grand Prix 2025
+# Emilia-Romagna Grand Prix 2025
 
 The Australian Grand Prix at Albert Park saw home hero Oscar Piastri claim his maiden Formula 1 victory in front of an ecstatic Melbourne crowd. The young Australian driver delivered a flawless performance to secure McLaren's first win of the 2025 season.
 
