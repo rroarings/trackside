@@ -2,6 +2,7 @@
 import BaseHead from "../../../components/BaseHead.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import RaceCalendar from "../../../components/RaceCalendar.astro";
 import SeasonButtons from "../../../components/SeasonButtons.astro";
 import { SITE_TITLE } from "../../../consts";
@@ -18,8 +19,16 @@ import { SITE_TITLE } from "../../../consts";
   <body>
     <Header />
     <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Seasons", href: "/seasons" },
+          { text: "2025 Season", href: "/seasons/2025/" },
+          { text: "Races", href: "/seasons/2025/races" },
+        ]}
+      />
       <!-- 2025 Races Header -->
-      <section class="pb-6 pt-6 text-center">
+      <section class="pt-16 text-center">
         <div class="container mx-auto px-4">
           <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
             2025 Formula 1 Races

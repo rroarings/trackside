@@ -1,159 +1,177 @@
 ---
-import { getCollection } from "astro:content"
-import BaseHead from "../../../../components/BaseHead.astro"
-import Header from "../../../../components/Header.astro"
-import Footer from "../../../../components/Footer.astro"
-import FormattedDate from "../../../../components/FormattedDate.astro"
-import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
-import { SITE_TITLE } from "../../../../consts"
+import { getCollection } from "astro:content";
+import BaseHead from "../../../../components/BaseHead.astro";
+import Header from "../../../../components/Header.astro";
+import Footer from "../../../../components/Footer.astro";
+import FormattedDate from "../../../../components/FormattedDate.astro";
+import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
+import { SITE_TITLE } from "../../../../consts";
 
 export async function getStaticPaths() {
-	const races = await getCollection("races", ({ data }) => {
-		return data.season === "2025"
-	})
+  const races = await getCollection("races", ({ data }) => {
+    return data.season === "2025";
+  });
 
-	return races.map((race) => {
-		const parts = race.id.split("/")
-		const slug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "")
-		return {
-			params: { slug },
-			props: { race },
-		}
-	})
+  return races.map((race) => {
+    const parts = race.id.split("/");
+    const slug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "");
+    return {
+      params: { slug },
+      props: { race },
+    };
+  });
 }
 
-const { race } = Astro.props
+const { race } = Astro.props;
 // Import the Content component
-import { render } from "astro:content"
-const { Content } = await render(race)
+import { render } from "astro:content";
+const { Content } = await render(race);
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`${race.data.trackName} | ${SITE_TITLE}`}
-			description={`Information about the ${race.data.trackName} Grand Prix of the 2025 Formula 1 season`}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Formula 1", href: "/" },
-					{ text: "2025 Season", href: "/seasons/2025/" },
-					{ text: "Races", href: "/seasons/2025/races" },
-					{ text: `Race #${race.data.raceNumber}` },
-				]}
-			/>
+<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <BaseHead
+      title={`${race.data.trackName} | ${SITE_TITLE}`}
+      description={`Information about the ${race.data.trackName} Grand Prix of the 2025 Formula 1 season`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Formula 1", href: "/" },
+          { text: "Seasons", href: "/seasons/" },
+          { text: "2025 Season", href: "/seasons/2025/" },
+          { text: "Races", href: "/seasons/2025/races" },
+          { text: `Race #${race.data.raceNumber}` },
+        ]}
+      />
 
-			<!-- Race Header - Left aligned without background -->
-			<section class="race-header pt-12">
-				<div class="container mx-auto px-4">
-					<h1 class="mb-2 text-4xl font-bold dark:text-slate-100">{race.data.trackName}</h1>
-					<p class="text-gray-700 dark:text-slate-400">
-						<FormattedDate date={race.data.raceDate} /> • {race.data.trackLocation}
-					</p>
-				</div>
-			</section>
+      <!-- Race Header - Left aligned without background -->
+      <section class="race-header pt-12">
+        <div class="container mx-auto px-4">
+          <h1 class="mb-2 text-4xl font-bold dark:text-slate-100">
+            {race.data.trackName}
+          </h1>
+          <p class="text-gray-700 dark:text-slate-400">
+            <FormattedDate date={race.data.raceDate} /> • {
+              race.data.trackLocation
+            }
+          </p>
+        </div>
+      </section>
 
-			<!-- Race Status -->
-			<section class="py-4">
-				<div class="container mx-auto px-4">
-					<div class="text-left">
-						{
-							race.data.raceCompleted ?
-								<span class="inline-block rounded border border-green-300 bg-green-100 px-4 py-2 text-green-800 transition-colors duration-300 dark:border-green-600 dark:bg-green-700 dark:text-white dark:hover:bg-green-800">
-									Race Completed
-								</span>
-							:	<span class="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 text-gray-800 transition-colors duration-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-800">
-									Upcoming Race
-								</span>
-						}
-					</div>
-				</div>
-			</section>
+      <!-- Race Status -->
+      <section class="py-4">
+        <div class="container mx-auto px-4">
+          <div class="text-left">
+            {
+              race.data.raceCompleted ? (
+                <span class="inline-block rounded border border-green-300 bg-green-100 px-4 py-2 text-green-800 transition-colors duration-300 dark:border-green-600 dark:bg-green-700 dark:text-white dark:hover:bg-green-800">
+                  Race Completed
+                </span>
+              ) : (
+                <span class="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 text-gray-800 transition-colors duration-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-800">
+                  Upcoming Race
+                </span>
+              )
+            }
+          </div>
+        </div>
+      </section>
 
-			<!-- Race Details -->
-			<section class="py-8">
-				<div class="container mx-auto px-4">
-					<!-- Race Stats -->
-					<div class="mb-8 rounded-lg border border-gray-300 p-6 shadow-sm dark:border-slate-800">
-						<h2 class="mb-4 text-2xl font-bold dark:text-slate-200">Race Details</h2>
-						<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-							<div>
-								<ul class="space-y-3">
-									<li class="flex justify-between">
-										<span class="dark:text-slate-400">Date:</span>
-										<span class="text-gray-600 dark:text-slate-300"
-											><FormattedDate date={race.data.raceDate} /></span
-										>
-									</li>
-									<li class="flex justify-between">
-										<span class="dark:text-slate-400">Location:</span>
-										<span class="text-gray-600 dark:text-slate-300">{race.data.trackLocation}</span>
-									</li>
-									<li class="flex justify-between">
-										<span class="dark:text-slate-400">Race Number:</span>
-										<span class="text-gray-600 dark:text-slate-300">{race.data.raceNumber}</span>
-									</li>
-								</ul>
-							</div>
+      <!-- Race Details -->
+      <section class="py-8">
+        <div class="container mx-auto px-4">
+          <!-- Race Stats -->
+          <div
+            class="mb-8 rounded-lg border border-gray-300 p-6 shadow-sm dark:border-slate-800"
+          >
+            <h2 class="mb-4 text-2xl font-bold dark:text-slate-200">
+              Race Details
+            </h2>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div>
+                <ul class="space-y-3">
+                  <li class="flex justify-between">
+                    <span class="dark:text-slate-400">Date:</span>
+                    <span class="text-gray-600 dark:text-slate-300"
+                      ><FormattedDate date={race.data.raceDate} /></span
+                    >
+                  </li>
+                  <li class="flex justify-between">
+                    <span class="dark:text-slate-400">Location:</span>
+                    <span class="text-gray-600 dark:text-slate-300"
+                      >{race.data.trackLocation}</span
+                    >
+                  </li>
+                  <li class="flex justify-between">
+                    <span class="dark:text-slate-400">Race Number:</span>
+                    <span class="text-gray-600 dark:text-slate-300"
+                      >{race.data.raceNumber}</span
+                    >
+                  </li>
+                </ul>
+              </div>
 
-							{
-								race.data.raceCompleted && (
-									<div>
-										<ul class="space-y-3">
-											<li class="flex justify-between">
-												<span class="dark:text-slate-400">Winner:</span>
-												<span class="text-gray-600 dark:text-slate-300">{race.data.winningDriver}</span>
-											</li>
-											<li class="flex justify-between">
-												<span class="dark:text-slate-400">Winning Team:</span>
-												<span class="text-gray-600 dark:text-slate-300">
-													{race.data.winningConstructor}
-												</span>
-											</li>
-											<li class="flex justify-between">
-												<span class="dark:text-slate-400">Fastest Lap:</span>
-												<span class="text-gray-600 dark:text-slate-300">
-													{race.data.fastestLapTime}
-													{race.data.fastestLapDriver && ` (${race.data.fastestLapDriver})`}
-												</span>
-											</li>
-										</ul>
-									</div>
-								)
-							}
-						</div>
-					</div>
+              {
+                race.data.raceCompleted && (
+                  <div>
+                    <ul class="space-y-3">
+                      <li class="flex justify-between">
+                        <span class="dark:text-slate-400">Winner:</span>
+                        <span class="text-gray-600 dark:text-slate-300">
+                          {race.data.winningDriver}
+                        </span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="dark:text-slate-400">Winning Team:</span>
+                        <span class="text-gray-600 dark:text-slate-300">
+                          {race.data.winningConstructor}
+                        </span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="dark:text-slate-400">Fastest Lap:</span>
+                        <span class="text-gray-600 dark:text-slate-300">
+                          {race.data.fastestLapTime}
+                          {race.data.fastestLapDriver &&
+                            ` (${race.data.fastestLapDriver})`}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                )
+              }
+            </div>
+          </div>
 
-					<!-- Race Content -->
-					<div class="race-content prose dark:prose-invert max-w-none">
-						<Content />
-					</div>
-				</div>
-			</section>
+          <!-- Race Content -->
+          <div class="race-content prose dark:prose-invert max-w-none">
+            <Content />
+          </div>
+        </div>
+      </section>
 
-			<!-- Back to Races -->
-			<section class="py-6">
-				<div class="container mx-auto space-x-4 px-4 text-center">
-					<a
-						href="/seasons/2025/races"
-						class="inline-block rounded border-2 border-transparent bg-rose-600 px-4 py-2 text-center text-white transition-all duration-300 hover:bg-rose-700 dark:bg-rose-600 dark:text-slate-100 dark:hover:border-rose-500 dark:hover:bg-rose-700">
-						← Back to 2025 Races
-					</a>
-					<a
-						href="/seasons/2025"
-						class="inline-block rounded border-2 border-transparent bg-slate-600 px-4 py-2 text-center text-white transition-all duration-300 hover:bg-slate-700 dark:bg-slate-600 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-700">
-						← Back to 2025 Season
-					</a>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+      <!-- Back to Races -->
+      <section class="py-6">
+        <div class="container mx-auto space-x-4 px-4 text-center">
+          <a
+            href="/seasons/2025/races"
+            class="inline-block rounded border-2 border-transparent bg-rose-600 px-4 py-2 text-center text-white transition-all duration-300 hover:bg-rose-700 dark:bg-rose-600 dark:text-slate-100 dark:hover:border-rose-500 dark:hover:bg-rose-700"
+          >
+            ← Back to 2025 Races
+          </a>
+          <a
+            href="/seasons/2025"
+            class="inline-block rounded border-2 border-transparent bg-slate-600 px-4 py-2 text-center text-white transition-all duration-300 hover:bg-slate-700 dark:bg-slate-600 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-700"
+          >
+            ← Back to 2025 Season
+          </a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
