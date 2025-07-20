@@ -1,73 +1,147 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
-import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import "../styles/global.css"
+import BreakpointIndicator from "../components/BreakpointIndicator.astro"
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
 ---
 
-<Layout
-  title="About Me"
-  description="Lorem ipsum dolor sit amet"
-  pubDate={new Date("August 08 2021")}
-  heroImage={AboutHeroImage}
->
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
-    integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis
-    egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In
-    hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat.
-    Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu
-    non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim.
-    Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed
-    vulputate mi. Dictumst quisque sagittis purus sit amet.
-  </p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`About | ${SITE_TITLE}`}
+			description={SITE_DESCRIPTION}
+		/>
+	</head>
+	<body>
+		<BreakpointIndicator />
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section
+				class="relative mb-12 flex h-[350px] w-full items-center justify-center overflow-hidden md:h-[450px]">
+				<img
+					src={AboutHeroImage.src}
+					alt="About Trackside"
+					class="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-75"
+				/>
+				<div
+					class="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
+					<h1 class="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl">
+						About Trackside
+					</h1>
+					<p class="mx-auto max-w-2xl text-lg text-white/90 drop-shadow-md md:text-2xl">
+						Your home for Formula 1 stats, schedules, and stories.
+					</p>
+				</div>
+				<div class="z-1 absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+			</section>
 
-  <p>
-    Morbi tristique senectus et netus. Id semper risus in hendrerit gravida
-    rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus
-    sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris
-    rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus
-    dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-    massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius
-    morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras
-    ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est
-    ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa
-    ultricies mi.
-  </p>
+			<!-- Profile Section -->
+			<section class="mb-16 flex flex-col items-center gap-4">
+				<img
+					src={AboutHeroImage.src}
+					alt="Nick Calvo"
+					class="h-32 w-32 rounded-full border-4 border-blue-500 object-cover shadow-md"
+				/>
+				<h2 class="text-3xl font-bold text-gray-900">Nick Calvo</h2>
+				<p class="text-lg text-gray-600">F1 Fan • Web Developer • Creator of Trackside</p>
+				<div class="mt-2 flex gap-4">
+					<a
+						href="mailto:nick@example.com"
+						class="text-blue-600 hover:underline"
+						>Email</a
+					>
+					<a
+						href="https://twitter.com/yourhandle"
+						class="text-blue-600 hover:underline"
+						>Twitter</a
+					>
+					<a
+						href="/contact"
+						class="text-blue-600 hover:underline"
+						>Contact</a
+					>
+				</div>
+			</section>
 
-  <p>
-    Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque.
-    Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac
-    felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit
-    amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed
-    elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-    dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra.
-    Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum
-    consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus
-    ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-    facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed
-    risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor
-    vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus
-    non. Amet dictum sit amet justo donec enim.
-  </p>
+			<!-- About & Mission Section -->
+			<section class="mb-12 px-6 md:px-16">
+				<h2 class="mb-4 flex items-center gap-2 text-2xl font-semibold text-gray-900">
+					👋 Welcome!
+				</h2>
+				<p class="mb-2 text-gray-700">
+					Trackside is built for Formula 1 fans who want a clean, modern way to follow the season.
+					Explore race calendars, team and driver stats, and more—all in one place.
+				</p>
+				<div>
+					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800">
+						🚦 What is Trackside?
+					</h3>
+					<p class="mb-2 text-gray-700">
+						Trackside is your digital paddock: a place to check race schedules, explore team and
+						driver stats, and discover stories from the world of Formula 1. My goal is to make
+						following F1 easier, more fun, and more interactive for everyone.
+					</p>
+				</div>
+				<div>
+					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800">
+						🛠️ How is it built?
+					</h3>
+					<p class="mb-2 text-gray-700">
+						Trackside is built with Astro, Tailwind CSS, and a modern JavaScript stack. The site is
+						designed for speed, accessibility, and a great experience on any device.
+					</p>
+				</div>
+			</section>
 
-  <p>
-    Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac
-    ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem
-    viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu
-    ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac
-    tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-    pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim
-    sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam.
-    Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
-  </p>
+			<!-- Mission Section -->
+			<section class="mb-16 bg-blue-50 py-12">
+				<div class="mx-auto max-w-3xl px-6 text-center">
+					<h3 class="mb-4 text-2xl font-bold text-blue-900 md:text-3xl">
+						Trackside: For the Fans, By a Fan
+					</h3>
+					<blockquote class="mb-4 italic text-blue-800 md:text-xl">
+						“Racing is life. Anything before or after is just waiting.”
+					</blockquote>
+					<p class="mt-4 text-blue-900">
+						Trackside is my way of sharing the thrill of Formula 1 with the world. I want to make it
+						easy, fun, and beautiful for fans to follow the sport we love.
+					</p>
+				</div>
+			</section>
 
-  <p>
-    Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus
-    imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu
-    cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum.
-    Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit
-    libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed
-    pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique
-    magna.
-  </p>
-</Layout>
+			<!-- Tech Stack Section -->
+			<section class="mb-20 px-6">
+				<h3 class="mb-6 text-center text-2xl font-bold text-gray-900">How Trackside is Built</h3>
+				<div class="flex flex-wrap justify-center gap-8 text-4xl">
+					<span title="Astro">🚀</span>
+					<span title="Tailwind CSS">🌬️</span>
+					<span title="JavaScript">🟨</span>
+					<span title="Vercel">▲</span>
+				</div>
+				<p class="mt-4 text-center text-gray-600">
+					Astro, Tailwind CSS, JavaScript, and Vite power this site for speed and reliability.
+				</p>
+			</section>
+
+			<!-- Fun Facts Row -->
+			<div class="mt-16 flex flex-col items-stretch justify-center gap-6 md:flex-row">
+				<div class="flex-1 rounded-lg bg-red-50 p-6 text-center">
+					<div class="mb-2 text-3xl">🏁</div>
+					<div class="mb-1 text-lg font-bold">Favorite Track</div>
+					<div class="text-gray-700">Silverstone Circuit</div>
+				</div>
+				<div class="flex-1 rounded-lg bg-yellow-50 p-6 text-center">
+					<div class="mb-2 text-3xl">🥇</div>
+					<div class="mb-1 text-lg font-bold">All-Time Favorite Driver</div>
+					<div class="text-gray-700">Fernando Alonso</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
