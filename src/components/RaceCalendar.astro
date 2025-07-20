@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import RaceCard from "./RaceCard.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   season: string;
@@ -64,10 +65,11 @@ const nextUpcomingRace = sortedRaces.find(
   {
     showTitle && (
       <div class="mb-6 flex items-center justify-end">
-        <i
-          class="bi bi-calendar3 mr-4 text-3xl text-gray-700 dark:text-slate-400"
-          aria-label="Race Calendar Icon"
+        <Icon
+          name="mdi:calendar-range-outline"
+          class="mr-2 text-3xl text-gray-700 dark:text-slate-400"
         />
+
         {lastCompletedRace && (
           <a
             href={`/seasons/${season}/races`}
@@ -89,7 +91,7 @@ const nextUpcomingRace = sortedRaces.find(
           race={race}
           completedRaces={completedRaces}
           isNextRace={nextUpcomingRace && race.id === nextUpcomingRace.id}
-          {...(index < eagerCount ? { loading: "eager" } : {})}
+          loading={index < eagerCount ? "eager" : "lazy"}
         />
       ))
     }
