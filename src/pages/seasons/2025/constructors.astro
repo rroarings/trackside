@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer.astro";
 import BreakpointIndicator from "../../../components/BreakpointIndicator.astro";
 import SeasonButtons from "../../../components/SeasonButtons.astro";
 import TeamCard from "../../../components/TeamCard.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { SITE_TITLE } from "../../../consts";
 import { getCollection } from "astro:content";
 import { teamBgMap } from "../../../utils/teamBgMap";
@@ -63,8 +64,16 @@ const eagerCount = 4;
     <BreakpointIndicator />
     <Header />
     <main>
+      <Breadcrumbs
+        items={[
+          { text: "Formula 1", href: "/" },
+          { text: "Seasons", href: "/seasons/" },
+          { text: "2025 Season", href: "/seasons/2025/" },
+          { text: "Constructors" },
+        ]}
+      />
       <!-- Teams Header -->
-      <section class="py-16 text-center">
+      <section class="pt-16 text-center">
         <div class="container mx-auto px-4">
           <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
             2025 Formula 1 Constructors
