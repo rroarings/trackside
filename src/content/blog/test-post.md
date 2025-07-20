@@ -2,7 +2,7 @@
 title: "Testing post"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Jul 08 2025"
-heroImage: "../../assets/circuits/12great-britain/gb-01.jpg"
+heroImage: "../../assets/circuits/12great-britain/gb01.jpg"
 ---
 
 ## Welcome to the test
