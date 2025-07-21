@@ -2,7 +2,6 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import BreakpointIndicator from "../../components/BreakpointIndicator.astro";
 import TwoColumnSection from "../../components/TwoColumnSection.astro";
 import LatestPosts from "../../components/LatestPosts.astro";
 import { Image } from "astro:assets";
@@ -65,9 +64,7 @@ const rookies = [
     <BaseHead title={pageTitle} description={description} />
   </head>
   <body>
-    <BreakpointIndicator />
     <Header />
-
     <main>
       <!-- Hero Section -->
       <div class="py-10 text-center">
