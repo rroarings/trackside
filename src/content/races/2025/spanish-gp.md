@@ -2,7 +2,7 @@
 raceName: "Formula 1 Aramco Gran Premio De Espana 2025"
 trackName: "Circuit de Barcelona-Catalunya"
 trackLocation: "Montmeló"
-trackCountry: "Catalunya"
+trackCountry: "Spain"
 trackImage: "../../../assets/circuits/09spain/sp01.jpg"
 trackImageLarge: "../../../assets/circuits/09spain/sp01.jpg"
 trackImageAlt: "Albert Park Circuit image"
