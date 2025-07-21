@@ -3,9 +3,8 @@ import BaseHead from "../components/BaseHead.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
-import "../styles/global.css"
-import BreakpointIndicator from "../components/BreakpointIndicator.astro"
 import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
+import "../styles/global.css"
 ---
 
 <!doctype html>
@@ -17,7 +16,6 @@ import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
 		/>
 	</head>
 	<body>
-		<BreakpointIndicator />
 		<Header />
 		<main>
 			<!-- Hero Section -->
@@ -88,9 +86,7 @@ import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
 					</p>
 				</div>
 				<div>
-					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800">
-						🛠️ How is it built?
-					</h3>
+					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800">🛠️ How is it built?</h3>
 					<p class="mb-2 text-gray-700">
 						Trackside is built with Astro, Tailwind CSS, and a modern JavaScript stack. The site is
 						designed for speed, accessibility, and a great experience on any device.
@@ -130,7 +126,7 @@ import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
 
 			<!-- Fun Facts Row -->
 			<div class="mt-16 flex flex-col items-stretch justify-center gap-6 md:flex-row">
-				<div class="flex-1 rounded-lg bg-red-50 p-6 text-center">
+				<div class="flex-1 rounded-lg bg-yellow-50 p-6 text-center">
 					<div class="mb-2 text-3xl">🏁</div>
 					<div class="mb-1 text-lg font-bold">Favorite Track</div>
 					<div class="text-gray-700">Silverstone Circuit</div>
