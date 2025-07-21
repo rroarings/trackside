@@ -7,7 +7,7 @@ trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageAlt: "Albert Park Circuit image"
 trackImageLargeAlt: "Albert Park Circuit image"
-raceDate: "Hungary 03, 2025"
+raceDate: "August 03, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
