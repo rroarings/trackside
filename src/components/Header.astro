@@ -1,273 +1,290 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import tracksideLogo from "/src/assets/logos/trackside-logoblack.png";
-import tracksideLogoWhite from "/src/assets/logos/trackside-logowhite.png";
-import "../styles/global.css";
+import HeaderLink from "./HeaderLink.astro"
+import { Icon } from "astro-icon/components"
+import { Image } from "astro:assets"
+import tracksideLogo from "/src/assets/logos/trackside-logoblack.png"
+import tracksideLogoWhite from "/src/assets/logos/trackside-logowhite.png"
+import "../styles/global.css"
 ---
 
 <header class="sticky top-0 z-50 bg-white py-2 shadow-sm dark:bg-slate-900">
-  <nav class="container mx-auto px-4">
-    <div class="flex h-16 items-center justify-between">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/" class="text-xl font-bold">
-          <Image
-            src={tracksideLogo}
-            alt="Trackside Logo"
-            class="block size-48 h-auto dark:hidden"
-            loading="eager"
-          />
-          <Image
-            src={tracksideLogoWhite}
-            alt="Trackside Logo (White)"
-            class="hidden size-48 h-auto dark:block"
-            loading="eager"
-          />
-        </a>
-      </div>
+	<nav class="container mx-auto px-4">
+		<div class="flex h-16 items-center justify-between">
+			<!-- Logo -->
+			<div class="flex-shrink-0">
+				<a
+					href="/"
+					class="text-xl font-bold">
+					<Image
+						src={tracksideLogo}
+						alt="Trackside Logo"
+						class="block size-48 h-auto dark:hidden"
+						loading="eager"
+					/>
+					<Image
+						src={tracksideLogoWhite}
+						alt="Trackside Logo (White)"
+						class="hidden size-48 h-auto dark:block"
+						loading="eager"
+					/>
+				</a>
+			</div>
 
-      <!-- Desktop Navigation -->
-      <div
-        class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8 xl:space-x-10"
-      >
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/blog">Blog</HeaderLink>
+			<!-- Desktop Navigation -->
+			<div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8 xl:space-x-10">
+				<HeaderLink
+					href="/"
+					class="dark:text-slate-200"
+					>Home</HeaderLink
+				>
+				<HeaderLink
+					href="/blog"
+					class="dark:text-slate-200"
+					>Blog</HeaderLink
+				>
 
-        <!-- Seasons Dropdown -->
-        <div class="group relative">
-          <HeaderLink href="/seasons" class="inline-flex items-center">
-            <span>Seasons</span>
-            <Icon name="mdi:chevron-down" size={16} class="ml-1" />
-          </HeaderLink>
-          <div
-            class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block"
-          >
-            <div
-              class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800"
-            >
-              <a
-                href="/seasons/2025"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >2025 Season</a
-              >
-              <a
-                href="/seasons/2024"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >2024 Season</a
-              >
-            </div>
-          </div>
-        </div>
+				<!-- Seasons Dropdown -->
+				<div class="group relative">
+					<HeaderLink
+						href="/seasons"
+						class="inline-flex items-center dark:text-slate-200">
+						<span>Seasons</span>
+						<Icon
+							name="mdi:chevron-down"
+							size={16}
+							class="ml-1"
+						/>
+					</HeaderLink>
+					<div class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block">
+						<div
+							class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
+							<a
+								href="/seasons/2025"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>2025 Season</a
+							>
+							<a
+								href="/seasons/2024"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>2024 Season</a
+							>
+						</div>
+					</div>
+				</div>
 
-        <!-- Learn Dropdown -->
-        <div class="group relative">
-          <HeaderLink href="/learn/whatis" class="inline-flex items-center">
-            <span>Learn</span>
-            <Icon name="mdi:chevron-down" size={16} class="ml-1" />
-          </HeaderLink>
-          <div
-            class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block"
-          >
-            <div
-              class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800"
-            >
-              <a
-                href="/learn/whatis"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >What is F1</a
-              >
-              <a
-                href="/learn/technologies"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >Technology of F1</a
-              >
-              <a
-                href="/learn/future"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >Future of F1</a
-              >
-            </div>
-          </div>
-        </div>
+				<!-- Learn Dropdown -->
+				<div class="group relative">
+					<HeaderLink
+						href="/learn/whatis"
+						class="inline-flex items-center dark:text-slate-200">
+						<span>Learn</span>
+						<Icon
+							name="mdi:chevron-down"
+							size={16}
+							class="ml-1"
+						/>
+					</HeaderLink>
+					<div class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block">
+						<div
+							class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
+							<a
+								href="/learn/whatis"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>What is F1</a
+							>
+							<a
+								href="/learn/technologies"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>Technology of F1</a
+							>
+							<a
+								href="/learn/future"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>Future of F1</a
+							>
+						</div>
+					</div>
+				</div>
 
-        <!-- More Dropdown -->
-        <div class="group relative">
-          <HeaderLink href="/more" class="inline-flex items-center">
-            <span>More</span>
-            <Icon name="mdi:chevron-down" size={16} class="ml-1" />
-          </HeaderLink>
-          <div
-            class="absolute right-0 top-full hidden w-48 pt-2 group-hover:block"
-          >
-            <div
-              class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800"
-            >
-              <a
-                href="/about"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >About</a
-              >
-              <a
-                href="/contact"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >Contact</a
-              >
-              <a
-                href="/about/faqs"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >FAQs</a
-              >
-              <a
-                href="/about/attributions"
-                class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
-                >Attributions</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
+				<!-- More Dropdown -->
+				<div class="group relative">
+					<HeaderLink
+						href="/more"
+						class="inline-flex items-center dark:text-slate-200">
+						<span>More</span>
+						<Icon
+							name="mdi:chevron-down"
+							size={16}
+							class="ml-1"
+						/>
+					</HeaderLink>
+					<div class="absolute right-0 top-full hidden w-48 pt-2 group-hover:block">
+						<div
+							class="rounded-md border border-gray-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
+							<a
+								href="/about"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>About</a
+							>
+							<a
+								href="/contact"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>Contact</a
+							>
+							<a
+								href="/about/faqs"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>FAQs</a
+							>
+							<a
+								href="/about/attributions"
+								class="block px-4 py-2 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-600"
+								>Attributions</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <!-- Mobile Navigation Button -->
-      <div class="md:hidden">
-        <button
-          type="button"
-          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-        >
-          <span class="sr-only">Open main menu</span>
-          <Icon name="mdi:menu" size={24} aria-hidden="true" />
-        </button>
-      </div>
-    </div>
+			<!-- Mobile Navigation Button -->
+			<div class="md:hidden">
+				<button
+					type="button"
+					class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+					<span class="sr-only">Open main menu</span>
+					<Icon
+						name="mdi:menu"
+						size={24}
+						aria-hidden="true"
+					/>
+				</button>
+			</div>
+		</div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu hidden md:hidden">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <a
-          href="/"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >Home</a
-        >
-        <a
-          href="/blog"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >Blog</a
-        >
+		<!-- Mobile Menu -->
+		<div class="mobile-menu hidden md:hidden">
+			<div class="space-y-1 px-2 pb-3 pt-2">
+				<a
+					href="/"
+					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+					>Home</a
+				>
+				<a
+					href="/blog"
+					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+					>Blog</a
+				>
 
-        <!-- Mobile Seasons Section -->
-        <div class="mobile-dropdown">
-          <button
-            class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >
-            Seasons
-            <Icon
-              name="mdi:chevron-down"
-              size={16}
-              class="transform transition-transform"
-            />
-          </button>
-          <div class="hidden pl-4">
-            <a
-              href="/seasons/2025"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-              >2025 Season</a
-            >
-            <a
-              href="/seasons/2024"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-              >2024 Season</a
-            >
-          </div>
-        </div>
+				<!-- Mobile Seasons Section -->
+				<div class="mobile-dropdown">
+					<button
+						class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+						Seasons
+						<Icon
+							name="mdi:chevron-down"
+							size={16}
+							class="transform transition-transform"
+						/>
+					</button>
+					<div class="hidden pl-4">
+						<a
+							href="/seasons/2025"
+							class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+							>2025 Season</a
+						>
+						<a
+							href="/seasons/2024"
+							class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+							>2024 Season</a
+						>
+					</div>
+				</div>
 
-        <!-- Mobile Learn Section -->
-        <div class="mobile-dropdown">
-          <button
-            class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >
-            Learn
-            <Icon
-              name="mdi:chevron-down"
-              size={16}
-              class="transform transition-transform"
-            />
-          </button>
-          <div class="hidden pl-4">
-            <a
-              href="/about/whatis"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-              >What is F1</a
-            >
-            <a
-              href="/about/technologies"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-              >Technology</a
-            >
-            <a
-              href="/about/future"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
-              >Future of F1</a
-            >
-          </div>
-        </div>
+				<!-- Mobile Learn Section -->
+				<div class="mobile-dropdown">
+					<button
+						class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+						Learn
+						<Icon
+							name="mdi:chevron-down"
+							size={16}
+							class="transform transition-transform"
+						/>
+					</button>
+					<div class="hidden pl-4">
+						<a
+							href="/about/whatis"
+							class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+							>What is F1</a
+						>
+						<a
+							href="/about/technologies"
+							class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+							>Technology</a
+						>
+						<a
+							href="/about/future"
+							class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+							>Future of F1</a
+						>
+					</div>
+				</div>
 
-        <a
-          href="/about"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >About</a
-        >
-        <a
-          href="/contact"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >Contact</a
-        >
-        <a
-          href="/components"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-          >Components</a
-        >
-      </div>
-    </div>
-  </nav>
+				<a
+					href="/about"
+					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+					>About</a
+				>
+				<a
+					href="/contact"
+					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+					>Contact</a
+				>
+				<a
+					href="/components"
+					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+					>Components</a
+				>
+			</div>
+		</div>
+	</nav>
 </header>
 
 <script>
-  // Add this script for mobile menu functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    // Mobile menu toggle
-    const mobileMenuButton = document.querySelector(".mobile-menu-button");
-    const mobileMenu = document.querySelector(".mobile-menu");
+	// Add this script for mobile menu functionality
+	document.addEventListener("DOMContentLoaded", () => {
+		// Mobile menu toggle
+		const mobileMenuButton = document.querySelector(".mobile-menu-button")
+		const mobileMenu = document.querySelector(".mobile-menu")
 
-    mobileMenuButton?.addEventListener("click", () => {
-      mobileMenu?.classList.toggle("hidden");
-    });
+		mobileMenuButton?.addEventListener("click", () => {
+			mobileMenu?.classList.toggle("hidden")
+		})
 
-    // Mobile dropdowns
-    const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
-    mobileDropdowns.forEach((dropdown) => {
-      const button = dropdown.querySelector("button");
-      const content = dropdown.querySelector("div");
-      const arrow = button?.querySelector("svg");
+		// Mobile dropdowns
+		const mobileDropdowns = document.querySelectorAll(".mobile-dropdown")
+		mobileDropdowns.forEach((dropdown) => {
+			const button = dropdown.querySelector("button")
+			const content = dropdown.querySelector("div")
+			const arrow = button?.querySelector("svg")
 
-      button?.addEventListener("click", () => {
-        content?.classList.toggle("hidden");
-        arrow?.classList.toggle("rotate-180");
-      });
-    });
-  });
+			button?.addEventListener("click", () => {
+				content?.classList.toggle("hidden")
+				arrow?.classList.toggle("rotate-180")
+			})
+		})
+	})
 </script>
 
 <style>
-  /* Remove most existing styles as we're using Tailwind classes */
-  .social-links {
-    display: none;
-  }
+	/* Remove most existing styles as we're using Tailwind classes */
+	.social-links {
+		display: none;
+	}
 
-  @media (min-width: 768px) {
-    .social-links {
-      display: flex;
-    }
-  }
+	@media (min-width: 768px) {
+		.social-links {
+			display: flex;
+		}
+	}
 </style>
