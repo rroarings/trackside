@@ -13,7 +13,9 @@ type Props = CollectionEntry<"blog">["data"]
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
-<html lang="en">
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-950">
 	<head>
 		<BaseHead
 			title={title}
@@ -21,9 +23,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 		/>
 		<style>
 			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+				width: 1200px;
+				max-width: calc(100% - 2em);
+				margin: auto;
 			}
 			.hero-image {
 				width: 100%;
@@ -39,7 +41,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-				color: rgb(var(--gray-dark));
 			}
 			.title {
 				margin-bottom: 1em;
@@ -52,7 +53,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -63,6 +63,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 	<body>
 		<Header />
 		<main>
+			<div class="mb-12">
+				<Breadcrumbs
+					items={[
+						{ text: "Formula 1", href: "/" },
+						{ text: "Blog", href: "/blog" },
+						{ text: title },
+					]}
+				/>
+			</div>
 			<article>
 				<div class="hero-image">
 					{
@@ -76,9 +85,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 						)
 					}
 				</div>
-				<div class="prose">
+				<div class="prose dark:prose-invert">
 					<div class="title">
-						<div class="date">
+						<div class="date dark:text-slate-300">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
@@ -88,7 +97,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 								)
 							}
 						</div>
-						<h1>{title}</h1>
+						<h1 class="dark:text-slate-100">{title}</h1>
 						<hr />
 					</div>
 					<slot />
