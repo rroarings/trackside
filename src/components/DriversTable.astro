@@ -4,6 +4,7 @@ interface Props {
 }
 const { drivers } = Astro.props;
 ---
+
 <table class="w-full dark:text-slate-200">
   <thead>
     <tr class="border-b dark:border-slate-400">
@@ -18,7 +19,9 @@ const { drivers } = Astro.props;
       drivers.map((driver) => (
         <tr class="border-b border-gray-300 dark:border-slate-500">
           <td class="py-3">{driver.data.championshipPosition}</td>
-          <td class="py-3">{driver.data.driverFirstName} {driver.data.driverLastName}</td>
+          <td class="py-3">
+            {driver.data.driverFirstName} {driver.data.driverLastName}
+          </td>
           <td class="py-3">{driver.data.driverTeam}</td>
           <td class="py-3 text-right">{driver.data.driverPoints}</td>
         </tr>
