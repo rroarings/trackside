@@ -1,143 +1,146 @@
 ---
-import BaseHead from "../../../../components/BaseHead.astro"
-import Header from "../../../../components/Header.astro"
-import Footer from "../../../../components/Footer.astro"
-import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
-import StatCard from "../../../../components/StatCard.astro"
-import SeasonButtons from "../../../../components/SeasonButtons.astro"
-import { SITE_TITLE } from "../../../../consts"
-import { getCollection } from "astro:content"
+import BaseHead from "../../../../components/BaseHead.astro";
+import Header from "../../../../components/Header.astro";
+import Footer from "../../../../components/Footer.astro";
+import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
+import StatCard from "../../../../components/StatCard.astro";
+import SeasonButtons from "../../../../components/SeasonButtons.astro";
+import { SITE_TITLE } from "../../../../consts";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const drivers = await getCollection("drivers", ({ data }) => data.season === "2024")
-	return drivers.map((driver) => {
-		const slug = driver.id.split("/").pop()
-		return {
-			params: { slug },
-			props: { driver },
-		}
-	})
+  const drivers = await getCollection(
+    "drivers",
+    ({ data }) => data.season === "2024",
+  );
+  return drivers.map((driver) => {
+    const slug = driver.id.split("/").pop();
+    return {
+      params: { slug },
+      props: { driver },
+    };
+  });
 }
 
-const { driver } = Astro.props
+const { driver } = Astro.props;
 // Import the Content component separately
-import { render } from "astro:content"
-const { Content } = await render(driver)
+import { render } from "astro:content";
+const { Content } = await render(driver);
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`${driver.data.driverFirstName} ${driver.data.driverLastName} | ${SITE_TITLE}`}
-			description={`2025 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Home", href: "/" },
-					{ text: "2024 Season", href: "/seasons/2024/" },
-					{ text: "Drivers", href: "/seasons/2024/drivers" },
-					{
-						text: `${driver.data.driverFirstName} ${driver.data.driverLastName}`,
-					},
-				]}
-			/>
+<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <BaseHead
+      title={`${driver.data.driverFirstName} ${driver.data.driverLastName} | ${SITE_TITLE}`}
+      description={`2025 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "2024 Season", href: "/seasons/2024/" },
+          { text: "Drivers", href: "/seasons/2024/drivers" },
+          {
+            text: `${driver.data.driverFirstName} ${driver.data.driverLastName}`,
+          },
+        ]}
+      />
 
-			<!-- Driver Profile Header -->
-			<section class="bg-gray-100 py-16 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-						<div>
-							<img
-								src={driver.data.profileImageLarge?.src ??
-									driver.data.profileImage?.src ??
-									"/blog-placeholder-1.jpg"}
-								alt={`${driver.data.driverFirstName} ${driver.data.driverLastName} Profile Image`}
-								class=""
-								loading="lazy"
-							/>
-						</div>
-						<div>
-							<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
-								{driver.data.driverFirstName}
-								<span class="">{driver.data.driverLastName}</span>
-							</h1>
-							<div class="space-y-3 text-lg">
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Number:</span>
-									<span class="dark:text-slate-400">#{driver.data.driverNumber}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Team:</span>
-									<span class="dark:text-slate-400">{driver.data.driverTeam}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Nationality:</span>
-									<span class="dark:text-slate-400">{driver.data.nationality}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Age:</span>
-									<span class="dark:text-slate-400">{driver.data.age}</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <!-- Driver Profile Header -->
+      <section class="bg-gray-100 py-16 dark:bg-slate-950">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <img
+                src={driver.data.profileImageLarge?.src ??
+                  driver.data.profileImage?.src ??
+                  "/blog-placeholder-1.jpg"}
+                alt={`${driver.data.driverFirstName} ${driver.data.driverLastName} Profile Image`}
+                class=""
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+                {driver.data.driverFirstName}
+                <span class="">{driver.data.driverLastName}</span>
+              </h1>
+              <div class="space-y-3 text-lg">
+                <div class="flex items-center">
+                  <span class="w-32 dark:text-slate-400">Number:</span>
+                  <span class="dark:text-slate-400"
+                    >#{driver.data.driverNumber}</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <span class="w-32 dark:text-slate-400">Team:</span>
+                  <span class="dark:text-slate-400"
+                    >{driver.data.driverTeam}</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <span class="w-32 dark:text-slate-400">Nationality:</span>
+                  <span class="dark:text-slate-400"
+                    >{driver.data.nationality}</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <span class="w-32 dark:text-slate-400">Age:</span>
+                  <span class="dark:text-slate-400">{driver.data.age}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- Driver Statistics -->
-			<section class="bg-slate-100 py-12 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Career Statistics</h2>
-					<div class="mx-auto max-w-7xl">
-						<div class="-mx-2 flex flex-wrap">
-							<div class="mb-6 w-1/2 px-2 md:w-1/4">
-								<StatCard
-									value={driver.data.championships}
-									label="Championships"
-								/>
-							</div>
-							<div class="mb-6 w-1/2 px-2 md:w-1/4">
-								<StatCard
-									value={driver.data.grandPrixWins}
-									label="Race Wins"
-								/>
-							</div>
-							<div class="mb-6 w-1/2 px-2 md:w-1/4">
-								<StatCard
-									value={driver.data.podiums}
-									label="Podiums"
-								/>
-							</div>
-							<div class="mb-6 w-1/2 px-2 md:w-1/4">
-								<StatCard
-									value={driver.data.driverPoints}
-									label="Career Points"
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <!-- Driver Statistics -->
+      <section class="bg-slate-100 py-12 dark:bg-slate-950">
+        <div class="container mx-auto">
+          <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
+            Career Statistics
+          </h2>
+          <div class="mx-auto max-w-7xl">
+            <div class="-mx-2 flex flex-wrap">
+              <div class="mb-6 w-1/2 px-2 md:w-1/4">
+                <StatCard
+                  value={driver.data.championships}
+                  label="Championships"
+                />
+              </div>
+              <div class="mb-6 w-1/2 px-2 md:w-1/4">
+                <StatCard value={driver.data.grandPrixWins} label="Race Wins" />
+              </div>
+              <div class="mb-6 w-1/2 px-2 md:w-1/4">
+                <StatCard value={driver.data.podiums} label="Podiums" />
+              </div>
+              <div class="mb-6 w-1/2 px-2 md:w-1/4">
+                <StatCard
+                  value={driver.data.driverPoints}
+                  label="Career Points"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- Driver Biography -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<div class="prose prose-lg dark:prose-invert max-w-none">
-						<Content />
-					</div>
-				</div>
-			</section>
+      <!-- Driver Biography -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-950">
+        <div class="container mx-auto">
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <Content />
+          </div>
+        </div>
+      </section>
 
-			<!-- Back Links -->
-			<SeasonButtons season="2024" />
-		</main>
-		<Footer />
-	</body>
+      <!-- Back Links -->
+      <SeasonButtons season="2024" />
+    </main>
+    <Footer />
+  </body>
 </html>
