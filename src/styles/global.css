@@ -102,6 +102,17 @@ code {
   background-color: rgb(var(--gray-light));
   border-radius: 2px;
 }
+/* Dark mode for code blocks */
+@media (prefers-color-scheme: dark) {
+  code {
+    background-color: #23272e;
+    color: #e5e7eb;
+  }
+}
+.dark code {
+  background-color: #23272e;
+  color: #e5e7eb;
+}
 pre {
   padding: 1.5em;
   border-radius: 8px;
