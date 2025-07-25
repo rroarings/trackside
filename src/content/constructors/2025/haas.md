@@ -9,7 +9,7 @@ constructorPoints: 29
 championshipPosition: 9
 championships: 0
 teamLogo: ""
-carImage: "../../../assets/constructors/haas/car/car-haas-side-main.png"
+carImage: "../../../assets/constructors/haas/car/car-haas-01-copy.png"
 carImageAlt: "Haas 2025 Constructor car"
 carImageLargeAlt: "Haas 2025 Constructor car"
 pubDate: "July 17, 2025"
