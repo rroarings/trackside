@@ -9,7 +9,7 @@ constructorPoints: 36
 championshipPosition: 8
 championships: 0
 teamLogo: ""
-carImage: "../../../assets/constructors/aston-martin/car/car-aston-martin-side-main.png"
+carImage: "../../../assets/constructors/aston-martin/car/car-aston-martin-01-copy.png"
 carImageAlt: "Aston Martin 2025 Constructor car"
 carImageLargeAlt: "Aston Martin 2025 Constructor car"
 pubDate: "July 17, 2025"
