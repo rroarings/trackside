@@ -12,14 +12,16 @@ interface Props {
   >;
   teamIndex: number;
   eagerCount?: number;
+  year?: string;
 }
 
-const { team, driverMap, teamIndex, eagerCount = 4 } = Astro.props;
+const { team, driverMap, teamIndex, eagerCount = 4, year } = Astro.props;
 const teamBg = teamBgMap[team.data.constructorName] || null;
 const teamSlug = team.id.split("/").pop();
+const resolvedYear = year ?? team.data.season ?? "2025";
 ---
 
-<a href={`/seasons/2025/constructors/${teamSlug}`} class="group block h-full">
+<a href={`/seasons/${resolvedYear}/constructors/${teamSlug}`} class="group block h-full">
   <article
     class="relative flex h-full flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-shadow hover:shadow-lg dark:border-slate-800"
     style={teamBg
