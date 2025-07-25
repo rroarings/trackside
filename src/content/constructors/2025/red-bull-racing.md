@@ -9,7 +9,7 @@ constructorPoints: 172
 championshipPosition: 4
 championships: 6
 teamLogo: ""
-carImage: "../../../assets/constructors/red-bull-racing/car/car-red-bull-side-main.png"
+carImage: "../../../assets/constructors/red-bull-racing/car/car-red-bull-01-copy.png"
 carImageAlt: "Red Bull Racing 2025 Constructor car"
 carImageLargeAlt: "Red Bull Racing 2025 Constructor car"
 pubDate: "July 17, 2025"
