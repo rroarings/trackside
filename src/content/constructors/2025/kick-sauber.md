@@ -9,7 +9,7 @@ constructorPoints: 41
 championshipPosition: 6
 championships: 0
 teamLogo: ""
-carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-side-main.png"
+carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
 carImageAlt: "Kick Sauber 2025 Constructor car"
 carImageLargeAlt: "Kick Sauber 2025 Constructor car"
 pubDate: "July 17, 2025"
