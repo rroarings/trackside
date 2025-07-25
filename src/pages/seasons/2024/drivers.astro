@@ -28,7 +28,7 @@ const sortedDrivers = drivers.sort((a, b) => {
   <head>
     <BaseHead
       title={`2024 F1 Drivers | ${SITE_TITLE}`}
-      description="2025 Formula 1 driver profiles and statistics"
+      description="2024 Formula 1 driver profiles and statistics"
     />
   </head>
   <body>
@@ -60,7 +60,7 @@ const sortedDrivers = drivers.sort((a, b) => {
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {
               sortedDrivers.map((driver, i) => (
-                <DriverCard driver={driver} index={i} eagerCount={6} />
+                <DriverCard driver={driver} index={i} eagerCount={6} year="2024" />
               ))
             }
           </div>
