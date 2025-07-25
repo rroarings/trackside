@@ -8,10 +8,10 @@ engineSupplier: "Mercedes"
 constructorPoints: 460
 championshipPosition: 1
 championships: 9
-carImage: "../../../assets/constructors/mclaren/car/car-mclaren-side-main.png"
+carImage: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
 carImageAlt: "McLaren 2025 Constructor car"
 carImageLargeAlt: "McLaren 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/mclaren/car/car-mclaren-side-main.png"
+carImageLarge: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
 updatedDate: "July 17, 2025"
 grandPrixWins: 9
 podiumPositions: 20
