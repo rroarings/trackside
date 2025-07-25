@@ -9,7 +9,7 @@ constructorPoints: 210
 championshipPosition: 3
 championships: 8
 teamLogo: ""
-carImage: "../../../assets/constructors/mercedes/car/car-mercedes-side-main.png"
+carImage: "../../../assets/constructors/mercedes/car/car-mercedes-01-copy.png"
 carImageAlt: "Mercedes 2025 Constructor car"
 carImageLargeAlt: "Mercedes 2025 Constructor car"
 pubDate: "July 17, 2025"
