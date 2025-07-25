@@ -9,9 +9,10 @@ constructorPoints: 222
 championshipPosition: 2
 championships: 16
 teamLogo: ""
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-side-main.png"
+carImage: "../../../assets/constructors/ferrari/car/car-ferrari-01-copy.png"
 carImageAlt: "Ferrari 2025 Constructor car"
 carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImageLarge: "../../../assets/constructors/ferrari/car/car-ferrari-01-copy.png"
 pubDate: "July 17, 2025"
 description: "Ferrari team description"
 # Career stats (all-time)
