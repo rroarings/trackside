@@ -9,7 +9,7 @@ constructorPoints: 19
 championshipPosition: 10
 championships: 2
 teamLogo: ""
-carImage: "../../../assets/constructors/alpine/car/car-alpine-side-main.png"
+carImage: "../../../assets/constructors/alpine/car/car-alpine-01-copy.png"
 carImageAlt: "Alpine 2025 Constructor car"
 carImageLargeAlt: "Alpine 2025 Constructor car"
 pubDate: "July 17, 2025"
