@@ -99,9 +99,10 @@ const teamSlug = team.id.split("/").pop();
         </div>
       </div>
     </div>
+    
     {/* Car Image - always flush to bottom, with blur overlay only here */}
     <div
-      class="relative overflow-hidden bg-gradient-to-t from-gray-900 to-gray-900/20"
+      class="relative overflow-hidden bg-gradient-to-t from-gray-900/90 to-gray-900/30py-8 px-4"
     >
       {/* Blurred background layer */}
       <div class="pointer-events-none absolute inset-0 z-0 backdrop-blur-[4px]">
@@ -110,7 +111,7 @@ const teamSlug = team.id.split("/").pop();
       <Image
         src={team.data.carImageLarge || team.data.carImage}
         alt={`${team.data.constructorName} ${team.data.carModel}`}
-        class="relative z-10 h-48 w-full object-cover"
+        class="relative z-10 w-full object-cover"
         loading={teamIndex < eagerCount ? "eager" : "lazy"}
       />
     </div>
