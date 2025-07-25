@@ -9,7 +9,7 @@ constructorPoints: 59
 championshipPosition: 5
 championships: 9
 teamLogo: ""
-carImage: "../../../assets/constructors/williams/car/car-williams-side-main.png"
+carImage: "../../../assets/constructors/williams/car/car-williams-01-copy.png"
 carImageAlt: "Williams 2025 Constructor car"
 carImageLargeAlt: "Williams 2025 Constructor car"
 pubDate: "July 17, 2025"
