@@ -8,7 +8,7 @@ countryCode: "ca"
 age: 27
 season: "2025"
 championships: 0
-championshipPosition: 12
+championshipPosition: 13
 driverPoints: 20
 grandPrixWins: 1
 podiums: 3

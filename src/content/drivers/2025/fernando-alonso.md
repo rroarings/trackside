@@ -8,7 +8,7 @@ countryCode: "es"
 age: 43
 season: "2025"
 championships: 4
-championshipPosition: 14
+championshipPosition: 15
 driverPoints: 16
 grandPrixWins: 32
 podiums: 106

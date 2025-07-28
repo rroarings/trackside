@@ -9,7 +9,7 @@ age: 25
 season: "2025"
 championships: 0
 championshipPosition: 2
-driverPoints: 226
+driverPoints: 250
 grandPrixWins: 4
 podiums: 14
 description: "test description"

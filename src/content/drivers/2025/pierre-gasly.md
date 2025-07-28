@@ -8,8 +8,8 @@ countryCode: "fr"
 age: 27
 season: "2025"
 championships: 0
-championshipPosition: 13
-driverPoints: 19
+championshipPosition: 12
+driverPoints: 20
 grandPrixWins: 0
 podiums: 2
 description: "test description"
