@@ -2,7 +2,7 @@
 driverFirstName: "Oliver"
 driverLastName: "Bearman"
 driverNumber: 87
-driverTeam: "Haas"
+driverTeam: "Ferrari"
 nationality: "British"
 countryCode: "gb"
 age: 21
