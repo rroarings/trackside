@@ -21,7 +21,10 @@ const teamSlug = team.id.split("/").pop();
 const resolvedYear = year ?? team.data.season ?? "2025";
 ---
 
-<a href={`/seasons/${resolvedYear}/constructors/${teamSlug}`} class="group block h-full">
+<a
+  href={`/seasons/${resolvedYear}/constructors/${teamSlug}`}
+  class="group block h-full"
+>
   <article
     class="relative flex h-full flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-shadow hover:shadow-lg dark:border-slate-800"
     style={teamBg
@@ -101,10 +104,10 @@ const resolvedYear = year ?? team.data.season ?? "2025";
         </div>
       </div>
     </div>
-    
+
     {/* Car Image - always flush to bottom, with blur overlay only here */}
     <div
-      class="relative overflow-hidden bg-gradient-to-t from-gray-900/90 to-gray-900/30 pt-8 px-4"
+      class="relative overflow-hidden bg-gradient-to-t from-gray-900/90 to-gray-900/30 px-4 pt-8"
     >
       {/* Blurred background layer */}
       <div class="pointer-events-none absolute inset-0 z-0 backdrop-blur-[4px]">
