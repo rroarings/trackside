@@ -9,6 +9,8 @@ import LatestPosts from "../components/LatestPosts.astro";
 import FeaturesGrid from "../components/FeaturesGrid.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import race01 from "../assets/section/racei3.jpg";
+import raceseqWebm from "../assets/videos/raceseq.webm";
+import raceseqMp4 from "../assets/videos/raceseq.mp4";
 
 const features = [
   {
@@ -97,6 +99,7 @@ const features = [
             </div>
           </div>
         </div>
+
         {/* Hero video */}
         <div>
           <div class="relative mx-auto mt-4 overflow-hidden md:mt-8">
@@ -108,7 +111,8 @@ const features = [
                 loop
                 playsinline
               >
-                <source src="/src/assets/videos/raceseq.mp4" type="video/mp4" />
+                <source src={raceseqWebm} type="video/webm" />
+                <source src={raceseqMp4} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
