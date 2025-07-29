@@ -1,186 +1,154 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
-import "../styles/global.css";
-import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { Image } from "astro:assets"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg"
+import "../styles/global.css"
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-950">
-  <head>
-    <BaseHead title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <!-- Hero Section -->
-      <section
-        class="relative mb-12 flex h-[350px] w-full items-center justify-center overflow-hidden md:h-[450px]"
-      >
-        <Image
-          src={AboutHeroImage}
-          alt="About hero"
-          class="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-75"
-          loading="eager"
-        />
-        <div
-          class="relative z-10 flex h-full w-full flex-col items-center justify-center text-center"
-        >
-          <h1
-            class="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl"
-          >
-            About Trackside
-          </h1>
-          <p
-            class="mx-auto max-w-2xl text-lg text-white/90 drop-shadow-md md:text-2xl"
-          >
-            Your home for Formula 1 stats, schedules, and stories.
-          </p>
-        </div>
-        <div
-          class="z-1 absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"
-        >
-        </div>
-      </section>
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-950">
+	<head>
+		<BaseHead
+			title={`About | ${SITE_TITLE}`}
+			description={SITE_DESCRIPTION}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section
+				class="relative mb-12 flex h-[350px] w-full items-center justify-center overflow-hidden md:h-[450px]">
+				<Image
+					src={AboutHeroImage}
+					alt="About hero"
+					class="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-75"
+					loading="eager"
+				/>
+				<div
+					class="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
+					<h1 class="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl">
+						About Trackside
+					</h1>
+					<p class="mx-auto max-w-2xl text-lg text-white/90 drop-shadow-md md:text-2xl">
+						Your home for Formula 1 stats, schedules, and stories.
+					</p>
+				</div>
+				<div class="z-1 absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+			</section>
 
-      <!-- Profile Section -->
-      <section class="mb-16 flex flex-col items-center gap-4">
-        <Image
-          src={AboutHeroImage}
-          alt="About hero"
-          class="h-32 w-32 rounded-full border-4 border-blue-500 object-cover shadow-md"
-          loading="eager"
-        />
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-slate-200">
-          Nick Calvo
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-slate-400">
-          F1 Fan • Web Developer • Creator of Trackside
-        </p>
-        <div class="mt-2 flex gap-4">
-          <a
-            href="mailto:nick@example.com"
-            class="text-blue-600 hover:underline">Email</a
-          >
-          <a
-            href="https://twitter.com/yourhandle"
-            class="text-blue-600 hover:underline">Twitter</a
-          >
-          <a href="/contact" class="text-blue-600 hover:underline">Contact</a>
-        </div>
-      </section>
+			<!-- Profile Section -->
+			<section class="mb-16 flex flex-col items-center gap-4">
+				<Image
+					src={AboutHeroImage}
+					alt="About hero"
+					class="h-32 w-32 rounded-full border-4 border-blue-500 object-cover shadow-md"
+					loading="eager"
+				/>
+				<h2 class="text-3xl font-bold text-gray-900 dark:text-slate-200">Nick Calvo</h2>
+				<p class="text-lg text-gray-600 dark:text-slate-400">
+					F1 Fan • Web Developer • Creator of Trackside
+				</p>
+				<div class="mt-2 flex gap-4">
+					<a
+						href="mailto:nick@example.com"
+						class="text-blue-600 hover:underline"
+						>Email</a
+					>
+					<a
+						href="https://twitter.com/yourhandle"
+						class="text-blue-600 hover:underline"
+						>Twitter</a
+					>
+					<a
+						href="/contact"
+						class="text-blue-600 hover:underline"
+						>Contact</a
+					>
+				</div>
+			</section>
 
-      <!-- About & Mission Section -->
-      <section class="mb-12 px-6 md:px-16">
-        <h2
-          class="mb-4 flex items-center gap-2 text-2xl font-semibold text-gray-900 dark:text-slate-100"
-        >
-          👋 Welcome!
-        </h2>
-        <p class="mb-2 text-gray-700 dark:text-slate-400">
-          Trackside is built for Formula 1 fans who want a clean, modern way to
-          follow the season. Explore race calendars, team and driver stats, and
-          more—all in one place.
-        </p>
-        <div>
-          <h3
-            class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200"
-          >
-            🚦 What is Trackside?
-          </h3>
-          <p class="mb-2 text-gray-700 dark:text-slate-400">
-            Trackside is your digital paddock: a place to check race schedules,
-            explore team and driver stats, and discover stories from the world
-            of Formula 1. My goal is to make following F1 easier, more fun, and
-            more interactive for everyone.
-          </p>
-        </div>
-        <div>
-          <h3
-            class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200"
-          >
-            🛠️ How is it built?
-          </h3>
-          <p class="mb-2 text-gray-700 dark:text-slate-400">
-            Trackside is built with Astro, Tailwind CSS, and a modern JavaScript
-            stack. The site is designed for speed, accessibility, and a great
-            experience on any device.
-          </p>
-        </div>
-      </section>
+			<!-- About & Mission Section -->
+			<section class="mb-12 px-6 md:px-16">
+				<h2
+					class="mb-4 flex items-center gap-2 text-2xl font-semibold text-gray-900 dark:text-slate-100">
+					👋 Welcome!
+				</h2>
+				<p class="mb-2 text-gray-700 dark:text-slate-400">
+					Trackside is built for Formula 1 fans who want a clean, modern way to follow the season.
+					Explore race calendars, team and driver stats, and more—all in one place.
+				</p>
+				<div>
+					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200">
+						🚦 What is Trackside?
+					</h3>
+					<p class="mb-2 text-gray-700 dark:text-slate-400">
+						Trackside is your digital paddock: a place to check race schedules, explore team and
+						driver stats, and discover stories from the world of Formula 1. My goal is to make
+						following F1 easier, more fun, and more interactive for everyone.
+					</p>
+				</div>
+				<div>
+					<h3 class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200">
+						🛠️ How is it built?
+					</h3>
+					<p class="mb-2 text-gray-700 dark:text-slate-400">
+						Trackside is built with Astro, Tailwind CSS, and a modern JavaScript stack. The site is
+						designed for speed, accessibility, and a great experience on any device.
+					</p>
+				</div>
+			</section>
 
-      <!-- Mission Section -->
-      <section class="mb-16 bg-blue-50 py-12 dark:bg-blue-950">
-        <div class="mx-auto max-w-3xl px-6 text-center">
-          <h3
-            class="mb-4 text-2xl font-bold text-blue-900 md:text-3xl dark:text-blue-300"
-          >
-            Trackside: For the Fans, By a Fan
-          </h3>
-          <blockquote
-            class="mb-4 italic text-blue-800 md:text-xl dark:text-blue-400"
-          >
-            “Racing is life. Anything before or after is just waiting.”
-          </blockquote>
-          <p class="mt-4 text-blue-900 dark:text-blue-400">
-            Trackside is my way of sharing the thrill of Formula 1 with the
-            world. I want to make it easy, fun, and beautiful for fans to follow
-            the sport we love.
-          </p>
-        </div>
-      </section>
+			<!-- Mission Section -->
+			<section class="mb-16 bg-blue-50 py-12 dark:bg-blue-950">
+				<div class="mx-auto max-w-3xl px-6 text-center">
+					<h3 class="mb-4 text-2xl font-bold text-blue-900 md:text-3xl dark:text-blue-300">
+						Trackside: For the Fans, By a Fan
+					</h3>
+					<blockquote class="mb-4 italic text-blue-800 md:text-xl dark:text-blue-400">
+						“Racing is life. Anything before or after is just waiting.”
+					</blockquote>
+					<p class="mt-4 text-blue-900 dark:text-blue-400">
+						Trackside is my way of sharing the thrill of Formula 1 with the world. I want to make it
+						easy, fun, and beautiful for fans to follow the sport we love.
+					</p>
+				</div>
+			</section>
 
-      <!-- Tech Stack Section -->
-      <section class="mb-20 px-6">
-        <h3
-          class="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-slate-200"
-        >
-          How Trackside is Built
-        </h3>
-        <p class="mt-4 text-center text-gray-600 dark:text-slate-400">
-          Astro, Tailwind CSS, JavaScript, and Vite power this site for speed
-          and reliability.
-        </p>
-      </section>
+			<!-- Tech Stack Section -->
+			<section class="mb-20 px-6">
+				<h3 class="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-slate-200">
+					How Trackside is Built
+				</h3>
+				<p class="mt-4 text-center text-gray-600 dark:text-slate-400">
+					Astro, Tailwind CSS, JavaScript, and Vite power this site for speed and reliability.
+				</p>
+			</section>
 
-      <!-- Fun Facts Section -->
-      <section class="mb-20 mt-16 px-6">
-        <h2
-          class="mb-8 text-center text-2xl font-bold text-gray-900 dark:text-slate-200"
-        >
-          Fun Facts
-        </h2>
-        <div
-          class="flex flex-col items-stretch justify-center gap-6 md:flex-row"
-        >
-          <div
-            class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950"
-          >
-            <div class="mb-2 text-3xl">🏁</div>
-            <div class="mb-1 text-lg font-bold dark:text-yellow-600">
-              Favorite Track
-            </div>
-            <div class="text-gray-700 dark:text-yellow-400">
-              Silverstone Circuit
-            </div>
-          </div>
-          <div
-            class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950"
-          >
-            <div class="mb-2 text-3xl">🥇</div>
-            <div class="mb-1 text-lg font-bold dark:text-yellow-600">
-              All-Time Favorite Driver
-            </div>
-            <div class="text-gray-700 dark:text-yellow-400">
-              Fernando Alonso
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <Footer />
-  </body>
+			<!-- Fun Facts Section -->
+			<section class="mb-20 mt-16 px-6">
+				<h2 class="mb-8 text-center text-2xl font-bold text-gray-900 dark:text-slate-200">
+					Fun Facts
+				</h2>
+				<div class="flex flex-col items-stretch justify-center gap-6 md:flex-row">
+					<div class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950">
+						<div class="mb-2 text-3xl">🏁</div>
+						<div class="mb-1 text-lg font-bold dark:text-yellow-600">Favorite Track</div>
+						<div class="text-gray-700 dark:text-yellow-400">Silverstone Circuit</div>
+					</div>
+					<div class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950">
+						<div class="mb-2 text-3xl">🥇</div>
+						<div class="mb-1 text-lg font-bold dark:text-yellow-600">All-Time Favorite Driver</div>
+						<div class="text-gray-700 dark:text-yellow-400">Fernando Alonso</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
 </html>
