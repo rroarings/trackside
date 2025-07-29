@@ -4,7 +4,9 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import TwoColumnSection from "../../components/TwoColumnSection.astro";
-import jp02 from "/src/assets/circuits/03japan/jp02.jpg";
+import jp02 from "../../assets/circuits/03japan/jp02.jpg";
+import raceseqWebm from "../../assets/videos/raceseq.webm";
+import raceseqMp4 from "../../assets/videos/raceseq.mp4";
 
 const pageTitle = "Technology of Formula 1";
 const description =
@@ -250,10 +252,8 @@ const description =
                 loop
                 playsinline
               >
-                <source
-                  src="/src/assets/videos/raceseq.webm"
-                  type="video/webm"
-                />
+                <source src={raceseqWebm} type="video/webm" />
+                <source src={raceseqMp4} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
