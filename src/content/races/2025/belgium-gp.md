@@ -5,21 +5,21 @@ trackLocation: "Stavelot"
 trackCountry: "Belgium"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
-trackImageAlt: "Albert Park Circuit"
-trackImageLargeAlt: "Albert Park Circuit"
+trackImageAlt: "Spa-Francorchamps"
+trackImageLargeAlt: "Spa-Francorchamps"
 raceDate: "July 27, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: ""
-winningConstructor: ""
+winningDriver: "Oscar Piastri"
+winningConstructor: "McLaren"
 fastestLapDriver: ""
 fastestLapConstructor: ""
 fastestLapTime: ""
 raceNumber: 13
-raceCompleted: false
+raceCompleted: true
 pubDate: "July, 19, 2025"
 heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 ---
