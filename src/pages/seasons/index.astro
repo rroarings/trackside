@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import LatestPosts from "../../components/LatestPosts.astro";
 import Standings from "../../components/Standings.astro";
+import RaceCalendar from "../../components/RaceCalendar.astro";
 import { SITE_TITLE } from "../../consts";
 import { Image } from "astro:assets";
 import teams25Img from "../../assets/circuits/06miami/mi04.jpg";
@@ -168,6 +169,27 @@ import { Icon } from "astro-icon/components";
           </h2>
 
           <Standings season="2025" />
+        </div>
+      </section>
+
+      <!-- Race Spotlight Section -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-950">
+        <div class="container mx-auto px-4">
+          <header class="mb-12 text-center">
+            <h2 class="text-3xl font-bold dark:text-slate-100">
+              Race Spotlight
+            </h2>
+            <p class="mt-2 text-lg text-gray-600 dark:text-slate-400">
+              A look at the previous, next, and upcoming races on the 2025
+              calendar.
+            </p>
+          </header>
+          <RaceCalendar
+            season="2025"
+            showAllRaces={false}
+            showTitle={true}
+            eagerCount={0}
+          />
         </div>
       </section>
 
