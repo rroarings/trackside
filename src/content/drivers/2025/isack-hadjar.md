@@ -2,22 +2,34 @@
 driverFirstName: "Isack"
 driverLastName: "Hadjar"
 driverNumber: 6
-driverTeam: "Red Bull Racing"
+driverTeam: "Racing Bulls"
+description: "Isack Hadjar 2025 Driver Profile"
+season: "2025"
 nationality: "French"
 countryCode: "fr"
-age: 21
-season: "2025"
-championships: 0
-championshipPosition: 11
-driverPoints: 22
-grandPrixWins: 0
-podiums: 0
-description: "test description"
 profileImage: "../../../assets/constructors/racing-bulls/drivers/hadjar-02.png"
+age: 20
 profileImageLarge: ""
 profileImageAlt: "Portrait of Isack Hadjar"
 profileImageLargeAlt: "Portrait of Isack Hadjar"
+driverLogo: ""
+driverPoints: 22
+championshipPosition: 13
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 22
+  grandPrixWins: 0
+  polePositions: 0
+  fastestLaps: 0
+  podiumPositions: 0
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Isack Hadjar
