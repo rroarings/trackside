@@ -1,33 +1,40 @@
 ---
-constructorName: "McLaren"
-carModel: "MCL39"
-season: "2025"
-teamDrivers: ["Lando Norris", "Oscar Piastri"]
-teamPrincipal: "Andrea Stella"
-engineSupplier: "Mercedes"
-constructorPoints: 460
-championshipPosition: 1
-championships: 9
 carImage: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
 carImageAlt: "McLaren 2025 Constructor car"
-carImageLargeAlt: "McLaren 2025 Constructor car"
 carImageLarge: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
-updatedDate: "July 17, 2025"
-grandPrixWins: 9
-podiumPositions: 20
-polePositions: 7
-fastestLaps: 9
-pubDate: "July 17, 2025"
+carImageLargeAlt: "McLaren 2025 Constructor car"
+carModel: "MCL39"
+careerStats:
+  firstEntry: 1996
+  racesEntered: 988
+  driverChampionships: 12
+  constructorChampionships: 9
+  grandPrixWins: 200
+  podiumPositions: 548
+  careerPoints: 7516.5
+  polePositions: 171
+  fastestLaps: 180
+championshipPosition: 1
+constructorName: "McLaren"
+constructorPoints: 460
+dnf: 0
 description: "McLaren team description"
+engineSupplier: "Mercedes"
+fastestLaps: 9
+grandPrixWins: 9
+heroImage: ""
+podiumPositions: 13
+polePositions: 11
+pubDate: "July 17, 2025"
+season: "2025"
 sprintPodiums: 5
 sprintPoints: 23
+sprintPolePositions: 0
 sprintWins: 1
-# Career stats (all-time)
-careerStats:
-  championships: 9
-  grandPrixWins: 198
-  polePositions: 171
-  podiumPositions: 435
+teamDrivers: ["Lando Norris", "Oscar Piastri"]
+teamLogo: ""
+teamPrincipal: "Andrea Stella"
+updatedDate: "July 17, 2025"
 ---
 
 # McLaren
