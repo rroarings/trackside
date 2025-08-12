@@ -3,21 +3,33 @@ driverFirstName: "Oscar"
 driverLastName: "Piastri"
 driverNumber: 81
 driverTeam: "McLaren"
+description: "Oscar Piastri 2025 Driver Profile"
+season: "2025"
 nationality: "Australian"
 countryCode: "au"
-age: 25
-season: "2025"
-championships: 0
-championshipPosition: 1
-driverPoints: 266
-grandPrixWins: 4
-podiums: 14
-description: "test description"
+age: 24
 profileImage: "../../../assets/constructors/mclaren/drivers/piastri-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Oscar Piastri"
 profileImageLargeAlt: "Portrait of Oscar Piastri"
+driverLogo: ""
+driverPoints: 284
+championshipPosition: 1
+championships: 0
+grandPrixWins: 6
+podiums: 12
+polePositions: 4
+fastestLaps: 4
+careerStats:
+  championships: 0
+  careerPoints: 673
+  grandPrixWins: 8
+  polePositions: 4
+  fastestLaps: 7
+  podiumPositions: 11
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Oscar Piastri
