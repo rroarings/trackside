@@ -3,21 +3,33 @@ driverFirstName: "Lewis"
 driverLastName: "Hamilton"
 driverNumber: 44
 driverTeam: "Ferrari"
+description: "Lewis Hamilton 2025 Driver Profile"
+season: "2025"
 nationality: "British"
 countryCode: "gb"
-age: 41
-season: "2025"
-championships: 7
-championshipPosition: 6
-driverPoints: 109
-grandPrixWins: 400
-podiums: 140
-description: "test description"
+age: 40
 profileImage: "../../../assets/constructors/ferrari/drivers/hamilton-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Lewis Hamilton"
 profileImageLargeAlt: "Portrait of Lewis Hamilton"
+driverLogo: ""
+driverPoints: 109
+championshipPosition: 6
+championships: 7
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 7
+  careerPoints: 4971.5
+  grandPrixWins: 105
+  polePositions: 104
+  fastestLaps: 67
+  podiumPositions: 202
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Lewis Hamilton
