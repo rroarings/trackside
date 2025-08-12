@@ -3,21 +3,33 @@ driverFirstName: "Oliver"
 driverLastName: "Bearman"
 driverNumber: 87
 driverTeam: "Haas"
+description: "Oliver Bearman 2025 Driver Profile"
+season: "2025"
 nationality: "British"
 countryCode: "gb"
-age: 21
-season: "2025"
-championships: 0
-championshipPosition: 18
-driverPoints: 6
-grandPrixWins: 0
-podiums: 0
-description: "test description"
 profileImage: "../../../assets/constructors/haas/drivers/bearman-02.png"
+age: 30
 profileImageLarge: ""
 profileImageAlt: "Portrait of Oliver Bearman"
 profileImageLargeAlt: "Portrait of Oliver Bearman"
+driverLogo: ""
+driverPoints: 8
+championshipPosition: 19
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 15
+  grandPrixWins: 0
+  polePositions: 0
+  fastestLaps: 0
+  podiumPositions: 0
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Oliver Bearman
