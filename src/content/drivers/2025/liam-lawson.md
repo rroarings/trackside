@@ -1,23 +1,35 @@
 ---
 driverFirstName: "Liam"
 driverLastName: "Lawson"
-driverNumber: 6
-driverTeam: "Red Bull Racing"
-nationality: "French"
-countryCode: "fr"
-age: 21
+driverNumber: 30
+driverTeam: "Racing Bulls"
+description: "Liam Lawson 2025 Driver Profile"
 season: "2025"
-championships: 0
-championshipPosition: 14
-driverPoints: 21
-grandPrixWins: 0
-podiums: 0
-description: "test description"
+nationality: "New Zealander"
+countryCode: "nz"
 profileImage: "../../../assets/constructors/racing-bulls/drivers/lawson-02.png"
+age: 29
 profileImageLarge: ""
 profileImageAlt: "Portrait of Liam Lawson"
 profileImageLargeAlt: "Portrait of Liam Lawson"
+driverLogo: ""
+driverPoints: 20
+championshipPosition: 15
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 456
+  grandPrixWins: 1
+  polePositions: 0
+  fastestLaps: 3
+  podiumPositions: 5
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Liam Lawson
