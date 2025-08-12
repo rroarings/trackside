@@ -3,21 +3,33 @@ driverFirstName: "Pierre"
 driverLastName: "Gasly"
 driverNumber: 10
 driverTeam: "Alpine"
+description: "Pierre Gasly 2025 Driver Profile"
+season: "2025"
 nationality: "French"
 countryCode: "fr"
-age: 27
-season: "2025"
-championships: 0
-championshipPosition: 12
-driverPoints: 20
-grandPrixWins: 0
-podiums: 2
-description: "test description"
 profileImage: "../../../assets/constructors/alpine/drivers/gasly-02.png"
+age: 29
 profileImageLarge: ""
 profileImageAlt: "Portrait of Pierre Gasly"
 profileImageLargeAlt: "Portrait of Pierre Gasly"
+driverLogo: ""
+driverPoints: 20
+championshipPosition: 14
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 456
+  grandPrixWins: 1
+  polePositions: 0
+  fastestLaps: 3
+  podiumPositions: 5
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Pierre Gasly
