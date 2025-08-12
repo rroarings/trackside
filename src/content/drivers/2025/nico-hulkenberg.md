@@ -3,21 +3,33 @@ driverFirstName: "Nico"
 driverLastName: "Hulkenberg"
 driverNumber: 27
 driverTeam: "Kick Sauber"
+description: "Nico Hulkenberg 2025 Driver Profile"
+season: "2025"
 nationality: "German"
 countryCode: "de"
-age: 27
-season: "2025"
-championships: 0
-championshipPosition: 8
-driverPoints: 37
-grandPrixWins: 0
-podiums: 2
-description: "test description"
+age: 37
 profileImage: "../../../assets/constructors/kick-sauber/drivers/hulkenberg-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Nico Hulkenberg"
 profileImageLargeAlt: "Portrait of Nico Hulkenberg"
+driverLogo: ""
+driverPoints: 37
+championshipPosition: 9
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 608
+  grandPrixWins: 0
+  polePositions: 1
+  fastestLaps: 2
+  podiumPositions: 1
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Nico Hulkenberg
