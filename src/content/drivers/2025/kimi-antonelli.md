@@ -3,21 +3,33 @@ driverFirstName: "Kimi"
 driverLastName: "Antonelli"
 driverNumber: 12
 driverTeam: "Mercedes"
+description: "Kimi Antonelli 2025 Driver Profile"
+season: "2025"
 nationality: "Italian"
 countryCode: "it"
 age: 18
-season: "2025"
-championships: 0
-championshipPosition: 7
-driverPoints: 63
-grandPrixWins: 0
-podiums: 1
-description: "test description"
 profileImage: "../../../assets/constructors/mercedes/drivers/antonelli-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Kimi Antonelli"
 profileImageLargeAlt: "Portrait of Kimi Antonelli"
+driverLogo: ""
+driverPoints: 64
+championshipPosition: 7
+championships: 0
+grandPrixWins: 0
+podiums: 1
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 64
+  grandPrixWins: 0
+  polePositions: 0
+  fastestLaps: 2
+  podiumPositions: 1
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Kimi Antonelli
