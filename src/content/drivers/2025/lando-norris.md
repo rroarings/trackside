@@ -3,21 +3,33 @@ driverFirstName: "Lando"
 driverLastName: "Norris"
 driverNumber: 4
 driverTeam: "McLaren"
+description: "Lando Norris 2025 Driver Profile"
+season: "2025"
 nationality: "British"
 countryCode: "gb"
 age: 25
-season: "2025"
-championships: 0
-championshipPosition: 2
-driverPoints: 250
-grandPrixWins: 4
-podiums: 14
-description: "test description"
 profileImage: "../../../assets/constructors/mclaren/drivers/norris-02.png"
 profileImageLarge: ""
-profileImageAlt: "Portrait of Oscar Piastri"
-profileImageLargeAlt: "Portrait of Oscar Piastri"
+profileImageAlt: "Portrait of Lando Norris"
+profileImageLargeAlt: "Portrait of Lando Norris"
+driverLogo: ""
+driverPoints: 275
+championshipPosition: 2
+championships: 0
+grandPrixWins: 5
+podiums: 12
+polePositions: 4
+fastestLaps: 5
+careerStats:
+  championships: 0
+  careerPoints: 1282
+  grandPrixWins: 9
+  polePositions: 13
+  fastestLaps: 17
+  podiumPositions: 38
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Lando Norris
