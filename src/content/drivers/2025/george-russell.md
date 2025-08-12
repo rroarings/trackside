@@ -3,21 +3,33 @@ driverFirstName: "George"
 driverLastName: "Russell"
 driverNumber: 63
 driverTeam: "Mercedes"
+description: "George Russell 2025 Driver Profile"
+season: "2025"
 nationality: "British"
 countryCode: "gb"
 age: 27
-season: "2025"
-championships: 0
-championshipPosition: 4
-driverPoints: 157
-grandPrixWins: 7
-podiums: 20
-description: "test description"
 profileImage: "../../../assets/constructors/mercedes/drivers/russell-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of George Russell"
 profileImageLargeAlt: "Portrait of George Russell"
+driverLogo: ""
+driverPoints: 172
+championshipPosition: 4
+championships: 0
+grandPrixWins: 1
+podiums: 6
+polePositions: 1
+fastestLaps: 1
+careerStats:
+  championships: 0
+  careerPoints: 886
+  grandPrixWins: 4
+  polePositions: 6
+  fastestLaps: 10
+  podiumPositions: 21
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # George Russell
