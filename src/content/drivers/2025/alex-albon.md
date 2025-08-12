@@ -3,21 +3,33 @@ driverFirstName: "Alex"
 driverLastName: "Albon"
 driverNumber: 23
 driverTeam: "Williams"
+description: "Alex Albon 2025 Driver Profile"
+season: "2025"
 nationality: "Thai"
 countryCode: "th"
-age: 27
-season: "2025"
-championships: 0
-championshipPosition: 8
-driverPoints: 54
-grandPrixWins: 0
-podiums: 2
-description: "test description"
+age: 29
 profileImage: "../../../assets/constructors/williams/drivers/albon-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Alex Albon"
 profileImageLargeAlt: "Portrait of Alex Albon"
+driverLogo: ""
+driverPoints: 54
+championshipPosition: 8
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 294
+  grandPrixWins: 0
+  polePositions: 0
+  fastestLaps: 0
+  podiumPositions: 2
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Alex Albon
