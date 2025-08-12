@@ -3,21 +3,33 @@ driverFirstName: "Yuki"
 driverLastName: "Tsunoda"
 driverNumber: 22
 driverTeam: "Red Bull Racing"
-nationality: "Japan"
-countryCode: "jp"
-age: 27
+description: "Yuki Tsunoda 2025 Driver Profile"
 season: "2025"
-championships: 6
-championshipPosition: 17
-driverPoints: 10
-grandPrixWins: 0
-podiums: 0
-description: "test description"
+nationality: "Japanese"
+countryCode: "jp"
 profileImage: "../../../assets/constructors/red-bull-racing/drivers/tsunoda-02.png"
+age: 25
 profileImageLarge: ""
 profileImageAlt: "Portrait of Yuki Tsunoda"
 profileImageLargeAlt: "Portrait of Yuki Tsunoda"
+driverLogo: ""
+driverPoints: 18
+championshipPosition: 10
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 101
+  grandPrixWins: 0
+  polePositions: 0
+  fastestLaps: 1
+  podiumPositions: 0
 pubDate: "July 16, 2025"
+updatedDate: "August 11, 2025"
+heroImage: ""
 ---
 
 # Yuki Tsunoda
