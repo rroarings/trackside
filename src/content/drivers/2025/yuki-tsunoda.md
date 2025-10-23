@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Yuki Tsunoda"
 profileImageLargeAlt: "Portrait of Yuki Tsunoda"
 driverLogo: ""
-driverPoints: 18
-championshipPosition: 10
+driverPoints: 10
+championshipPosition: 18
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -32,13 +32,14 @@ updatedDate: "August 11, 2025"
 heroImage: ""
 ---
 
-# Yuki Tsunoda
+# Yuki Tsunoda is... pushing in 2025?
 
-Rising British talent Lando Norris has established himself as one of the brightest young stars in Formula 1, consistently delivering strong performances for McLaren.
+Yuki Tsunoda’s promotion to Red Bull Racing in 2025 has been a challenging transition, with only 10 points scored and no top-ten finishes in Grands Prix. His move from Racing Bulls after the Japanese Grand Prix exposed struggles with the RB21’s handling, trailing teammate Max Verstappen. The Japanese driver’s season reflects the pressure of Red Bull’s second seat.
 
-## Career Highlights
+At 24, Tsunoda’s raw speed, seen in a Chinese Sprint points finish, remains evident, but consistency has eluded him. His four seasons with Racing Bulls showcased promise, yet adapting to Red Bull’s demands has tested his resilience. The paddock watches closely as he fights to prove his worth.
 
-- 4 race wins
-- 14 podium finishes
-- Known for his streaming and social media presence
-- Strong junior career with multiple championships
+Paired with Verstappen, Tsunoda faces a steep learning curve to regain confidence and deliver results. His future with Red Bull hinges on improving in the season’s second half.
+
+## Join the F1 Fandom
+
+What are your thoughts on Yuki Tsunoda’s 2025 season? Can he turn his Red Bull stint around? Share your insights in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with Trackside’s race recaps and calendar!
