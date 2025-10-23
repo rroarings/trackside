@@ -1,8 +1,10 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Feature {
   title: string;
   description: string;
-  icon?: string; // Bootstrap icon class name
+  icon?: string;
 }
 
 interface Props {
@@ -27,7 +29,7 @@ const gridCols = {
     {
       title && (
         <div class="mb-6 border-b border-gray-200 pb-2">
-          <h2 class="text-2xl font-bold dark:text-slate-100">{title}</h2>
+          <h2 class="font-bold dark:text-slate-100">{title}</h2>
         </div>
       )
     }
@@ -37,9 +39,9 @@ const gridCols = {
         features.map((feature) => (
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-slate-600">
+              <div class="flex size-12 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-slate-600">
                 {feature.icon ? (
-                  <i class={`bi ${feature.icon} text-xl`} />
+                  <Icon name={feature.icon} size="1.2em" />
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +56,8 @@ const gridCols = {
               </div>
             </div>
             <div>
-              <h3 class="font-medium dark:text-slate-200">{feature.title}</h3>
-              <p class="text-gray-600 dark:text-slate-400">
+              <h3 class="text-sm dark:text-slate-200">{feature.title}</h3>
+              <p class="text-gray-800 dark:text-slate-400">
                 {feature.description}
               </p>
             </div>
