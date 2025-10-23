@@ -6,6 +6,7 @@ import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
 import SeasonButtons from "../../../../components/SeasonButtons.astro"
 import StatCard from "../../../../components/StatCard.astro"
 import DriverCard from "../../../../components/DriverCard.astro"
+import FormattedDate from "../../../../components/FormattedDate.astro"
 import { SITE_TITLE } from "../../../../consts"
 import { getCollection } from "astro:content"
 
@@ -277,8 +278,21 @@ drivers.forEach((driver) => {
 				</div>
 			</section>
 
-			<!-- Back Links -->
+			{/* Last Updated Section */}
 			<SeasonButtons season="2025" />
+
+			{/* Last Updated Section */}
+			<section class="pt-12 text-center">
+				<p class="text-sm text-gray-500 dark:text-slate-400">
+					{
+						team.data.updatedDate && (
+							<>
+								Last updated: <FormattedDate date={new Date(team.data.updatedDate)} />
+							</>
+						)
+					}
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
