@@ -3,6 +3,7 @@ title: "Trackside 1.0 Launch"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "August 12, 2025"
 heroImage: "../../assets/blog-placeholder-3.jpg"
+tags: ["Website", "Updates"]
 ---
 
 ## The Checkered Flag Drops: Trackside is Here
