@@ -5,7 +5,12 @@
 <div id="breakpoint" class="breakpoint-size">
   <div id="breakpoint-label" class="breakpoint-label" aria-hidden="true"></div>
   <div id="breakpoint-width" class="breakpoint-width" aria-hidden="true"></div>
-  <div id="breakpoint-main-width" class="breakpoint-main-width" aria-hidden="true"></div>
+  <div
+    id="breakpoint-main-width"
+    class="breakpoint-main-width"
+    aria-hidden="true"
+  >
+  </div>
 </div>
 
 <style>
@@ -79,8 +84,8 @@
     widthEl.textContent = `${bodyWidth}px`;
 
     // Show the main container width (if present)
-    const mainEl = document.querySelector('main');
-    const mainWidthEl = document.getElementById('breakpoint-main-width');
+    const mainEl = document.querySelector("main");
+    const mainWidthEl = document.getElementById("breakpoint-main-width");
     if (mainWidthEl) {
       const mainWidth = mainEl ? mainEl.clientWidth : null;
       mainWidthEl.textContent = mainWidth ? `main: ${mainWidth}px` : `main: —`;
