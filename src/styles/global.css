@@ -34,8 +34,22 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-VariableFont_wdth,wght.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Italic-VariableFont_width,wght.tff") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 body {
-  font-family: "Atkinson", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -57,6 +71,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Atkinson", serif;
   line-height: 1.2;
 }
 h1 {
@@ -83,7 +98,6 @@ b {
 }
 .prose {
   text-align: left;
-  line-height: 1.7;
 }
 textarea {
   width: 100%;
