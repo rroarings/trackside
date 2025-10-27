@@ -26,6 +26,7 @@ const { team } = Astro.props
 import { render } from "astro:content"
 import { Image } from "astro:assets"
 import { teamBgMap } from "../../../../utils/teamBgMap"
+import BreakpointIndicator from "../../../../components/BreakpointIndicator.astro"
 const { Content } = await render(team)
 
 // Get all drivers for 2025 season
@@ -36,12 +37,14 @@ drivers.forEach((driver) => {
 	const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`
 	driverMap.set(fullName, driver)
 })
+// team background image (optional)
+const teamBg = teamBgMap[team.data.constructorName] || null
 ---
 
 <!doctype html>
 <html
 	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
+	class="bg-gray-100 dark:bg-slate-900">
 	<head>
 		<BaseHead
 			title={`2025 ${team.data.constructorName} Team Profile | ${SITE_TITLE}`}
@@ -50,10 +53,11 @@ drivers.forEach((driver) => {
 	</head>
 	<body>
 		<Header />
+		<BreakpointIndicator />
 		<main>
 			<Breadcrumbs
 				items={[
-					{ text: "Formula 1", href: "/" },
+					{ text: "Home", href: "/" },
 					{ text: "Seasons", href: "/seasons/" },
 					{ text: "2025 Season", href: "/seasons/2025/" },
 					{ text: "Constructors", href: "/seasons/2025/constructors" },
@@ -61,62 +65,67 @@ drivers.forEach((driver) => {
 				]}
 			/>
 			<!-- Team Profile Header -->
-			<section class="mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-900">
-				<div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
+			<section class="mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-950">
+				<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 					<!-- Left: Car Image -->
-					<div class="flex">
-						<Image
-							src={team.data.carImageLarge || team.data.carImage}
-							alt={team.data.carImageLargeAlt || team.data.carImageAlt}
-							width={600}
-							height={600}
-							class="rounded-2xl border-4 border-gray-200 object-cover dark:border-slate-800"
-						/>
+					<div
+						class="flex flex-1 overflow-hidden rounded-2xl"
+						style={teamBg ? `background-image: url('${teamBg.src}'); background-size: cover;` : ""}>
+						<div class="flex flex-1 p-6">
+							<Image
+								src={team.data.carImageLarge || team.data.carImage}
+								alt={team.data.carImageLargeAlt || team.data.carImageAlt}
+								width={600}
+								height={600}
+								class="h-full w-full object-contain"
+								loading="eager"
+							/>
+						</div>
 					</div>
 					<!-- Right: Driver Info & Stats -->
-					<div>
+					<div class="">
 						<h1 class="mb-2 text-4xl font-bold text-gray-900 dark:text-slate-100">
 							{team.data.constructorName}
 						</h1>
 						<div class="mb-6 flex flex-wrap gap-4">
 							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-blue-700 dark:bg-slate-800 dark:text-slate-300">
-								{team.data.carModel}
+								class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
+								Car: {team.data.carModel}
 							</span>
 							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-gray-700 dark:bg-slate-800 dark:text-slate-300">
+								class="inline-flex items-center rounded-full px-3 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
 								Engine: {team.data.engineSupplier}
 							</span>
 							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-green-700 dark:bg-slate-800 dark:text-slate-300">
+								class="inline-flex items-center rounded-full px-3 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
 								Principal: {team.data.teamPrincipal}
 							</span>
 						</div>
 						<!-- Stats Grid -->
 						<div class="grid grid-cols-2 gap-4">
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{team.data.constructorPoints}
 								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Points</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Points</div>
 							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{team.data.podiumPositions}
 								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Podiums</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Podiums</div>
 							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{team.data.grandPrixWins}
 								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Grand Prix Wins</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Grand Prix Wins</div>
 							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{team.data.careerStats?.constructorChampionships || 0}
 								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">
+								<div class="text-base text-gray-500 dark:text-slate-400">
 									Constructor Championships
 								</div>
 							</div>
@@ -126,7 +135,7 @@ drivers.forEach((driver) => {
 			</section>
 
 			<!-- Team Drivers Section -->
-			<section class="bg-white py-12 dark:bg-slate-950">
+			<section class="bg-gray-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Drivers</h2>
 					<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
@@ -138,7 +147,7 @@ drivers.forEach((driver) => {
 											driver={driver}
 											index={i}
 											year={team.data.season}
-											eagerCount={2}
+											eagerCount={0}
 										/>
 									:	null
 							})
@@ -148,14 +157,14 @@ drivers.forEach((driver) => {
 			</section>
 
 			<!-- Two Column Statistics Section -->
-			<section class="bg-slate-100 p-8 py-12 dark:bg-slate-950">
+			<section class="bg-gray-100 p-8 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Statistics</h2>
-					<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
+					<div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
 						{/* Team Statistics Column */}
-						<div>
+						<div class="p-6">
 							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">
-								2025 Season Statistics
+								2025 Season
 							</h3>
 							{/* 2025 Season Statistics Column */}
 							<div class="-mx-2 flex flex-wrap">
@@ -210,10 +219,8 @@ drivers.forEach((driver) => {
 							</div>
 						</div>
 						{/* Lifetime Statistics Column */}
-						<div>
-							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">
-								Lifetime Statistics
-							</h3>
+						<div class="rounded bg-gray-200/50 p-6 dark:bg-gray-500/50">
+							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">Lifetime</h3>
 							<div class="-mx-2 flex flex-wrap">
 								<div class="mb-6 w-1/2 px-2 md:w-1/2">
 									<StatCard
@@ -270,9 +277,9 @@ drivers.forEach((driver) => {
 			</section>
 
 			<!-- Team Information -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
+			<section class="bg-gray-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
-					<div class="prose prose-lg dark:prose-invert max-w-none">
+					<div class="prose prose-lg dark:prose-invert max-w-fit">
 						<Content />
 					</div>
 				</div>
@@ -283,7 +290,7 @@ drivers.forEach((driver) => {
 
 			{/* Last Updated Section */}
 			<section class="pt-12 text-center">
-				<p class="text-sm text-gray-500 dark:text-slate-400">
+				<p class="text-gray-600 dark:text-slate-400">
 					{
 						team.data.updatedDate && (
 							<>
