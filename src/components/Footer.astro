@@ -1,237 +1,224 @@
 ---
-const today = new Date();
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import tracksideLogoBlack from "../assets/logos/trackside-logoblack.png";
-import tracksideLogoWhite from "../assets/logos/trackside-logowhite.png";
+const today = new Date()
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import tracksideLogoBlack from "../assets/logos/trackside-logoblack.png"
+import tracksideLogoWhite from "../assets/logos/trackside-logowhite.png"
 ---
 
 <footer>
-  <div
-    class="sm:max-w-xl md:max-w-3xl mx-auto space-y-8 py-16 lg:max-w-4xl lg:space-y-16 xl:max-w-6xl"
-  >
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div>
-        <Image
-          src={tracksideLogoBlack}
-          alt="Trackside Logo"
-          class="block size-48 h-auto dark:hidden"
-        />
-        <Image
-          src={tracksideLogoWhite}
-          alt="Trackside Logo (Dark)"
-          class="hidden size-48 h-auto dark:block"
-        />
-        <p class="mt-4 max-w-xs text-gray-500 dark:text-slate-400">
-          Discover Formula 1 from a fan perspective.
-        </p>
+	<div
+		class="mx-auto space-y-8 py-16 sm:max-w-xl md:max-w-3xl lg:max-w-4xl lg:space-y-16 xl:max-w-6xl">
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+			<div>
+				<Image
+					src={tracksideLogoBlack}
+					alt="Trackside Logo"
+					class="block size-48 h-auto dark:hidden"
+				/>
+				<Image
+					src={tracksideLogoWhite}
+					alt="Trackside Logo (Dark)"
+					class="hidden size-48 h-auto dark:block"
+				/>
+				<p class="mt-4 max-w-xs text-gray-600 dark:text-slate-400">
+					Discover Formula 1 from a fan perspective.
+				</p>
 
-        <ul class="mt-8 flex gap-4">
-          <li>
-            <a
-              href="https://github.com/rroarings/trackside"
-              rel="noreferrer"
-              target="_blank"
-              class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400"
-            >
-              <span class="sr-only">GitHub</span>
-              <Icon name="mdi:github" size={24} />
-            </a>
-          </li>
+				<ul class="mt-8 flex gap-4">
+					<li>
+						<a
+							href="https://github.com/rroarings/trackside"
+							rel="noreferrer"
+							target="_blank"
+							class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400">
+							<span class="sr-only">GitHub</span>
+							<Icon
+								name="mdi:github"
+								size={24}
+							/>
+						</a>
+					</li>
 
-          <li>
-            <a
-              href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
-              rel="noreferrer"
-              target="_blank"
-              class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400"
-            >
-              <span class="sr-only">LinkedIn</span>
-              <Icon name="mdi:linkedin" size={24} />
-            </a>
-          </li>
+					<li>
+						<a
+							href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
+							rel="noreferrer"
+							target="_blank"
+							class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400">
+							<span class="sr-only">LinkedIn</span>
+							<Icon
+								name="mdi:linkedin"
+								size={24}
+							/>
+						</a>
+					</li>
 
-          <li>
-            <a
-              href="https://www.notnickcalvo.com"
-              rel="noreferrer"
-              target="_blank"
-              class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400"
-            >
-              <span class="sr-only">Nick Calvo Personal Website</span>
-              <Icon name="mdi:web" size={24} />
-            </a>
-          </li>
+					<li>
+						<a
+							href="https://www.notnickcalvo.com"
+							rel="noreferrer"
+							target="_blank"
+							class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400">
+							<span class="sr-only">Nick Calvo Personal Website</span>
+							<Icon
+								name="mdi:web"
+								size={24}
+							/>
+						</a>
+					</li>
 
-          <li>
-            <a
-              href="https://www.youtube.com/@0vlack"
-              rel="noreferrer"
-              target="_blank"
-              class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400"
-            >
-              <span class="sr-only">YouTube</span>
-              <Icon name="mdi:youtube" size={24} />
-            </a>
-          </li>
-        </ul>
-      </div>
+					<li>
+						<a
+							href="https://www.youtube.com/@0vlack"
+							rel="noreferrer"
+							target="_blank"
+							class="text-gray-700 transition-colors duration-300 hover:text-blue-600 dark:text-slate-400">
+							<span class="sr-only">YouTube</span>
+							<Icon
+								name="mdi:youtube"
+								size={24}
+							/>
+						</a>
+					</li>
+				</ul>
+			</div>
 
-      <div
-        class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3"
-      >
-        <div>
-          <p class="font-medium text-gray-900 dark:text-slate-200">Learn F1</p>
-          <ul class="mt-6 space-y-4 text-base">
-            <li>
-              <a
-                href="/"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/learn/whatis"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                What Is F1
-              </a>
-            </li>
-            <li>
-              <a
-                href="/learn/technologies"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Technology
-              </a>
-            </li>
-            <li>
-              <a
-                href="/learn/future"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Future of F1
-              </a>
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Blog
-              </a>
-            </li>
-          </ul>
-        </div>
+			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
+				<div>
+					<p class="font-medium text-gray-900 dark:text-slate-200">Learn F1</p>
+					<ul class="mt-6 space-y-4 text-base">
+						<li>
+							<a
+								href="/"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Home
+							</a>
+						</li>
+						<li>
+							<a
+								href="/learn/whatis"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								What Is F1
+							</a>
+						</li>
+						<li>
+							<a
+								href="/learn/technologies"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Technology
+							</a>
+						</li>
+						<li>
+							<a
+								href="/learn/future"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Future of F1
+							</a>
+						</li>
+						<li>
+							<a
+								href="/blog"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Blog
+							</a>
+						</li>
+					</ul>
+				</div>
 
-        <div>
-          <p class="font-medium text-gray-900 dark:text-slate-200">
-            2025 Season
-          </p>
-          <ul class="mt-6 space-y-4 text-base">
-            <li>
-              <a
-                href="/seasons/2025"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Season Overview
-              </a>
-            </li>
-            <li>
-              <a
-                href="/seasons/2025/drivers"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Drivers
-              </a>
-            </li>
-            <li>
-              <a
-                href="/seasons/2025/constructors"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Teams
-              </a>
-            </li>
-            <li>
-              <a
-                href="/seasons/2025/races"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Race Calendar
-              </a>
-            </li>
-            <li>
-              <a
-                href="/seasons/2024"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                2024 Archive
-              </a>
-            </li>
-          </ul>
-        </div>
+				<div>
+					<p class="font-medium text-gray-900 dark:text-slate-200">2025 Season</p>
+					<ul class="mt-6 space-y-4 text-base">
+						<li>
+							<a
+								href="/seasons/2025"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Season Overview
+							</a>
+						</li>
+						<li>
+							<a
+								href="/seasons/2025/drivers"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Drivers
+							</a>
+						</li>
+						<li>
+							<a
+								href="/seasons/2025/constructors"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Teams
+							</a>
+						</li>
+						<li>
+							<a
+								href="/seasons/2025/races"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Race Calendar
+							</a>
+						</li>
+						<li>
+							<a
+								href="/seasons/2024"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								2024 Archive
+							</a>
+						</li>
+					</ul>
+				</div>
 
-        <div>
-          <p class="font-medium text-gray-900 dark:text-slate-200">Help</p>
-          <ul class="mt-6 space-y-4 text-base">
-            <li>
-              <a
-                href="/about/more"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                More F1
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                About Trackside
-              </a>
-            </li>
-            <li>
-              <a
-                href="/faqs"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about/attributions"
-                class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400"
-              >
-                Attributions
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+				<div>
+					<p class="font-medium text-gray-900 dark:text-slate-200">Help</p>
+					<ul class="mt-6 space-y-4 text-base">
+						<li>
+							<a
+								href="/about/more"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								More F1
+							</a>
+						</li>
+						<li>
+							<a
+								href="/about"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								About Trackside
+							</a>
+						</li>
+						<li>
+							<a
+								href="/faqs"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								FAQs
+							</a>
+						</li>
+						<li>
+							<a
+								href="/contact"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Contact
+							</a>
+						</li>
+						<li>
+							<a
+								href="/about/attributions"
+								class="text-gray-700 transition duration-300 hover:text-blue-600 dark:text-slate-400">
+								Attributions
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-    <div class="space-y-4">
-      <p class="text-sm text-gray-600 dark:text-slate-500">
-        This website is unofficial and is not associated in any way with the
-        Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD
-        CHAMPIONSHIP, GRAND PRIX and related marks are trade marks of Formula
-        One Licensing B.V.
-      </p>
-      <p class="text-sm text-gray-500 dark:text-slate-500">
-        &copy; {today.getFullYear()} Trackside. All rights reserved.
-      </p>
-    </div>
-  </div>
+		<div class="text-gray-600 text-base dark:text-slate-400 space-y-4">
+			<p>
+				This website is unofficial and is not associated in any way with the Formula 1 companies.
+				F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks
+				are trade marks of Formula One Licensing B.V.
+			</p>
+			<p>
+				&copy; {today.getFullYear()} Trackside. All rights reserved.
+			</p>
+		</div>
+	</div>
 </footer>
