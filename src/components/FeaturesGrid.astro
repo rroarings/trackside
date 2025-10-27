@@ -1,69 +1,82 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from "astro-icon/components"
 
 interface Feature {
-  title: string;
-  description: string;
-  icon?: string;
+	title: string
+	description: string
+	icon?: string
 }
 
 interface Props {
-  title?: string;
-  features: Feature[];
-  columns?: 2 | 3 | 4;
-  background?: "white" | "gray";
+	title?: string
+	features: Feature[]
+	columns?: 2 | 3 | 4
+	background?: "white" | "gray"
 }
 
-const { title, features, columns = 2, background = "white" } = Astro.props;
+const { title, features, columns = 2, background = "white" } = Astro.props
 
-const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
+const bgClass = background === "gray" ? "bg-gray-50" : "bg-white"
 const gridCols = {
-  2: "sm:grid-cols-2",
-  3: "sm:grid-cols-3",
-  4: "sm:grid-cols-2 lg:grid-cols-4",
-}[columns];
+	2: "sm:grid-cols-2",
+	3: "sm:grid-cols-3",
+	4: "sm:grid-cols-2 lg:grid-cols-4",
+}[columns]
 ---
+<style>
+  @reference "../styles/global.css";
+  @reference "tailwindcss";
+	h3 {
+		@apply m-0 text-xl tracking-tight dark:text-slate-200;
+	}
 
+		@media (min-width: 768px) {
+			h3 {
+				@apply text-2xl;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			h3 {
+				@apply text-3xl;
+			}
+		}
+</style>
 <section class={`py-12 bg-gray-100 dark:bg-slate-950`}>
-  <div class="mx-auto max-w-7xl px-4">
-    {
-      title && (
-        <div class="mb-6 border-b border-gray-200 pb-2">
-          <h2 class="font-bold dark:text-slate-100">{title}</h2>
-        </div>
-      )
-    }
+	<div class="mx-auto max-w-7xl px-4">
+		{
+			title && (
+				<div class="mb-6 border-b border-gray-200 pb-2">
+					<h2 class="font-bold dark:text-slate-100">{title}</h2>
+				</div>
+			)
+		}
 
-    <div class={`grid grid-cols-1 ${gridCols} gap-6`}>
-      {
-        features.map((feature) => (
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="flex size-12 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-slate-600">
-                {feature.icon ? (
-                  <Icon name={feature.icon} size="1.2em" />
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1" />
-                  </svg>
-                )}
-              </div>
-            </div>
-            <div>
-              <h3 class="text-sm dark:text-slate-200">{feature.title}</h3>
-              <p class="text-gray-800 dark:text-slate-400">
-                {feature.description}
-              </p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+		<div class={`grid grid-cols-1 ${gridCols} gap-6`}>
+			{
+				features.map((feature) => (
+					<div class="group flex items-start space-x-4">
+						<div class="flex-shrink-0">
+							<div class="flex size-12 items-center justify-center rounded-lg transition-colors duration-300 bg-gray-900 text-white group-hover:text-rose-400 dark:bg-slate-600">
+								{feature.icon ?
+									<Icon
+										name={feature.icon}
+										size="1.6em"
+									/>
+								:	<Icon
+										name="mdi:asterisk"
+										size="1.6em"
+									/>
+								}
+							</div>
+						</div>
+						<div>
+							<h3 class="dark:text-slate-200">{feature.title}</h3>
+							<p class="text-gray-800 dark:text-slate-400">{feature.description}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
 </section>
