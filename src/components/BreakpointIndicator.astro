@@ -2,7 +2,11 @@
 
 ---
 
-<div id="breakpoint" class="breakpoint-size"></div>
+<div id="breakpoint" class="breakpoint-size">
+  <div id="breakpoint-label" class="breakpoint-label" aria-hidden="true"></div>
+  <div id="breakpoint-width" class="breakpoint-width" aria-hidden="true"></div>
+  <div id="breakpoint-main-width" class="breakpoint-main-width" aria-hidden="true"></div>
+</div>
 
 <style>
   .breakpoint-size {
@@ -11,7 +15,9 @@
     right: 1rem;
     z-index: 9999;
     padding: 0.5rem 1rem;
-    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-weight: 700;
     color: rgb(239, 68, 68); /* Tailwind red-600 */
     letter-spacing: 1px;
@@ -21,28 +27,63 @@
     border-width: 1px;
     border-radius: 5px;
   }
+
+  .breakpoint-label {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .breakpoint-width {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 2px;
+    line-height: 1;
+  }
+
+  .breakpoint-main-width {
+    font-size: 11px;
+    opacity: 0.85;
+    margin-top: 2px;
+    line-height: 1;
+  }
 </style>
 
 <script>
   function updateBreakpoint() {
     const width = window.innerWidth;
-    const breakpoint = document.getElementById("breakpoint");
+    const labelEl = document.getElementById("breakpoint-label");
+    const widthEl = document.getElementById("breakpoint-width");
 
-    if (!breakpoint) return;
+    if (!labelEl || !widthEl) return;
 
-    // Check window width and update breakpoint text based on Tailwind's breakpoints
+    // Determine breakpoint label (based on Tailwind's default breakpoints)
+    let label = "";
     if (width < 640) {
-      breakpoint.textContent = "XS";
+      label = "XS";
     } else if (width >= 640 && width < 768) {
-      breakpoint.textContent = "SM";
+      label = "SM";
     } else if (width >= 768 && width < 1024) {
-      breakpoint.textContent = "MD";
+      label = "MD";
     } else if (width >= 1024 && width < 1280) {
-      breakpoint.textContent = "LG";
+      label = "LG";
     } else if (width >= 1280 && width < 1536) {
-      breakpoint.textContent = "XL";
+      label = "XL";
     } else {
-      breakpoint.textContent = "2XL";
+      label = "2XL";
+    }
+
+    labelEl.textContent = label;
+
+    // Show the body width (use clientWidth for body content width)
+    const bodyWidth = document.body ? document.body.clientWidth : width;
+    widthEl.textContent = `${bodyWidth}px`;
+
+    // Show the main container width (if present)
+    const mainEl = document.querySelector('main');
+    const mainWidthEl = document.getElementById('breakpoint-main-width');
+    if (mainWidthEl) {
+      const mainWidth = mainEl ? mainEl.clientWidth : null;
+      mainWidthEl.textContent = mainWidth ? `main: ${mainWidth}px` : `main: —`;
     }
   }
 
