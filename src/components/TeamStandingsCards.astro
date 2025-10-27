@@ -1,71 +1,81 @@
 ---
-import { getCollection } from "astro:content"
-import { Image } from "astro:assets"
-import { teamBgMap } from "../utils/teamBgMap"
-import placeholderBG from "../assets/component/teamCard-placeholder.png"
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { teamBgMap } from "../utils/teamBgMap";
+import placeholderBG from "../assets/component/teamCard-placeholder.png";
 
 interface Props {
-  season: "2024" | "2025"
-  imageLoading?: "eager" | "lazy"
+  season: "2024" | "2025";
+  imageLoading?: "eager" | "lazy";
 }
 
-const { season, imageLoading = "lazy" } = Astro.props
+const { season, imageLoading = "lazy" } = Astro.props;
 
-const allTeams = await getCollection("constructors")
-const seasonTeams = allTeams.filter((team) => team.data.season === season)
+const allTeams = await getCollection("constructors");
+const seasonTeams = allTeams.filter((team) => team.data.season === season);
 
 const sortedTeams = seasonTeams.sort(
-  (a, b) => a.data.championshipPosition - b.data.championshipPosition
-)
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
 
-const topThree = sortedTeams.slice(0, 3)
+const topThree = sortedTeams.slice(0, 3);
 
-const displayOrder = topThree.length === 3 ? [topThree[0], topThree[1], topThree[2]] : topThree
+const displayOrder =
+  topThree.length === 3 ? [topThree[0], topThree[1], topThree[2]] : topThree;
 ---
 
-<div class="grid grid-cols-1 gap-4 pb-16 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
-  {/* First place team: spans both columns in first row, but only on md screens */}
+<div
+  class="grid grid-cols-1 gap-4 pb-16 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-1"
+>
+  {
+    /* First place team: spans both columns in first row, but only on md screens */
+  }
   <div class="md:col-span-2 md:row-start-1 lg:col-span-1 lg:row-start-auto">
     {
       (() => {
-  const team = displayOrder[0]
-  const teamBg = teamBgMap[team.data.constructorName] || null
-  const teamSlug = team.id.split("/").pop()
+        const team = displayOrder[0];
+        const teamBg = teamBgMap[team.data.constructorName] || null;
+        const teamSlug = (team as any).slug ?? team.id.split("/").pop();
         return (
           <a href={`/seasons/${season}/constructors/${teamSlug}`} class="block">
             <article
-            class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-            style={
-              teamBg
-                ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                : ""
-            }
-          >
-            <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-            <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-              <div>
-                <p class="text-4xl font-bold text-white">{team.data.championshipPosition}</p>
+              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
+              style={
+                teamBg
+                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+                  : ""
+              }
+            >
+              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
+              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
+                <div>
+                  <p class="text-4xl font-bold text-white">
+                    {team.data.championshipPosition}
+                  </p>
 
-                <h2 class="text-xl font-bold text-white">{team.data.constructorName}</h2>
-                <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
-                <p class="text-white">
-                  {team.data.constructorPoints} <span class="font-normal">pts</span>
-                </p>
+                  <h2 class="text-xl font-bold text-white">
+                    {team.data.constructorName}
+                  </h2>
+                  <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
+                  <p class="text-white">
+                    {team.data.constructorPoints}{" "}
+                    <span class="font-normal">pts</span>
+                  </p>
+                </div>
+                <div class="flex">
+                  <Image
+                    src={team.data.carImage || placeholderBG}
+                    alt={`Car for ${team.data.constructorName}`}
+                    class="object-contain"
+                    width={400}
+                    height={400}
+                    loading={imageLoading}
+                  />
+                </div>
               </div>
-              <div class="flex">
-                <Image
-                  src={team.data.carImage || placeholderBG}
-                  alt={`Car for ${team.data.constructorName}`}
-                  class="object-contain"
-                  width={400}
-                  height={400}
-                  loading={imageLoading}
-                />
-              </div>
-            </div>
             </article>
           </a>
-        )
+        );
       })()
     }
   </div>
@@ -74,44 +84,49 @@ const displayOrder = topThree.length === 3 ? [topThree[0], topThree[1], topThree
   <div class="md:col-start-1 md:row-start-2 lg:col-span-1 lg:row-start-auto">
     {
       (() => {
-  const team = displayOrder[1]
-  const teamBg = teamBgMap[team.data.constructorName] || null
-  const teamSlug = team.id.split("/").pop()
+        const team = displayOrder[1];
+        const teamBg = teamBgMap[team.data.constructorName] || null;
+        const teamSlug = (team as any).slug ?? team.id.split("/").pop();
         return (
           <a href={`/seasons/${season}/constructors/${teamSlug}`} class="block">
             <article
-            class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-            style={
-              teamBg
-                ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                : ""
-            }
-          >
-            <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-            <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-              <div>
-                <p class="text-4xl font-bold text-white">{team.data.championshipPosition}</p>
+              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
+              style={
+                teamBg
+                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+                  : ""
+              }
+            >
+              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
+              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
+                <div>
+                  <p class="text-4xl font-bold text-white">
+                    {team.data.championshipPosition}
+                  </p>
 
-                <h2 class="text-xl font-bold text-white">{team.data.constructorName}</h2>
-                <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
-                <p class="text-white">
-                  {team.data.constructorPoints} <span class="font-normal">pts</span>
-                </p>
+                  <h2 class="text-xl font-bold text-white">
+                    {team.data.constructorName}
+                  </h2>
+                  <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
+                  <p class="text-white">
+                    {team.data.constructorPoints}{" "}
+                    <span class="font-normal">pts</span>
+                  </p>
+                </div>
+                <div class="flex">
+                  <Image
+                    src={team.data.carImage || placeholderBG}
+                    alt={`Car for ${team.data.constructorName}`}
+                    class="object-contain"
+                    width={400}
+                    height={400}
+                    loading={imageLoading}
+                  />
+                </div>
               </div>
-              <div class="flex">
-                <Image
-                  src={team.data.carImage || placeholderBG}
-                  alt={`Car for ${team.data.constructorName}`}
-                  class="object-contain"
-                  width={400}
-                  height={400}
-                  loading={imageLoading}
-                />
-              </div>
-            </div>
             </article>
           </a>
-        )
+        );
       })()
     }
   </div>
@@ -120,44 +135,49 @@ const displayOrder = topThree.length === 3 ? [topThree[0], topThree[1], topThree
   <div class="md:col-start-2 md:row-start-2 lg:col-span-1 lg:row-start-auto">
     {
       (() => {
-  const team = displayOrder[2]
-  const teamBg = teamBgMap[team.data.constructorName] || null
-  const teamSlug = team.id.split("/").pop()
+        const team = displayOrder[2];
+        const teamBg = teamBgMap[team.data.constructorName] || null;
+        const teamSlug = (team as any).slug ?? team.id.split("/").pop();
         return (
           <a href={`/seasons/${season}/constructors/${teamSlug}`} class="block">
             <article
-            class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-            style={
-              teamBg
-                ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                : ""
-            }
-          >
-            <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-            <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-              <div>
-                <p class="text-4xl font-bold text-white">{team.data.championshipPosition}</p>
+              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
+              style={
+                teamBg
+                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+                  : ""
+              }
+            >
+              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
+              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
+                <div>
+                  <p class="text-4xl font-bold text-white">
+                    {team.data.championshipPosition}
+                  </p>
 
-                <h2 class="text-xl font-bold text-white">{team.data.constructorName}</h2>
-                <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
-                <p class="text-white">
-                  {team.data.constructorPoints} <span class="font-normal">pts</span>
-                </p>
+                  <h2 class="text-xl font-bold text-white">
+                    {team.data.constructorName}
+                  </h2>
+                  <p class="text-white">{team.data.teamDrivers.join(", ")}</p>
+                  <p class="text-white">
+                    {team.data.constructorPoints}{" "}
+                    <span class="font-normal">pts</span>
+                  </p>
+                </div>
+                <div class="flex">
+                  <Image
+                    src={team.data.carImage || placeholderBG}
+                    alt={`Car for ${team.data.constructorName}`}
+                    class="object-contain"
+                    width={400}
+                    height={400}
+                    loading={imageLoading}
+                  />
+                </div>
               </div>
-              <div class="flex">
-                <Image
-                  src={team.data.carImage || placeholderBG}
-                  alt={`Car for ${team.data.constructorName}`}
-                  class="object-contain"
-                  width={400}
-                  height={400}
-                  loading={imageLoading}
-                />
-              </div>
-            </div>
             </article>
           </a>
-        )
+        );
       })()
     }
   </div>
