@@ -59,7 +59,7 @@ const rookies = [
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
   <head>
     <BaseHead title={pageTitle} description={description} />
   </head>
@@ -171,7 +171,7 @@ const rookies = [
       />
 
       <!-- Rookies Showcase Section -->
-      <section class="bg-gray-100 py-16 dark:bg-slate-950">
+      <section class="bg-gray-100 py-16 dark:bg-slate-900">
         <div class="container mx-auto px-4">
           <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
@@ -197,11 +197,11 @@ const rookies = [
                       {rookie.desc}
                     </p>
                   </div>
-                  <div class="flex h-64 items-end overflow-hidden">
+                  <div class="flex h-64 overflow-hidden">
                     <Image
                       src={rookie.img}
                       alt={rookie.alt}
-                      class="h-full w-full object-cover"
+                      class="h-full w-full object-contain"
                     />
                   </div>
                 </div>
