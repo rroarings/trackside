@@ -1,80 +1,86 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro";
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
-import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import DriverCard from "../../../components/DriverCard.astro";
-import { SITE_TITLE } from "../../../consts";
-import { getCollection } from "astro:content";
-import SeasonButtons from "../../../components/SeasonButtons.astro";
+import BaseHead from "../../../components/BaseHead.astro"
+import Header from "../../../components/Header.astro"
+import Footer from "../../../components/Footer.astro"
+import Breadcrumbs from "../../../components/Breadcrumbs.astro"
+import DriverCard from "../../../components/DriverCard.astro"
+import { SITE_TITLE } from "../../../consts"
+import { getCollection } from "astro:content"
+import SeasonButtons from "../../../components/SeasonButtons.astro"
+import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro"
 
 // Get all drivers for 2025 season
 const drivers = await getCollection("drivers", ({ data }) => {
-  return data.season === "2024";
-});
+	return data.season === "2024"
+})
 
 // Sort drivers by championship position (1-24)
 const sortedDrivers = drivers.sort((a, b) => {
-  // Use championship position first, if equal fall back to points
-  if (a.data.championshipPosition !== b.data.championshipPosition) {
-    return a.data.championshipPosition - b.data.championshipPosition;
-  }
-  return b.data.driverPoints - a.data.driverPoints;
-});
+	// Use championship position first, if equal fall back to points
+	if (a.data.championshipPosition !== b.data.championshipPosition) {
+		return a.data.championshipPosition - b.data.championshipPosition
+	}
+	return b.data.driverPoints - a.data.driverPoints
+})
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-900">
-  <head>
-    <BaseHead
-      title={`2024 F1 Drivers | ${SITE_TITLE}`}
-      description="2024 Formula 1 driver profiles and statistics"
-    />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <Breadcrumbs
-        items={[
-          { text: "Home", href: "/" },
-          { text: "Seasons", href: "/seasons" },
-          { text: "2024 Season", href: "/seasons/2024/" },
-          { text: "Drivers", href: "/seasons/2024/drivers" },
-        ]}
-      />
-      <!-- Drivers Header -->
-      <section class="py-16 text-center">
-        <div class="container mx-auto px-4">
-          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
-            2024 Formula 1 Drivers
-          </h1>
-          <p class="text-lg text-gray-700 dark:text-slate-400">
-            Complete driver profiles and season statistics
-          </p>
-        </div>
-      </section>
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-900">
+	<head>
+		<BaseHead
+			title={`2024 F1 Drivers | ${SITE_TITLE}`}
+			description="2024 Formula 1 driver profiles and statistics"
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<Breadcrumbs
+				items={[
+					{ text: "Home", href: "/" },
+					{ text: "Seasons", href: "/seasons" },
+					{ text: "2024 Season", href: "/seasons/2024/" },
+					{ text: "Drivers", href: "/seasons/2024/drivers" },
+				]}
+			/>
+			<!-- Drivers Header -->
+			<section class="py-16 text-center">
+				<div class="container mx-auto px-4">
+					<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">2024 Formula 1 Drivers</h1>
+					<p class="text-lg text-gray-700 dark:text-slate-400">
+						Complete driver profiles and season statistics
+					</p>
+				</div>
+			</section>
 
-      <!-- Drivers Grid -->
-      <section class="pb-16 pt-4">
-        <div class="container mx-auto">
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {
-              sortedDrivers.map((driver, i) => (
-                <DriverCard
-                  driver={driver}
-                  index={i}
-                  eagerCount={6}
-                  year="2024"
-                />
-              ))
-            }
-          </div>
-        </div>
-      </section>
+			<!-- Drivers Grid -->
+			<section class="pb-16 pt-4">
+				<div class="container mx-auto">
+					<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+						{
+							sortedDrivers.map((driver, i) => (
+								<DriverCard
+									driver={driver}
+									index={i}
+									eagerCount={6}
+									year="2024"
+								/>
+							))
+						}
+					</div>
+				</div>
+			</section>
 
-      <!-- Back Link -->
-      <SeasonButtons season="2024" />
-    </main>
-    <Footer />
-  </body>
+			<!-- Back Link -->
+			<SeasonButtonsModular
+				leftHref="/seasons/2024/drivers/"
+				leftText="Back to 2024 Drivers"
+				rightHref="/seasons"
+				rightText="Back to Seasons"
+			/>
+		</main>
+		<Footer />
+	</body>
 </html>
