@@ -36,16 +36,19 @@
 }
 @font-face {
   font-family: "Noto Sans";
-  src: url("/fonts/NotoSans-VariableFont_wdth,wght.ttf") format("ttf");
-  font-weight: 400;
+  /* Variable TrueType font (supports weight axis) */
+  src: url("/fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+  /* Allow the variable font to be used across the full weight range */
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Noto Sans";
-  src: url("/fonts/NotoSans-Italic-VariableFont_width,wght.tff") format("ttf");
-  font-weight: 700;
-  font-style: normal;
+  /* Italic variable TrueType font */
+  src: url("/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
   font-display: swap;
 }
 body {
