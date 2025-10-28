@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Charles Leclerc"
 profileImageLargeAlt: "Portrait of Charles Leclerc"
 driverLogo: ""
-driverPoints: 192
+driverPoints: 210
 championshipPosition: 5
 championships: 0
 grandPrixWins: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 10
   podiumPositions: 48
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
