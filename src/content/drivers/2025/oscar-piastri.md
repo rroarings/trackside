@@ -13,12 +13,12 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Oscar Piastri"
 profileImageLargeAlt: "Portrait of Oscar Piastri"
 driverLogo: ""
-driverPoints: 346
-championshipPosition: 1
+driverPoints: 356
+championshipPosition: 2
 championships: 0
-grandPrixWins: 6
-podiums: 12
-polePositions: 4
+grandPrixWins: 7
+podiums: 14
+polePositions: 5
 fastestLaps: 4
 careerStats:
   championships: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 7
   podiumPositions: 11
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
