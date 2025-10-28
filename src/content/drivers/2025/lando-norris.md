@@ -13,12 +13,12 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Lando Norris"
 profileImageLargeAlt: "Portrait of Lando Norris"
 driverLogo: ""
-driverPoints: 332
-championshipPosition: 2
+driverPoints: 357
+championshipPosition: 1
 championships: 0
-grandPrixWins: 5
-podiums: 12
-polePositions: 4
+grandPrixWins: 6
+podiums: 16
+polePositions: 5
 fastestLaps: 5
 careerStats:
   championships: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 17
   podiumPositions: 38
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
