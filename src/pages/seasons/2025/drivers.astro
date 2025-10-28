@@ -6,7 +6,7 @@ import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import DriverCard from "../../../components/DriverCard.astro";
 import { SITE_TITLE } from "../../../consts";
 import { getCollection } from "astro:content";
-import SeasonButtons from "../../../components/SeasonButtons.astro";
+import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro";
 
 // Get all drivers for 2025 season
 const drivers = await getCollection("drivers", ({ data }) => {
@@ -68,7 +68,12 @@ const sortedDrivers = drivers.sort((a, b) => {
       </section>
 
       <!-- Back Link -->
-      <SeasonButtons season="2025" />
+      <SeasonButtonsModular
+        leftHref="/seasons/2025/"
+        leftText="Back to 2025 Season"
+        rightHref="/seasons"
+        rightText="Back to Seasons"
+      />
     </main>
     <Footer />
   </body>
