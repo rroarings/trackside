@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Lance Stroll"
 profileImageLargeAlt: "Portrait of Lance Stroll"
 driverLogo: ""
 driverPoints: 32
-championshipPosition: 13
+championshipPosition: 14
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 3
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
