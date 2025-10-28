@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
