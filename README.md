@@ -21,26 +21,33 @@ Trackside is a modern Formula 1 fan site providing up-to-date stats, schedules, 
 ## Getting Started
 
 1. **Install dependencies:**
+
    ```sh
    npm install
    ```
+
 2. **Start the development server:**
+
    ```sh
    npm run dev
    ```
+
    The site will be available at `http://localhost:4321` by default.
 3. **Build for production:**
+
    ```sh
    npm run build
    ```
+
 4. **Preview the production build:**
+
    ```sh
    npm run preview
    ```
 
 ## Project Structure
 
-```
+```text
 /astro.config.mjs         Astro configuration
 /package.json             Project metadata and scripts
 /public/                  Static assets (images, fonts, etc.)
