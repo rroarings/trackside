@@ -28,18 +28,18 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-gray-100 py-12 dark:bg-slate-950">
+<section class="bg-gray-100 py-12 dark:bg-slate-900">
   <div class="container mx-auto">
     <div
       class={`flex flex-col lg:flex-row gap-8 items-center ${reversed ? "lg:flex-row-reverse" : ""}`}
     >
       <!-- Text Content -->
-      <div class={`flex-1 space-y-6 ${reversed ? "lg:pr-8" : "lg:pl-8"}`}>
-        <h2 class="text-3xl font-bold dark:text-slate-100">{title}</h2>
+      <div class={`flex-1 space-y-6 `}>
+        <h2 class="font-bold dark:text-slate-100">{title}</h2>
         {
           content ? (
             <div
-              class="prose prose-lg max-w-none text-gray-600 dark:text-slate-400"
+              class="prose prose-lg max-w-none text-gray-800 dark:text-slate-400"
               set:html={content}
             />
           ) : description ? (
@@ -50,7 +50,7 @@ const {
           ctaText && ctaLink && (
             <a
               href={ctaLink}
-              class="inline-flex items-center text-gray-600 transition-colors hover:text-red-600 dark:text-slate-300 dark:hover:text-sky-500"
+              class="inline-flex items-center rounded border border-gray-600 px-6 py-2 text-gray-800 transition-all duration-300 hover:bg-gray-200 hover:text-red-600 hover:underline dark:text-slate-300 dark:hover:text-sky-500"
             >
               <span>{ctaText}</span>
               <svg
@@ -72,7 +72,7 @@ const {
       </div>
 
       <!-- Image -->
-      <div class={`flex-1 space-y-6 ${reversed ? "lg:pr-8" : "lg:pl-8"}`}>
+      <div class={`flex-1 space-y-6 `}>
         {
           imageSrc ? (
             <Image

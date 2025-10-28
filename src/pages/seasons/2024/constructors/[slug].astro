@@ -43,7 +43,7 @@ drivers.forEach((driver) => {
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
   <head>
     <BaseHead
       title={`${team.data.constructorName} | ${SITE_TITLE}`}
@@ -63,7 +63,7 @@ drivers.forEach((driver) => {
         ]}
       />
       <!-- Team Profile Header -->
-      <section class="bg-gray-10z0 py-16">
+      <section class="bg-gray-100 py-16 dark:bg-slate-900">
         <div class="container mx-auto px-4">
           <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
             <div>
@@ -109,7 +109,7 @@ drivers.forEach((driver) => {
       </section>
 
       <!-- Team Drivers Section -->
-      <section class="bg-white py-12 dark:bg-slate-950">
+      <section class="bg-white py-12 dark:bg-slate-900">
         <div class="container mx-auto">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
             Team Drivers
@@ -133,7 +133,7 @@ drivers.forEach((driver) => {
       </section>
 
       <!-- Team Statistics -->
-      <section class="hidden bg-slate-100 py-12 dark:bg-slate-950">
+      <section class="hidden bg-slate-100 py-12 dark:bg-slate-900">
         <div class="container mx-auto">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
             2025 Season Statistics
@@ -185,7 +185,7 @@ drivers.forEach((driver) => {
       </section>
 
       <!-- Lifetime Statistics -->
-      <section class="hidden bg-slate-100 py-12 dark:bg-slate-950">
+      <section class="hidden bg-slate-100 py-12 dark:bg-slate-900">
         <div class="container mx-auto">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
             Lifetime Statistics
@@ -194,7 +194,7 @@ drivers.forEach((driver) => {
             <div class="-mx-2 flex flex-wrap">
               <div class="mb-6 w-1/2 px-2 md:w-1/4">
                 <StatCard
-                  value={team.data.careerStats?.championships}
+                  value={team.data.careerStats?.constructorChampionships}
                   label="Championships"
                 />
               </div>
@@ -290,7 +290,7 @@ drivers.forEach((driver) => {
               <div class="-mx-2 flex flex-wrap px-4">
                 <div class="mb-6 w-1/2 px-2 md:w-1/2">
                   <StatCard
-                    value={team.data.careerStats?.championships}
+                    value={team.data.careerStats?.constructorChampionships}
                     label="Championships"
                   />
                 </div>
@@ -319,7 +319,7 @@ drivers.forEach((driver) => {
       </section>
 
       <!-- Team Information -->
-      <section class="bg-gray-100 py-12 dark:bg-slate-950">
+      <section class="bg-gray-100 py-12 dark:bg-slate-900">
         <div class="container mx-auto">
           <div class="prose prose-lg dark:prose-invert max-w-none">
             <Content />

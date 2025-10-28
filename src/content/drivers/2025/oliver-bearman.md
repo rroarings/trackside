@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Oliver Bearman"
 profileImageLargeAlt: "Portrait of Oliver Bearman"
 driverLogo: ""
-driverPoints: 8
-championshipPosition: 19
+driverPoints: 20
+championshipPosition: 18
 championships: 0
 grandPrixWins: 0
 podiums: 0

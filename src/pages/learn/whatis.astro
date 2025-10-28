@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import GridSection from "../../components/GridSection.astro";
 import TwoColumnSection from "../../components/TwoColumnSection.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import cn02 from "../../assets/circuits/02china/cn02.jpg";
 import intro from "../../assets/section/racei1.jpg";
 import machinery from "../../assets/section/racei1.jpg";
@@ -53,7 +54,7 @@ const f1BasicsItems = [
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
   <head>
     <BaseHead title={pageTitle} description={description} />
   </head>
@@ -87,7 +88,7 @@ const f1BasicsItems = [
       </section>
 
       <!-- F1 Essentials Guide -->
-      <section class="bg-gray-100 py-16 dark:bg-slate-950">
+      <section class="bg-gray-100 py-16 dark:bg-slate-900">
         <div class="container mx-auto px-4">
           <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
@@ -193,7 +194,7 @@ const f1BasicsItems = [
       </section>
 
       <!-- Understanding F1 Section -->
-      <section id="understanding" class="bg-gray-100 py-16 dark:bg-slate-950">
+      <section id="understanding" class="bg-gray-100 py-16 dark:bg-slate-900">
         <GridSection
           title="Understanding the pinnacle of motorsports"
           items={f1BasicsItems}
@@ -201,7 +202,7 @@ const f1BasicsItems = [
       </section>
 
       <!-- Championships Section -->
-      <section id="championships" class="bg-gray-100 py-16 dark:bg-slate-950">
+      <section id="championships" class="bg-gray-100 py-16 dark:bg-slate-900">
         <div class="mx-auto max-w-7xl px-4">
           <h2 class="mb-4 text-center text-3xl font-bold dark:text-slate-100">
             Championships at stake
@@ -217,23 +218,15 @@ const f1BasicsItems = [
           <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
             <!-- Drivers' Championship Card -->
             <div
-              class="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-8 dark:border-0 dark:bg-slate-900"
+              class="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-8 dark:border-0 dark:bg-slate-800"
             >
               <div class="mb-6 flex flex-col items-center gap-3">
                 <div class="rounded-full bg-red-100 p-3 dark:bg-slate-300">
-                  <svg
-                    class="h-6 w-6 text-red-600 dark:text-slate-900"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                      d="M12 14l9-5-9-5-9 5 9 5z M12 14l9-5-9-5-9 5 9 5z M12 19l9-5-9-5-9 5 9 5z"
-                    ></path>
-                  </svg>
+                  <Icon
+                    name="mdi:racing-helmet"
+                    aria-hidden="true"
+                    class="accordion__chevron h-6 w-6 shrink-0 text-gray-800 transition-all duration-200 group-hover:text-blue-600"
+                  />
                 </div>
                 <h3
                   class="flex min-h-[4rem] items-center text-center text-2xl font-bold leading-tight dark:text-slate-100"
@@ -263,7 +256,7 @@ const f1BasicsItems = [
 
             <!-- Constructors' Championship Card -->
             <div
-              class="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-8 dark:border-0 dark:bg-slate-900"
+              class="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-8 dark:border-0 dark:bg-slate-800"
             >
               <div class="mb-6 flex flex-col items-center gap-3">
                 <div class="rounded-full bg-red-100 p-3 dark:bg-slate-300">

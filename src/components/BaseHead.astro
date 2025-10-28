@@ -46,6 +46,22 @@ const { title, description, image = FallbackImage } = Astro.props;
   crossorigin
 />
 
+<!-- Noto Sans variable TTFs (preload) -->
+<link
+  rel="preload"
+  href="/fonts/NotoSans-VariableFont_wdth,wght.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
+
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 

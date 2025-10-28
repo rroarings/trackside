@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Lewis Hamilton"
 profileImageLargeAlt: "Portrait of Lewis Hamilton"
 driverLogo: ""
-driverPoints: 109
+driverPoints: 142
 championshipPosition: 6
 championships: 7
 grandPrixWins: 0

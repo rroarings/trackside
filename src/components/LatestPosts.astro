@@ -9,7 +9,26 @@ const posts = (await getCollection("blog")).sort(
 const latestPosts = posts.slice(0, 3);
 ---
 
-<section class="bg-gray-100 py-12 dark:bg-gray-950">
+<style>
+  @reference "../styles/global.css";
+  @reference "tailwindcss";
+  h3 {
+    @apply m-0 text-xl tracking-tight dark:text-slate-200;
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      @apply text-2xl;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      @apply text-3xl;
+    }
+  }
+</style>
+<section class="bg-gray-100 py-12 dark:bg-gray-900">
   <div class="container mx-auto px-4">
     <header class="mb-6 flex items-center gap-3">
       <h2 class="text-2xl font-bold dark:text-slate-100">Recent Posts</h2>
@@ -18,25 +37,38 @@ const latestPosts = posts.slice(0, 3);
       {
         latestPosts.map((post) => (
           <li>
-            <article class="flex h-full flex-col rounded-xl bg-white/80 p-4 dark:bg-slate-900/70">
+            <article class="flex h-full flex-col rounded-xl p-4 dark:bg-slate-900/70">
               <a
                 href={`/blog/${post.id}/`}
                 aria-label={`Read post: ${post.data.title}`}
                 class="group block rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
               >
                 {post.data.heroImage && (
-                  <Image
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt={post.data.title}
-                    class="mb-4 rounded-lg transition group-hover:opacity-90"
-                  />
+                  <div class="mb-4 overflow-hidden rounded-lg">
+                    <Image
+                      width={720}
+                      height={360}
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class="h-40 w-full object-cover transition group-hover:opacity-90"
+                      loading="lazy"
+                    />
+                  </div>
                 )}
-                <h3 class="mt-2 text-lg font-semibold text-gray-900 group-hover:underline dark:text-slate-100">
+                <h3 class="text-gray-900 group-hover:underline dark:text-slate-100">
                   {post.data.title}
                 </h3>
               </a>
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="mt-2 flex flex-wrap gap-2">
+                  {post.data.tags.map((tag) => (
+                    <span class="rounded bg-slate-300 px-3 py-1 text-sm text-slate-800 dark:bg-slate-700 dark:text-slate-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <p class="date mt-2 text-sm text-gray-500 dark:text-slate-400">
                 <FormattedDate date={post.data.pubDate} />
               </p>

@@ -1,288 +1,301 @@
 ---
-import BaseHead from "../../../../components/BaseHead.astro"
-import Header from "../../../../components/Header.astro"
-import Footer from "../../../../components/Footer.astro"
-import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
-import StatCard from "../../../../components/StatCard.astro"
-import SeasonButtons from "../../../../components/SeasonButtons.astro"
-import FormattedDate from "../../../../components/FormattedDate.astro"
-import { SITE_TITLE } from "../../../../consts"
-import { getCollection } from "astro:content"
+import BaseHead from "../../../../components/BaseHead.astro";
+import Header from "../../../../components/Header.astro";
+import Footer from "../../../../components/Footer.astro";
+import BreakpointIndicator from "../../../../components/BreakpointIndicator.astro";
+import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
+import StatCard from "../../../../components/StatCard.astro";
+import SeasonButtons from "../../../../components/SeasonButtons.astro";
+import FormattedDate from "../../../../components/FormattedDate.astro";
+import { SITE_TITLE } from "../../../../consts";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const drivers = await getCollection("drivers", ({ data }) => data.season === "2025")
-	return drivers.map((driver) => {
-		const slug = driver.id.split("/").pop()
-		return {
-			params: { slug },
-			props: { driver },
-		}
-	})
+  const drivers = await getCollection(
+    "drivers",
+    ({ data }) => data.season === "2025",
+  );
+  return drivers.map((driver) => {
+    const slug = (driver as any).slug ?? driver.id.split("/").pop();
+    return {
+      params: { slug },
+      props: { driver },
+    };
+  });
 }
 
-const { driver } = Astro.props
+const { driver } = Astro.props;
 // Import the Content component separately
-import { render } from "astro:content"
-import { Image } from "astro:assets"
-const { Content } = await render(driver)
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+import { teamBgMap } from "../../../../utils/teamBgMap";
+const { Content } = await render(driver);
+// team background for driver's team
+const teamBg = teamBgMap[driver.data.driverTeam] || null;
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={`${driver.data.driverFirstName} ${driver.data.driverLastName} | ${SITE_TITLE}`}
-			description={`2025 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Home", href: "/" },
-					{ text: "2025 Season", href: "/seasons/2025/" },
-					{ text: "Drivers", href: "/seasons/2025/drivers" },
-					{
-						text: `${driver.data.driverFirstName} ${driver.data.driverLastName}`,
-					},
-				]}
-			/>
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
+  <head>
+    <BaseHead
+      title={`2025 ${driver.data.driverFirstName} ${driver.data.driverLastName} Driver Profile | ${SITE_TITLE}`}
+      description={`2025 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
+    />
+  </head>
+  <body>
+    <Header />
+    <BreakpointIndicator />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Seasons", href: "/seasons/" },
+          { text: "2025 Season", href: "/seasons/2025/" },
+          { text: "Drivers", href: "/seasons/2025/drivers" },
+          {
+            text: `${driver.data.driverFirstName} ${driver.data.driverLastName}`,
+          },
+        ]}
+      />
 
-			<!-- Driver Profile Header -->
-			<section class="hidden bg-gray-100 py-16 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-						<div>
-							<img
-								src={driver.data.profileImageLarge?.src ??
-									driver.data.profileImage?.src ??
-									"/blog-placeholder-1.jpg"}
-								alt={`${driver.data.driverFirstName} ${driver.data.driverLastName} Profile Image`}
-								class=""
-								loading="lazy"
-							/>
-						</div>
-						<div>
-							<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
-								{driver.data.driverFirstName}
-								<span class="">{driver.data.driverLastName}</span>
-							</h1>
-							<div class="space-y-3 text-lg">
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Number:</span>
-									<span class="dark:text-slate-400">#{driver.data.driverNumber}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Team:</span>
-									<span class="dark:text-slate-400">{driver.data.driverTeam}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Nationality:</span>
-									<span class="dark:text-slate-400">{driver.data.nationality}</span>
-								</div>
-								<div class="flex items-center">
-									<span class="w-32 dark:text-slate-400">Age:</span>
-									<span class="dark:text-slate-400">{driver.data.age}</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <!-- driver slug hero -->
+      <section
+        class="mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-950"
+      >
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <!-- Left: Driver Image with team background -->
+          <div
+            class="flex flex-1 overflow-hidden rounded-2xl"
+            style={teamBg
+              ? `background-image: url('${teamBg.src}'); background-size: cover;`
+              : ""}
+          >
+            <div class="flex flex-1 justify-end">
+              <Image
+                src={driver.data.profileImageLarge || driver.data.profileImage}
+                alt={driver.data.profileImageLargeAlt ||
+                  driver.data.profileImageAlt}
+                width={400}
+                height={400}
+                class="h-full object-contain"
+                loading="eager"
+              />
+            </div>
+          </div>
+          <!-- Right: Driver Info & Stats -->
+          <div>
+            <h1
+              class="mb-2 text-4xl font-bold text-gray-900 dark:text-slate-100"
+            >
+              {driver.data.driverFirstName}
+              {driver.data.driverLastName}
+            </h1>
+            <div class="mb-6 flex flex-wrap gap-4">
+              <span
+                class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
+              >
+                Team: {driver.data.driverTeam}
+              </span>
+              <span
+                class="inline-flex items-center rounded-full px-3 px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
+              >
+                <span
+                  class={`fi fi-${driver.data.countryCode} mr-2 border border-gray-100 rounded`}
+                  aria-hidden="true"></span>
+                {driver.data.nationality}
+              </span>
+              <span
+                class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
+              >
+                Age: {driver.data.age}
+              </span>
+              <span
+                class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
+              >
+                #{driver.data.driverNumber}
+              </span>
+            </div>
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
+              >
+                <div
+                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
+                >
+                  {driver.data.driverPoints}
+                </div>
+                <div class="text-base text-gray-500 dark:text-slate-400">
+                  Points
+                </div>
+              </div>
+              <div
+                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
+              >
+                <div
+                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
+                >
+                  {driver.data.podiums}
+                </div>
+                <div class="text-base text-gray-500 dark:text-slate-400">
+                  Podiums
+                </div>
+              </div>
+              <div
+                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
+              >
+                <div
+                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
+                >
+                  {driver.data.grandPrixWins}
+                </div>
+                <div class="text-base text-gray-500 dark:text-slate-400">
+                  Grand Prix Wins
+                </div>
+              </div>
+              <div
+                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
+              >
+                <div
+                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
+                >
+                  {driver.data.championships}
+                </div>
+                <div class="text-base text-gray-500 dark:text-slate-400">
+                  Driver Championships
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- driver slug hero test -->
-			<section class="mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-900">
-				<div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-					<!-- Left: Driver Image -->
-					<div class="flex">
-						<Image
-							src={driver.data.profileImageLarge || driver.data.profileImage}
-							alt={driver.data.profileImageLargeAlt || driver.data.profileImageAlt}
-							width={400}
-							height={400}
-							class="rounded-2xl border-4 border-gray-200 object-cover dark:border-slate-800"
-						/>
-					</div>
-					<!-- Right: Driver Info & Stats -->
-					<div>
-						<h1 class="mb-2 text-4xl font-bold text-gray-900 dark:text-slate-100">
-							{driver.data.driverFirstName}
-							{driver.data.driverLastName}
-						</h1>
-						<div class="mb-6 flex flex-wrap gap-4">
-							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-rose-700 dark:bg-slate-800 dark:text-slate-300">
-								{driver.data.driverTeam}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-gray-700 dark:bg-slate-800 dark:text-slate-300">
-								#{driver.data.driverNumber}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-blue-700 dark:bg-slate-800 dark:text-slate-300">
-								{driver.data.nationality}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-lg text-green-700 dark:bg-slate-800 dark:text-slate-300">
-								Age: {driver.data.age}
-							</span>
-						</div>
-						<!-- Stats Grid -->
-						<div class="grid grid-cols-2 gap-4">
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.driverPoints}
-								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Points</div>
-							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.podiums}
-								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Podiums</div>
-							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.grandPrixWins}
-								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Grand Prix Wins</div>
-							</div>
-							<div class="rounded-xl bg-gray-50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.championships}
-								</div>
-								<div class="text-sm text-gray-500 dark:text-slate-400">Driver Championships</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <!-- Two Column Statistics Section -->
+      <section class="bg-slate-100 p-8 py-12 dark:bg-gray-900">
+        <div class="container mx-auto">
+          <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
+            Driver Statistics
+          </h2>
+          <div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Team Statistics Column */}
+            <div class="p-6">
+              <h3
+                class="mb-4 text-center text-xl font-semibold dark:text-slate-100"
+              >
+                2025 Season
+              </h3>
+              <div class="-mx-2 flex flex-wrap">
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.championshipPosition}
+                    label="Championship Position"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.driverPoints}
+                    label="Driver Points"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.grandPrixWins}
+                    label="Grand Prix Wins"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.polePositions}
+                    label="Pole Positions"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.fastestLaps}
+                    label="Fastest Laps"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard value={driver.data.podiums} label="Podiums" />
+                </div>
+              </div>
+            </div>
+            {/* Lifetime Statistics Column */}
+            <div class="rounded bg-gray-200/50 p-6 dark:bg-gray-500/50">
+              <h3
+                class="mb-4 text-center text-xl font-semibold dark:text-slate-100"
+              >
+                Lifetime
+              </h3>
+              <div class="-mx-2 flex flex-wrap">
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.championships}
+                    label="Championships"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.careerPoints}
+                    label="Career Points"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.grandPrixWins}
+                    label="Grand Prix Wins"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.polePositions}
+                    label="Pole Positions"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.fastestLaps}
+                    label="Fastest Laps"
+                  />
+                </div>
+                <div class="mb-6 w-1/2 px-2 md:w-1/2">
+                  <StatCard
+                    value={driver.data.careerStats?.podiumPositions}
+                    label="Podiums"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- Two Column Statistics Section -->
-			<section class="bg-slate-100 p-8 py-12 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Driver Statistics</h2>
-					<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
-						{/* Team Statistics Column */}
-						<div>
-							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">
-								2025 Season Statistics
-							</h3>
-							<div class="-mx-2 flex flex-wrap">
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.championshipPosition}
-										label="Championship Position"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.driverPoints}
-										label="Driver Points"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.grandPrixWins}
-										label="Grand Prix Wins"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.polePositions}
-										label="Pole Positions"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.fastestLaps}
-										label="Fastest Laps"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.podiums}
-										label="Podiums"
-									/>
-								</div>
-							</div>
-						</div>
-						{/* Lifetime Statistics Column */}
-						<div>
-							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">
-								Lifetime Statistics
-							</h3>
-							<div class="-mx-2 flex flex-wrap">
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.championships}
-										label="Championships"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.careerPoints}
-										label="Career Points"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.grandPrixWins}
-										label="Grand Prix Wins"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.polePositions}
-										label="Pole Positions"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.fastestLaps}
-										label="Fastest Laps"
-									/>
-								</div>
-								<div class="mb-6 w-1/2 px-2 md:w-1/2">
-									<StatCard
-										value={driver.data.careerStats?.podiumPositions}
-										label="Podiums"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <!-- Driver Biography -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-900">
+        <div class="container mx-auto">
+          <div class="prose prose-lg dark:prose-invert max-w-fit">
+            <Content />
+          </div>
+        </div>
+      </section>
 
-			<!-- Driver Biography -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
-				<div class="container mx-auto">
-					<div class="prose prose-lg dark:prose-invert max-w-none">
-						<Content />
-					</div>
-				</div>
-			</section>
+      {/* Last Updated Section */}
+      <SeasonButtons season="2025" />
 
-			{/* Last Updated Section */}
-			<SeasonButtons season="2025" />
-
-			{/* Last Updated Section */}
-			<section class="pt-12 text-center">
-				<p class="text-sm text-gray-500 dark:text-slate-400">
-					{
-						driver.data.updatedDate && (
-							<>
-								Last updated: <FormattedDate date={new Date(driver.data.updatedDate)} />
-							</>
-						)
-					}
-				</p>
-			</section>
-		</main>
-		<Footer />
-	</body>
+      {/* Last Updated Section */}
+      <section class="pt-12 text-center">
+        <p class="text-gray-600 dark:text-slate-400">
+          {
+            driver.data.updatedDate && (
+              <>
+                Last updated:{" "}
+                <FormattedDate date={new Date(driver.data.updatedDate)} />
+              </>
+            )
+          }
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

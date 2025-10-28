@@ -9,7 +9,7 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-950">
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
   <head>
     <BaseHead title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
   </head>
@@ -74,44 +74,32 @@ import "../styles/global.css";
       </section>
 
       <!-- About & Mission Section -->
-      <section class="mb-12 px-6 md:px-16">
-        <h2
-          class="mb-4 flex items-center gap-2 text-2xl font-semibold text-gray-900 dark:text-slate-100"
-        >
-          👋 Welcome!
-        </h2>
-        <p class="mb-2 text-gray-700 dark:text-slate-400">
+      <section
+        class="prose prose-lg dark:prose-invert mb-12 max-w-fit px-6 md:px-16"
+      >
+        <h2 class="">👋 Welcome!</h2>
+        <p class="">
           Trackside is built for Formula 1 fans who want a clean, modern way to
           follow the season. Explore race calendars, team and driver stats, and
           more—all in one place.
         </p>
         <div>
-          <h3
-            class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200"
-          >
-            🚦 What is Trackside?
-          </h3>
-          <p class="mb-2 text-gray-700 dark:text-slate-400">
+          <h3 class="">🚦 What is Trackside?</h3>
+          <p class="">
             Trackside is your digital paddock: a place to check race schedules,
             explore team and driver stats, and discover stories from the world
             of Formula 1. My goal is to make following F1 easier, more fun, and
-            more interactive for everyone.
+            more engaging for everyone.
           </p>
         </div>
         <div>
-          <h3
-            class="mb-2 flex items-center gap-2 font-bold text-gray-800 dark:text-slate-200"
-          >
-            🛠️ How is it built?
-          </h3>
-          <p class="mb-2 text-gray-700 dark:text-slate-400">
+          <h3 class="">🛠️ How is it built?</h3>
+          <p class="">
             Trackside is built with Astro, Tailwind CSS, and a modern JavaScript
-            stack. The site is designed for speed, accessibility, and a great
-            experience on any device.
+            stack. The site is designed for speed, performance, optimization,
+            accessibility, and a great experience on any device.
           </p>
-          <p
-            class="mb-2 text-gray-700 hover:underline dark:text-slate-400 dark:hover:text-slate-200"
-          >
+          <p class="">
             <a href="https://github.com/rroarings/trackside"
               >Explore the project behind the scenes on GitHub.</a
             >
@@ -151,26 +139,24 @@ import "../styles/global.css";
           class="flex flex-col items-stretch justify-center gap-6 md:flex-row"
         >
           <div
-            class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950"
+            class="flex-1 rounded-lg bg-gray-50 p-6 text-center dark:bg-gray-700"
           >
             <div class="mb-2 text-3xl">🏁</div>
-            <div class="mb-1 text-lg font-bold dark:text-yellow-600">
+            <div class="mb-1 text-lg font-bold dark:text-gray-300">
               Favorite Track
             </div>
-            <div class="text-gray-700 dark:text-yellow-400">
+            <div class="text-gray-700 dark:text-gray-300">
               Silverstone Circuit
             </div>
           </div>
           <div
-            class="flex-1 rounded-lg bg-yellow-50 p-6 text-center dark:bg-yellow-950"
+            class="flex-1 rounded-lg bg-gray-50 p-6 text-center dark:bg-gray-700"
           >
             <div class="mb-2 text-3xl">🥇</div>
-            <div class="mb-1 text-lg font-bold dark:text-yellow-600">
+            <div class="mb-1 text-lg font-bold dark:text-gray-300">
               All-Time Favorite Driver
             </div>
-            <div class="text-gray-700 dark:text-yellow-400">
-              Fernando Alonso
-            </div>
+            <div class="text-gray-700 dark:text-gray-300">Fernando Alonso</div>
           </div>
         </div>
       </section>

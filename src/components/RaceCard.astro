@@ -45,17 +45,17 @@ const isPreviousRace =
 const getStatusLabel = () => {
   if (isNextRace) {
     return {
-      label: "Next Race",
+      label: "Next",
       class: "bg-red-500 text-white motion-safe:animate-pulse",
     };
   }
   if (isPreviousRace) {
-    return { label: "Previous Race", class: "bg-blue-500 text-white" };
+    return { label: "Previous", class: "bg-blue-500 text-white" };
   }
   if (race.data.raceCompleted) {
     return { label: "Completed", class: "bg-green-600 text-white" };
   }
-  return { label: "Upcoming", class: "bg-gray-500 text-white" };
+  return { label: "Upcoming", class: "bg-amber-500 text-white" };
 };
 
 const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
@@ -66,13 +66,13 @@ const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
     class:list={[
       "group h-full overflow-hidden rounded-lg border transition-shadow duration-200 hover:shadow-md",
       {
-        "border-red-200 bg-red-100/30 dark:border-red-600 dark:bg-red-900":
+        "border-red-200 bg-red-200/30 dark:border-red-600 dark:bg-red-900":
           isNextRace,
         "border-blue-200 bg-blue-100/30 dark:border-blue-600 dark:bg-blue-900":
           isPreviousRace,
         "border-green-200 bg-green-100/30 dark:border-green-600 dark:bg-green-900":
           race.data.raceCompleted && !isPreviousRace,
-        "border-gray-200 bg-gray-100/20 dark:border-slate-600 dark:bg-slate-900":
+        "border-amber-200 bg-amber-100/30 dark:border-amber-600 dark:bg-amber-900":
           !isNextRace && !isPreviousRace && !race.data.raceCompleted,
       },
     ]}
@@ -91,41 +91,44 @@ const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
       {
         statusLabel && (
           <span
-            class={`rounded-full px-3 py-1 text-xs font-medium transition-colors duration-200 ${statusLabelClass}`}
+            class={`rounded-full px-3 py-1 text-sm tracking-wide transition-colors duration-200 ${statusLabelClass}`}
           >
             {statusLabel}
           </span>
         )
       }
-      <span class="text-sm text-gray-500 dark:text-slate-300"
-        >Race #{race.data.raceNumber}</span
+      <span class="text-sm text-gray-700 dark:text-slate-200"
+        >Round {race.data.raceNumber}</span
       >
     </div>
 
     <div class="p-6 pt-2">
-      <h4 class="mb-1 text-sm dark:text-slate-300">
+      <h4 class="mb-1 dark:text-slate-100">
         {race.data.trackCountry}
       </h4>
       <p
-        class="mb-2 uppercase text-gray-600 group-hover:underline dark:text-slate-100"
+        class="mb-2 text-sm uppercase group-hover:underline dark:text-slate-100"
       >
         {race.data.raceName}
       </p>
 
-      <div
-        class="mb-3 flex items-center justify-between text-sm text-gray-600 dark:text-slate-300"
+      <dl
+        class="mb-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm dark:text-slate-200"
       >
-        <span>Date:</span>
-        <span><FormattedDate date={race.data.raceDate} /></span>
-      </div>
-      {
-        race.data.raceCompleted && (
-          <div class="mt-2 flex items-center justify-between text-sm text-gray-600 dark:text-slate-300">
-            <span>Winner:</span>
-            <span>{race.data.winningDriver}</span>
-          </div>
-        )
-      }
+        <dt class="font-medium">Date:</dt>
+        <dd><FormattedDate date={race.data.raceDate} /></dd>
+
+        {
+          race.data.raceCompleted && (
+            <>
+              <dt class="">Winner:</dt>
+              <dd class="">
+                <span>{race.data.winningDriver}</span>
+              </dd>
+            </>
+          )
+        }
+      </dl>
     </div>
   </div>
 </a>

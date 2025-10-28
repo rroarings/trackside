@@ -61,7 +61,7 @@ const nextUpcomingRace = sortedRaces.find(
 );
 ---
 
-<div class={`bg-gray-100 dark:bg-slate-950 rounded ${customClass}`}>
+<div class={`bg-gray-100 dark:bg-slate-900 rounded ${customClass}`}>
   {
     showTitle && (
       <div class="mb-6 flex items-center justify-end">
@@ -81,10 +81,7 @@ const nextUpcomingRace = sortedRaces.find(
       </div>
     )
   }
-
-  <div
-    class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-4"
-  >
+  <div class="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-4">
     {
       racesToDisplay.map((race, index) => (
         <RaceCard

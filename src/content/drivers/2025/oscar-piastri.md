@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Oscar Piastri"
 profileImageLargeAlt: "Portrait of Oscar Piastri"
 driverLogo: ""
-driverPoints: 284
+driverPoints: 346
 championshipPosition: 1
 championships: 0
 grandPrixWins: 6
@@ -38,8 +38,8 @@ Oscar Piastri is setting the Formula 1 grid alight in 2025, leading the Drivers�
 
 ## Biography
 
-From his karting days in Melbourne to his rapid rise through Formula 2, Piastri’s journey is one of quiet determination and undeniable talent. Off the track, his dry humor and laid-back Aussie charm have won over fans worldwide. Whether he’s battling Max Verstappen or navigating high-pressure races, Piastri’s 2025 season is a thrilling ride, and *Trackside* is your front-row seat to follow every lap!
+From his karting days in Melbourne to his rapid rise through Formula 2, Piastri’s journey is one of quiet determination and undeniable talent. Off the track, his dry humor and laid-back Aussie charm have won over fans worldwide. Whether he’s battling Max Verstappen or navigating high-pressure races, Piastri’s 2025 season is a thrilling ride, and _Trackside_ is your front-row seat to follow every lap!
 
 ## Join the F1 Fandom
 
-What’s your take on Oscar Piastri’s championship charge in 2025? Can he hold off Verstappen and clinch his first title? Share your thoughts in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with *Trackside*’s race recaps and calendar!
+What’s your take on Oscar Piastri’s championship charge in 2025? Can he hold off Verstappen and clinch his first title? Share your thoughts in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with _Trackside_’s race recaps and calendar!

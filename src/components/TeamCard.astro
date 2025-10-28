@@ -39,7 +39,7 @@ const resolvedYear = year ?? team.data.season ?? "2025";
             <span class="group-hover:underline">
               {team.data.constructorName}
             </span>
-            <span class="text-2xl font-semibold">
+            <span class="rounded px-4 py-2 text-2xl font-semibold">
               {team.data.constructorPoints}
               <span class="text-base font-normal">pts</span>
             </span>
@@ -54,14 +54,14 @@ const resolvedYear = year ?? team.data.season ?? "2025";
                 let driverInfo = driverMap.get(driverName);
                 return (
                   <div class="mb-1 flex items-center gap-2">
-                    <div class="flex size-6 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-gray-50/30 bg-gray-300/20">
+                    <div class="flex size-8 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-gray-50/30 bg-gray-300/20 lg:size-10">
                       {driverInfo ? (
                         <Image
                           src={driverInfo.profileImage}
                           alt={driverName}
                           class="object-cover"
-                          width={32}
-                          height={32}
+                          width={96}
+                          height={96}
                           loading={teamIndex < eagerCount ? "eager" : "lazy"}
                         />
                       ) : (

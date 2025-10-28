@@ -6,9 +6,9 @@ interface Props {
 const { season } = Astro.props;
 ---
 
-<section class="bg-gray-100 py-12 dark:bg-slate-950">
+<section class="bg-gray-100 py-12 dark:bg-slate-900">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-2">
       {/* Drivers Card */}
       <a href={`/seasons/${season}/drivers`} class="group block h-full">
         <div
@@ -43,7 +43,7 @@ const { season } = Astro.props;
         </div>
       </a>
 
-      {/* Constructors Card */}
+      {/* Races Card */}
       <a href={`/seasons/${season}/constructors`} class="group block h-full">
         <div
           class="h-full rounded-lg border border-gray-200 p-6 dark:border-slate-700"
@@ -53,6 +53,43 @@ const { season } = Astro.props;
               class="text-2xl font-bold transition-colors duration-300 dark:text-slate-100"
             >
               Constructors
+            </h3>
+            <span
+              class="text-gray-500 transition-colors duration-300 dark:text-slate-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="h-6 w-6 transition-colors duration-300 xl:size-8"
+                ><path
+                  fill="currentColor"
+                  d="M6 19v1q0 .425-.288.713T5 21H4q-.425 0-.712-.288T3 20v-8l2.1-6q.15-.45.538-.725T6.5 5h11q.475 0 .863.275T18.9 6l2.1 6v8q0 .425-.287.713T20 21h-1q-.425 0-.712-.288T18 20v-1zm-.2-9h12.4l-1.05-3H6.85zM5 12v5zm2.5 4q.625 0 1.063-.437T9 14.5t-.437-1.062T7.5 13t-1.062.438T6 14.5t.438 1.063T7.5 16m9 0q.625 0 1.063-.437T18 14.5t-.437-1.062T16.5 13t-1.062.438T15 14.5t.438 1.063T16.5 16M5 17h14v-5H5z"
+                ></path></svg
+              ></span
+            >
+          </div>
+          <p class="text-gray-600 dark:text-slate-400">
+            Discover the {season} Formula 1 constructor teams, their cars, and current
+            standings. Learn about team principals, engines, and technical developments.
+          </p>
+        </div>
+      </a>
+
+      {/* Races Card */}
+      <a
+        href={`/seasons/${season}/races`}
+        class="group block h-full md:col-span-2 md:row-start-2"
+      >
+        <div
+          class="h-full rounded-lg border border-gray-200 p-6 dark:border-slate-700"
+        >
+          <div class="mb-4 flex items-center justify-between">
+            <h3
+              class="text-2xl font-bold transition-colors duration-300 dark:text-slate-100"
+            >
+              Races
             </h3>
             <span
               class="text-gray-500 transition-colors duration-300 dark:text-slate-400"

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { teamBgMap } from "../utils/teamBgMap";
 import RaceCard from "./RaceCard.astro";
 import StandingsCard from "./StandingsCard.astro";
 import TeamStandingsCards from "./TeamStandingsCards.astro";
@@ -90,7 +91,7 @@ const lastRaceTabId = `last-race-tab-${season}`;
   }
 
   <!-- Tabs -->
-  <div class="flex border-b border-gray-200">
+  <div class="flex">
     <label
       for={driversTabId}
       class="tab-button drivers-label cursor-pointer px-6 py-3 dark:text-slate-200"
