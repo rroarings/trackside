@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Yuki Tsunoda"
 profileImageLargeAlt: "Portrait of Yuki Tsunoda"
 driverLogo: ""
 driverPoints: 28
-championshipPosition: 16
+championshipPosition: 17
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 1
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
