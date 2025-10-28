@@ -49,6 +49,7 @@ const constructors = defineCollection({
           sprintPodiums: z.number().optional(),
           sprintPoints: z.number().optional(),
           sprintPolePositions: z.number().optional(),
+          
         })
         .optional(),
       dnf: z.number().default(0).optional(),
@@ -56,10 +57,12 @@ const constructors = defineCollection({
       engineSupplier: z.string(),
       fastestLaps: z.number().default(0).optional(),
       grandPrixWins: z.number().default(0).optional(),
+      grandPrixPoints: z.number().default(0).optional(),
       heroImage: image().optional(),
       podiumPositions: z.number().default(0).optional(),
       polePositions: z.number().default(0).optional(),
       pubDate: z.coerce.date(),
+      racesEntered: z.number().default(0).optional(),
       season: z.enum(["2024", "2025"]),
       sprintPodiums: z.number().default(0).optional(),
       sprintPoints: z.number().default(0).optional(),
