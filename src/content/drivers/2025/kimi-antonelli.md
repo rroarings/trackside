@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Kimi Antonelli"
 profileImageLargeAlt: "Portrait of Kimi Antonelli"
 driverLogo: ""
-driverPoints: 89
+driverPoints: 97
 championshipPosition: 7
 championships: 0
 grandPrixWins: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 2
   podiumPositions: 1
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
