@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Esteban Ocon"
 profileImageLargeAlt: "Portrait of Esteban Ocon"
 driverLogo: ""
-driverPoints: 28
-championshipPosition: 15
+driverPoints: 30
+championshipPosition: 16
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 1
   podiumPositions: 4
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
