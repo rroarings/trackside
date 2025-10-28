@@ -1,188 +1,191 @@
 ---
-import BaseHead from "../components/BaseHead.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import RaceCalendar from "../components/RaceCalendar.astro"
-import TwoColumnSection from "../components/TwoColumnSection.astro"
-import Standings from "../components/Standings.astro"
-import LatestPosts from "../components/LatestPosts.astro"
-import FeaturesGrid from "../components/FeaturesGrid.astro"
-import BreakpointIndicator from "../components/BreakpointIndicator.astro"
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
-import race01 from "../assets/section/racei3.jpg"
-import raceseqWebm from "../assets/videos/raceseq.webm"
-import raceseqMp4 from "../assets/videos/raceseq.mp4"
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import RaceCalendar from "../components/RaceCalendar.astro";
+import TwoColumnSection from "../components/TwoColumnSection.astro";
+import Standings from "../components/Standings.astro";
+import LatestPosts from "../components/LatestPosts.astro";
+import FeaturesGrid from "../components/FeaturesGrid.astro";
+import BreakpointIndicator from "../components/BreakpointIndicator.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import race01 from "../assets/section/racei3.jpg";
+import raceseqWebm from "../assets/videos/raceseq.webm";
+import raceseqMp4 from "../assets/videos/raceseq.mp4";
 
 const features = [
-	{
-		title: "Driver Profiles",
-		description:
-			"Explore in-depth profiles of the drivers competing in the FORMULA 1™ championship.",
-		icon: "mdi:account-search",
-	},
-	{
-		title: "Constructor Profiles",
-		description: "Discover the constructors shaping the FORMULA 1™ grid in the recent seasons.",
-		icon: "mdi:train-car-autorack",
-	},
-	{
-		title: "Championship Standings",
-		description:
-			"Follow the latest driver and constructor standings as the FORMULA 1™ season unfolds.",
-		icon: "mdi:format-list-numbered",
-	},
-	{
-		title: "Race Highlights",
-		description: "Relive key moments and pivotal decisions from recent FORMULA 1™ races.",
-		icon: "mdi:timer",
-	},
-	{
-		title: "Season Breakdowns",
-		description:
-			"Analyze team and driver performances across the FORMULA 1™ season with insights and reviews.",
-		icon: "mdi:library-video",
-	},
-	{
-		title: "F1 Technologies",
-		description:
-			"Trackside covers the cutting-edge technology driving Formula 1's rapid evolution.",
-		icon: "mdi:hammer-wrench",
-	},
-	{
-		title: "Past Season Archive",
-		description:
-			"Travel through the rich history of F1 with a look at the 2023, 2024 and 2025 seasons.",
-		icon: "mdi:box-outline",
-	},
-	{
-		title: "Fan Community",
-		description: "Trackside celebrates the passion and excitement of Formula 1 culture.",
-		icon: "mdi:account-group",
-	},
-]
+  {
+    title: "Driver Profiles",
+    description:
+      "Explore in-depth profiles of the drivers competing in the FORMULA 1™ championship.",
+    icon: "mdi:account-search",
+  },
+  {
+    title: "Constructor Profiles",
+    description:
+      "Discover the constructors shaping the FORMULA 1™ grid in the recent seasons.",
+    icon: "mdi:train-car-autorack",
+  },
+  {
+    title: "Championship Standings",
+    description:
+      "Follow the latest driver and constructor standings as the FORMULA 1™ season unfolds.",
+    icon: "mdi:format-list-numbered",
+  },
+  {
+    title: "Race Highlights",
+    description:
+      "Relive key moments and pivotal decisions from recent FORMULA 1™ races.",
+    icon: "mdi:timer",
+  },
+  {
+    title: "Season Breakdowns",
+    description:
+      "Analyze team and driver performances across the FORMULA 1™ season with insights and reviews.",
+    icon: "mdi:library-video",
+  },
+  {
+    title: "F1 Technologies",
+    description:
+      "Trackside covers the cutting-edge technology driving Formula 1's rapid evolution.",
+    icon: "mdi:hammer-wrench",
+  },
+  {
+    title: "Past Season Archive",
+    description:
+      "Travel through the rich history of F1 with a look at the 2023, 2024 and 2025 seasons.",
+    icon: "mdi:box-outline",
+  },
+  {
+    title: "Fan Community",
+    description:
+      "Trackside celebrates the passion and excitement of Formula 1 culture.",
+    icon: "mdi:account-group",
+  },
+];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-gray-100 dark:bg-slate-950">
-	<head>
-		<BaseHead
-			title={SITE_TITLE}
-			description={SITE_DESCRIPTION}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main class="bg-gray-100 dark:bg-slate-950">
-      <BreakpointIndicator/>
-			<!-- Hero Section -->
-			<section class="bg-gray-100 pb-10 dark:bg-slate-950">
-				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-					<div class="text-center">
-						<h1
-							class="mx-auto mb-4 max-w-4xl text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight dark:text-slate-100">
-							Your Trackside View of Formula 1
-						</h1>
-						<p class="font-inter mx-auto max-w-2xl px-6 text-lg text-gray-800 dark:text-slate-300">
-							Experience F1 through a fan's perspective. Get the latest race insights, driver
-							profiles, and in-depth analysis of the world's most exciting motorsport.
-						</p>
-						<div
-							class="mt-9 flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-5 sm:space-y-0">
-							<!-- Primary Button -->
-							<a
-								href="/seasons/2025"
-								class="inline-flex items-center justify-center rounded-xl border-2 border-transparent bg-rose-600 px-8 py-3 text-lg text-white shadow-lg transition-all duration-300 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 dark:bg-rose-500 dark:hover:bg-rose-700 dark:focus:ring-rose-500"
-								role="button">
-								View 2025 Season
-							</a>
-							<!-- Secondary Button -->
-							<a
-								href="/blog"
-								class="inline-flex items-center justify-center rounded-xl border-2 border-rose-600 bg-none px-8 py-3 text-lg text-rose-700 transition-all duration-300 hover:bg-rose-200 hover:text-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 dark:border-rose-400 dark:bg-slate-900 dark:text-rose-300 dark:hover:bg-slate-800 dark:hover:text-rose-200"
-								role="button">
-								Read F1 Insights
-							</a>
-						</div>
-					</div>
-				</div>
+<html lang="en" class="bg-gray-100 dark:bg-slate-900">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <BreakpointIndicator />
+    <main class="bg-gray-100 dark:bg-slate-900">
+      <!-- Hero Section -->
+      <section class="bg-gray-100 pb-10 dark:bg-slate-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h1
+              class="mx-auto mb-4 max-w-4xl text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight dark:text-slate-100"
+            >
+              Your Trackside View of Formula 1
+            </h1>
+            <p
+              class="font-inter mx-auto max-w-2xl px-6 text-lg text-gray-800 dark:text-slate-300"
+            >
+              Experience F1 through a fan's perspective. Get the latest race
+              insights, driver profiles, and in-depth analysis of the world's
+              most exciting motorsport.
+            </p>
+            <div
+              class="mt-9 flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-5 sm:space-y-0"
+            >
+              <!-- Primary Button -->
+              <a
+                href="/seasons/2025"
+                class="inline-flex items-center justify-center rounded-xl border-2 border-transparent bg-rose-600 px-8 py-3 text-lg text-white shadow-lg transition-all duration-300 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 dark:bg-rose-500 dark:hover:bg-rose-700 dark:focus:ring-rose-500"
+                role="button"
+              >
+                View 2025 Season
+              </a>
+              <!-- Secondary Button -->
+              <a
+                href="/blog"
+                class="inline-flex items-center justify-center rounded-xl border-2 border-rose-600 bg-none px-8 py-3 text-lg text-rose-700 transition-all duration-300 hover:bg-rose-200 hover:text-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 dark:border-rose-400 dark:bg-slate-900 dark:text-rose-300 dark:hover:bg-slate-800 dark:hover:text-rose-200"
+                role="button"
+              >
+                Read F1 Insights
+              </a>
+            </div>
+          </div>
+        </div>
 
-				{/* Hero video */}
-				<div>
-					<div class="relative mx-auto mt-4 overflow-hidden md:mt-8">
-						<div class="rounded-xl shadow-lg lg:mx-auto lg:max-w-7xl">
-							<video
-								class="h-full w-full rounded-xl object-cover"
-								autoplay
-								muted
-								loop
-								playsinline>
-								<source
-									src={raceseqWebm}
-									type="video/webm"
-								/>
-								<source
-									src={raceseqMp4}
-									type="video/mp4"
-								/>
-								Your browser does not support the video tag.
-							</video>
-						</div>
-					</div>
-				</div>
-			</section>
+        {/* Hero video */}
+        <div>
+          <div class="relative mx-auto mt-4 overflow-hidden md:mt-8">
+            <div class="rounded-xl shadow-lg lg:mx-auto lg:max-w-7xl">
+              <video
+                class="h-full w-full rounded-xl object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source src={raceseqWebm} type="video/webm" />
+                <source src={raceseqMp4} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- 2025 Highlights Section -->
-			<TwoColumnSection
-				title="2025 Highlights"
-				content="Dive into the most exciting moments of the 2025 Formula 1 season. Explore race highlights, dramatic overtakes, and pivotal decisions that shaped the championship. Watch exclusive clips and read in-depth breakdowns of key races and driver performances."
-				ctaText="Explore 2025 Clips & Breakdowns"
-				ctaLink="/seasons/2025"
-				background="gray"
-				imageSrc={race01}
-				imageAlt="F1 Technology"
-				imageLoading="eager"
-			/>
+      <!-- 2025 Highlights Section -->
+      <TwoColumnSection
+        title="2025 Highlights"
+        content="Dive into the most exciting moments of the 2025 Formula 1 season. Explore race highlights, dramatic overtakes, and pivotal decisions that shaped the championship. Watch exclusive clips and read in-depth breakdowns of key races and driver performances."
+        ctaText="Explore 2025 Clips & Breakdowns"
+        ctaLink="/seasons/2025"
+        background="gray"
+        imageSrc={race01}
+        imageAlt="F1 Technology"
+        imageLoading="eager"
+      />
 
-			<!-- Features Grid Section -->
-			<FeaturesGrid
-				title="What Trackside is about"
-				features={features}
-				columns={2}
-			/>
+      <!-- Features Grid Section -->
+      <FeaturesGrid
+        title="What Trackside is about"
+        features={features}
+        columns={2}
+      />
 
-			<!-- Standings Section -->
-			<section class="bg-gray-100 py-16 dark:bg-slate-950">
-				<div class="container mx-auto px-4">
-					<h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
-						2025 Championship Standings
-					</h2>
-					<Standings season="2025" />
-				</div>
-			</section>
+      <!-- Standings Section -->
+      <section class="bg-gray-100 py-16 dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+          <h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
+            2025 Championship Standings
+          </h2>
+          <Standings season="2025" />
+        </div>
+      </section>
 
-			<!-- Race Spotlight Section -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-950">
-				<div class="container mx-auto px-4">
-					<header class="mb-12 text-center">
-						<h2 class="text-3xl font-bold dark:text-slate-100">Race Spotlight</h2>
-						<p class="mt-2 text-lg text-gray-600 dark:text-slate-400">
-							A look at the previous, next, and upcoming races on the 2025 calendar.
-						</p>
-					</header>
-					<RaceCalendar
-						season="2025"
-						showAllRaces={false}
-						showTitle={true}
-						eagerCount={0}
-					/>
-				</div>
-			</section>
+      <!-- Race Spotlight Section -->
+      <section class="bg-gray-100 py-12 dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+          <header class="mb-12 text-center">
+            <h2 class="text-3xl font-bold dark:text-slate-100">
+              Race Spotlight
+            </h2>
+            <p class="mt-2 text-lg text-gray-600 dark:text-slate-400">
+              A look at the previous, next, and upcoming races on the 2025
+              calendar.
+            </p>
+          </header>
+          <RaceCalendar
+            season="2025"
+            showAllRaces={false}
+            showTitle={true}
+            eagerCount={0}
+          />
+        </div>
+      </section>
 
-			<!-- New Blog Component -->
-			<LatestPosts />
-		</main>
-		<Footer />
-	</body>
+      <!-- New Blog Component -->
+      <LatestPosts />
+    </main>
+    <Footer />
+  </body>
 </html>
