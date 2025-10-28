@@ -1,38 +1,55 @@
 ---
-constructorName: "Kick Sauber"
-carModel: "C45"
-season: "2025"
-teamDrivers: ["Nico Hulkenberg", "Gabriel Bortoleto"]
-teamPrincipal: "Jonathan Wheatley"
-engineSupplier: "Ferrari"
-constructorPoints: 41
-championshipPosition: 6
-championships: 0
-teamLogo: ""
 carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
 carImageAlt: "Kick Sauber 2025 Constructor car"
+carImageLarge: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
 carImageLargeAlt: "Kick Sauber 2025 Constructor car"
-pubDate: "July 17, 2025"
-description: "Kick Sauber team description"
-# Career stats (all-time)
+carModel: "C45"
 careerStats:
-  championships: 6
-  grandPrixWins: 124
-  polePositions: 107
-  podiumPositions: 223
+  firstEntry: 1993
+  racesEntered: 611
+  driverChampionships: 0
+  constructorChampionships: 0
+  grandPrixWins: 1
+  podiumPositions: 27
+  careerPoints: 1078
+  polePositions: 1
+  fastestLaps: 0
+championshipPosition: 9
+constructorName: "Kick Sauber"
+constructorPoints: 60
+dnf: 4
+description: "Kick Sauber team description"
+engineSupplier: "Ferrari"
+fastestLaps: 0
+grandPrixWins: 0
+grandPrixPoints: 60
+heroImage: ""
+podiumPositions: 1
+polePositions: 0
+pubDate: "July 17, 2025"
+racesEntered: 20
+season: "2025"
+sprintPodiums: 0
+sprintPoints: 0
+sprintPolePositions: 0
+sprintWins: 0
+teamDrivers: ["Nico Hulkenberg", "Gabriel Bortoleto"]
+teamLogo: ""
+teamPrincipal: "Jonathan Wheatley"
+updatedDate: "October 28, 2025"
 ---
 
-# Kick Sauber
+# The Swiss outfit Kick Sauber enters its transitional 2025 season with renewed ambition
 
-The historic British team McLaren has returned to competitiveness in recent years, with their young driver pairing showing great promise for the future.
+The Swiss outfit Kick Sauber enters its transitional 2025 season with renewed ambition, blending veteran experience with raw rookie talent as it gears up for its Audi factory evolution in 2026. With Nico Hülkenberg providing seasoned leadership and Gabriel Bortoleto injecting youthful flair, the team has shown flashes of midfield promise amid ongoing development challenges.
 
 ## Team Information
 
-- **Founded**: 1966
-- **Base**: Woking, United Kingdom
-- **Championships**: 8 Constructors', 12 Drivers'
-- **Engine**: Mercedes
+**Founded:** 1970  
+**Base:** Hinwil, Switzerland  
+**Championships:** 0 Constructors’, 0 Drivers’  
+**Engine:** Ferrari  
 
 ## Current Form
 
-McLaren has made significant progress in recent seasons, with both Lando Norris and Oscar Piastri delivering strong performances and the team fighting for podiums regularly.
+Kick Sauber has marked a step up from its dismal 2024 campaign, amassing points in the double digits through consistent qualifying showings and opportunistic race results. Hülkenberg's maiden podium at the British Grand Prix highlighted the team's potential, while Bortoleto's standout P7 qualifying in Hungary and gritty P10 recovery in Mexico underscore their growing synergy. Despite reliability setbacks, like Hülkenberg's power unit woes in Mexico, the squad sits **9th** in the Constructors' Championship with **60 points** after 20 rounds, eyeing a finish before the Audi handover.

@@ -13,12 +13,12 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of George Russell"
 profileImageLargeAlt: "Portrait of George Russell"
 driverLogo: ""
-driverPoints: 252
+driverPoints: 258
 championshipPosition: 4
 championships: 0
 grandPrixWins: 1
 podiums: 6
-polePositions: 1
+polePositions: 2
 fastestLaps: 1
 careerStats:
   championships: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 10
   podiumPositions: 21
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 

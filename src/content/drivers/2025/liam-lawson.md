@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Liam Lawson"
 profileImageLargeAlt: "Portrait of Liam Lawson"
 driverLogo: ""
 driverPoints: 30
-championshipPosition: 14
+championshipPosition: 15
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "August 12, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 

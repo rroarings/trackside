@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Pierre Gasly"
 profileImageLargeAlt: "Portrait of Pierre Gasly"
 driverLogo: ""
 driverPoints: 20
-championshipPosition: 17
+championshipPosition: 18
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 3
   podiumPositions: 5
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 

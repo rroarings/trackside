@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Oliver Bearman"
 profileImageLargeAlt: "Portrait of Oliver Bearman"
 driverLogo: ""
-driverPoints: 20
-championshipPosition: 18
+driverPoints: 32
+championshipPosition: 13
 championships: 0
 grandPrixWins: 0
 podiums: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 

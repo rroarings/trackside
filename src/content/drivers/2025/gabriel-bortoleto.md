@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Gabriel Bortoleto"
 profileImageLargeAlt: "Portrait of Gabriel Bortoleto"
 driverLogo: ""
-driverPoints: 18
+driverPoints: 19
 championshipPosition: 19
 championships: 0
 grandPrixWins: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 

@@ -1,350 +1,277 @@
 ---
-import BaseHead from "../../../../components/BaseHead.astro";
-import Header from "../../../../components/Header.astro";
-import Footer from "../../../../components/Footer.astro";
-import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
-import SeasonButtons from "../../../../components/SeasonButtons.astro";
-import StatCard from "../../../../components/StatCard.astro";
-import DriverCard from "../../../../components/DriverCard.astro";
-import FormattedDate from "../../../../components/FormattedDate.astro";
-import { SITE_TITLE } from "../../../../consts";
-import { getCollection } from "astro:content";
+import BaseHead from "../../../../components/BaseHead.astro"
+import Header from "../../../../components/Header.astro"
+import Footer from "../../../../components/Footer.astro"
+import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
+import SeasonButtons from "../../../../components/SeasonButtons.astro"
+import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.astro"
+import StatCard from "../../../../components/StatCard.astro"
+import DriverCard from "../../../../components/DriverCard.astro"
+import FormattedDate from "../../../../components/FormattedDate.astro"
+import { SITE_TITLE } from "../../../../consts"
+import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
-  const teams = await getCollection(
-    "constructors",
-    ({ data }) => data.season === "2025",
-  );
-  return teams.map((team) => {
-    const slug = team.id.split("/").pop();
-    return {
-      params: { slug },
-      props: { team },
-    };
-  });
+	const teams = await getCollection("constructors", ({ data }) => data.season === "2025")
+	return teams.map((team) => {
+		const slug = team.id.split("/").pop()
+		return {
+			params: { slug },
+			props: { team },
+		}
+	})
 }
 
-const { team } = Astro.props;
+const { team } = Astro.props
 // Import the Content component separately
-import { render } from "astro:content";
-import { Image } from "astro:assets";
-import { teamBgMap } from "../../../../utils/teamBgMap";
-import BreakpointIndicator from "../../../../components/BreakpointIndicator.astro";
-const { Content } = await render(team);
+import { render } from "astro:content"
+import { Image } from "astro:assets"
+import { teamBgMap } from "../../../../utils/teamBgMap"
+import BreakpointIndicator from "../../../../components/BreakpointIndicator.astro"
+const { Content } = await render(team)
 
 // Get all drivers for 2025 season
-const drivers = await getCollection(
-  "drivers",
-  ({ data }) => data.season === "2025",
-);
+const drivers = await getCollection("drivers", ({ data }) => data.season === "2025")
 // Map drivers by full name for easy lookup
-const driverMap = new Map();
+const driverMap = new Map()
 drivers.forEach((driver) => {
-  const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`;
-  driverMap.set(fullName, driver);
-});
+	const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`
+	driverMap.set(fullName, driver)
+})
 // team background image (optional)
-const teamBg = teamBgMap[team.data.constructorName] || null;
+const teamBg = teamBgMap[team.data.constructorName] || null
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-900">
-  <head>
-    <BaseHead
-      title={`2025 ${team.data.constructorName} Team Profile | ${SITE_TITLE}`}
-      description={`2025 F1 team profile for ${team.data.constructorName} with their ${team.data.carModel} car`}
-    />
-  </head>
-  <body>
-    <Header />
-    <BreakpointIndicator />
-    <main>
-      <Breadcrumbs
-        items={[
-          { text: "Home", href: "/" },
-          { text: "Seasons", href: "/seasons/" },
-          { text: "2025 Season", href: "/seasons/2025/" },
-          { text: "Constructors", href: "/seasons/2025/constructors" },
-          { text: `${team.data.constructorName}` },
-        ]}
-      />
-      <!-- Team Profile Header -->
-      <section
-        class="mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-950"
-      >
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <!-- Left: Car Image -->
-          <div
-            class="flex flex-1 overflow-hidden rounded-2xl"
-            style={teamBg
-              ? `background-image: url('${teamBg.src}'); background-size: cover;`
-              : ""}
-          >
-            <div class="flex flex-1 p-6">
-              <Image
-                src={team.data.carImageLarge || team.data.carImage}
-                alt={team.data.carImageLargeAlt || team.data.carImageAlt}
-                width={600}
-                height={600}
-                class="h-full w-full object-contain"
-                loading="eager"
-              />
-            </div>
-          </div>
-          <!-- Right: Driver Info & Stats -->
-          <div class="">
-            <h1
-              class="mb-2 text-4xl font-bold text-gray-900 dark:text-slate-100"
-            >
-              {team.data.constructorName}
-            </h1>
-            <div class="mb-6 flex flex-wrap gap-4">
-              <span
-                class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
-              >
-                Car: {team.data.carModel}
-              </span>
-              <span
-                class="inline-flex items-center rounded-full px-3 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
-              >
-                Engine: {team.data.engineSupplier}
-              </span>
-              <span
-                class="inline-flex items-center rounded-full px-3 py-1 text-lg dark:bg-slate-800 dark:text-slate-300"
-              >
-                Principal: {team.data.teamPrincipal}
-              </span>
-            </div>
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 gap-4">
-              <div
-                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
-              >
-                <div
-                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
-                >
-                  {team.data.constructorPoints}
-                </div>
-                <div class="text-base text-gray-500 dark:text-slate-400">
-                  Points
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
-              >
-                <div
-                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
-                >
-                  {team.data.podiumPositions}
-                </div>
-                <div class="text-base text-gray-500 dark:text-slate-400">
-                  Podiums
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
-              >
-                <div
-                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
-                >
-                  {team.data.grandPrixWins}
-                </div>
-                <div class="text-base text-gray-500 dark:text-slate-400">
-                  Grand Prix Wins
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800"
-              >
-                <div
-                  class="text-2xl font-bold text-gray-900 dark:text-slate-100"
-                >
-                  {team.data.careerStats?.constructorChampionships || 0}
-                </div>
-                <div class="text-base text-gray-500 dark:text-slate-400">
-                  Constructor Championships
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<html
+	lang="en"
+	class="bg-gray-100 dark:bg-slate-900">
+	<head>
+		<BaseHead
+			title={`2025 ${team.data.constructorName} Team Profile | ${SITE_TITLE}`}
+			description={`2025 F1 team profile for ${team.data.constructorName} with their ${team.data.carModel} car`}
+		/>
+	</head>
+	<body>
+		<Header />
+		<BreakpointIndicator />
+		<main>
+			<Breadcrumbs
+				items={[
+					{ text: "Home", href: "/" },
+					{ text: "Seasons", href: "/seasons/" },
+					{ text: "2025", href: "/seasons/2025/" },
+					{ text: "Constructors", href: "/seasons/2025/constructors" },
+					{ text: `${team.data.constructorName}` },
+				]}
+			/>
+			<!-- Team Profile Header -->
+			<section class="container mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-950">
+				<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+					<!-- Left: Car Image -->
+					<div
+						class="flex flex-1 overflow-hidden rounded-2xl"
+						style={teamBg ? `background-image: url('${teamBg.src}'); background-size: cover;` : ""}>
+						<div class="flex flex-1 p-6">
+							<Image
+								src={team.data.carImageLarge || team.data.carImage}
+								alt={team.data.carImageLargeAlt || team.data.carImageAlt}
+								width={600}
+								height={600}
+								class="h-full w-full object-contain"
+								loading="eager"
+							/>
+						</div>
+					</div>
+					<!-- Right: Constructor Info & Stats -->
+					<div class="space-y-4">
+						<h1 class="text-4xl font-bold text-gray-900 dark:text-slate-100">
+							{team.data.constructorName}
+						</h1>
+						<!-- Stats Grid -->
+						<div class="grid gap-4 sm:grid-cols-2">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{team.data.carModel}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Chassis</div>
+							</div>
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{team.data.teamPrincipal}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Team Principal</div>
+							</div>
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{team.data.championshipPosition}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Championship Position</div>
+							</div>
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{team.data.engineSupplier}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Power Unit</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <!-- Team Drivers Section -->
-      <section class="bg-gray-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto">
-          <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
-            Team Drivers
-          </h2>
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {
-              team.data.teamDrivers.map((driverName, i) => {
-                const driver = driverMap.get(driverName);
-                return driver ? (
-                  <DriverCard
-                    driver={driver}
-                    index={i}
-                    year={team.data.season}
-                    eagerCount={0}
-                  />
-                ) : null;
-              })
-            }
-          </div>
-        </div>
-      </section>
+			<!-- Team Drivers Section -->
+			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+				<div class="container mx-auto">
+					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Drivers</h2>
+					<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+						{
+							team.data.teamDrivers.map((driverName, i) => {
+								const driver = driverMap.get(driverName)
+								return driver ?
+										<DriverCard
+											driver={driver}
+											index={i}
+											year={team.data.season}
+											eagerCount={0}
+										/>
+									:	null
+							})
+						}
+					</div>
+				</div>
+			</section>
 
-      <!-- Two Column Statistics Section -->
-      <section class="bg-gray-100 p-8 py-12 dark:bg-slate-900">
-        <div class="container mx-auto">
-          <h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">
-            Team Statistics
-          </h2>
-          <div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* Team Statistics Column */}
-            <div class="p-6">
-              <h3
-                class="mb-4 text-center text-xl font-semibold dark:text-slate-100"
-              >
-                2025 Season
-              </h3>
-              {/* 2025 Season Statistics Column */}
-              <div class="-mx-2 flex flex-wrap">
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.championshipPosition}
-                    label="Championship Position"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.constructorPoints}
-                    label="Constructor Points"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.grandPrixWins}
-                    label="Grand Prix Wins"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.polePositions}
-                    label="Pole Positions"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.fastestLaps}
-                    label="Fastest Laps"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.sprintPodiums}
-                    label="Sprint Podiums"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.sprintPoints}
-                    label="Sprint Points"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard value={team.data.sprintWins} label="Sprint Wins" />
-                </div>
-              </div>
-            </div>
-            {/* Lifetime Statistics Column */}
-            <div class="rounded bg-gray-200/50 p-6 dark:bg-gray-500/50">
-              <h3
-                class="mb-4 text-center text-xl font-semibold dark:text-slate-100"
-              >
-                Lifetime
-              </h3>
-              <div class="-mx-2 flex flex-wrap">
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.driverChampionships}
-                    label="Driver Championships"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.constructorChampionships}
-                    label="Constructor Championships"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.firstEntry}
-                    label="First Entry"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.racesEntered}
-                    label="Races Entered"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.grandPrixWins}
-                    label="Grand Prix Wins"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.careerPoints}
-                    label="Career Points"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.polePositions}
-                    label="Pole Positions"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={team.data.careerStats?.podiumPositions}
-                    label="Podiums"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+			<!-- Two Column Statistics Section -->
+			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+				<div class="container mx-auto">
+					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Statistics</h2>
+					<div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
+						{/* Team Statistics Column */}
+						<div class="p-6">
+							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">
+								2025 Season
+							</h3>
+							{/* 2025 Season Statistics Column - grid for uniform card sizing */}
+							<div class="grid auto-rows-fr grid-cols-2 gap-4">
+								<StatCard
+									value={team.data.championshipPosition}
+									label="Championship Position"
+								/>
+								<StatCard
+									value={team.data.constructorPoints}
+									label="Constructor Points"
+								/>
+								<StatCard
+									value={team.data.racesEntered}
+									label="Races Entered"
+								/>
+								<StatCard
+									value={team.data.grandPrixPoints}
+									label="Grand Prix Points"
+								/>
+								<StatCard
+									value={team.data.grandPrixWins}
+									label="Grand Prix Wins"
+								/>
+								<StatCard
+									value={team.data.podiumPositions}
+									label="Grand Prix Podiums"
+								/>
+								<StatCard
+									value={team.data.polePositions}
+									label="Grand Prix Poles"
+								/>
+								<StatCard
+									value={team.data.dnf}
+									label="DNFs"
+								/>
+								<StatCard
+									value={team.data.sprintWins}
+									label="Sprint Wins"
+								/>
+								<StatCard
+									value={team.data.sprintPoints}
+									label="Sprint Points"
+								/>
+								<StatCard
+									value={team.data.sprintPolePositions}
+									label="Sprint Poles"
+								/>
+								<StatCard
+									value={team.data.sprintPodiums}
+									label="Sprint Podiums"
+								/>
+							</div>
+						</div>
+						{/* Lifetime Statistics Column */}
+						<div class="rounded bg-gray-200/50 p-6 dark:bg-gray-950/30">
+							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">Lifetime</h3>
+							<div class="grid auto-rows-fr grid-cols-1 gap-4">
+								<StatCard
+									value={team.data.careerStats?.firstEntry}
+									label="First Entry"
+								/>
+								<StatCard
+									value={team.data.careerStats?.racesEntered}
+									label="Races Entered"
+								/>
+								<StatCard
+									value={team.data.careerStats?.constructorChampionships}
+									label="Constructor Championships"
+								/>
+								<StatCard
+									value={team.data.careerStats?.careerPoints}
+									label="Career Points"
+								/>
+								<StatCard
+									value={team.data.careerStats?.grandPrixWins}
+									label="Grand Prix Wins"
+								/>
+								<StatCard
+									value={team.data.careerStats?.polePositions}
+									label="Pole Positions"
+								/>
 
-      <!-- Team Information -->
-      <section class="bg-gray-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto">
-          <div class="prose prose-lg dark:prose-invert max-w-fit">
-            <Content />
-          </div>
-        </div>
-      </section>
+								<StatCard
+									value={team.data.careerStats?.podiumPositions}
+									label="Podiums"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      {/* Last Updated Section */}
-      <SeasonButtons season="2025" />
+			<!-- Team Information -->
+			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+				<div class="container mx-auto">
+					<div class="prose prose-lg dark:prose-invert max-w-fit">
+						<Content />
+					</div>
+				</div>
+			</section>
 
-      {/* Last Updated Section */}
-      <section class="pt-12 text-center">
-        <p class="text-gray-600 dark:text-slate-400">
-          {
-            team.data.updatedDate && (
-              <>
-                Last updated:{" "}
-                <FormattedDate date={new Date(team.data.updatedDate)} />
-              </>
-            )
-          }
-        </p>
-      </section>
-    </main>
-    <Footer />
-  </body>
+			<!-- Back Link -->
+			<SeasonButtonsModular
+				leftHref="/seasons/2025/constructors/"
+				leftText="Back to 2025 Constructors"
+				rightHref="/seasons"
+				rightText="Back to Seasons"
+			/>
+
+			{/* Last Updated Section */}
+			<section class="pt-12 text-center">
+				<p class="text-gray-600 dark:text-slate-400">
+					{
+						team.data.updatedDate && (
+							<>
+								Last updated: <FormattedDate date={new Date(team.data.updatedDate)} />
+							</>
+						)
+					}
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
 </html>
