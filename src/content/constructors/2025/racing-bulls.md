@@ -45,7 +45,7 @@ Racing Bulls (VCARB) has underperformed in 2025, with Yuki Tsunoda’s inconsist
 
 ## Team Information
 
-**Founded:** 2006 
+**Founded:** 2006
 **Base:** Faenza, Italy  
 **Championships:** 0 Constructors’, 0 Drivers’  
 **Engine:** Honda RBPT  
