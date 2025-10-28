@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Lewis Hamilton"
 profileImageLargeAlt: "Portrait of Lewis Hamilton"
 driverLogo: ""
-driverPoints: 142
+driverPoints: 146
 championshipPosition: 6
 championships: 7
 grandPrixWins: 0
@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 67
   podiumPositions: 202
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 28, 2025"
 heroImage: ""
 ---
 
