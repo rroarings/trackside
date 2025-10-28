@@ -1,5 +1,7 @@
 # Trackside
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/521eeae6-f6af-4fe1-9b98-39cdf1f8c5af/deploy-status)](https://app.netlify.com/projects/trackside-talk/deploys)
+
 Trackside is a modern Formula 1 fan site providing up-to-date stats, schedules, team and driver info, and stories—all in one place. Built for speed, accessibility, and a beautiful experience on any device.
 
 ## Features
@@ -63,7 +65,7 @@ MIT
 
 ---
 
-Trackside is created and maintained by ovlack.
+Trackside is created and maintained by rroarings.
 
 For contact, see the About page or open an issue.
 
