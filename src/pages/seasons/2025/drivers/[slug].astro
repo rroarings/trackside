@@ -82,42 +82,34 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null
 							{driver.data.driverFirstName}
 							{driver.data.driverLastName}
 						</h1>
-						<div class="mb-6 flex flex-wrap gap-4">
-							<span
-								class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
-								Team: {driver.data.driverTeam}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
-								<span
-									class={`fi fi-${driver.data.countryCode} mr-2 border border-gray-100 rounded`}
-									aria-hidden="true"
-								></span>
-								{driver.data.nationality}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
-								Age: {driver.data.age}
-							</span>
-							<span
-								class="inline-flex items-center rounded-full px-4 py-1 text-lg dark:bg-slate-800 dark:text-slate-300">
-								#{driver.data.driverNumber}
-							</span>
-						</div>
+
 						<!-- Stats Grid -->
 						<div class="grid grid-cols-2 gap-4">
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{driver.data.driverTeam}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Team</div>
+							</div>
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{driver.data.age}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Age</div>
+							</div>
+							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+									{driver.data.championshipPosition}
+								</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Championship Position</div>
+							</div>
 							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{driver.data.driverPoints}
 								</div>
 								<div class="text-base text-gray-500 dark:text-slate-400">Points</div>
 							</div>
-							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.podiums}
-								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Podiums</div>
-							</div>
+
 							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
 									{driver.data.grandPrixWins}
@@ -126,9 +118,9 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null
 							</div>
 							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
 								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
-									{driver.data.championships}
+									{driver.data.nationality}
 								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Driver Championships</div>
+								<div class="text-base text-gray-500 dark:text-slate-400">Nationality</div>
 							</div>
 						</div>
 					</div>
