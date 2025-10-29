@@ -35,6 +35,7 @@ Trackside is a modern Formula 1 fan site providing up-to-date stats, schedules, 
    ```
 
    The site will be available at `http://localhost:4321` by default.
+
 3. **Build for production:**
 
    ```sh
