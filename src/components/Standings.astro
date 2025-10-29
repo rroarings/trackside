@@ -114,7 +114,11 @@ const lastRaceTabId = `last-race-tab-${season}`;
   <div class="p-6">
     <!-- Drivers Table -->
     <div class="tab-content drivers-content">
-      <StandingsCard season={season} imageLoading={imageLoading} />
+      <StandingsCard
+        season={season}
+        imageLoading={imageLoading}
+        sortedDrivers={sortedDrivers}
+      />
       <DriversTable drivers={top5Drivers} />
       <div class="mt-8 text-center">
         <a
@@ -127,7 +131,7 @@ const lastRaceTabId = `last-race-tab-${season}`;
 
     <!-- Constructors Table -->
     <div class="tab-content constructors-content">
-      <TeamStandingsCards season={season} />
+      <TeamStandingsCards season={season} sortedTeams={sortedTeams} />
       <ConstructorsTable teams={top5Teams} />
       <div class="mt-8 text-center">
         <a
