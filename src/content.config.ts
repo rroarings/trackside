@@ -49,7 +49,6 @@ const constructors = defineCollection({
           sprintPodiums: z.number().optional(),
           sprintPoints: z.number().optional(),
           sprintPolePositions: z.number().optional(),
-          
         })
         .optional(),
       dnf: z.number().default(0).optional(),
