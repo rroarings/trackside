@@ -43,7 +43,7 @@ const contacts = [
 ];
 ---
 
-<html lang="en" class="bg-gray-100 dark:bg-slate-900">
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
@@ -51,24 +51,24 @@ const contacts = [
     <Header />
     <main>
       <!-- Hero Section -->
-      <section class="bg-gray-100 py-12 dark:bg-slate-900">
+      <section class="bg-slate-100 py-12 dark:bg-slate-900">
         <div class="container mx-auto mb-12 text-center">
           <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
             Contact Us
           </h1>
-          <p class="text-xl text-gray-600 dark:text-slate-400">
+          <p class="text-xl text-slate-600 dark:text-slate-400">
             Connect with us on your favorite social platforms.
           </p>
         </div>
       </section>
 
       <!-- Contact Cards Section -->
-      <section class="bg-gray-100 pb-12 dark:bg-slate-900">
+      <section class="bg-slate-100 pb-12 dark:bg-slate-900">
         <div class="container mx-auto max-w-6xl">
           <div class="space-y-8">
             {
               contacts.map((contact) => (
-                <div class="group flex gap-4 rounded-lg border bg-gray-600 px-4 py-2 text-white transition-all duration-300 hover:bg-gray-700 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+                <div class="group flex gap-4 rounded-lg border bg-slate-600 px-4 py-2 text-white transition-all duration-300 hover:bg-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
                   <Icon
                     name={contact.icon}
                     class="text-3xl transition-colors duration-300 ease-in-out dark:text-slate-100"
@@ -83,14 +83,14 @@ const contacts = [
                     <p class="transition-colors duration-300 ease-in-out dark:text-slate-100">
                       {contact.label}
                     </p>
-                    <p class="text-base transition-colors duration-300 ease-in-out group-hover:text-gray-400 dark:text-slate-300">
+                    <p class="text-base transition-colors duration-300 ease-in-out group-hover:text-slate-400 dark:text-slate-300">
                       {contact.description}
                     </p>
                     <a
                       href={contact.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="mt-2 block text-gray-600 transition-all duration-300 ease-in-out group-hover:text-gray-300 group-hover:underline dark:text-slate-300"
+                      class="mt-2 block text-slate-600 transition-all duration-300 ease-in-out group-hover:text-slate-300 group-hover:underline dark:text-slate-300"
                     >
                       {contact.linkText}
                     </a>

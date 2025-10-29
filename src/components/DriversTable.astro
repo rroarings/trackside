@@ -8,24 +8,36 @@ const { drivers } = Astro.props;
 <table class="w-full dark:text-slate-200">
   <thead>
     <tr class="border-b dark:border-slate-400">
-      <th class="w-16 py-2">Pos</th>
-      <th class="w-1/3 py-2">Driver</th>
-      <th class="w-1/3 py-2">Team</th>
-      <th class="py-2 text-right">Points</th>
+      <th class="w-16 px-4 py-2 text-left">Pos</th>
+      <th class="w-1/3 px-4 py-2 text-left">Driver</th>
+      <th class="w-1/3 px-4 py-2 text-left">Team</th>
+      <th class="px-4 py-2 text-right">Points</th>
     </tr>
   </thead>
   <tbody>
     {
-      drivers.map((driver) => (
-        <tr class="border-b border-gray-300 dark:border-slate-500">
-          <td class="py-3">{driver.data.championshipPosition}</td>
-          <td class="py-3">
-            {driver.data.driverFirstName} {driver.data.driverLastName}
-          </td>
-          <td class="py-3">{driver.data.driverTeam}</td>
-          <td class="py-3 text-right">{driver.data.driverPoints}</td>
-        </tr>
-      ))
+      drivers.map((driver) => {
+        const driverSlug = driver.id.split("/").pop();
+        const year = driver.data.season || "2025";
+        const href = `/seasons/${year}/drivers/${driverSlug}`;
+
+        return (
+          <tr class="border-b border-slate-300 dark:border-slate-500 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-150">
+            <td class="px-4 py-3">
+              <a href={href} class="block w-full">{driver.data.championshipPosition}</a>
+            </td>
+            <td class="px-4 py-3">
+              <a href={href} class="block w-full">{driver.data.driverFirstName} {driver.data.driverLastName}</a>
+            </td>
+            <td class="px-4 py-3">
+              <a href={href} class="block w-full">{driver.data.driverTeam}</a>
+            </td>
+            <td class="px-4 py-3 text-right">
+              <a href={href} class="block w-full text-right">{driver.data.driverPoints}</a>
+            </td>
+          </tr>
+        );
+      })
     }
   </tbody>
 </table>

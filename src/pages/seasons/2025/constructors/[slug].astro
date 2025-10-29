@@ -45,7 +45,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 <!doctype html>
 <html
 	lang="en"
-	class="bg-gray-100 dark:bg-slate-900">
+	class="bg-slate-100 dark:bg-slate-900">
 	<head>
 		<BaseHead
 			title={`2025 ${team.data.constructorName} Team Profile | ${SITE_TITLE}`}
@@ -85,34 +85,34 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 					</div>
 					<!-- Right: Constructor Info & Stats -->
 					<div class="space-y-4">
-						<h1 class="text-4xl font-bold text-gray-900 dark:text-slate-100">
+						<h1 class="text-4xl font-bold text-slate-900 dark:text-slate-100">
 							{team.data.constructorName}
 						</h1>
 						<!-- Stats Grid -->
 						<div class="grid gap-4 sm:grid-cols-2">
-							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+							<div class="rounded-xl bg-slate-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-slate-900 dark:text-slate-100">
 									{team.data.carModel}
 								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Chassis</div>
+								<div class="text-base text-slate-500 dark:text-slate-400">Chassis</div>
 							</div>
-							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+							<div class="rounded-xl bg-slate-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-slate-900 dark:text-slate-100">
 									{team.data.teamPrincipal}
 								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Team Principal</div>
+								<div class="text-base text-slate-500 dark:text-slate-400">Team Principal</div>
 							</div>
-							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+							<div class="rounded-xl bg-slate-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-slate-900 dark:text-slate-100">
 									{team.data.championshipPosition}
 								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Championship Position</div>
+								<div class="text-base text-slate-500 dark:text-slate-400">Championship Position</div>
 							</div>
-							<div class="rounded-xl bg-gray-200/50 p-4 text-center dark:bg-slate-800">
-								<div class="text-2xl font-bold text-gray-900 dark:text-slate-100">
+							<div class="rounded-xl bg-slate-200/50 p-4 text-center dark:bg-slate-800">
+								<div class="text-2xl font-bold text-slate-900 dark:text-slate-100">
 									{team.data.engineSupplier}
 								</div>
-								<div class="text-base text-gray-500 dark:text-slate-400">Power Unit</div>
+								<div class="text-base text-slate-500 dark:text-slate-400">Power Unit</div>
 							</div>
 						</div>
 					</div>
@@ -120,7 +120,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 			</section>
 
 			<!-- Team Drivers Section -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+			<section class="bg-slate-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Drivers</h2>
 					<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
@@ -142,7 +142,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 			</section>
 
 			<!-- Two Column Statistics Section -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+			<section class="bg-slate-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<h2 class="mb-8 text-center text-3xl font-bold dark:text-slate-200">Team Statistics</h2>
 					<div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -204,7 +204,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 							</div>
 						</div>
 						{/* Lifetime Statistics Column */}
-						<div class="rounded bg-gray-200/50 p-6 dark:bg-gray-950/30">
+						<div class="rounded bg-slate-200/50 p-6 dark:bg-slate-950/30">
 							<h3 class="mb-4 text-center text-xl font-semibold dark:text-slate-100">Lifetime</h3>
 							<div class="grid auto-rows-fr grid-cols-1 gap-4">
 								<StatCard
@@ -243,7 +243,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 			</section>
 
 			<!-- Team Information -->
-			<section class="bg-gray-100 py-12 dark:bg-slate-900">
+			<section class="bg-slate-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<div class="prose prose-lg dark:prose-invert max-w-fit">
 						<Content />
@@ -261,7 +261,7 @@ const teamBg = teamBgMap[team.data.constructorName] || null
 
 			{/* Last Updated Section */}
 			<section class="pt-12 text-center">
-				<p class="text-gray-600 dark:text-slate-400">
+				<p class="text-slate-600 dark:text-slate-400">
 					{
 						team.data.updatedDate && (
 							<>

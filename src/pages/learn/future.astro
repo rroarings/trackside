@@ -59,7 +59,7 @@ const rookies = [
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-slate-900">
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
   <head>
     <BaseHead title={pageTitle} description={description} />
   </head>
@@ -69,12 +69,12 @@ const rookies = [
       <!-- Hero Section -->
       <div class="py-10 text-center">
         <h1
-          class="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl dark:text-slate-100"
+          class="mb-4 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-slate-100"
         >
           {pageTitle}
         </h1>
         <div class="mx-auto max-w-3xl">
-          <p class="mb-8 text-xl text-gray-600 dark:text-slate-400">
+          <p class="mb-8 text-xl text-slate-600 dark:text-slate-400">
             Formula 1 has always been at the forefront of technological
             advancements, and the future promises to be no different. From
             cutting-edge aerodynamics to hybrid power units, the sport continues
@@ -114,7 +114,7 @@ const rookies = [
         imageSrc={jp02}
         imageAlt="F1 Data Analytics"
         imageLoading="eager"
-        background="gray"
+        background="slate"
       />
 
       <!-- New Innovations Section -->
@@ -144,7 +144,7 @@ const rookies = [
       <!-- New Innovations Section -->
       <TwoColumnSection
         title="Harnessing the energy"
-        background="gray"
+        background="slate"
         content={`
           <p>
             One of the emerging topics in the future of Formula 1 is
@@ -171,13 +171,13 @@ const rookies = [
       />
 
       <!-- Rookies Showcase Section -->
-      <section class="bg-gray-100 py-16 dark:bg-slate-900">
+      <section class="bg-slate-100 py-16 dark:bg-slate-900">
         <div class="container mx-auto px-4">
           <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
               What does the future hold?
             </h2>
-            <p class="text-lg text-gray-600 dark:text-slate-400">
+            <p class="text-lg text-slate-600 dark:text-slate-400">
               These rising stars are already making headlines. Here's who to
               watch as Formula 1 evolves into a new era.
             </p>
@@ -188,12 +188,12 @@ const rookies = [
           >
             {
               rookies.map((rookie) => (
-                <div class="flex h-full flex-col rounded-xl bg-gray-200/80 dark:bg-slate-800">
+                <div class="flex h-full flex-col rounded-xl bg-slate-200/80 dark:bg-slate-800">
                   <div class="flex-1 p-6">
                     <h4 class="mb-2 text-xl font-bold dark:text-slate-100">
                       {rookie.name}
                     </h4>
-                    <p class="text-gray-600 dark:text-slate-400">
+                    <p class="text-slate-600 dark:text-slate-400">
                       {rookie.desc}
                     </p>
                   </div>

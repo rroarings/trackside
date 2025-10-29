@@ -55,19 +55,19 @@ const nextUpcomingRace = sortedRaces.find(
 );
 ---
 
-<div class={`bg-gray-100 dark:bg-slate-900 rounded ${customClass}`}>
+<div class={`bg-slate-100 dark:bg-slate-900 rounded ${customClass}`}>
   {
     showTitle && (
       <div class="mb-6 flex items-center justify-end">
         <Icon
           name="mdi:calendar-range-outline"
-          class="mr-2 text-3xl text-gray-700 dark:text-slate-400"
+          class="mr-2 text-3xl text-slate-700 dark:text-slate-400"
         />
 
         {lastCompletedRace && (
           <a
             href={`/seasons/${season}/races`}
-            class="font-medium text-gray-500 transition-colors duration-200 hover:text-red-600 dark:text-slate-400 dark:hover:text-slate-300"
+            class="font-medium text-slate-500 transition-colors duration-200 hover:text-red-600 dark:text-slate-400 dark:hover:text-slate-300"
           >
             View All Races
           </a>
