@@ -2,6 +2,7 @@
 import { type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import { Image } from "astro:assets";
+import { toUTCMidnight } from "../utils/dateUtils";
 
 interface Props {
   race: CollectionEntry<"races">;
@@ -14,12 +15,6 @@ const { race, completedRaces = [], isNextRace, loading = "lazy" } = Astro.props;
 
 const parts = race.id.split("/");
 const raceSlug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "");
-
-const toUTCMidnight = (date: Date) => {
-  const d = new Date(date);
-  d.setUTCHours(0, 0, 0, 0);
-  return d;
-};
 
 const nowUTC = toUTCMidnight(new Date());
 const raceDateUTC = toUTCMidnight(new Date(race.data.raceDate));

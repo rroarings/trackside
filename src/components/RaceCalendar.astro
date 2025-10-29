@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import RaceCard from "./RaceCard.astro";
 import { Icon } from "astro-icon/components";
+import { toUTCMidnight } from "../utils/dateUtils";
 
 interface Props {
   season: string;
@@ -22,13 +23,6 @@ const {
 const races = await getCollection("races", ({ data }) => {
   return data.season === season;
 });
-
-type DateInput = string | number | Date;
-const toUTCMidnight = (date: DateInput): Date => {
-  const d = new Date(date);
-  d.setUTCHours(0, 0, 0, 0);
-  return d;
-};
 
 const nowUTC = toUTCMidnight(new Date());
 

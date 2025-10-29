@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { teamBgMap } from "../utils/teamBgMap";
 import norrisImg from "../assets/constructors/mclaren/drivers/norris-02.png";
@@ -11,9 +11,10 @@ import placeholderBG from "../assets/component/teamCard-placeholder.png";
 interface Props {
   season: "2024" | "2025";
   imageLoading?: "eager" | "lazy";
+  sortedDrivers: CollectionEntry<"drivers">[];
 }
 
-const { season, imageLoading = "lazy" } = Astro.props;
+const { season, imageLoading = "lazy", sortedDrivers } = Astro.props;
 
 const driverImageMap: Record<string, typeof norrisImg> = {
   Norris: norrisImg,
@@ -21,15 +22,6 @@ const driverImageMap: Record<string, typeof norrisImg> = {
   Verstappen: verstappenImg,
   Leclerc: leclercImg,
 };
-
-const allDrivers = await getCollection("drivers");
-const seasonDrivers = allDrivers.filter(
-  (driver) => driver.data.season === season,
-);
-
-const sortedDrivers = seasonDrivers.sort(
-  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
-);
 
 const topThree = sortedDrivers.slice(0, 3);
 
@@ -46,174 +38,65 @@ const displayOrder =
   class="grid grid-cols-1 gap-4 pb-16 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-1"
 >
   {
-    /* First place driver: spans both columns in first row, but only on md screens */
+    displayOrder.map((driver, index) => {
+      const teamBg = teamBgMap[driver.data.driverTeam] || null;
+      const slug = (driver as any).slug ?? driver.id.split("/").pop();
+      const gridClasses = [
+        "md:col-span-2 md:row-start-1 lg:col-span-1 lg:row-start-auto",
+        "md:col-start-1 md:row-start-2 lg:col-span-1 lg:row-start-auto",
+        "md:col-start-2 md:row-start-2 lg:col-span-1 lg:row-start-auto",
+      ];
+      const textSizeClass = index === 0 ? "text-2xl" : "";
+
+      return (
+        <div class={gridClasses[index]}>
+          <a href={`/seasons/${season}/drivers/${slug}`} class="block">
+            <article
+              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
+              style={
+                teamBg
+                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+                  : ""
+              }
+            >
+              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
+              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
+                <div>
+                  <p class="text-4xl font-bold text-white">
+                    {driver.data.championshipPosition}
+                  </p>
+
+                  <h2 class="text-white">{driver.data.driverFirstName}</h2>
+                  <h2 class="font-bold text-white">
+                    {driver.data.driverLastName}
+                  </h2>
+                  <p class={`text-white ${textSizeClass}`}>
+                    {driver.data.driverTeam}
+                  </p>
+                  <p class="text-white">
+                    {driver.data.driverPoints}{" "}
+                    <span class="font-normal">pts</span>
+                  </p>
+                </div>
+                <div class="flex">
+                  <Image
+                    src={
+                      driver.data.profileImage ||
+                      driverImageMap[driver.data.driverLastName as string] ||
+                      placeholderBG
+                    }
+                    alt={`Portrait of ${driver.data.driverFirstName} ${driver.data.driverLastName}`}
+                    class="object-contain"
+                    width={400}
+                    height={400}
+                    loading={imageLoading}
+                  />
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+      );
+    })
   }
-  <div class="md:col-span-2 md:row-start-1 lg:col-span-1 lg:row-start-auto">
-    {
-      (() => {
-        const driver = displayOrder[0];
-        const teamBg = teamBgMap[driver.data.driverTeam] || null;
-        // derive slug from content id (same approach as DriverCard)
-        const slug = (driver as any).slug ?? driver.id.split("/").pop();
-        return (
-          <a href={`/seasons/${season}/drivers/${slug}`} class="block">
-            <article
-              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-              style={
-                teamBg
-                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                  : ""
-              }
-            >
-              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-                <div>
-                  <p class="text-4xl font-bold text-white">
-                    {driver.data.championshipPosition}
-                  </p>
-
-                  <h2 class="text-white">{driver.data.driverFirstName} </h2>
-                  <h2 class="font-bold text-white">
-                    {driver.data.driverLastName}
-                  </h2>
-                  <p class="text-2xl text-white">{driver.data.driverTeam}</p>
-                  <p class="text-white">
-                    {driver.data.driverPoints}{" "}
-                    <span class="font-normal">pts</span>
-                  </p>
-                </div>
-                <div class="flex">
-                  <Image
-                    src={
-                      // Prefer the driver's profileImage (higher-quality) and fall back to the curated image map
-                      driver.data.profileImage ||
-                      driverImageMap[driver.data.driverLastName as string] ||
-                      placeholderBG
-                    }
-                    alt={`Portrait of ${driver.data.driverFirstName} ${driver.data.driverLastName}`}
-                    class="object-contain"
-                    width={400}
-                    height={400}
-                    loading={imageLoading}
-                  />
-                </div>
-              </div>
-            </article>
-          </a>
-        );
-      })()
-    }
-  </div>
-  {/* Second place driver: second row, first column, but only on md screens */}
-  <div class="md:col-start-1 md:row-start-2 lg:col-span-1 lg:row-start-auto">
-    {
-      (() => {
-        const driver = displayOrder[1];
-        const teamBg = teamBgMap[driver.data.driverTeam] || null;
-        const slug = (driver as any).slug ?? driver.id.split("/").pop();
-        return (
-          <a href={`/seasons/${season}/drivers/${slug}`} class="block">
-            <article
-              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-              style={
-                teamBg
-                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                  : ""
-              }
-            >
-              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-                <div>
-                  <p class="text-4xl font-bold text-white">
-                    {driver.data.championshipPosition}
-                  </p>
-
-                  <h2 class="text-white">{driver.data.driverFirstName} </h2>
-                  <h2 class="font-bold text-white">
-                    {driver.data.driverLastName}
-                  </h2>
-                  <p class="text-white">{driver.data.driverTeam}</p>
-                  <p class="text-white">
-                    {driver.data.driverPoints}{" "}
-                    <span class="font-normal">pts</span>
-                  </p>
-                </div>
-                <div class="flex">
-                  <Image
-                    src={
-                      // Prefer the driver's profileImage (higher-quality) and fall back to the curated image map
-                      driver.data.profileImage ||
-                      driverImageMap[driver.data.driverLastName as string] ||
-                      placeholderBG
-                    }
-                    alt={`Portrait of ${driver.data.driverFirstName} ${driver.data.driverLastName}`}
-                    class="object-contain"
-                    width={400}
-                    height={400}
-                    loading={imageLoading}
-                  />
-                </div>
-              </div>
-            </article>
-          </a>
-        );
-      })()
-    }
-  </div>
-  {/* Third place driver: second row, second column, but only on md screens */}
-  <div class="md:col-start-2 md:row-start-2 lg:col-span-1 lg:row-start-auto">
-    {
-      (() => {
-        const driver = displayOrder[2];
-        const teamBg = teamBgMap[driver.data.driverTeam] || null;
-        const slug = (driver as any).slug ?? driver.id.split("/").pop();
-        return (
-          <a href={`/seasons/${season}/drivers/${slug}`} class="block">
-            <article
-              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
-              style={
-                teamBg
-                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
-                  : ""
-              }
-            >
-              <div class="pointer-events-none absolute inset-0 bg-gray-900/20" />
-              <div class="relative z-10 flex h-full flex-1 flex-col justify-between">
-                <div>
-                  <p class="text-4xl font-bold text-white">
-                    {driver.data.championshipPosition}
-                  </p>
-
-                  <h2 class="text-white">{driver.data.driverFirstName} </h2>
-                  <h2 class="font-bold text-white">
-                    {driver.data.driverLastName}
-                  </h2>
-                  <p class="text-white">{driver.data.driverTeam}</p>
-                  <p class="text-white">
-                    {driver.data.driverPoints}{" "}
-                    <span class="font-normal">pts</span>
-                  </p>
-                </div>
-                <div class="flex">
-                  <Image
-                    src={
-                      // Prefer the driver's profileImage (higher-quality) and fall back to the curated image map
-                      driver.data.profileImage ||
-                      driverImageMap[driver.data.driverLastName as string] ||
-                      placeholderBG
-                    }
-                    alt={`Portrait of ${driver.data.driverFirstName} ${driver.data.driverLastName}`}
-                    class="object-contain"
-                    width={400}
-                    height={400}
-                    loading={imageLoading}
-                  />
-                </div>
-              </div>
-            </article>
-          </a>
-        );
-      })()
-    }
-  </div>
 </div>
