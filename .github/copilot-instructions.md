@@ -1,4 +1,5 @@
 <!-- GitHub Copilot / AI agent guidance for the Trackside project -->
+
 # Trackside — Copilot instructions
 
 This file contains concise, actionable guidance for AI coding agents working on the Trackside (Astro + Tailwind) website. Keep guidance focused on observable patterns and commands.
@@ -50,4 +51,5 @@ This file contains concise, actionable guidance for AI coding agents working on 
    - For images and assets, check `src/assets/` subfolders for team, circuit, and component images.
 
 ---
+
 If any part of this guidance is unclear or you want more granular rules (naming conventions, PR checklist, tests), tell me which area to expand and I'll iterate.
