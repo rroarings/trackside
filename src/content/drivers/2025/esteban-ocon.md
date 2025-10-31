@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 1
   podiumPositions: 4
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Esteban Ocon has brought consistency to Haas in 2025, securing 27 points with st
 The 28-year-old’s experience, including a 2021 Hungarian Grand Prix victory, anchors Haas’ development of the VF-25. Ocon’s ability to maximize points in challenging races, such as his seventh-place finish in Monaco, highlights his calculated approach. His professionalism has fostered a strong partnership with rookie teammate Oliver Bearman.
 
 As Haas targets a stronger Constructors’ position, Ocon’s role as a reliable points-scorer remains crucial. His synergy with Bearman offers stability as the team builds toward 2026. Trackside invites fans to follow Ocon’s season and share their thoughts on his impact at Haas.
+
+## Goodbye Toxicity, Hello Haas
+
+Departing Alpine's toxicity for Haas, the aggressive Frenchman has ignited the team's revival with points in eight races, including a P5 in Hungary, and Mexico's P9 propelled Haas past Sauber to eighth in constructors, validating his high-risk move.
 
 ## Join the F1 Fandom
 
