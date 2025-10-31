@@ -46,13 +46,12 @@ const displayOrder =
         "md:col-start-1 md:row-start-2 lg:col-span-1 lg:row-start-auto",
         "md:col-start-2 md:row-start-2 lg:col-span-1 lg:row-start-auto",
       ];
-      const textSizeClass = index === 0 ? "text-2xl" : "";
 
       return (
         <div class={gridClasses[index]}>
           <a href={`/seasons/${season}/drivers/${slug}`} class="block">
             <article
-              class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
+              class="group relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
               style={
                 teamBg
                   ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
@@ -67,12 +66,10 @@ const displayOrder =
                   </p>
 
                   <h2 class="text-white">{driver.data.driverFirstName}</h2>
-                  <h2 class="font-bold text-white">
+                  <h2 class="font-bold text-white group-hover:underline">
                     {driver.data.driverLastName}
                   </h2>
-                  <p class={`text-white ${textSizeClass}`}>
-                    {driver.data.driverTeam}
-                  </p>
+                  <p class={`text-xl text-white`}>{driver.data.driverTeam}</p>
                   <p class="text-white">
                     {driver.data.driverPoints}{" "}
                     <span class="font-normal">pts</span>
