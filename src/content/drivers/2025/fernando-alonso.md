@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 26
   podiumPositions: 106
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Fernando Alonso continues to defy age at Aston Martin, earning 26 points with a 
 The two-time world champion’s 21 seasons in F1 bring unmatched insight, guiding Aston Martin’s development. Alonso’s relentless drive and tactical brilliance, evident in his recovery from a slow start, make him a paddock icon. His contract extension signals commitment to the team’s 2026 ambitions with Adrian Newey.
 
 Paired with Lance Stroll, Alonso’s qualifying dominance (14-0) underscores his edge. As Aston Martin eyes future gains, his leadership remains pivotal. Trackside invites fans to follow Alonso’s season and share their thoughts on his pursuit of a 33rd career win.
+
+## Fernando's AMR25 downhill tumble
+
+The veteran Spaniard, in his 400th GP season, has battled an uncompetitive AMR25 with occasional heroics like tire management, finishing P9 in Mexico to hover mid-field, ever the strategist eyeing 2026 regs.
 
 ## Join the F1 Fandom
 
