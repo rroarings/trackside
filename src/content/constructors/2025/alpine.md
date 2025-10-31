@@ -47,7 +47,7 @@ Alpine has had an up-and-down 2025, with flashes of speed offset by crashes and 
 
 **Founded:** 2021
 **Base:** Enstone, United Kingdom / Viry-Châtillon, France  
-**Engine:** Renault  
+**Engine:** Renault
 
 ## Current Form
 
