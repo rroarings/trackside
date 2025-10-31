@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 3
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Lance Stroll has delivered a solid 2025 season for Aston Martin, matching teamma
 At 26, Stroll’s eight seasons in F1 have honed his racecraft, though he trails Alonso 14-0 in qualifying. His ability to capitalize on opportunities, as seen in China’s eighth-place result, showcases his growth. Stroll’s long-term commitment to Aston Martin aligns with their 2026 aspirations.
 
 Partnered with Alonso, Stroll’s role is to support the team’s development while chasing consistent points. His performances lay a foundation for future success. Trackside invites fans to follow Stroll’s season and discuss his contribution to Aston Martin’s revival.
+
+## Lance, Lance, Lance
+
+Battling inconsistency and rumored tensions, the Canadian has notched sporadic points, including P11 in Mexico after a steady drive, as Aston Martin lags behind top teams in development pace.
 
 ## Join the F1 Fandom
 
