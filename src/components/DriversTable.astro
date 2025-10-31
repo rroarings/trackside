@@ -1,39 +1,56 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
+type DriverEntry = CollectionEntry<"drivers">;
+
 interface Props {
-  drivers: any[];
+  drivers: DriverEntry[];
 }
-const { drivers } = Astro.props;
+
+const { drivers } = Astro.props as Props;
 ---
 
 <table class="w-full dark:text-slate-200">
   <thead>
     <tr class="border-b dark:border-slate-400">
-      <th class="w-16 px-4 py-2 text-left">Pos</th>
-      <th class="w-1/3 px-4 py-2 text-left">Driver</th>
-      <th class="w-1/3 px-4 py-2 text-left">Team</th>
-      <th class="px-4 py-2 text-right">Points</th>
+      <th class="w-16 px-4 py-3 text-left">Pos</th>
+      <th class="w-1/3 px-4 py-3 text-left">Driver</th>
+      <th class="w-1/3 px-4 py-3 text-left">Team</th>
+      <th class="px-4 py-3 text-right">Points</th>
     </tr>
   </thead>
   <tbody>
     {
       drivers.map((driver) => {
-        const driverSlug = driver.id.split("/").pop();
-        const year = driver.data.season || "2025";
+        // Defensive slug extraction
+        const rawId = (driver && (driver as any).id) || "";
+        const driverSlug =
+          String(rawId).replace(/\/+$/, "").split("/").pop() || "";
+        const year = (driver.data && driver.data.season) || "2025";
         const href = `/seasons/${year}/drivers/${driverSlug}`;
 
+        const name =
+          `${driver.data?.driverFirstName ?? ""} ${driver.data?.driverLastName ?? ""}`.trim();
+        const position = driver.data?.championshipPosition ?? "-";
+        const team = driver.data?.driverTeam ?? "N/A";
+        const points = driver.data?.driverPoints ?? 0;
+
         return (
-          <tr class="border-b border-slate-300 dark:border-slate-500 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-150">
+          // role=row kept implicit by table semantics; making the name the single link reduces tab noise
+          <tr class="border-b border-slate-300 transition-colors duration-150 hover:bg-gray-100 dark:border-slate-500 dark:hover:bg-slate-800">
+            <td class="px-4 py-3">{position}</td>
             <td class="px-4 py-3">
-              <a href={href} class="block w-full">{driver.data.championshipPosition}</a>
+              <a
+                href={href}
+                aria-label={`View profile for ${name}`}
+                class="block w-full focus:outline-none focus:ring-2 focus:ring-rose-400"
+              >
+                {name || "Unknown driver"}
+              </a>
             </td>
-            <td class="px-4 py-3">
-              <a href={href} class="block w-full">{driver.data.driverFirstName} {driver.data.driverLastName}</a>
-            </td>
-            <td class="px-4 py-3">
-              <a href={href} class="block w-full">{driver.data.driverTeam}</a>
-            </td>
+            <td class="px-4 py-3">{team}</td>
             <td class="px-4 py-3 text-right">
-              <a href={href} class="block w-full text-right">{driver.data.driverPoints}</a>
+              <span class="inline-block">{points}</span>
             </td>
           </tr>
         );
