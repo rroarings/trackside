@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 10
   podiumPositions: 21
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ George Russell continues to anchor Mercedes’ resurgence in 2025, delivering a 
 The 26-year-old’s journey from Williams to Mercedes reflects his tenacity and technical prowess. Known for his articulate insights and relentless work ethic, Russell has earned respect across the paddock. His ability to balance aggression with strategy makes him a fan favorite and a vital asset for Mercedes.
 
 Paired with rookie Andrea Kimi Antonelli, Russell’s mentorship and on-track performances are shaping Mercedes’ future. As he navigates a fierce championship battle led by McLaren, his focus remains on adding to his victory tally. Trackside invites fans to follow Russell’s campaign and join the discussion about his 2025 season.
+
+## Russell's Grin
+
+As Mercedes' lead driver post-Hamilton, he's delivered solid top-six finishes, including P7 in Mexico amid team orders drama, bolstering the team's recovery to mid-pack contention while mentoring rookie Antonelli. Hopefully by securing a new contract for 2026 and possibly onwards, does push George's confidence even more. Let's hope they can make decisions on track much faster.
 
 ## Join the F1 Fandom
 
