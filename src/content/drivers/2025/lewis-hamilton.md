@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 67
   podiumPositions: 202
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Lewis Hamilton’s move to Ferrari in 2025 has reshaped the Formula 1 landscape,
 At 40, Hamilton’s legacy as F1’s most successful driver is unmatched, with 105 career wins and a reputation for strategic mastery. His off-track advocacy and magnetic presence continue to elevate the sport’s global appeal. This new chapter with Ferrari marks a bold step in his storied career.
 
 Partnered with Charles Leclerc, Hamilton is focused on unlocking Ferrari’s potential. As the season progresses, his experience could prove decisive in challenging McLaren’s dominance.
+
+## There is light at the end, Lewis
+
+In his dream Ferrari debut year, the seven-time champ has mixed results with occasional flashes of brilliance, but a P6 in Mexico—hampered by a late penalty—has him fighting to secure his podium-per-season streak amid adaptation to the SF-25.
 
 ## Join the F1 Fandom
 
