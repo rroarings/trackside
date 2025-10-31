@@ -48,7 +48,7 @@ The iconic Italian marque Ferrari has mounted a strong challenge in 2025, reclai
 **Founded:** 1950  
 **Base:** Maranello, Italy  
 **Championships:** 16 Constructors’, 15 Drivers’  
-**Engine:** Ferrari  
+**Engine:** Ferrari
 
 ## Current Form
 
