@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Liam Lawson has shown resilience in his 2025 season with Racing Bulls, securing 
 The 23-year-old’s aggressive style, honed in Formula 2 and brief 2024 F1 stints, has translated into competitive midfield performances. Lawson’s battles with veterans like Fernando Alonso demonstrate his fearless approach. His return to Racing Bulls after Red Bull’s reshuffle has reinvigorated his campaign.
 
 Paired with rookie Isack Hadjar, Lawson’s experience is vital for Racing Bulls’ midfield push. His trajectory suggests potential for more points as the season progresses. Trackside invites fans to follow Lawson’s journey and discuss his prospects for a 2026 Red Bull seat.
+
+## The Son makes his name known
+
+After a disastrous two-race Red Bull stint ending in a mid-season swap back to RB, the Kiwi has rebuilt confidence with solid midfield scores, including a P6 in Silverstone, though Mexico's P12 underscored adaptation struggles, focusing on consistency alongside Hadjar for Red Bull juniors.
 
 ## Join the F1 Fandom
 
