@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 2
   podiumPositions: 1
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Andrea Kimi Antonelli has ignited the Formula 1 grid in his debut 2025 season wi
 At just 18, Antonelli brings a blend of youthful audacity and technical precision to Mercedes. His ability to adapt to challenging conditions, as seen in Australia’s wet race, has drawn praise from pundits like Damon Hill. Guided by the Mercedes academy, his debut season is a testament to his readiness for the sport’s highest level.
 
 Paired with George Russell, Antonelli is navigating the pressures of replacing Lewis Hamilton while contributing to Mercedes’ third-place Constructors’ standing. His growth will be pivotal as the team builds toward the 2026 regulations.
+
+## Performing Well Enough
+
+The 18-year-old Italian rookie's rapid F2-to-F1 jump has yielded learning-curve results, with a Q3 appearance in Mexico leading to P8, earning praise for composure but highlighting adaptation struggles in traffic.
 
 ## Join the F1 Fandom
 
