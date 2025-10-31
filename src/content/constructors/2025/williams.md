@@ -48,7 +48,7 @@ Williams has shown resilience in 2025, leveraging Alex Albon’s consistency whi
 **Founded:** 1977  
 **Base:** Grove, United Kingdom  
 **Championships:** 9 Constructors’, 7 Drivers’  
-**Engine:** Mercedes  
+**Engine:** Mercedes
 
 ## Current Form
 
