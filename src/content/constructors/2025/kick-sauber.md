@@ -48,7 +48,7 @@ The Swiss outfit Kick Sauber enters its transitional 2025 season with renewed am
 **Founded:** 1970  
 **Base:** Hinwil, Switzerland  
 **Championships:** 0 Constructors’, 0 Drivers’  
-**Engine:** Ferrari  
+**Engine:** Ferrari
 
 ## Current Form
 
