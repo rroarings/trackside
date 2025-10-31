@@ -48,7 +48,7 @@ The American-owned Haas F1 Team has enjoyed its strongest season in years, climb
 **Founded:** 2016  
 **Base:** Kannapolis, USA / Banbury, UK  
 **Championships:** 0 Constructors’, 0 Drivers’  
-**Engine:** Ferrari  
+**Engine:** Ferrari
 
 ## Current Form
 
