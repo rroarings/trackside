@@ -40,6 +40,10 @@ The 22-year-old, a Formula 2 graduate, brings raw speed but struggles with consi
 
 As Alpine rebuilds for 2026, Colapinto’s role is to gain experience and contribute to development. His progress could unlock points in the remaining races.
 
+## Colapinto into the pressure cooker
+
+Elevated from Williams reserve post-Imola to oust Doohan, the Argentine flashed Spain's P15 recovery but erred elsewhere, like Monza's P17 and Mexico's P18, drawing pressure in Alpine's turbulent backmarker fight with zero points to date.
+
 ## Join the F1 Fandom
 
 What are your thoughts on Franco Colapinto’s 2025 season? Can he score points for Alpine? Share your insights in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with Trackside’s race recaps and calendar!
