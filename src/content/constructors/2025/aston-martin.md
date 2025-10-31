@@ -48,7 +48,7 @@ Aston Martin has struggled to replicate early-season promise, fading in the seco
 **Founded:** 2018 (as Racing Point, rebranded 2021)  
 **Base:** Silverstone, United Kingdom  
 **Championships:** 0 Constructors’, 0 Drivers’  
-**Engine:** Mercedes  
+**Engine:** Mercedes
 
 ## Current Form
 
