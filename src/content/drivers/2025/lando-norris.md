@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 17
   podiumPositions: 38
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -41,6 +41,10 @@ Lando Norris has emerged as a formidable force in the 2025 Formula 1 season, dri
 The 25-year-old Briton’s blend of precision and aggression has made him a pivotal figure in McLaren’s dominance atop the Constructors’ Standings. Beyond the cockpit, Norris’s engaging personality and sharp wit resonate with fans, a trait evident since his debut in 2019. His journey from karting prodigy to championship contender underscores a relentless pursuit of excellence.
 
 In 2025, Norris’s synergy with teammate Oscar Piastri has elevated McLaren’s performance, creating thrilling on-track battles with rivals like Red Bull’s Max Verstappen. As the season progresses, his consistency and strategic acumen position him as a serious title threat.
+
+## Lando Overtakes Pastry in Mexico for the WDC
+
+ The Brit's breakout season peaked with a dominant Mexico win from pole, seizing the drivers' lead by one point over teammate Piastri after six victories, showcasing maturity in high-stakes battles and McLaren's constructors' dominance. Like most everyone on the Internet, McLaren need to go away with "Papaya Rules" and let the drivers race.
 
 ## Join the F1 Fandom
 
