@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Isack Hadjar has emerged as a standout rookie for Racing Bulls in 2025, securing
 The 20-year-old’s speed, honed in Formula 2, has translated well to F1, with a notable recovery from a tearful Australian Grand Prix crash. Hadjar’s ability to tame challenging circuits like Monaco showcases his potential as a future star. His qualifying consistency sets him apart among rookies.
 
 Paired with Liam Lawson, Hadjar’s performances are outshining expectations, positioning Racing Bulls as a midfield threat. His upward trajectory promises more points in the season’s second half. Trackside invites fans to follow Hadjar’s breakout season and share their thoughts on his rise.
+
+## Hadjar, breaking out of the pen?
+
+The F2 vice-champ's rookie campaign exploded with a historic maiden podium at Zandvoort—becoming the first Arab driver to podium—and a second at Monza, amassing 39 points despite an early Australia DNS; however, Mexico's P13 after a strong start faded, marking him as RB's breakout star in the top 10.
 
 ## Join the F1 Fandom
 
