@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 10
   podiumPositions: 48
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Charles Leclerc’s 2025 season with Ferrari has been a masterclass in resilienc
 Since his 2019 debut with Ferrari, Leclerc’s passion and emotional connection to the Tifosi have defined his career. The 27-year-old’s ability to extract performance from the SF-25, even under pressure, showcases his growth into a team leader. His charisma and determination continue to inspire fans worldwide.
 
 Now paired with seven-time champion Lewis Hamilton, Leclerc faces the challenge of balancing team dynamics with his own title ambitions. As Ferrari aims to close the gap to McLaren, his consistency will be key. Trackside invites fans to follow Leclerc’s pursuit of glory and share their thoughts on his season.
+
+## Hope in Mexico?
+
+Ferrari's consistent frontrunner has racked up multiple podiums, including a strong P2 in Mexico after capitalizing on the Turn 1 chaos, positioning him fourth in standings and as Hamilton's key ally in the team's constructors' push
 
 ## Join the F1 Fandom
 
