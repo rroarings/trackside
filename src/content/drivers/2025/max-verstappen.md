@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 34
   podiumPositions: 117
 pubDate: "July 16, 2025"
-updatedDate: "August 11, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -38,7 +38,9 @@ Known for his aggressive yet calculated driving, Verstappen is chasing a fifth c
 
 Off the track, Verstappen’s personality and no-nonsense attitude make him a fan favorite. From his junior days in Red Bull’s academy to becoming the sport’s youngest-ever race winner at 18, his journey is one of raw talent and determination. In 2025, paired with new teammate Yuki Tsunoda, Verstappen is pushing Red Bull to reclaim the Constructors’ title while fending off rivals like Lando Norris, Oscar Piastri, and George Russell.
 
-Whether it’s his daring overtakes or candid radio banter, Verstappen brings electrifying energy to every Grand Prix. _Trackside_ is your hub to follow his quest for glory—check out his stats below and join the conversation!
+## Post Mexico
+
+The four-time champion has endured a challenging season with reliability woes, but his recent drives have netted crucial points, leaving him 36 behind leader Norris in the tight title fight.
 
 ## Join the F1 Fandom
 
