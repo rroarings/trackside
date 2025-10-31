@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 4
   podiumPositions: 27
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -41,6 +41,10 @@ The 30-year-old’s smooth driving style and strategic acumen, developed over a 
 Paired with Albon, Sainz is pivotal in Williams’ push for fifth in the Constructors’ Championship. His integration into the team’s long-term vision under James Vowles promises further growth. Trackside invites fans to follow Sainz’s season and discuss his role in Williams’ revival.
 
 Can Sainz comeback in 2025 after summer?
+
+## Podium Fantasies
+
+Fresh from Ferrari, the Spaniard has hit stride with a podium in Baku, but a U.S. collision penalty dropped him to P12 in Mexico qualifying, finishing P17 in recovery mode amid Williams' strategic experiments.
 
 ## Join the F1 Fandom
 
