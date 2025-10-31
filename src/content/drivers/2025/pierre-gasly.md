@@ -42,6 +42,10 @@ With Franco Colapinto as his new teammate, Gasly’s leadership is vital as Alpi
 
 Prayers up for Gasly.
 
+## Give Gasly the Ferrrari Copium
+
+Alpine's linchpin amid bedlam, the veteran salvaged a Spain P8 and Monza P6 despite power deficits, but Mexico's P15—outqualified by Colapinto—highlighted their woes, as he banks on 2026's Mercedes engines for resurgence.
+
 ## Join the F1 Fandom
 
 What are your thoughts on Pierre Gasly’s 2025 season? Can he lead Alpine to better results? Share your insights in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with Trackside’s race recaps and calendar!
