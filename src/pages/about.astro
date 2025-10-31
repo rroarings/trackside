@@ -29,14 +29,10 @@ import "../styles/global.css";
         <div
           class="relative z-10 flex h-full w-full flex-col items-center justify-center text-center"
         >
-          <h1
-            class="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl"
-          >
+          <h1 class="mb-4 font-extrabold text-white drop-shadow-lg md:text-5xl">
             About Trackside
           </h1>
-          <p
-            class="mx-auto max-w-2xl text-lg text-white/90 drop-shadow-md md:text-2xl"
-          >
+          <p class="mx-auto text-lg text-white/90 drop-shadow-md md:text-2xl">
             Your home for Formula 1 stats, schedules, and stories.
           </p>
         </div>
@@ -46,8 +42,25 @@ import "../styles/global.css";
         </div>
       </section>
 
+      <!-- Mission Section -->
+      <section class="py-12">
+        <div class="mx-auto max-w-3xl text-center">
+          <h3
+            class="mb-4 text-2xl font-bold text-slate-900 md:text-3xl dark:text-slate-300"
+          >
+            Trackside: For the Fans, By a Fan
+          </h3>
+
+          <p class="mt-4 text-slate-900 dark:text-slate-400">
+            Trackside is my way of sharing the thrill of Formula 1 with the
+            world. I want to make it easy, fun, and beautiful for fans to follow
+            the sport we love.
+          </p>
+        </div>
+      </section>
+
       <!-- Profile Section -->
-      <section class="mb-16 flex flex-col items-center gap-4">
+      <section class="flex flex-col items-center gap-4 py-6">
         <Image
           src={AboutHeroImage}
           alt="About hero"
@@ -63,20 +76,18 @@ import "../styles/global.css";
         <div class="mt-2 flex gap-4">
           <a
             href="mailto:nick@example.com"
-            class="text-blue-600 hover:underline">Email</a
+            class="text-slate-300 hover:underline">Email</a
           >
           <a
             href="https://twitter.com/yourhandle"
-            class="text-blue-600 hover:underline">Twitter</a
+            class="text-slate-300 hover:underline">Twitter</a
           >
-          <a href="/contact" class="text-blue-600 hover:underline">Contact</a>
+          <a href="/contact" class="text-slate-300 hover:underline">Contact</a>
         </div>
       </section>
 
       <!-- About & Mission Section -->
-      <section
-        class="prose prose-lg dark:prose-invert mb-12 max-w-fit px-6 md:px-16"
-      >
+      <section class="prose prose-lg dark:prose-invert max-w-fit py-12">
         <h2 class="">👋 Welcome!</h2>
         <p class="">
           Trackside is built for Formula 1 fans who want a clean, modern way to
@@ -107,29 +118,8 @@ import "../styles/global.css";
         </div>
       </section>
 
-      <!-- Mission Section -->
-      <section class="mb-16 bg-blue-50 py-12 dark:bg-blue-950">
-        <div class="mx-auto max-w-3xl px-6 text-center">
-          <h3
-            class="mb-4 text-2xl font-bold text-blue-900 md:text-3xl dark:text-blue-300"
-          >
-            Trackside: For the Fans, By a Fan
-          </h3>
-          <blockquote
-            class="mb-4 italic text-blue-800 md:text-xl dark:text-blue-400"
-          >
-            “Racing is life. Anything before or after is just waiting.”
-          </blockquote>
-          <p class="mt-4 text-blue-900 dark:text-blue-400">
-            Trackside is my way of sharing the thrill of Formula 1 with the
-            world. I want to make it easy, fun, and beautiful for fans to follow
-            the sport we love.
-          </p>
-        </div>
-      </section>
-
       <!-- Fun Facts Section -->
-      <section class="mb-20 mt-16 px-6">
+      <section class="py-12">
         <h2
           class="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-slate-200"
         >
@@ -141,22 +131,24 @@ import "../styles/global.css";
           <div
             class="flex-1 rounded-lg bg-slate-50 p-6 text-center dark:bg-slate-700"
           >
-            <div class="mb-2 text-3xl">🏁</div>
+            <div class="mb-2 text-4xl">🏁</div>
             <div class="mb-1 text-lg font-bold dark:text-slate-300">
               Favorite Track
             </div>
             <div class="text-slate-700 dark:text-slate-300">
-              Silverstone Circuit
+              Circuit of the Americas / COTA
             </div>
           </div>
           <div
             class="flex-1 rounded-lg bg-slate-50 p-6 text-center dark:bg-slate-700"
           >
-            <div class="mb-2 text-3xl">🥇</div>
+            <div class="mb-2 text-4xl">🥇</div>
             <div class="mb-1 text-lg font-bold dark:text-slate-300">
               All-Time Favorite Driver
             </div>
-            <div class="text-slate-700 dark:text-slate-300">Fernando Alonso</div>
+            <div class="text-slate-700 dark:text-slate-300">
+              Fernando Alonso
+            </div>
           </div>
         </div>
       </section>
