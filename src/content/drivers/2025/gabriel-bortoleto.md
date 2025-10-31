@@ -40,6 +40,10 @@ The 20-year-old, mentored by Fernando Alonso, brings Formula 2 championship pedi
 
 As Sauber prepares for its 2026 Audi transition, Bortoleto’s performances provide a foundation for future success. His rapid adaptation suggests potential for more points.
 
+## Gabby has the Patty
+
+The F2 champ's inexperience shone through in early crashes like Bahrain, but raw speed yielded a P10 in Mexico after overtaking his mid-field rvials, hinting at potential as Sauber endures a transitional year ahead of Audi's 2026 entry.
+
 ## Join the F1 Fandom
 
 What are your thoughts on Gabriel Bortoleto’s 2025 season? Is he Sauber’s future leader? Share your insights in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with Trackside’s race recaps and calendar!
