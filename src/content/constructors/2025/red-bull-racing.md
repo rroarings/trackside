@@ -47,7 +47,7 @@ Red Bull Racing has endured a turbulent 2025, slipping to fourth in the Construc
 **Founded:** 2005  
 **Base:** Milton Keynes, United Kingdom  
 **Championships:** 6 Constructors’, 7 Drivers’  
-**Engine:** Honda RBPT  
+**Engine:** Honda RBPT
 
 ## Current Form
 
