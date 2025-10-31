@@ -12,7 +12,7 @@ const { season } = Astro.props;
       {/* Drivers Card */}
       <a href={`/seasons/${season}/drivers`} class="group block h-full">
         <div
-          class="h-full rounded-lg border border-slate-200 p-6 dark:border-slate-700"
+          class="h-full rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:bg-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
         >
           <div class="mb-4 flex items-center justify-between">
             <h3
@@ -36,7 +36,7 @@ const { season } = Astro.props;
               ></span
             >
           </div>
-          <p class="text-slate-600 dark:text-slate-400">
+          <p class="text-slate-600 dark:text-slate-300">
             View all Formula 1 drivers competing in the {season} championship season.
             Explore driver profiles, statistics, and current championship standings.
           </p>
@@ -46,7 +46,7 @@ const { season } = Astro.props;
       {/* Races Card */}
       <a href={`/seasons/${season}/constructors`} class="group block h-full">
         <div
-          class="h-full rounded-lg border border-slate-200 p-6 dark:border-slate-700"
+          class="h-full rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:bg-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
         >
           <div class="mb-4 flex items-center justify-between">
             <h3
@@ -55,7 +55,7 @@ const { season } = Astro.props;
               Constructors
             </h3>
             <span
-              class="text-slate-500 transition-colors duration-300 dark:text-slate-400"
+              class="text-slate-500 transition-colors duration-300 dark:text-slate-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const { season } = Astro.props;
               ></span
             >
           </div>
-          <p class="text-slate-600 dark:text-slate-400">
+          <p class="text-slate-600 dark:text-slate-300">
             Discover the {season} Formula 1 constructor teams, their cars, and current
             standings. Learn about team principals, engines, and technical developments.
           </p>
@@ -83,7 +83,7 @@ const { season } = Astro.props;
         class="group block h-full md:col-span-2 md:row-start-2"
       >
         <div
-          class="h-full rounded-lg border border-slate-200 p-6 dark:border-slate-700"
+          class="h-full rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:bg-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
         >
           <div class="mb-4 flex items-center justify-between">
             <h3
@@ -92,7 +92,7 @@ const { season } = Astro.props;
               Races
             </h3>
             <span
-              class="text-slate-500 transition-colors duration-300 dark:text-slate-400"
+              class="text-slate-500 transition-colors duration-300 dark:text-slate-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const { season } = Astro.props;
               ></span
             >
           </div>
-          <p class="text-slate-600 dark:text-slate-400">
+          <p class="text-slate-600 dark:text-slate-300">
             Discover the {season} Formula 1 constructor teams, their cars, and current
             standings. Learn about team principals, engines, and technical developments.
           </p>
