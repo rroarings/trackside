@@ -48,7 +48,7 @@ The historic British team McLaren has returned to competitiveness in recent year
 **Founded:** 1966  
 **Base:** Woking, United Kingdom  
 **Championships:** 8 Constructors’, 12 Drivers’  
-**Engine:** Mercedes  
+**Engine:** Mercedes
 
 ## Current Form
 
