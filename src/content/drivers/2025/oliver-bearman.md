@@ -28,7 +28,7 @@ careerStats:
   fastestLaps: 0
   podiumPositions: 0
 pubDate: "July 16, 2025"
-updatedDate: "October 28, 2025"
+updatedDate: "October 31, 2025"
 heroImage: ""
 ---
 
@@ -39,6 +39,10 @@ Oliver Bearman has shown promise in his 2025 debut with Haas, earning 8 points w
 The 19-year-old’s standout 2024 Ferrari debut in Saudi Arabia set high expectations, which he has met with consistent pace. Bearman’s ability to avoid mistakes, despite penalties in Monaco and Silverstone, reflects his maturity. His link to Ferrari’s driver program adds intrigue to his campaign.
 
 Paired with Esteban Ocon, Bearman’s performances provide a benchmark for Haas’ progress. His potential to score more points in the season’s second half is clear.
+
+## The Bear knocks
+
+The British rookie's dream debut included a stunning P4 in Mexico—defending heroically against Piastri for Haas' joint-best result—following points in Jeddah and Imola, rocketing him to 13th overall and cementing his status as a Ferrari-backed prodigy.
 
 ## Join the F1 Fandom
 
