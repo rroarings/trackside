@@ -40,6 +40,10 @@ At 37, Hulkenberg’s experience and consistency provide stability for Sauber’
 
 Mentoring rookie Gabriel Bortoleto, Hulkenberg is shaping Sauber’s future ahead of the 2026 Audi era. His performances offer a foundation for the team’s ambitions. Trackside invites fans to follow Hulkenberg’s season and share their thoughts on his impact at Sauber.
 
+## Nico Nico Nico
+
+Returning to Sauber, the grizzled German has mentored Bortoleto with reliable midfield hauls like P9 in Austria, though Mexico's NC mirrored the team's pre-Audi struggles.
+
 ## Join the F1 Fandom
 
 What are your thoughts on Nico Hulkenberg’s 2025 season? Can he lead Sauber to greater heights? Share your insights in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with Trackside’s race recaps and calendar!
