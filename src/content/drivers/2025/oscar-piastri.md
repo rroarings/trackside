@@ -40,6 +40,10 @@ Oscar Piastri is setting the Formula 1 grid alight in 2025, leading the Drivers�
 
 From his karting days in Melbourne to his rapid rise through Formula 2, Piastri’s journey is one of quiet determination and undeniable talent. Off the track, his dry humor and laid-back Aussie charm have won over fans worldwide. Whether he’s battling Max Verstappen or navigating high-pressure races, Piastri’s 2025 season is a thrilling ride, and _Trackside_ is your front-row seat to follow every lap!
 
+## The Pastry Master starts to show cracks
+
+Leading the championship for months with consistent podiums, the Australian endured a couple of rare off-weekends in Baku, COTA, and Mexico, dropping him one point behind Norris but still firmly in the title hunt.
+
 ## Join the F1 Fandom
 
 What’s your take on Oscar Piastri’s championship charge in 2025? Can he hold off Verstappen and clinch his first title? Share your thoughts in the comments or connect with us on [insert social media/contact link]. Explore more driver profiles and stay updated with _Trackside_’s race recaps and calendar!
