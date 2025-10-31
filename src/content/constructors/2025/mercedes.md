@@ -48,7 +48,7 @@ The Silver Arrows have delivered a solid, if unspectacular, 2025 campaign, locke
 **Founded:** 2010  
 **Base:** Brackley, United Kingdom  
 **Championships:** 8 Constructors’, 9 Drivers’
-**Engine:** Mercedes  
+**Engine:** Mercedes
 
 ## Current Form
 
