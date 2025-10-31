@@ -1,83 +1,80 @@
 ---
-import { Icon } from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 
 interface Feature {
-	title: string
-	description: string
-	icon?: string
+  title: string;
+  description: string;
+  icon?: string;
 }
 
 interface Props {
-	title?: string
-	features: Feature[]
-	columns?: 2 | 3 | 4
-	background?: "white" | "slate"
+  title?: string;
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+  background?: "white" | "slate";
 }
 
-const { title, features, columns = 2, background = "white" } = Astro.props
+const { title, features, columns = 2, background = "white" } = Astro.props;
 
-const bgClass = background === "slate" ? "bg-slate-50" : "bg-white"
+const bgClass = background === "slate" ? "bg-slate-50" : "bg-white";
 const gridCols = {
-	2: "sm:grid-cols-2",
-	3: "sm:grid-cols-3",
-	4: "sm:grid-cols-2 lg:grid-cols-4",
-}[columns]
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-4",
+}[columns];
 ---
 
 <style>
-	@reference "../styles/global.css";
-	@reference "tailwindcss";
-	h3 {
-		@apply m-0 text-xl tracking-tight dark:text-slate-200;
-	}
+  @reference "../styles/global.css";
+  @reference "tailwindcss";
+  h3 {
+    @apply m-0 text-xl tracking-tight dark:text-slate-200;
+  }
 
-	@media (min-width: 768px) {
-		h3 {
-			@apply text-2xl;
-		}
-	}
+  @media (min-width: 768px) {
+    h3 {
+      @apply text-2xl;
+    }
+  }
 
-	@media (min-width: 1024px) {
-		h3 {
-			@apply text-3xl;
-		}
-	}
+  @media (min-width: 1024px) {
+    h3 {
+      @apply text-3xl;
+    }
+  }
 </style>
 <section class={`py-12 bg-slate-100 dark:bg-slate-900`}>
-	<div class="mx-auto max-w-7xl px-4">
-		{
-			title && (
-				<div class="mb-6 border-b border-slate-200 pb-2">
-					<h2 class="font-bold dark:text-slate-100">{title}</h2>
-				</div>
-			)
-		}
+  <div class="mx-auto max-w-7xl px-4">
+    {
+      title && (
+        <div class="mb-6 border-b border-slate-200 pb-2">
+          <h2 class="font-bold dark:text-slate-100">{title}</h2>
+        </div>
+      )
+    }
 
-		<div class={`grid grid-cols-1 ${gridCols} gap-6`}>
-			{
-				features.map((feature) => (
-					<div class="group flex items-start space-x-4">
-						<div class="flex-shrink-0">
-							<div class="group-hover:inset-shadow-sm group-hover:inset-shadow-slate-400 flex size-12 items-center justify-center rounded-lg bg-slate-900 text-white transition-all duration-300 dark:bg-slate-600">
-								{feature.icon ?
-									<Icon
-										name={feature.icon}
-										size="1.6em"
-									/>
-								:	<Icon
-										name="mdi:asterisk"
-										size="1.6em"
-									/>
-								}
-							</div>
-						</div>
-						<div>
-							<h3 class="dark:text-slate-200">{feature.title}</h3>
-							<p class="text-slate-800 dark:text-slate-400">{feature.description}</p>
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</div>
+    <div class={`grid grid-cols-1 ${gridCols} gap-6`}>
+      {
+        features.map((feature) => (
+          <div class="group flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <div class="group-hover:inset-shadow-sm group-hover:inset-shadow-slate-400 flex size-12 items-center justify-center rounded-lg bg-slate-900 text-white transition-all duration-300 dark:bg-slate-500">
+                {feature.icon ? (
+                  <Icon name={feature.icon} size="1.6em" />
+                ) : (
+                  <Icon name="mdi:asterisk" size="1.6em" />
+                )}
+              </div>
+            </div>
+            <div>
+              <h3 class="dark:text-slate-200">{feature.title}</h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </section>
