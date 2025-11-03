@@ -44,7 +44,7 @@ In 2025, Norris’s synergy with teammate Oscar Piastri has elevated McLaren’s
 
 ## Lando Overtakes Pastry in Mexico for the WDC
 
- The Brit's breakout season peaked with a dominant Mexico win from pole, seizing the drivers' lead by one point over teammate Piastri after six victories, showcasing maturity in high-stakes battles and McLaren's constructors' dominance. Like most everyone on the Internet, McLaren need to go away with "Papaya Rules" and let the drivers race.
+The Brit's breakout season peaked with a dominant Mexico win from pole, seizing the drivers' lead by one point over teammate Piastri after six victories, showcasing maturity in high-stakes battles and McLaren's constructors' dominance. Like most everyone on the Internet, McLaren need to go away with "Papaya Rules" and let the drivers race.
 
 ## Join the F1 Fandom
 
