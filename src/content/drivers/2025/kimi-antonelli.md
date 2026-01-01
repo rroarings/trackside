@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Kimi Antonelli"
 profileImageLargeAlt: "Portrait of Kimi Antonelli"
 driverLogo: ""
-driverPoints: 97
+driverPoints: 150
 championshipPosition: 7
 championships: 0
 grandPrixWins: 0

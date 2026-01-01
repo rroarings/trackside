@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 132
 championshipPosition: 5
 constructorName: "Williams"
-constructorPoints: 111
+constructorPoints: 137
 dnf: 7
 description: "Williams team description"
 engineSupplier: "Mercedes"

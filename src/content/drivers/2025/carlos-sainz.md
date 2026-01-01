@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Carlos Sainz"
 profileImageLargeAlt: "Portrait of Carlos Sainz"
 driverLogo: ""
-driverPoints: 38
-championshipPosition: 11
+driverPoints: 64
+championshipPosition: 9
 championships: 0
 grandPrixWins: 0
 podiums: 0

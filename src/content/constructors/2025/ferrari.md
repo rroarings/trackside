@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 10633
   polePositions: 254
   fastestLaps: 180
-championshipPosition: 2
+championshipPosition: 4
 constructorName: "Ferrari"
-constructorPoints: 356
+constructorPoints: 398
 dnf: 2
 description: "Ferrari team description"
 engineSupplier: "Ferrari"

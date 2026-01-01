@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Fernando Alonso"
 profileImageLargeAlt: "Portrait of Fernando Alonso"
 driverLogo: ""
-driverPoints: 37
-championshipPosition: 12
+driverPoints: 56
+championshipPosition: 10
 championships: 0
 grandPrixWins: 0
 podiums: 0

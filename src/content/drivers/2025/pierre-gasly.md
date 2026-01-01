@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Pierre Gasly"
 profileImageLargeAlt: "Portrait of Pierre Gasly"
 driverLogo: ""
-driverPoints: 20
+driverPoints: 22
 championshipPosition: 18
 championships: 0
 grandPrixWins: 0

@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 0
 championshipPosition: 9
 constructorName: "Kick Sauber"
-constructorPoints: 60
+constructorPoints: 70
 dnf: 4
 description: "Kick Sauber team description"
 engineSupplier: "Ferrari"

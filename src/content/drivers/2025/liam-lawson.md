@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Liam Lawson"
 profileImageLargeAlt: "Portrait of Liam Lawson"
 driverLogo: ""
-driverPoints: 30
-championshipPosition: 15
+driverPoints: 38
+championshipPosition: 14
 championships: 0
 grandPrixWins: 0
 podiums: 0
