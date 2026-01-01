@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Yuki Tsunoda"
 profileImageLargeAlt: "Portrait of Yuki Tsunoda"
 driverLogo: ""
-driverPoints: 28
+driverPoints: 33
 championshipPosition: 17
 championships: 0
 grandPrixWins: 0

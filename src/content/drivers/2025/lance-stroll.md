@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Lance Stroll"
 profileImageLargeAlt: "Portrait of Lance Stroll"
 driverLogo: ""
-driverPoints: 32
-championshipPosition: 14
+driverPoints: 33
+championshipPosition: 16
 championships: 0
 grandPrixWins: 0
 podiums: 0

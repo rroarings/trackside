@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 0
 championshipPosition: 6
 constructorName: "Racing Bulls"
-constructorPoints: 72
+constructorPoints: 92
 dnf: 5
 description: "Racing Bulls team description"
 engineSupplier: "Honda RBPT"

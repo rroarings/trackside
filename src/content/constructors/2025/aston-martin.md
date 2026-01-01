@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 3
 championshipPosition: 7
 constructorName: "Aston Martin"
-constructorPoints: 69
+constructorPoints: 89
 dnf: 5
 description: "Aston Martin team description"
 engineSupplier: "Mercedes"

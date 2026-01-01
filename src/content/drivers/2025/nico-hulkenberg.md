@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Nico Hulkenberg"
 profileImageLargeAlt: "Portrait of Nico Hulkenberg"
 driverLogo: ""
-driverPoints: 41
-championshipPosition: 9
+driverPoints: 51
+championshipPosition: 11
 championships: 0
 grandPrixWins: 0
 podiums: 0

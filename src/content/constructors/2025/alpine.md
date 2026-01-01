@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 0
 championshipPosition: 10
 constructorName: "Alpine"
-constructorPoints: 20
+constructorPoints: 22
 dnf: 4
 description: "Alpine team description"
 engineSupplier: "Renault"
