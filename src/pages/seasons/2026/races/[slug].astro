@@ -11,7 +11,7 @@ import { SITE_TITLE } from "../../../../consts"
 
 export async function getStaticPaths() {
 	const races = await getCollection("races", ({ data }) => {
-		return data.season === "2025"
+		return data.season === "2026"
 	})
 
 	return races.map((race) => {
