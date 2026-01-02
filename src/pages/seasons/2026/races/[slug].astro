@@ -1,0 +1,159 @@
+---
+import { getCollection } from "astro:content"
+import BaseHead from "../../../../components/BaseHead.astro"
+import Header from "../../../../components/Header.astro"
+import Footer from "../../../../components/Footer.astro"
+import FormattedDate from "../../../../components/FormattedDate.astro"
+import Breadcrumbs from "../../../../components/Breadcrumbs.astro"
+import SeasonButtons from "../../../../components/SeasonButtons.astro"
+import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.astro"
+import { SITE_TITLE } from "../../../../consts"
+
+export async function getStaticPaths() {
+	const races = await getCollection("races", ({ data }) => {
+		return data.season === "2025"
+	})
+
+	return races.map((race) => {
+		const parts = race.id.split("/")
+		const slug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "")
+		return {
+			params: { slug },
+			props: { race },
+		}
+	})
+}
+
+const { race } = Astro.props
+// Import the Content component
+import { render } from "astro:content"
+const { Content } = await render(race)
+---
+
+<!doctype html>
+<html
+	lang="en"
+	class="bg-slate-100 dark:bg-slate-950">
+	<head>
+		<BaseHead
+			title={`${race.data.trackName} | ${SITE_TITLE}`}
+			description={`Information about the ${race.data.trackName} Grand Prix of the 2025 Formula 1 season`}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<Breadcrumbs
+				items={[
+					{ text: "Formula 1", href: "/" },
+					{ text: "Seasons", href: "/seasons/" },
+					{ text: "2026", href: "/seasons/2026/" },
+					{ text: "Races", href: "/seasons/2026/races" },
+					{ text: `${race.data.raceName}` },
+				]}
+			/>
+
+			<!-- Race Header - Left aligned without background -->
+			<section class="race-header pt-12">
+				<div class="container mx-auto px-4">
+					<h1 class="mb-2 text-4xl font-bold dark:text-slate-100">
+						{race.data.raceName}
+					</h1>
+					<p class="text-slate-700 dark:text-slate-400">
+						<FormattedDate date={race.data.raceDate} /> • {race.data.trackLocation}
+					</p>
+				</div>
+			</section>
+
+			<!-- Race Status -->
+			<section class="py-4">
+				<div class="container mx-auto px-4">
+					<div class="text-left">
+						{
+							race.data.raceCompleted ?
+								<span class="inline-block rounded border border-green-400 bg-green-200 px-4 py-2 text-green-800 transition-colors duration-300 dark:border-green-600 dark:bg-green-700 dark:text-white dark:hover:bg-green-800">
+									Race Completed
+								</span>
+							:	<span class="inline-block rounded border border-slate-400 bg-slate-200 px-4 py-2 text-slate-800 transition-colors duration-300 dark:border-amber-600 dark:bg-amber-700 dark:text-white dark:hover:bg-amber-800">
+									Upcoming Race
+								</span>
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- Race Details -->
+			<section class="py-8">
+				<div class="container mx-auto px-4">
+					<!-- Race Stats -->
+					<div class="mb-8 rounded-lg border border-slate-300 p-6 shadow-sm dark:border-slate-800">
+						<h2 class="mb-4 text-2xl font-bold dark:text-slate-200">Race Details</h2>
+						<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+							<div>
+								<ul class="space-y-3">
+									<li class="flex justify-between">
+										<span class="dark:text-slate-400">Date:</span>
+										<span class="text-slate-600 dark:text-slate-300"
+											><FormattedDate date={race.data.raceDate} /></span
+										>
+									</li>
+									<li class="flex justify-between">
+										<span class="dark:text-slate-400">Location:</span>
+										<span class="text-slate-600 dark:text-slate-300">{race.data.trackLocation}</span
+										>
+									</li>
+									<li class="flex justify-between">
+										<span class="dark:text-slate-400">Race Number:</span>
+										<span class="text-slate-600 dark:text-slate-300">{race.data.raceNumber}</span>
+									</li>
+								</ul>
+							</div>
+
+							{
+								race.data.raceCompleted && (
+									<div>
+										<ul class="space-y-3">
+											<li class="flex justify-between">
+												<span class="dark:text-slate-400">Winner:</span>
+												<span class="text-slate-600 dark:text-slate-300">
+													{race.data.winningDriver}
+												</span>
+											</li>
+											<li class="flex justify-between">
+												<span class="dark:text-slate-400">Winning Team:</span>
+												<span class="text-slate-600 dark:text-slate-300">
+													{race.data.winningConstructor}
+												</span>
+											</li>
+											<li class="flex justify-between">
+												<span class="dark:text-slate-400">Fastest Lap:</span>
+												<span class="text-slate-600 dark:text-slate-300">
+													{race.data.fastestLapTime}
+													{race.data.fastestLapDriver && ` (${race.data.fastestLapDriver})`}
+												</span>
+											</li>
+										</ul>
+									</div>
+								)
+							}
+						</div>
+					</div>
+
+					<!-- Race Content -->
+					<div class="race-content prose dark:prose-invert max-w-none">
+						<Content />
+					</div>
+				</div>
+			</section>
+
+			<!-- Back Link -->
+			<SeasonButtonsModular
+				leftHref="/seasons/2026/races/"
+				leftText="Back to 2026 Races"
+				rightHref="/seasons"
+				rightText="Back to Seasons"
+			/>
+		</main>
+		<Footer />
+	</body>
+</html>
