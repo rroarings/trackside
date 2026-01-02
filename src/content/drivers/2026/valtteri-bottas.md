@@ -1,22 +1,35 @@
 ---
-age: 35
-careerStats:
-  careerPoints: 550
 driverFirstName: "Valtteri"
 driverLastName: "Bottas"
-countryCode: "FI"
-description: "Valtteri Bottas is a Finnish driver with multiple seasons of experience at the front of the grid."
-driverNumber: 77
-driverPoints: 0
+driverNumber: 10
 driverTeam: "Cadillac"
-nationality: "Finnish"
-profileImage: "../../../assets/blog-placeholder-1.jpg"
-profileImageAlt: "Valtteri Bottas profile image"
-profileImageLarge: "../../../assets/blog-placeholder-1.jpg"
-profileImageLargeAlt: "Valtteri Bottas large profile image"
-pubDate: "January 02, 2026"
+description: "Valtteri Bottas 2026 Driver Profile"
 season: "2026"
-updatedDate: "January 02, 2026"
+nationality: "Mexican"
+countryCode: "mx"
+profileImage: "../../../assets/constructors/alpine/drivers/gasly-02.png"
+age: 34
+profileImageLarge: ""
+profileImageAlt: "Portrait of Valtteri Bottas"
+profileImageLargeAlt: "Portrait of Valtteri Bottas"
+driverLogo: ""
+driverPoints: 0
+championshipPosition: 23
+championships: 0
+grandPrixWins: 0
+podiums: 0
+polePositions: 0
+fastestLaps: 0
+careerStats:
+  championships: 0
+  careerPoints: 456
+  grandPrixWins: 1
+  polePositions: 0
+  fastestLaps: 3
+  podiumPositions: 5
+pubDate: "January 2, 2026"
+updatedDate: "January 2, 2026"
+heroImage: ""
 ---
 
 # Valtteri Bottas
