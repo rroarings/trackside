@@ -14,12 +14,13 @@ constructorName: "Cadillac"
 constructorPoints: 0
 description: "Cadillac joins the Formula 1 grid with a manufacturer-backed effort focused on sustainable powertrain development and a high-downforce chassis package."
 engineSupplier: "Cadillac"
-pubDate: "January 02, 2026"
+championshipPosition: 11
 season: "2026"
 teamDrivers: ["Sergio Pérez", "Valtteri Bottas"]
 teamLogo: ""
 teamPrincipal: "Graeme Lowdon"
-updatedDate: "January 02, 2026"
+pubDate: "January 2, 2026"
+updatedDate: "January 2, 2026"
 ---
 
 # Cadillac
