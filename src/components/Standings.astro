@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { teamBgMap } from "../utils/teamBgMap";
 import { toUTCMidnight } from "../utils/dateUtils";
 import RaceCard from "./RaceCard.astro";
 import StandingsCard from "./StandingsCard.astro";
@@ -9,7 +8,7 @@ import DriversTable from "./DriversTable.astro";
 import ConstructorsTable from "./ConstructorsTable.astro";
 
 interface Props {
-  season: "2024" | "2025";
+  season: "2024" | "2025" | "2026";
   imageLoading?: "eager" | "lazy";
 }
 

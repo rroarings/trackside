@@ -1,0 +1,29 @@
+---
+raceName: "Formula 1 Pirelli Grand Premio d'Italia 2026"
+trackName: "Silverstone"
+trackLocation: "Italy"
+trackCountry: "Italy"
+trackImage: "../../../assets/circuits/06miami/mi01.jpg"
+trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
+trackImageAlt: "Miami International Autodrome"
+trackImageLargeAlt: "Miami International Autodrome"
+raceDate: "September 06, 2026"
+raceTime: ""
+raceWeekend: "Race"
+raceWeekendOrder: 15
+raceWeekendDescription: "Round 15"
+season: "2026"
+winningDriver: ""
+winningConstructor: ""
+fastestLapDriver: ""
+fastestLapConstructor: ""
+fastestLapTime: ""
+raceNumber: 15
+raceCompleted: false
+pubDate: "January 02, 2026"
+heroImage: "../../../assets/circuits/06miami/mi01.jpg"
+---
+
+# Australian Grand Prix 2026
+
+Round 1 in Australia.
