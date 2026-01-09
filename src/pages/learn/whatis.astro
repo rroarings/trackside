@@ -12,6 +12,9 @@ import machinery from "../../assets/section/racei1.jpg"
 import drivers from "../../assets/section/racei1.jpg"
 import tracks from "../../assets/section/racei1.jpg"
 import LatestPosts from "../../components/LatestPosts.astro"
+import BreakpointIndicator from "../../components/BreakpointIndicator.astro"
+
+const isDevMode = import.meta.env.DEV
 
 const pageTitle = "What is Formula 1?"
 const description =
@@ -64,6 +67,7 @@ const f1BasicsItems = [
 		/>
 	</head>
 	<body>
+		{isDevMode && <BreakpointIndicator />}
 		<Header />
 		<main>
 			<!-- Hero Section -->
@@ -83,6 +87,7 @@ const f1BasicsItems = [
 						src={cn02}
 						alt="A bird sitting on a nest of eggs."
 						loading="eager"
+						class="w-full rounded-lg object-cover"
 					/>
 				</div>
 			</section>
@@ -103,11 +108,8 @@ const f1BasicsItems = [
 						<!-- The Basics -->
 						<a
 							href="#understanding"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
-								The Basics
-							</h3>
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">The Basics</h3>
 							<p class="text-slate-800 dark:text-slate-400">
 								What makes F1 unique? Dive into its structure, speed, and global appeal.
 							</p>
@@ -116,9 +118,8 @@ const f1BasicsItems = [
 						<!-- Behind the Machines -->
 						<a
 							href="#technology"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
 								Behind the Machines
 							</h3>
 							<p class="text-slate-800 dark:text-slate-400">
@@ -129,9 +130,8 @@ const f1BasicsItems = [
 						<!-- Future of Racing -->
 						<a
 							href="#future"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
 								Future of Racing
 							</h3>
 							<p class="text-slate-800 dark:text-slate-400">
@@ -142,9 +142,8 @@ const f1BasicsItems = [
 						<!-- Scoring & Standings -->
 						<a
 							href="#championships"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
 								Scoring & Standings
 							</h3>
 							<p class="text-slate-800 dark:text-slate-400">
@@ -155,9 +154,8 @@ const f1BasicsItems = [
 						<!-- 2025 Season -->
 						<a
 							href="#spectacle"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
 								2025 Highlights
 							</h3>
 							<p class="text-slate-800 dark:text-slate-400">
@@ -168,9 +166,8 @@ const f1BasicsItems = [
 						<!-- 2025 Coverage -->
 						<a
 							href="#why-it-matters"
-							class="group flex h-full flex-col rounded-xl p-6 transition-shadow duration-300 hover:shadow">
-							<h3
-								class="mb-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-slate-200">
+							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
 								2025 Coverage
 							</h3>
 							<p class="text-slate-800 dark:text-slate-400">
@@ -213,7 +210,7 @@ const f1BasicsItems = [
 									<Icon
 										name="mdi:racing-helmet"
 										aria-hidden="true"
-										class="a h-6 w-6 shrink-0 text-slate-800 transition-colors duration-300 group-hover:text-rose-500"
+										class="a h-6 w-6 shrink-0 text-slate-800"
 									/>
 								</div>
 								<h3
@@ -227,7 +224,7 @@ const f1BasicsItems = [
 								</p>
 								<div class="rounded-lg p-6">
 									<div class="flex flex-col items-center">
-										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">24</span>
+										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">22</span>
 										<span
 											class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
 											>Drivers Racing</span
@@ -245,7 +242,7 @@ const f1BasicsItems = [
 									<Icon
 										name="mdi:account-group"
 										aria-hidden="true"
-										class="a h-6 w-6 shrink-0 text-slate-800 transition-colors duration-300 group-hover:text-rose-500"
+										class="a h-6 w-6 shrink-0 text-slate-800"
 									/>
 								</div>
 								<h3
@@ -259,7 +256,7 @@ const f1BasicsItems = [
 								</p>
 								<div class="rounded-lg p-6">
 									<div class="flex flex-col items-center">
-										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">10</span>
+										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">11</span>
 										<span
 											class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
 											>Teams Racing</span
@@ -277,85 +274,57 @@ const f1BasicsItems = [
 				<TwoColumnSection
 					title="The Technology"
 					content={`
-          <p>
-            Formula 1 is a testing ground for automotive and engineering
-            innovations. Technologies developed in F1 often influence the
-            design and performance of road cars, pushing boundaries in
-            efficiency and speed.
-          </p>
-          <p>
-            Recent years have seen a push towards sustainability, with the
-            introduction of hybrid power units and a commitment to using 100%
-            sustainable fuels by 2030. These initiatives aim to secure the
-            sport's future while addressing global environmental challenges.
-           </p>
-          `}
+					<p>
+						Formula 1 is a testing ground for automotive and engineering innovations that often influence road‑car design and performance—pushing boundaries in efficiency and speed—while recent years have driven a push toward sustainability through hybrid power units and a commitment to 100% sustainable fuels by 2030 to secure the sport’s future and address global environmental challenges.
+					</p>
+					`}
 					imageSrc={cn02}
 					imageAlt="F1 Technology"
 				/>
+			</div>
 
-				<!-- Spectacle Section -->
-				<div
-					id="spectacle"
-					class="container mx-auto">
-					<TwoColumnSection
-						title="The Spectacle"
-						content={`
-            <p>
-              Each F1 race weekend includes practice sessions, a qualifying
-              session to determine the starting grid, and the main event: the
-              Grand Prix. The format keeps fans engaged and builds excitement
-              across the weekend.
-            </p>
-          `}
-						imageSrc={cn02}
-						imageAlt="F1 Race Weekend"
-						reversed={true}
-						background="slate"
-					/>
-				</div>
+			<!-- Spectacle Section -->
+			<div id="spectacle">
+				<TwoColumnSection
+					title="The Spectacle"
+					content={`
+						<p>
+							A typical F1 race weekend builds from practice sessions—where teams fine‑tune setup and collect data—into a high‑intensity qualifying session (often split into Q1–Q3) that determines the starting grid, and culminates in the Grand Prix itself, where strategy, tire management, pit‑stop timing and split‑second driver decisions combine to decide the result; support races, fan activities and evolving track conditions add context and momentum, creating a continuous rise in tension and excitement across the weekend.
+						</p>
+					`}
+					imageSrc={cn02}
+					imageAlt="F1 Race Weekend"
+					reversed={true}
+				/>
+			</div>
 
-				<!-- Why It Matters Section -->
-				<div
-					id="why-it-matters"
-					class="mx-auto max-w-7xl">
-					<TwoColumnSection
-						title="Why It Matters"
-						content={`
-            <p>
-              Formula 1 isn't just about racing; it's about pushing boundaries,
-              showcasing human ingenuity, and celebrating the relentless pursuit
-              of excellence. It captures the imagination of fans with its blend of
-              speed, strategy, and high-octane drama.
-            </p>
-            <p>
-              Whether you're a lifelong fan or new to the sport, Formula 1 offers
-              something for everyone. It's more than a race – it's a passion, a
-              tradition, and a glimpse into the future of technology and sport.
-            </p>
-          `}
-						imageSrc={cn02}
-						imageAlt="F1 Impact"
-					/>
-				</div>
+			<!-- Why It Matters Section -->
+			<div id="why-it-matters">
+				<TwoColumnSection
+					title="Why It Matters"
+					content={`
+						<p>
+							Formula 1 isn't just about racing; it's about pushing boundaries, showcasing human ingenuity, and celebrating the relentless pursuit of excellence, capturing the imagination of fans with its blend of speed, strategy, and high-octane drama—offering something for everyone, whether you're a lifelong fan or new to the sport, and serving as more than a race: a passion, a tradition, and a glimpse into the future of technology and sport.
+						</p>
+					`}
+					imageSrc={cn02}
+					imageAlt="F1 Impact"
+				/>
+			</div>
 
-				<!-- The Future Section -->
-				<div
-					id="future"
-					class="mx-auto max-w-7xl">
-					<TwoColumnSection
-						title="The Future"
-						content={`
-            <p>
-              Formula 1 continues to evolve through advancements in sustainability, hybrid technology, and fan engagement. The sport remains poised to be the pinnacle of motorsport for generations to come. 
-            </p>
-            `}
-						imageSrc={cn02}
-						imageAlt="F1 Race Weekend"
-						reversed={true}
-						background="slate"
-					/>
-				</div>
+			<!-- The Future Section -->
+			<div id="future">
+				<TwoColumnSection
+					title="The Future"
+					content={`
+						<p>
+							Formula 1 continues to evolve—driven by advances in hybrid powertrains and sustainable fuels, strengthened safety and technical regulations, and new forms of fan engagement and media innovation—ensuring the sport pushes engineering boundaries, nurtures emerging talent, and broadens its global appeal, positioning it to remain the pinnacle of motorsport for generations to come.
+						</p>
+						`}
+					imageSrc={cn02}
+					imageAlt="F1 Race Weekend"
+					reversed={true}
+				/>
 			</div>
 
 			<!-- Latest Blog Posts Section -->

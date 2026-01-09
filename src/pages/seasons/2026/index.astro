@@ -8,6 +8,9 @@ import SeasonNavCards from "../../../components/SeasonNavCards.astro"
 import Standings from "../../../components/Standings.astro"
 import RaceCalendar from "../../../components/RaceCalendar.astro"
 import LatestPosts from "../../../components/LatestPosts.astro"
+import BreakpointIndicator from "../../../components/BreakpointIndicator.astro"
+
+const isDevMode = import.meta.env.DEV
 ---
 
 <!doctype html>
@@ -21,6 +24,7 @@ import LatestPosts from "../../../components/LatestPosts.astro"
 		/>
 	</head>
 	<body>
+		{isDevMode && <BreakpointIndicator />}
 		<Header />
 		<main>
 			<Breadcrumbs
@@ -30,6 +34,7 @@ import LatestPosts from "../../../components/LatestPosts.astro"
 					{ text: "2026", href: "/seasons/2026/" },
 				]}
 			/>
+
 			<!-- 2025 Season Header -->
 			<section class="pb-6 pt-6 text-center dark:text-slate-100">
 				<div class="container mx-auto px-4">
@@ -51,7 +56,6 @@ import LatestPosts from "../../../components/LatestPosts.astro"
 					<h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
 						2026 Championship Standings
 					</h2>
-
 					<Standings
 						season="2026"
 						imageLoading="eager"
