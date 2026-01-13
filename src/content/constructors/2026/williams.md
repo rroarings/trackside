@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/williams/car/car-williams-01-copy.png"
-carImageAlt: "Williams 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/williams/car/car-williams-01-copy.png"
-carImageLargeAlt: "Williams 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Williams 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Williams 2026 Constructor car"
 carModel: "RB21"
 careerStats:
   firstEntry: 1977

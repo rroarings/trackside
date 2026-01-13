@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/racing-bulls/car/car-racing-bulls-01-copy.png"
-carImageAlt: "Racing Bulls 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/racing-bulls/car/car-racing-bulls-01-copy.png"
-carImageLargeAlt: "Racing Bulls 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Racing Bulls 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Racing Bulls 2026 Constructor car"
 carModel: "VCARB 02"
 careerStats:
   firstEntry: 2004

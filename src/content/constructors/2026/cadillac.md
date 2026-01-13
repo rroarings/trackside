@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/blog-placeholder-1.jpg"
-carImageAlt: "Cadillac 2025 Constructor car"
-carImageLarge: "../../../assets/blog-placeholder-1.jpg"
-carImageLargeAlt: "Cadillac 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Cadillac 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Cadillac 2026 Constructor car"
 carModel: "CAD-01"
 careerStats:
   firstEntry: 2026
@@ -16,7 +16,7 @@ description: "Cadillac joins the Formula 1 grid with a manufacturer-backed effor
 engineSupplier: "Cadillac"
 championshipPosition: 11
 season: "2026"
-teamDrivers: ["Sergio Pérez", "Valtteri Bottas"]
+teamDrivers: ["Sergio Perez", "Valtteri Bottas"]
 teamLogo: ""
 teamPrincipal: "Graeme Lowdon"
 pubDate: "January 2, 2026"

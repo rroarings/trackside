@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/ferrari/car/car-ferrari-01-copy.png"
-carImageAlt: "Ferrari 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/ferrari/car/car-ferrari-01-copy.png"
-carImageLargeAlt: "Ferrari 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Ferrari 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Ferrari 2026 Constructor car"
 carModel: "SF-25"
 careerStats:
   firstEntry: 1950

@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/alpine/car/car-alpine-01-copy.png"
-carImageAlt: "Alpine 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/alpine/car/car-alpine-01-copy.png"
-carImageLargeAlt: "Alpine 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Alpine 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Alpine 2026 Constructor car"
 carModel: "A525"
 careerStats:
   firstEntry: 1986

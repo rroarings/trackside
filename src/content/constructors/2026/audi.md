@@ -1,7 +1,7 @@
 ---
-carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
+carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Audi 2026 Constructor car"
-carImageLarge: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Audi 2026 Constructor car"
 carModel: ""
 careerStats:
