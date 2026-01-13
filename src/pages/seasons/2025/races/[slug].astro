@@ -135,11 +135,9 @@ const { Content } = await render(race);
                         </span>
                       </li>
                       <li class="flex justify-between">
-                        <span class="dark:text-slate-400">Fastest Lap:</span>
+                        <span class="dark:text-slate-400">Time:</span>
                         <span class="text-slate-600 dark:text-slate-300">
-                          {race.data.fastestLapTime}
-                          {race.data.fastestLapDriver &&
-                            ` (${race.data.fastestLapDriver})`}
+                          {race.data.time}
                         </span>
                       </li>
                     </ul>
