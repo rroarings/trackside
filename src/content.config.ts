@@ -126,6 +126,7 @@ const races = defineCollection({
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
+      time: z.string().optional(),
       fastestLapConstructor: z.string().optional(),
       fastestLapDriver: z.string().optional(),
       fastestLapTime: z.string().optional(),
