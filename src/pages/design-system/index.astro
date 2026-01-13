@@ -1,0 +1,1442 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { Icon } from "astro-icon/components";
+import "../../styles/global.css";
+
+const pageTitle = "Design System";
+const pageDescription =
+  "Visual reference for Trackside design tokens, colors, and UI components";
+
+// Current color palette extracted from the codebase
+// Using hex values directly for inline styles since Tailwind JIT won't pick up dynamic class names
+const slateColors = [
+  {
+    name: "slate-50",
+    hex: "#f8fafc",
+    textColor: "#0f172a",
+    usage: "Lightest backgrounds",
+  },
+  {
+    name: "slate-100",
+    hex: "#f1f5f9",
+    textColor: "#0f172a",
+    usage: "Light mode page bg",
+  },
+  {
+    name: "slate-200",
+    hex: "#e2e8f0",
+    textColor: "#0f172a",
+    usage: "Hover states, borders",
+  },
+  {
+    name: "slate-300",
+    hex: "#cbd5e1",
+    textColor: "#0f172a",
+    usage: "Borders, dividers",
+  },
+  {
+    name: "slate-400",
+    hex: "#94a3b8",
+    textColor: "#0f172a",
+    usage: "Muted text, icons",
+  },
+  {
+    name: "slate-500",
+    hex: "#64748b",
+    textColor: "#f8fafc",
+    usage: "Secondary text",
+  },
+  {
+    name: "slate-600",
+    hex: "#475569",
+    textColor: "#f8fafc",
+    usage: "Body text",
+  },
+  {
+    name: "slate-700",
+    hex: "#334155",
+    textColor: "#f8fafc",
+    usage: "Dark hover states",
+  },
+  {
+    name: "slate-800",
+    hex: "#1e293b",
+    textColor: "#f8fafc",
+    usage: "Dark mode header/cards",
+  },
+  {
+    name: "slate-900",
+    hex: "#0f172a",
+    textColor: "#f8fafc",
+    usage: "Dark mode page bg",
+  },
+  {
+    name: "slate-950",
+    hex: "#020617",
+    textColor: "#f8fafc",
+    usage: "Darkest backgrounds",
+  },
+];
+
+const statusColors = [
+  {
+    name: "red-600",
+    hex: "#dc2626",
+    borderColor: "#dc2626",
+    usage: "Next race badge, alerts",
+  },
+  {
+    name: "blue-600",
+    hex: "#2563eb",
+    borderColor: "#2563eb",
+    usage: "Previous race, links",
+  },
+  {
+    name: "green-600",
+    hex: "#16a34a",
+    borderColor: "#16a34a",
+    usage: "Completed races, success",
+  },
+  {
+    name: "amber-600",
+    hex: "#d97706",
+    borderColor: "#d97706",
+    usage: "Upcoming races, warnings",
+  },
+];
+
+const accentColors = [
+  { name: "--accent", hex: "#2337ff", usage: "Primary accent, blockquotes" },
+  { name: "--accent-dark", hex: "#000d8a", usage: "Darker accent variant" },
+];
+
+// Typography scale
+const typography = [
+  {
+    element: "h1",
+    class: "text-6xl",
+    size: "3.052em / ~55px",
+    usage: "Page titles, hero headlines",
+  },
+  {
+    element: "h2",
+    class: "text-5xl",
+    size: "2.441em / ~44px",
+    usage: "Section headers",
+  },
+  {
+    element: "h3",
+    class: "text-4xl",
+    size: "1.953em / ~35px",
+    usage: "Card titles, subsections",
+  },
+  {
+    element: "h4",
+    class: "text-3xl",
+    size: "1.563em / ~28px",
+    usage: "Component headers",
+  },
+  {
+    element: "h5",
+    class: "text-2xl",
+    size: "1.25em / ~22px",
+    usage: "Small headings",
+  },
+  { element: "p", class: "text-base", size: "18px (body)", usage: "Body text" },
+  {
+    element: "small",
+    class: "text-sm",
+    size: "14px",
+    usage: "Captions, metadata",
+  },
+];
+
+// Spacing scale reference
+const spacingScale = [
+  { name: "1", value: "0.25rem / 4px" },
+  { name: "2", value: "0.5rem / 8px" },
+  { name: "4", value: "1rem / 16px" },
+  { name: "6", value: "1.5rem / 24px" },
+  { name: "8", value: "2rem / 32px" },
+  { name: "10", value: "2.5rem / 40px" },
+  { name: "12", value: "3rem / 48px" },
+  { name: "16", value: "4rem / 64px" },
+];
+---
+
+<!doctype html>
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+  <head>
+    <BaseHead title={pageTitle} description={pageDescription} />
+    <style>
+      .color-swatch {
+        transition: transform 0.2s ease;
+      }
+      .color-swatch:hover {
+        transform: scale(1.05);
+      }
+      .copy-hex {
+        cursor: pointer;
+      }
+      .copy-hex:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body class="text-slate-800 dark:text-slate-200">
+    <Header />
+    <main class="bg-slate-100 py-12 dark:bg-slate-900">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Page Header -->
+        <div class="mb-12 text-center">
+          <h1
+            class="mb-4 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-slate-100"
+          >
+            Design System
+          </h1>
+          <p
+            class="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400"
+          >
+            A visual reference of Trackside's current design tokens, colors,
+            typography, and UI patterns. Use this page to audit the current
+            theme and plan dark mode redesigns.
+          </p>
+          <div
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200"
+          >
+            <Icon name="mdi:information" size={20} />
+            <span class="text-sm"
+              >Toggle dark mode in your browser/OS to preview both themes</span
+            >
+          </div>
+        </div>
+
+        <!-- Color Palettes Section -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Color Palette
+          </h2>
+
+          <!-- Slate (Primary Neutral) -->
+          <div class="mb-12">
+            <h3
+              class="mb-2 text-xl font-semibold text-slate-800 dark:text-slate-200"
+            >
+              Slate (Primary Neutral)
+            </h3>
+            <p class="mb-4 text-slate-600 dark:text-slate-400">
+              Main neutral palette used throughout the site for backgrounds,
+              text, and borders
+            </p>
+            <div
+              class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+            >
+              {
+                slateColors.map((color) => (
+                  <div class="color-swatch overflow-hidden rounded-lg border border-slate-200 shadow-sm dark:border-slate-700">
+                    <div
+                      class="flex h-20 w-full items-end justify-start p-2"
+                      style={`background-color: ${color.hex};`}
+                    >
+                      <span
+                        class="font-mono text-xs font-medium"
+                        style={`color: ${color.textColor};`}
+                      >
+                        {color.hex}
+                      </span>
+                    </div>
+                    <div class="bg-white p-3 dark:bg-slate-800">
+                      <p class="font-mono text-sm font-medium text-slate-900 dark:text-slate-100">
+                        {color.name}
+                      </p>
+                      <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
+                        {color.usage}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Status Colors -->
+          <div class="mb-12">
+            <h3
+              class="mb-2 text-xl font-semibold text-slate-800 dark:text-slate-200"
+            >
+              Status Colors
+            </h3>
+            <p class="mb-4 text-slate-600 dark:text-slate-400">
+              Used for race status badges and interactive feedback
+            </p>
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+              {
+                statusColors.map((color) => (
+                  <div
+                    class="color-swatch overflow-hidden rounded-lg shadow-sm"
+                    style={`border: 2px solid ${color.borderColor};`}
+                  >
+                    <div
+                      class="flex h-20 w-full items-center justify-center"
+                      style={`background-color: ${color.hex};`}
+                    >
+                      <span class="font-mono text-sm font-bold text-white">
+                        {color.hex}
+                      </span>
+                    </div>
+                    <div class="bg-white p-3 dark:bg-slate-800">
+                      <p
+                        class="font-mono text-sm font-medium"
+                        style={`color: ${color.hex};`}
+                      >
+                        {color.name}
+                      </p>
+                      <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
+                        {color.usage}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Accent Colors (CSS Variables) -->
+          <div class="mb-12">
+            <h3
+              class="mb-2 text-xl font-semibold text-slate-800 dark:text-slate-200"
+            >
+              Accent Colors (CSS Variables)
+            </h3>
+            <p class="mb-4 text-slate-600 dark:text-slate-400">
+              Defined in global.css :root - used for branding elements
+            </p>
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+              {
+                accentColors.map((color) => (
+                  <div
+                    class="color-swatch overflow-hidden rounded-lg shadow-sm"
+                    style={`border: 2px solid ${color.hex};`}
+                  >
+                    <div
+                      class="flex h-20 w-full items-center justify-center"
+                      style={`background-color: ${color.hex};`}
+                    >
+                      <span class="font-mono text-sm font-bold text-white">
+                        {color.hex}
+                      </span>
+                    </div>
+                    <div class="bg-white p-3 dark:bg-slate-800">
+                      <p
+                        class="font-mono text-sm font-medium"
+                        style={`color: ${color.hex};`}
+                      >
+                        {color.name}
+                      </p>
+                      <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
+                        {color.usage}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        <!-- Dark Mode Comparison -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Light/Dark Mode Comparison
+          </h2>
+          <div class="mb-8 grid gap-6 md:grid-cols-2">
+            <!-- Light Mode Preview -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-200 bg-white p-6 shadow-lg"
+            >
+              <div class="mb-4 flex items-center gap-2">
+                <Icon
+                  name="mdi:white-balance-sunny"
+                  size={24}
+                  class="text-amber-500"
+                />
+                <h3 class="text-lg font-semibold text-slate-900">Light Mode</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="rounded-lg bg-slate-100 p-4">
+                  <p class="font-semibold text-slate-900">Page Background</p>
+                  <p class="text-sm text-slate-600">bg-slate-100</p>
+                </div>
+                <div class="rounded-lg bg-white p-4 shadow">
+                  <p class="font-semibold text-slate-900">Card Background</p>
+                  <p class="text-sm text-slate-600">bg-white</p>
+                </div>
+                <p class="text-slate-900">Primary Text (slate-900)</p>
+                <p class="text-slate-600">Secondary Text (slate-600)</p>
+                <p class="text-slate-400">Muted Text (slate-400)</p>
+              </div>
+            </div>
+
+            <!-- Dark Mode Preview -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-700 bg-slate-900 p-6 shadow-lg"
+            >
+              <div class="mb-4 flex items-center gap-2">
+                <Icon
+                  name="mdi:moon-waning-crescent"
+                  size={24}
+                  class="text-blue-400"
+                />
+                <h3 class="text-lg font-semibold text-slate-100">Dark Mode</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="rounded-lg bg-slate-900 p-4 ring-1 ring-slate-700">
+                  <p class="font-semibold text-slate-100">Page Background</p>
+                  <p class="text-sm text-slate-400">bg-slate-900</p>
+                </div>
+                <div class="rounded-lg bg-slate-800 p-4 shadow">
+                  <p class="font-semibold text-slate-100">Card Background</p>
+                  <p class="text-sm text-slate-400">bg-slate-800</p>
+                </div>
+                <p class="text-slate-100">Primary Text (slate-100)</p>
+                <p class="text-slate-400">Secondary Text (slate-400)</p>
+                <p class="text-slate-500">Muted Text (slate-500)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Typography
+          </h2>
+          <div
+            class="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800"
+          >
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead
+                  class="border-b border-slate-200 bg-slate-50 dark:border-slate-600 dark:bg-slate-700"
+                >
+                  <tr>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100"
+                      >Element</th
+                    >
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100"
+                      >Preview</th
+                    >
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100"
+                      >Size</th
+                    >
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100"
+                      >Usage</th
+                    >
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-slate-600">
+                  {
+                    typography.map((item) => (
+                      <tr class="transition-colors hover:bg-slate-100 dark:hover:bg-slate-600">
+                        <td class="px-6 py-4 font-mono text-sm text-slate-600 dark:text-slate-400">
+                          &lt;{item.element}&gt;
+                        </td>
+                        <td class="px-6 py-4">
+                          {item.element === "h1" && (
+                            <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                              Heading 1
+                            </h1>
+                          )}
+                          {item.element === "h2" && (
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                              Heading 2
+                            </h2>
+                          )}
+                          {item.element === "h3" && (
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">
+                              Heading 3
+                            </h3>
+                          )}
+                          {item.element === "h4" && (
+                            <h4 class="font-bold text-slate-900 dark:text-slate-100">
+                              Heading 4
+                            </h4>
+                          )}
+                          {item.element === "h5" && (
+                            <h5 class="font-semibold text-slate-900 dark:text-slate-100">
+                              Heading 5
+                            </h5>
+                          )}
+                          {item.element === "p" && (
+                            <p class="text-slate-700 dark:text-slate-300">
+                              Body paragraph text
+                            </p>
+                          )}
+                          {item.element === "small" && (
+                            <small class="text-slate-500 dark:text-slate-400">
+                              Small/caption text
+                            </small>
+                          )}
+                        </td>
+                        <td class="px-6 py-4 font-mono text-sm text-slate-600 dark:text-slate-400">
+                          {item.size}
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                          {item.usage}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="mb-8 mt-8 rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+          >
+            <h3
+              class="mb-4 text-lg font-semibold text-slate-900 dark:text-slate-100"
+            >
+              Font Families
+            </h3>
+            <div class="grid gap-6 md:grid-cols-2">
+              <div>
+                <p
+                  class="mb-2 text-sm font-medium text-slate-600 dark:text-slate-400"
+                >
+                  Headings
+                </p>
+                <p
+                  class="font-['Atkinson'] text-2xl text-slate-900 dark:text-slate-100"
+                >
+                  Atkinson Hyperlegible
+                </p>
+              </div>
+              <div>
+                <p
+                  class="mb-2 text-sm font-medium text-slate-600 dark:text-slate-400"
+                >
+                  Body Text
+                </p>
+                <p
+                  class="font-['Noto_Sans'] text-2xl text-slate-900 dark:text-slate-100"
+                >
+                  Noto Sans Variable
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Button Styles -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Button Styles
+          </h2>
+          <div class="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Primary (Red/Racing) -->
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <p class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Primary (Red/Racing)
+              </p>
+              <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+                Primary CTAs, Season links
+              </p>
+              <button
+                class="rounded-lg bg-rose-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-rose-700"
+              >
+                Button Text
+              </button>
+              <p
+                class="mt-3 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                bg-red-600 hover:bg-red-700 text-white
+              </p>
+            </div>
+            <!-- Secondary (Blue) -->
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <p class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Secondary (Blue)
+              </p>
+              <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+                Secondary actions, info links
+              </p>
+              <button
+                class="rounded-lg bg-sky-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-sky-700"
+              >
+                Button Text
+              </button>
+              <p
+                class="mt-3 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                bg-blue-600 hover:bg-blue-700 text-white
+              </p>
+            </div>
+            <!-- Outline Light -->
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <p class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Outline Light
+              </p>
+              <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+                Light mode tertiary buttons
+              </p>
+              <button
+                class="rounded-lg border border-slate-300 bg-white px-6 py-3 font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-100"
+              >
+                Button Text
+              </button>
+              <p
+                class="mt-3 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                border bg-white hover:bg-slate-100 text-slate-700
+              </p>
+            </div>
+            <!-- Outline Dark -->
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <p class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Outline Dark
+              </p>
+              <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+                Dark mode tertiary buttons
+              </p>
+              <button
+                class="rounded-lg border border-slate-600 bg-slate-800 px-6 py-3 font-medium text-slate-200 transition-colors duration-200 hover:bg-slate-700"
+              >
+                Button Text
+              </button>
+              <p
+                class="mt-3 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                border-slate-600 bg-slate-800 hover:bg-slate-700 text-slate-200
+              </p>
+            </div>
+            <!-- Ghost -->
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <p class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Ghost
+              </p>
+              <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+                Navigation, subtle actions
+              </p>
+              <button
+                class="rounded-lg px-6 py-3 font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"
+              >
+                Button Text
+              </button>
+              <p
+                class="mt-3 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                hover:bg-slate-100 dark:hover:bg-slate-700
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card Styles -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Card Styles
+          </h2>
+          <div class="mb-8 grid gap-6 md:grid-cols-3">
+            <!-- Default Card -->
+            <div
+              class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-600 dark:bg-slate-800"
+            >
+              <h3 class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Default Card
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Example card content with the applied styles.
+              </p>
+              <p
+                class="mt-4 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                border shadow-sm rounded-lg
+              </p>
+            </div>
+            <!-- Elevated Card -->
+            <div class="rounded-lg bg-white p-6 shadow-lg dark:bg-slate-800">
+              <h3 class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Elevated Card
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Example card content with the applied styles.
+              </p>
+              <p
+                class="mt-4 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                shadow-lg rounded-lg
+              </p>
+            </div>
+            <!-- Interactive Card -->
+            <div
+              class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-blue-500 hover:shadow-xl dark:border-slate-600 dark:bg-slate-800 dark:hover:border-blue-400"
+            >
+              <h3 class="mb-2 font-semibold text-slate-900 dark:text-slate-100">
+                Interactive Card
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Hover over this card to see the effect.
+              </p>
+              <p
+                class="mt-4 break-all font-mono text-xs text-slate-500 dark:text-slate-400"
+              >
+                hover:shadow-xl hover:border-blue-500
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Spacing Reference -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Spacing Scale
+          </h2>
+          <div
+            class="mb-8 overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800"
+          >
+            <div class="grid gap-4 p-6">
+              {
+                spacingScale.map((space) => (
+                  <div class="flex items-center gap-4">
+                    <span class="w-12 font-mono text-sm text-slate-600 dark:text-slate-400">
+                      p-{space.name}
+                    </span>
+                    <div
+                      class="h-8 rounded bg-blue-500"
+                      style={`width: calc(${space.name} * 0.25rem * 4)`}
+                    />
+                    <span class="text-sm text-slate-600 dark:text-slate-400">
+                      {space.value}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive States -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Interactive States
+          </h2>
+          <div class="mb-8 grid gap-6 md:grid-cols-2">
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <h3 class="mb-4 font-semibold text-slate-900 dark:text-slate-100">
+                Hover States
+              </h3>
+              <div class="space-y-3">
+                <div
+                  class="cursor-pointer rounded-lg bg-slate-100 p-3 transition-colors hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600"
+                >
+                  Hover me (slate-100 → slate-200)
+                </div>
+                <div
+                  class="group cursor-pointer rounded-lg border-2 border-slate-300 bg-white p-3 transition-all duration-300 hover:border-blue-500 hover:shadow-lg dark:border-slate-500 dark:bg-slate-700 dark:hover:border-blue-400"
+                >
+                  <span
+                    class="text-slate-700 transition-colors group-hover:text-blue-600 dark:text-slate-200 dark:group-hover:text-blue-400"
+                    >Hover for border change</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <h3 class="mb-4 font-semibold text-slate-900 dark:text-slate-100">
+                Focus States
+              </h3>
+              <div class="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Focus me..."
+                  class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
+                />
+                <button
+                  class="rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+                >
+                  Focus ring example
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Status Badges -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Status Badges (Race Cards)
+          </h2>
+          <div class="mb-8 flex flex-wrap gap-4">
+            <span
+              class="rounded-full bg-red-600 px-4 py-2 text-sm font-medium text-white motion-safe:animate-pulse"
+            >
+              Next Race
+            </span>
+            <span
+              class="rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white"
+            >
+              Previous Race
+            </span>
+            <span
+              class="rounded-full bg-green-600 px-4 py-2 text-sm font-medium text-white"
+            >
+              Completed
+            </span>
+            <span
+              class="rounded-full bg-amber-600 px-4 py-2 text-sm font-medium text-white"
+            >
+              Upcoming
+            </span>
+          </div>
+        </section>
+
+        <!-- CSS Variables Reference -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            CSS Custom Properties
+          </h2>
+          <div
+            class="mb-8 rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+          >
+            <p class="mb-4 text-slate-600 dark:text-slate-400">
+              Defined in <code
+                class="rounded bg-slate-100 px-2 py-1 text-sm dark:bg-slate-700"
+                >src/styles/global.css</code
+              >
+            </p>
+            <pre
+              class="overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>:root {'{'}
+  --accent: #2337ff;
+  --accent-dark: #000d8a;
+  --black: 15, 18, 25;
+  --slate: 96, 115, 159;
+  --slate-light: 229, 233, 240;
+  --slate-dark: 34, 41, 57;
+  --slate-gradient: rgba(var(--slate-light), 50%), #fff;
+  --box-shadow: 0 2px 6px rgba(var(--slate), 25%), 
+                0 8px 24px rgba(var(--slate), 33%),
+                0 16px 32px rgba(var(--slate), 33%);
+{'}'}</code></pre>
+          </div>
+        </section>
+
+        <!-- Dark Theme Alternatives Section -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Dark Theme Alternatives
+          </h2>
+          <p class="mb-8 text-slate-600 dark:text-slate-400">
+            Explore different dark theme palettes. The current theme uses cool
+            slate tones. Consider these alternatives for a fresh look:
+          </p>
+
+          <div class="grid gap-8 lg:grid-cols-2">
+            <!-- Current Theme -->
+            <div
+              class="overflow-hidden rounded-xl border-2 border-blue-500 shadow-lg"
+            >
+              <div class="bg-blue-500 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Current Theme (Slate)</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #0f172a;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #1e293b;"
+                  >
+                    <p class="font-semibold" style="color: #f1f5f9;">
+                      Card Background
+                    </p>
+                    <p class="text-sm" style="color: #94a3b8;">
+                      slate-800 on slate-900
+                    </p>
+                  </div>
+                  <p style="color: #f1f5f9;">Primary Text (slate-100)</p>
+                  <p style="color: #94a3b8;">Secondary Text (slate-400)</p>
+                  <p style="color: #64748b;">Muted Text (slate-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #dc2626;">Red</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #2563eb;">Blue</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #16a34a;">Green</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative 1: Neutral Gray (moved before Zinc) -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div
+                class="bg-linear-to-r from-neutral-700 to-neutral-600 px-4 py-2"
+              >
+                <span class="font-semibold text-white"
+                  >Alternative: Neutral (True Gray)</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #171717;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #262626;"
+                  >
+                    <p class="font-semibold" style="color: #fafafa;">
+                      Card Background
+                    </p>
+                    <p class="text-sm" style="color: #a3a3a3;">
+                      neutral-800 on neutral-900
+                    </p>
+                  </div>
+                  <p style="color: #fafafa;">Primary Text (neutral-50)</p>
+                  <p style="color: #a3a3a3;">Secondary Text (neutral-400)</p>
+                  <p style="color: #737373;">Muted Text (neutral-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #f43f5e;">Rose</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #8b5cf6;">Violet</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #14b8a6;">Teal</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative 2: Warmer Zinc -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-zinc-700 to-zinc-600 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Zinc (Warmer)</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #18181b;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #27272a;"
+                  >
+                    <p class="font-semibold" style="color: #fafafa;">
+                      Card Background
+                    </p>
+                    <p class="text-sm" style="color: #a1a1aa;">
+                      zinc-800 on zinc-900
+                    </p>
+                  </div>
+                  <p style="color: #fafafa;">Primary Text (zinc-50)</p>
+                  <p style="color: #a1a1aa;">Secondary Text (zinc-400)</p>
+                  <p style="color: #71717a;">Muted Text (zinc-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #ef4444;">Red</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #3b82f6;">Blue</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #22c55e;">Green</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- New: Zinc with Racing Red Accent -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-zinc-700 to-zinc-600 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Zinc with Racing Red Accent</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #18181b;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #27272a; border-left: 3px solid #dc2626;"
+                  >
+                    <p class="font-semibold" style="color: #fafafa;">
+                      Card Background with Red Accent
+                    </p>
+                    <p class="text-sm" style="color: #a1a1aa;">
+                      zinc-800 on zinc-900 + racing red accent
+                    </p>
+                  </div>
+                  <p style="color: #fafafa;">Primary Text (zinc-50)</p>
+                  <p style="color: #a1a1aa;">Secondary Text (zinc-400)</p>
+                  <p style="color: #71717a;">Muted Text (zinc-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #dc2626;">Racing Red</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #3b82f6;">Blue</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #22c55e;">Green</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative 3: F1 Racing Theme -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-red-700 to-red-600 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Racing Red Accent</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #0c0c0c;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #1a1a1a; border-left: 3px solid #dc2626;"
+                  >
+                    <p class="font-semibold" style="color: #ffffff;">
+                      Card with Red Accent
+                    </p>
+                    <p class="text-sm" style="color: #a3a3a3;">
+                      Deep black with red highlights
+                    </p>
+                  </div>
+                  <p style="color: #ffffff;">Primary Text (white)</p>
+                  <p style="color: #d4d4d4;">Secondary Text (neutral-300)</p>
+                  <p style="color: #737373;">Muted Text (neutral-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #dc2626;">Racing Red</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-black"
+                      style="background-color: #fbbf24;">Amber</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #059669;">Emerald</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative 4: Deep Blue Racing -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-blue-800 to-blue-700 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Deep Blue</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #0a1628;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #132337;"
+                  >
+                    <p class="font-semibold" style="color: #e0f2fe;">
+                      Card Background
+                    </p>
+                    <p class="text-sm" style="color: #7dd3fc;">
+                      Navy tones for racing feel
+                    </p>
+                  </div>
+                  <p style="color: #f0f9ff;">Primary Text (sky-50)</p>
+                  <p style="color: #7dd3fc;">Secondary Text (sky-300)</p>
+                  <p style="color: #38bdf8;">Accent Text (sky-400)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #0ea5e9;">Sky</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #f97316;">Orange</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #a855f7;">Purple</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative 5: Stone/Warm -->
+
+            <!-- Inserted: Deep Blue with Accent -->
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-blue-800 to-blue-700 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Deep Blue with Accent</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #0a1628;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #132337; border-left: 3px solid #2337ff;"
+                  >
+                    <p class="font-semibold" style="color: #e0f2fe;">
+                      Card Background with Accent
+                    </p>
+                    <p class="text-sm" style="color: #7dd3fc;">
+                      Navy tones with site accent highlights
+                    </p>
+                  </div>
+                  <p style="color: #f0f9ff;">Primary Text (sky-50)</p>
+                  <p style="color: #7dd3fc;">Secondary Text (sky-300)</p>
+                  <p style="color: #38bdf8;">Accent Text (sky-400)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #2337ff;">Accent</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #f97316;">Orange</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #a855f7;">Purple</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="overflow-hidden rounded-xl border border-slate-300 shadow-lg dark:border-slate-600"
+            >
+              <div class="bg-linear-to-r from-stone-700 to-stone-600 px-4 py-2">
+                <span class="font-semibold text-white"
+                  >Alternative: Stone (Warm Brown)</span
+                >
+              </div>
+              <div class="p-6" style="background-color: #1c1917;">
+                <div class="space-y-3">
+                  <div
+                    class="rounded-lg p-4"
+                    style="background-color: #292524;"
+                  >
+                    <p class="font-semibold" style="color: #fafaf9;">
+                      Card Background
+                    </p>
+                    <p class="text-sm" style="color: #a8a29e;">
+                      stone-800 on stone-900
+                    </p>
+                  </div>
+                  <p style="color: #fafaf9;">Primary Text (stone-50)</p>
+                  <p style="color: #a8a29e;">Secondary Text (stone-400)</p>
+                  <p style="color: #78716c;">Muted Text (stone-500)</p>
+                  <div class="flex gap-2 pt-2">
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #ea580c;">Orange</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #0891b2;">Cyan</span
+                    >
+                    <span
+                      class="rounded px-3 py-1 text-sm text-white"
+                      style="background-color: #84cc16;">Lime</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Color values reference table -->
+          <div
+            class="mb-8 mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800"
+          >
+            <div
+              class="border-b border-slate-200 bg-slate-50 px-6 py-4 dark:border-slate-600 dark:bg-slate-700"
+            >
+              <h3 class="font-semibold text-slate-900 dark:text-slate-100">
+                Quick Reference: Tailwind Gray Scales
+              </h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200 dark:border-slate-600">
+                    <th
+                      class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300"
+                      >Scale</th
+                    >
+                    <th
+                      class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300"
+                      >900 (Page BG)</th
+                    >
+                    <th
+                      class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300"
+                      >800 (Card BG)</th
+                    >
+                    <th
+                      class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300"
+                      >Undertone</th
+                    >
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-slate-600">
+                  <tr>
+                    <td
+                      class="px-4 py-3 font-medium text-slate-900 dark:text-slate-100"
+                      >Slate (current)</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #0f172a;"></span> #0f172a</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #1e293b;"></span> #1e293b</td
+                    >
+                    <td class="px-4 py-3 text-slate-600 dark:text-slate-400"
+                      >Cool blue</td
+                    >
+                  </tr>
+                  <tr>
+                    <td
+                      class="px-4 py-3 font-medium text-slate-900 dark:text-slate-100"
+                      >Zinc</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #18181b;"></span> #18181b</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #27272a;"></span> #27272a</td
+                    >
+                    <td class="px-4 py-3 text-slate-600 dark:text-slate-400"
+                      >Neutral warm</td
+                    >
+                  </tr>
+                  <tr>
+                    <td
+                      class="px-4 py-3 font-medium text-slate-900 dark:text-slate-100"
+                      >Neutral</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #171717;"></span> #171717</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #262626;"></span> #262626</td
+                    >
+                    <td class="px-4 py-3 text-slate-600 dark:text-slate-400"
+                      >True gray</td
+                    >
+                  </tr>
+                  <tr>
+                    <td
+                      class="px-4 py-3 font-medium text-slate-900 dark:text-slate-100"
+                      >Stone</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #1c1917;"></span> #1c1917</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #292524;"></span> #292524</td
+                    >
+                    <td class="px-4 py-3 text-slate-600 dark:text-slate-400"
+                      >Warm brown</td
+                    >
+                  </tr>
+                  <tr>
+                    <td
+                      class="px-4 py-3 font-medium text-slate-900 dark:text-slate-100"
+                      >Gray</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #111827;"></span> #111827</td
+                    >
+                    <td class="px-4 py-3"
+                      ><span
+                        class="inline-block h-6 w-16 rounded"
+                        style="background-color: #1f2937;"></span> #1f2937</td
+                    >
+                    <td class="px-4 py-3 text-slate-600 dark:text-slate-400"
+                      >Cool blue-gray</td
+                    >
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="mb-16">
+          <h2
+            class="mb-8 text-3xl font-bold text-slate-900 dark:text-slate-100"
+          >
+            Redesign Recommendations
+          </h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <h3
+                class="mb-4 flex items-center gap-2 font-semibold text-slate-900 dark:text-slate-100"
+              >
+                <Icon name="mdi:palette" size={24} class="text-blue-500" />
+                Approach for Redesign
+              </h3>
+              <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                <li>
+                  • Define new colors in <strong>global.css</strong> as CSS variables
+                </li>
+                <li>
+                  • Use Tailwind's <strong>dark:</strong> variant for dark mode classes
+                </li>
+                <li>
+                  • Consider adding a Tailwind config for custom color names
+                </li>
+                <li>
+                  • Test contrast ratios for WCAG accessibility (4.5:1 for text)
+                </li>
+                <li>• Use this page to preview changes in real-time</li>
+              </ul>
+            </div>
+            <div
+              class="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <h3
+                class="mb-4 flex items-center gap-2 font-semibold text-slate-900 dark:text-slate-100"
+              >
+                <Icon
+                  name="mdi:file-document-outline"
+                  size={24}
+                  class="text-green-500"
+                />
+                Key Files to Modify
+              </h3>
+              <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                <li>
+                  <code
+                    class="rounded bg-slate-100 px-2 py-0.5 text-sm dark:bg-slate-700"
+                    >src/styles/global.css</code
+                  > - CSS variables
+                </li>
+                <li>
+                  <code
+                    class="rounded bg-slate-100 px-2 py-0.5 text-sm dark:bg-slate-700"
+                    >src/components/Header.astro</code
+                  >
+                </li>
+                <li>
+                  <code
+                    class="rounded bg-slate-100 px-2 py-0.5 text-sm dark:bg-slate-700"
+                    >src/components/Footer.astro</code
+                  >
+                </li>
+                <li>
+                  <code
+                    class="rounded bg-slate-100 px-2 py-0.5 text-sm dark:bg-slate-700"
+                    >src/pages/index.astro</code
+                  >
+                </li>
+                <li>
+                  <code
+                    class="rounded bg-slate-100 px-2 py-0.5 text-sm dark:bg-slate-700"
+                    >All component files in src/components/</code
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
