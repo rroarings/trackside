@@ -2,7 +2,7 @@
 driverFirstName: "Isack"
 driverLastName: "Hadjar"
 driverNumber: 6
-driverTeam: "Racing Bulls"
+driverTeam: "Red Bull Racing"
 description: "Isack Hadjar 2026 Driver Profile"
 season: "2026"
 nationality: "French"
