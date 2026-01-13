@@ -28,7 +28,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-slate-100 py-12 dark:bg-slate-900 overflow-x-hidden">
+<section class="overflow-x-hidden bg-slate-100 py-12 dark:bg-slate-900">
   <div class="mx-auto max-w-7xl px-4">
     <div
       class={`w-full flex flex-col md:flex-row lg:flex-row gap-8 items-center md:items-start ${reversed ? "md:flex-row-reverse lg:flex-row-reverse" : ""}`}
@@ -39,7 +39,7 @@ const {
         {
           content ? (
             <div
-              class="prose prose-lg max-w-none text-slate-800 dark:text-slate-300 wrap-break-word whitespace-normal"
+              class="prose prose-lg wrap-break-word max-w-none whitespace-normal text-slate-800 dark:text-slate-300"
               set:html={content}
             />
           ) : description ? (
@@ -78,7 +78,7 @@ const {
             <Image
               src={imageSrc}
               alt={imageAlt}
-              class="w-full max-w-2xl rounded-lg object-cover h-64 md:h-80 lg:h-96"
+              class="h-64 w-full max-w-2xl rounded-lg object-cover md:h-80 lg:h-96"
               loading={imageLoading}
             />
           ) : (
