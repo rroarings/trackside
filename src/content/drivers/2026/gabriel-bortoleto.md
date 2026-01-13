@@ -2,7 +2,7 @@
 driverFirstName: "Gabriel"
 driverLastName: "Bortoleto"
 driverNumber: 5
-driverTeam: "Kick Sauber"
+driverTeam: "Audi"
 description: "Gabriel Bortoleto 2026 Driver Profile"
 season: "2026"
 nationality: "Brazilian"
