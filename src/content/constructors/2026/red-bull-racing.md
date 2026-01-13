@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 101
 championshipPosition: 3
 constructorName: "Red Bull Racing"
-constructorPoints: 451
+constructorPoints: 0
 dnf: 0
 description: "Red Bull Racing team description"
 engineSupplier: "Honda RBPT"
