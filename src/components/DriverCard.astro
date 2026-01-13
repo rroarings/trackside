@@ -5,13 +5,17 @@ import { teamBgMap } from "../utils/teamBgMap";
 import placeholderBG from "../assets/component/teamCard-placeholder.png";
 
 interface Props {
+  /** The driver collection entry to display */
   driver: CollectionEntry<"drivers">;
-  year?: string;
+  /** The season year for building the driver profile link (e.g. "2024", "2025", "2026") */
+  year: string;
+  /** Card index for determining image loading priority */
   index: number;
+  /** Number of cards to eagerly load images for (defaults to 0) */
   eagerCount?: number;
 }
 
-const { driver, year = "2025", index, eagerCount = 0 } = Astro.props;
+const { driver, year, index, eagerCount = 0 } = Astro.props;
 const teamBg = teamBgMap[driver.data.driverTeam] || null;
 const imageLoading = index < eagerCount ? "eager" : "lazy";
 // Extract just the slug for the driver
