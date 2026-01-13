@@ -1,87 +1,80 @@
 ---
-import type { CollectionEntry } from "astro:content"
-import BaseHead from "../components/BaseHead.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import FormattedDate from "../components/FormattedDate.astro"
-import { Image } from "astro:assets"
-import Breadcrumbs from "../components/Breadcrumbs.astro"
-import BlogButtons from "../components/BlogButtons.astro"
-import "../styles/global.css"
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import BlogButtons from "../components/BlogButtons.astro";
+import "../styles/global.css";
 
-type Props = CollectionEntry<"blog">["data"]
+type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html
-	lang="en"
-	class="bg-slate-100 dark:bg-slate-900">
-	<head>
-		<BaseHead
-			title={title}
-			description={description}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Home", href: "/" },
-					{ text: "Blog", href: "/blog" },
-					{
-						text: `${Astro.props.title}`,
-					},
-				]}
-			/>
-			<article>
-				{
-					heroImage && (
-						<div class="w-full mb-8">
-							<Image
-								src={heroImage}
-								alt={title}
-								loading="eager"
-								class="w-full rounded-xl shadow-lg"
-							/>
-						</div>
-					)
-				}
-				<div class="prose dark:prose-invert mx-auto max-w-7xl">
-					<div class="py-4 text-left leading-none">
-						<h1 class="mb-2 mt-3 tracking-tight dark:text-slate-100">
-							{title}
-						</h1>
-						{
-							Astro.props.tags && Astro.props.tags.length > 0 && (
-								<div
-									class="my-3 flex flex-wrap gap-2"
-									aria-hidden="true">
-									{Astro.props.tags.map((tag) => (
-										<span class="rounded bg-slate-300 px-4 py-2 tracking-wide text-slate-800 dark:bg-slate-700 dark:text-slate-300">
-											{tag}
-										</span>
-									))}
-								</div>
-							)
-						}
-						<div class="mt-6 dark:text-slate-300">
-							Published <FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="mt-2">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-					</div>
-					<slot />
-				</div>
-				<BlogButtons />
-			</article>
-		</main>
-		<Footer />
-	</body>
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Blog", href: "/blog" },
+          {
+            text: `${Astro.props.title}`,
+          },
+        ]}
+      />
+      <article>
+        {
+          heroImage && (
+            <div class="mb-8 w-full">
+              <Image
+                src={heroImage}
+                alt={title}
+                loading="eager"
+                class="w-full rounded-xl shadow-lg"
+              />
+            </div>
+          )
+        }
+        <div class="prose dark:prose-invert mx-auto max-w-7xl">
+          <div class="py-4 text-left leading-none">
+            <h1 class="mb-2 mt-3 tracking-tight dark:text-slate-100">
+              {title}
+            </h1>
+            {
+              Astro.props.tags && Astro.props.tags.length > 0 && (
+                <div class="my-3 flex flex-wrap gap-2" aria-hidden="true">
+                  {Astro.props.tags.map((tag) => (
+                    <span class="rounded bg-slate-300 px-4 py-2 tracking-wide text-slate-800 dark:bg-slate-700 dark:text-slate-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )
+            }
+            <div class="mt-6 dark:text-slate-300">
+              Published <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="mt-2">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+          </div>
+          <slot />
+        </div>
+        <BlogButtons />
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
