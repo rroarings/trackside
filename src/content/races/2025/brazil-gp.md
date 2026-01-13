@@ -13,13 +13,11 @@ raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: ""
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningDriver: "Lando Norris"
+winningConstructor: "McLaren"
+time: "1:32:01.596"
 raceNumber: 21
-raceCompleted: false
+raceCompleted: true
 pubDate: "July, 19, 2025"
 heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 ---
