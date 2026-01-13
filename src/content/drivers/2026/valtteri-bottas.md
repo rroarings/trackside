@@ -5,9 +5,9 @@ driverNumber: 10
 driverTeam: "Cadillac"
 description: "Valtteri Bottas 2026 Driver Profile"
 season: "2026"
-nationality: "Mexican"
-countryCode: "mx"
-profileImage: "../../../assets/constructors/alpine/drivers/gasly-02.png"
+nationality: "Finnish"
+countryCode: "fi"
+profileImage: "../../../assets/constructors/cadillac/drivers/bottas-portrait-main-2026.png"
 age: 34
 profileImageLarge: ""
 profileImageAlt: "Portrait of Valtteri Bottas"
