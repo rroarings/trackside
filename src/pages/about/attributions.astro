@@ -5,7 +5,6 @@ import Header from "../../components/Header.astro"
 import Footer from "../../components/Footer.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts"
 import { Icon } from "astro-icon/components"
-import astroLogo from "../../assets/logos/astro-logo-dark.svg"
 import astroLogoDark from "../../assets/logos/astro-logo-light.svg"
 import tailwindLogo from "../../assets/logos/tailwindcss-mark.svg"
 import typescriptLogo from "../../assets/logos/ts-logo-128.svg"
@@ -14,6 +13,8 @@ import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg"
 import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg"
 import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg"
 import iconifyLogo from "../../assets/logos/iconify-icon.png"
+import BreakpointIndicator from "../../components/BreakpointIndicator.astro"
+const isDevMode = import.meta.env.DEV
 
 interface Tool {
 	name: string
@@ -92,6 +93,7 @@ const tools: Tool[] = [
 	</head>
 	<body>
 		<Header />
+		{isDevMode && <BreakpointIndicator />}
 		<main>
 			<!-- Hero Section -->
 			<section class="bg-slate-100 py-12 dark:bg-slate-900">
@@ -120,9 +122,7 @@ const tools: Tool[] = [
 								/>
 							</div>
 							<h3 class="mb-2 text-xl dark:text-slate-200">{tool.name}</h3>
-							<p class="mb-auto text-slate-600 dark:text-slate-400">
-								{tool.description}
-							</p>
+							<p class="mb-auto text-slate-600 dark:text-slate-400">{tool.description}</p>
 							<a
 								href={tool.url}
 								target="_blank"
@@ -139,7 +139,8 @@ const tools: Tool[] = [
 			<section class="bg-slate-100 py-12 dark:bg-slate-900">
 				<div class="container mx-auto">
 					<h2 class="mb-4 text-center text-3xl font-bold dark:text-slate-100">Connect with us</h2>
-					<p class="mx-auto max-w-4xl wrap-break-word text-center text-slate-600 dark:text-slate-400">
+					<p
+						class="wrap-break-word mx-auto max-w-4xl text-center text-slate-600 dark:text-slate-400">
 						Have feedback or questions? Reach out to us via <a
 							href="mailto:trackside@example.com"
 							class="text-blue-600 transition-colors duration-200 hover:text-blue-800">
@@ -155,10 +156,11 @@ const tools: Tool[] = [
 								<h3 class="text-center text-2xl text-slate-900 dark:text-slate-200">
 									Contact Information
 								</h3>
-								<div class="flex items-center gap-4 rounded-xl bg-slate-50 p-4 dark:bg-slate-800">
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 dark:bg-slate-800">
 									<div class="rounded-full bg-slate-200 p-3 dark:bg-slate-300">
 										<svg
-											class="h-6 w-6 text-slate-600 dark:text-slate-900"
+											class="h-6 w-6 text-slate-600 transition-colors duration-300 group-hover:text-sky-600 dark:text-slate-900"
 											fill="none"
 											stroke="currentColor"
 											viewBox="0 0 24 24">
@@ -171,35 +173,33 @@ const tools: Tool[] = [
 										</svg>
 									</div>
 									<div class="flex flex-col space-y-1">
-										<span class="text-slate-900 dark:text-slate-200"
-											>Email</span
-										>
+										<span class="text-slate-900 dark:text-slate-200">Send Me a Message</span>
 										<a
-											href="mailto:nick.calvo007@gmail.com"
-											class="transiton-all text-slate-600 no-underline duration-300 hover:text-slate-600 hover:underline dark:text-slate-400"
-											>nick.calvo007@gmail.com</a
+											href="mailto:trackside@example.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
+											>Send me an email</a
 										>
 									</div>
 								</div>
 								<div
-									class="flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
+									class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
 									<div
 										class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300">
 										<Icon
 											name="mdi:linkedin"
 											size={24}
-											class={"h-6 w-6 text-slate-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-sky-600 xl:size-8"}
+											class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
 										/>
 									</div>
 									<div class="flex flex-col space-y-1">
-										<span class=" text-slate-900 dark:text-slate-200"
-											>LinkedIn</span
-										>
+										<span class="text-slate-900 dark:text-slate-200">LinkedIn</span>
 										<a
 											href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-slate-600 no-underline duration-300 hover:text-slate-600 hover:underline dark:text-slate-400"
+											class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
 											>Connect with me</a
 										>
 									</div>
@@ -214,71 +214,65 @@ const tools: Tool[] = [
 									Connect With Me
 								</h3>
 								<div
-									class="flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
+									class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
 									<div
 										class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300">
 										<Icon
 											name="mdi:github"
 											size={24}
-											class={"h-6 w-6 text-slate-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-sky-600 xl:size-8"}
+											class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
 										/>
 									</div>
 									<div class="flex flex-col space-y-1">
-										<span class="text-slate-900 dark:text-slate-200"
-											>Trackside GitHub</span
-										>
+										<span class="text-slate-900 dark:text-slate-200">Trackside GitHub</span>
 										<a
 											href="https://github.com/rroarings"
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-slate-600 no-underline duration-300 hover:text-slate-600 hover:underline dark:text-slate-400"
+											class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
 											>View the project repository</a
 										>
 									</div>
 								</div>
 								<div
-									class="flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
+									class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
 									<div
 										class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300">
 										<Icon
 											name="mdi:github"
 											size={24}
-											class={"h-6 w-6 text-slate-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-sky-600 xl:size-8"}
+											class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
 										/>
 									</div>
 									<div class="flex flex-col space-y-1">
-										<span class="text-slate-900 dark:text-slate-200"
-											>Personal GitHub</span
-										>
+										<span class="text-slate-900 dark:text-slate-200">Personal GitHub</span>
 										<a
 											href="https://github.com/rroarings"
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-slate-600 no-underline duration-300 hover:text-slate-600 hover:underline dark:text-slate-400"
+											class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
 											>View my repositories</a
 										>
 									</div>
 								</div>
 
 								<div
-									class="flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
+									class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800">
 									<div
 										class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300">
 										<Icon
 											name="mdi:web"
 											size={24}
-											class={"h-6 w-6 text-slate-600 dark:text-slate-900 transition-colors duration-300 group-hover/link:text-sky-600 xl:size-8"}
+											class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
 										/>
 									</div>
 									<div class="flex flex-col space-y-1">
-										<span class="text-slate-900 dark:text-slate-200"
-											>Personal Website</span
-										>
+										<span class="text-slate-900 dark:text-slate-200">Personal Website</span>
 										<a
 											href="https://notnickcalvo.com"
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-slate-600 no-underline duration-300 hover:text-slate-600 hover:underline dark:text-slate-400"
+											class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
 											>Explore my projects and blog</a
 										>
 									</div>
