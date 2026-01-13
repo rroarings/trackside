@@ -1,63 +1,59 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro"
-import Header from "../../../components/Header.astro"
-import Footer from "../../../components/Footer.astro"
-import Breadcrumbs from "../../../components/Breadcrumbs.astro"
-import RaceCalendar from "../../../components/RaceCalendar.astro"
-import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro"
-import { SITE_TITLE } from "../../../consts"
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import RaceCalendar from "../../../components/RaceCalendar.astro";
+import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro";
+import { SITE_TITLE } from "../../../consts";
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-slate-100 dark:bg-slate-900">
-	<head>
-		<BaseHead
-			title={`2026 F1 Races | ${SITE_TITLE}`}
-			description="Complete list of races for the 2026 Formula 1 season"
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Home", href: "/" },
-					{ text: "Seasons", href: "/seasons" },
-					{ text: "2026 Season", href: "/seasons/2026/" },
-					{ text: "Races", href: "/seasons/2026/races" },
-				]}
-			/>
-			<!-- 2025 Races Header -->
-			<section class="pt-16 text-center">
-				<div class="container mx-auto px-4">
-					<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">2026 Formula 1 Races</h1>
-					<p class="text-lg text-slate-700 dark:text-slate-400">
-						Complete race calendar for the 2026 season
-					</p>
-				</div>
-			</section>
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+  <head>
+    <BaseHead
+      title={`2026 F1 Races | ${SITE_TITLE}`}
+      description="Complete list of races for the 2026 Formula 1 season"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Seasons", href: "/seasons" },
+          { text: "2026 Season", href: "/seasons/2026/" },
+          { text: "Races", href: "/seasons/2026/races" },
+        ]}
+      />
+      <!-- 2025 Races Header -->
+      <section class="pt-16 text-center">
+        <div class="container mx-auto px-4">
+          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+            2026 Formula 1 Races
+          </h1>
+          <p class="text-lg text-slate-700 dark:text-slate-400">
+            Complete race calendar for the 2026 season
+          </p>
+        </div>
+      </section>
 
-			<!-- Race Calendar -->
-			<section class="py-6">
-				<div class="container mx-auto px-4">
-					<RaceCalendar
-						season="2026"
-						showAllRaces={true}
-						eagerCount={6}
-					/>
-				</div>
-			</section>
+      <!-- Race Calendar -->
+      <section class="py-6">
+        <div class="container mx-auto px-4">
+          <RaceCalendar season="2026" showAllRaces={true} eagerCount={6} />
+        </div>
+      </section>
 
-			<!-- Back Link -->
-			<SeasonButtonsModular
-				leftHref="/seasons/2026/"
-				leftText="Back to 2026 Season"
-				rightHref="/seasons"
-				rightText="Back to Seasons"
-			/>
-		</main>
-		<Footer />
-	</body>
+      <!-- Back Link -->
+      <SeasonButtonsModular
+        leftHref="/seasons/2026/"
+        leftText="Back to 2026 Season"
+        rightHref="/seasons"
+        rightText="Back to Seasons"
+      />
+    </main>
+    <Footer />
+  </body>
 </html>
