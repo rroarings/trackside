@@ -15,7 +15,7 @@ const { items } = Astro.props;
   items.map((item) => (
     <div class="accordion group relative mb-4 rounded-md border border-slate-200 last:mb-0 dark:border-slate-700 dark:bg-slate-800">
       <button
-        class="accordion__button flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-slate-900 transition dark:text-slate-200"
+        class="accordion__button flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-slate-900 transition group-hover:bg-slate-200 dark:text-slate-200 dark:group-hover:bg-slate-700"
         type="button"
         id={`${item.question}-button`}
         aria-expanded="false"
@@ -25,7 +25,7 @@ const { items } = Astro.props;
         <Icon
           name="mdi:chevron-down"
           aria-hidden="true"
-          class="accordion__chevron h-6 w-6 shrink-0 text-slate-400 transition-all duration-200 group-hover:text-blue-600"
+          class="accordion__chevron h-6 w-6 shrink-0 text-slate-400 transition-all duration-200 group-hover:text-sky-400"
         />
       </button>
       <div
