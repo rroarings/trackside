@@ -15,9 +15,7 @@ raceWeekendDescription: "First race of the season."
 season: "2025"
 winningDriver: "Oscar Piastri"
 winningConstructor: "McLaren"
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+time: "1:25:22.601"
 raceNumber: 13
 raceCompleted: true
 pubDate: "July, 19, 2025"
