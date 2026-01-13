@@ -2,7 +2,7 @@
 raceName: "Formula 1 Qatar Airways Grand Prix 2025"
 trackName: "Lusail International Circuit"
 trackLocation: "Lusail"
-trackCountry: "United States"
+trackCountry: "Qatar"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageAlt: "Albert Park Circuit image"
@@ -13,13 +13,11 @@ raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: ""
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningDriver: "Max Verstappen"
+winningConstructor: "Red Bull Racing"
+time: "1:24:38.241"
 raceNumber: 23
-raceCompleted: false
+raceCompleted: true
 pubDate: "July, 19, 2025"
 heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 ---
