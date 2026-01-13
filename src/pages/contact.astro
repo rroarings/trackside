@@ -1,111 +1,110 @@
 ---
-import BaseHead from "../components/BaseHead.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import "../styles/global.css"
-import QuestionsCard from "../components/QuestionsCard.astro"
-import { Icon } from "astro-icon/components"
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import QuestionsCard from "../components/QuestionsCard.astro";
+import { Icon } from "astro-icon/components";
 
-var SITE_TITLE = "Contact Us"
-var SITE_DESCRIPTION = "Send us a message or connect with us on social media."
+var SITE_TITLE = "Contact Us";
+var SITE_DESCRIPTION = "Send us a message or connect with us on social media.";
 
 const contacts = [
-	{
-		icon: "mdi:github",
-		label: "GitHub",
-		description:
-			"Our project is proudly hosted on GitHub, where you can explore the code behind our Formula 1 blog and personal projects. Dive into the repository to see how we bring race updates, behind-the-scenes stories, and personal insights to life.",
-		link: "https://github.com/rroarings/trackside",
-		linkText: "Visit our GitHub →",
-	},
-	{
-		icon: "mdi:linkedin",
-		label: "LinkedIn",
-		description: "Find me on LinkedIn.",
-		link: "https://www.linkedin.com/in/nick-calvo-56b61218b/",
-		linkText: "Visit our LinkedIn →",
-	},
-	{
-		icon: "mdi:web",
-		label: "Personal Website",
-		description: "Find me on my personal website.",
-		link: "https://www.notnickcalvo.com",
-		linkText: "Visit my personal site →",
-	},
-	{
-		icon: "mdi:youtube",
-		label: "YouTube",
-		description: "I post niche graphic design tutorials and speedpaints on my YouTube channel.",
-		link: "https://www.youtube.com/@0vlack",
-		linkText: "Visit our YouTube →",
-	},
-]
+  {
+    icon: "mdi:github",
+    label: "GitHub",
+    description:
+      "Our project is proudly hosted on GitHub, where you can explore the code behind our Formula 1 blog and personal projects. Dive into the repository to see how we bring race updates, behind-the-scenes stories, and personal insights to life.",
+    link: "https://github.com/rroarings/trackside",
+    linkText: "Visit our GitHub →",
+  },
+  {
+    icon: "mdi:linkedin",
+    label: "LinkedIn",
+    description: "Find me on LinkedIn.",
+    link: "https://www.linkedin.com/in/nick-calvo-56b61218b/",
+    linkText: "Visit our LinkedIn →",
+  },
+  {
+    icon: "mdi:web",
+    label: "Personal Website",
+    description: "Find me on my personal website.",
+    link: "https://www.notnickcalvo.com",
+    linkText: "Visit my personal site →",
+  },
+  {
+    icon: "mdi:youtube",
+    label: "YouTube",
+    description:
+      "I post niche graphic design tutorials and speedpaints on my YouTube channel.",
+    link: "https://www.youtube.com/@0vlack",
+    linkText: "Visit our YouTube →",
+  },
+];
 ---
 
-<html
-	lang="en"
-	class="bg-slate-100 dark:bg-slate-900">
-	<head>
-		<BaseHead
-			title={SITE_TITLE}
-			description={SITE_DESCRIPTION}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<!-- Hero Section -->
-			<section class="bg-slate-100 py-12 dark:bg-slate-900">
-				<div class="container mx-auto mb-12 text-center">
-					<h1 class="mb-4 text-4xl font-bold dark:text-slate-100">Contact Us</h1>
-					<p class="text-xl text-slate-600 dark:text-slate-400">
-						Connect with us on your favorite social platforms.
-					</p>
-				</div>
-			</section>
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <section class="bg-slate-100 py-12 dark:bg-slate-900">
+        <div class="container mx-auto mb-12 text-center">
+          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+            Contact Us
+          </h1>
+          <p class="text-xl text-slate-600 dark:text-slate-400">
+            Connect with us on your favorite social platforms.
+          </p>
+        </div>
+      </section>
 
-			<!-- Contact Cards Section -->
-			<section class="bg-slate-100 pb-12 dark:bg-slate-900">
-				<div class="container mx-auto max-w-6xl">
-					<div class="space-y-8">
-						{
-							contacts.map((contact) => (
-								<div class="group flex gap-4 rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-									<Icon
-										name={contact.icon}
-										class="text-3xl transition-colors duration-300 ease-in-out dark:text-slate-100"
-									/>
-									<i
-										class={
-											contact.icon +
-											"text-3xl transition-colors duration-300 ease-in-out dark:text-slate-100"
-										}
-									/>
-									<div class="flex-1">
-										<p class="transition-colors duration-300 ease-in-out dark:text-slate-100">
-											{contact.label}
-										</p>
-										<p class="text-base transition-colors duration-300 ease-in-out  dark:text-slate-300">
-											{contact.description}
-										</p>
-										<a
-											href={contact.link}
-											target="_blank"
-											rel="noopener noreferrer"
-											class="mt-2 block text-slate-800 transition-all duration-300 ease-in-out group-hover:underline dark:text-slate-300">
-											{contact.linkText}
-										</a>
-									</div>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</section>
+      <!-- Contact Cards Section -->
+      <section class="bg-slate-100 pb-12 dark:bg-slate-900">
+        <div class="container mx-auto max-w-6xl">
+          <div class="space-y-8">
+            {
+              contacts.map((contact) => (
+                <div class="group flex gap-4 rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
+                  <Icon
+                    name={contact.icon}
+                    class="text-3xl transition-colors duration-300 ease-in-out dark:text-slate-100"
+                  />
+                  <i
+                    class={
+                      contact.icon +
+                      "text-3xl transition-colors duration-300 ease-in-out dark:text-slate-100"
+                    }
+                  />
+                  <div class="flex-1">
+                    <p class="transition-colors duration-300 ease-in-out dark:text-slate-100">
+                      {contact.label}
+                    </p>
+                    <p class="text-base transition-colors duration-300 ease-in-out dark:text-slate-300">
+                      {contact.description}
+                    </p>
+                    <a
+                      href={contact.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-2 block text-slate-800 transition-all duration-300 ease-in-out group-hover:text-sky-600 group-hover:underline dark:text-slate-300"
+                    >
+                      {contact.linkText}
+                    </a>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
-			<!-- Questions Section -->
-			<QuestionsCard />
-		</main>
-		<Footer />
-	</body>
+      <!-- Questions Section -->
+      <QuestionsCard />
+    </main>
+    <Footer />
+  </body>
 </html>
