@@ -9,17 +9,21 @@ const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 ---
 
-{/**
+{
+  /**
   This component applies underline behavior using Tailwind classes:
   - Active links: visible border-bottom (`border-current`).
   - Inactive links: transparent border that becomes `border-current` on hover/focus.
-*/}
+*/
+}
 <a
   href={href}
   aria-current={isActive ? "page" : undefined}
-  class={`${className ?? ""} inline-flex ${isActive
-    ? "font-semibold pb-1 border-b-2 border-current"
-    : "pb-1 border-b-2 border-transparent hover:border-current focus-visible:border-current transition-all duration-150"}`}
+  class={`${className ?? ""} inline-flex ${
+    isActive
+      ? "font-semibold pb-1 border-b-2 border-current"
+      : "pb-1 border-b-2 border-transparent hover:border-current focus-visible:border-current transition-all duration-150"
+  }`}
   {...props}
 >
   <slot />
