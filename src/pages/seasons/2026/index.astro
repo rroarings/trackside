@@ -22,7 +22,7 @@ const isDevMode = import.meta.env.DEV;
     />
   </head>
   <body>
-    {isDevMode && <BreakpointIndicator />}
+    {!isDevMode && <BreakpointIndicator />}
     <Header />
     <main>
       <Breadcrumbs
