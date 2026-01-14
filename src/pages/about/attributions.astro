@@ -13,9 +13,6 @@ import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg";
 import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg";
 import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg";
 import iconifyLogo from "../../assets/logos/iconify-icon.png";
-import BreakpointIndicator from "../../components/BreakpointIndicator.astro";
-const isDevMode = import.meta.env.DEV;
-
 interface Tool {
   name: string;
   description: string;
@@ -92,7 +89,6 @@ const tools: Tool[] = [
   </head>
   <body>
     <Header />
-    {isDevMode && <BreakpointIndicator />}
     <main>
       <!-- Hero Section -->
       <section class="bg-slate-100 py-12 dark:bg-slate-900">
