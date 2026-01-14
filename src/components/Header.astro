@@ -1,296 +1,654 @@
 ---
-import HeaderLink from "./HeaderLink.astro"
-import { Icon } from "astro-icon/components"
-import { Image } from "astro:assets"
-import tracksideLogo from "/src/assets/logos/trackside-logoblack.png"
-import tracksideLogoWhite from "/src/assets/logos/trackside-logowhite.png"
-import "../styles/global.css"
+import HeaderLink from "./HeaderLink.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import tracksideLogo from "/src/assets/logos/trackside-logoblack.png";
+import tracksideLogoWhite from "/src/assets/logos/trackside-logowhite.png";
+import "../styles/global.css";
+
+// Get current path for active state highlighting
+const currentPath = Astro.url.pathname;
+
+// Helper to check if a path is active
+const isActive = (path: string) => {
+  if (path === "/") return currentPath === "/";
+  return currentPath.startsWith(path);
+};
+
+// Current season for quick access
+const currentSeason = "2026";
 ---
 
-<header class="sticky top-0 z-50 bg-white py-2 shadow-sm dark:bg-slate-800">
-	<nav class="container mx-auto px-4">
-		<div class="flex h-16 items-center justify-between">
-			<!-- Logo -->
-			<div class="shrink-0">
-				<a
-					href="/"
-					class="text-xl font-bold">
-					<Image
-						src={tracksideLogo}
-						alt="Trackside Logo"
-						class="block size-48 h-auto dark:hidden"
-						loading="eager"
-					/>
-					<Image
-						src={tracksideLogoWhite}
-						alt="Trackside Logo (White)"
-						class="hidden size-48 h-auto dark:block"
-						loading="eager"
-					/>
-				</a>
-			</div>
+<header
+  class="sticky top-0 z-50 bg-white/95 py-2 shadow-sm backdrop-blur-sm dark:bg-slate-800/95"
+>
+  <nav class="container mx-auto px-4" aria-label="Main navigation">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="shrink-0">
+        <a href="/" class="text-xl font-bold" aria-label="Trackside Home">
+          <Image
+            src={tracksideLogo}
+            alt="Trackside Logo"
+            class="block size-48 h-auto dark:hidden"
+            loading="eager"
+          />
+          <Image
+            src={tracksideLogoWhite}
+            alt="Trackside Logo (White)"
+            class="hidden size-48 h-auto dark:block"
+            loading="eager"
+          />
+        </a>
+      </div>
 
-			<!-- Desktop Navigation -->
-			<div class="desktop-nav hidden md:flex md:items-center md:space-x-6 lg:space-x-8 xl:space-x-10">
-				<HeaderLink
-					href="/"
-					class="dark:text-slate-200">
-					Home
-				</HeaderLink>
-				<HeaderLink
-					href="/blog"
-					class="dark:text-slate-200">
-					Blog
-				</HeaderLink>
+      <!-- Desktop Navigation -->
+      <div
+        class="desktop-nav hidden md:flex md:items-center md:space-x-4 lg:space-x-6 xl:space-x-8"
+      >
+        <HeaderLink
+          href="/"
+          class:list={[
+            "transition-colors duration-200 dark:text-slate-200",
+            isActive("/") && "text-blue-600 dark:text-blue-400",
+          ]}
+        >
+          Home
+        </HeaderLink>
 
-				<!-- Seasons Dropdown -->
-				<div class="group relative">
-					<HeaderLink
-						href="/seasons"
-						class="inline-flex items-center dark:text-slate-200">
-						<span>Seasons</span>
-						<Icon
-							name="mdi:chevron-down"
-							size={16}
-							class="ml-1"
-						/>
-					</HeaderLink>
-					<div class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block">
-						<div
-							class="rounded-md border border-slate-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
-							<a
-								href="/seasons/2026"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>2026 Season</a
-							>
-							<a
-								href="/seasons/2025"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>2025 Season</a
-							>
-							<a
-								href="/seasons/2024"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>2024 Season</a
-							>
-						</div>
-					</div>
-				</div>
+        <HeaderLink
+          href="/blog"
+          class:list={[
+            "transition-colors duration-200 dark:text-slate-200",
+            isActive("/blog") && "text-blue-600 dark:text-blue-400",
+          ]}
+        >
+          Blog
+        </HeaderLink>
 
-				<!-- Learn Dropdown -->
-				<div class="group relative">
-					<HeaderLink
-						href="/learn/whatis"
-						class="inline-flex items-center dark:text-slate-200">
-						<span>Learn</span>
-						<Icon
-							name="mdi:chevron-down"
-							size={16}
-							class="ml-1"
-						/>
-					</HeaderLink>
-					<div class="absolute left-0 top-full hidden w-48 pt-2 group-hover:block">
-						<div
-							class="rounded-md border border-slate-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
-							<a
-								href="/learn/whatis"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>What is F1</a
-							>
-							<a
-								href="/learn/technologies"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>Technology of F1</a
-							>
-							<a
-								href="/learn/future"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>Future of F1</a
-							>
-						</div>
-					</div>
-				</div>
+        <!-- Seasons Mega Menu -->
+        <div class="nav-dropdown group relative">
+          <button
+            class:list={[
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              isActive("/seasons") && "text-blue-600 dark:text-blue-400",
+            ]}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>Seasons</span>
+            <Icon
+              name="mdi:chevron-down"
+              size={16}
+              class="nav-chevron transition-transform duration-200"
+            />
+          </button>
+          <div
+            class="nav-dropdown-menu w-130 pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
+          >
+            <div
+              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+            >
+              <!-- Current Season Highlight -->
+              <div
+                class="bg-linear-to-r border-b border-slate-100 from-blue-50 to-slate-50 p-4 dark:border-slate-700 dark:from-blue-900/20 dark:to-slate-800"
+              >
+                <a
+                  href={`/seasons/${currentSeason}`}
+                  class="group/current flex items-center gap-3"
+                >
+                  <div
+                    class="flex size-10 items-center justify-center rounded-lg bg-blue-600 text-white"
+                  >
+                    <Icon name="mdi:flag-checkered" size={20} />
+                  </div>
+                  <div>
+                    <div
+                      class="font-semibold text-slate-900 group-hover/current:text-blue-600 dark:text-slate-100 dark:group-hover/current:text-blue-400"
+                    >
+                      {currentSeason} Season
+                      <span
+                        class="ml-2 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                        >Current</span
+                      >
+                    </div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">
+                      View standings, drivers & race calendar
+                    </div>
+                  </div>
+                </a>
+              </div>
 
-				<!-- More Dropdown -->
-				<div class="group relative">
-					<HeaderLink
-						href="/more"
-						class="inline-flex items-center dark:text-slate-200"
-						aria-label="Site pages">
-						<span>Trackside</span>
-						<Icon
-							name="mdi:chevron-down"
-							size={16}
-							class="ml-1"
-						/>
-					</HeaderLink>
-					<div class="absolute right-0 top-full hidden w-48 pt-2 group-hover:block">
-						<div
-							class="rounded-md border border-slate-200 bg-white shadow-lg dark:border-slate-600 dark:bg-slate-800">
-							<a
-								href="/about"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>About</a
-							>
-							<a
-								href="/contact"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>Contact</a
-							>
-							<a
-								href="/about/faqs"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>FAQs</a
-							>
-							<a
-								href="/about/attributions"
-								class="block px-4 py-2 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-600"
-								>Attributions</a
-							>
-						</div>
-					</div>
-				</div>
-			</div>
+              <!-- Quick Links Grid -->
+              <div class="grid grid-cols-3 gap-1 p-2">
+                <a
+                  href={`/seasons/${currentSeason}/drivers`}
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:account-group"
+                    size={18}
+                    class="text-slate-400"
+                  />
+                  Drivers
+                </a>
+                <a
+                  href={`/seasons/${currentSeason}/constructors`}
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:car-sports"
+                    size={18}
+                    class="text-slate-400"
+                  />
+                  Constructors
+                </a>
+                <a
+                  href={`/seasons/${currentSeason}/races`}
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon name="mdi:calendar" size={18} class="text-slate-400" />
+                  Race Calendar
+                </a>
+              </div>
 
-			<!-- Mobile Navigation Button -->
-			<div class="md:hidden">
-				<button
-					type="button"
-					class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-slate-400">
-					<span class="sr-only">Open main menu</span>
-					<Icon
-						name="mdi:menu"
-						size={24}
-						aria-hidden="true"
-					/>
-				</button>
-			</div>
-		</div>
+              <!-- Past Seasons -->
+              <div class="border-t border-slate-100 p-2 dark:border-slate-700">
+                <div
+                  class="px-3 py-1 text-xs font-medium uppercase tracking-wide text-slate-400"
+                >
+                  Past Seasons
+                </div>
+                <div class="mt-1 flex gap-1">
+                  <a
+                    href="/seasons/2025"
+                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                    >2025</a
+                  >
+                  <a
+                    href="/seasons/2024"
+                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                    >2024</a
+                  >
+                </div>
+              </div>
 
-		<!-- Mobile Menu -->
-		<div class="mobile-menu hidden md:hidden">
-			<div class="space-y-1 px-2 pb-3 pt-2">
-				<a
-					href="/"
-					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-					>Home</a
-				>
-				<a
-					href="/blog"
-					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-					>Blog</a
-				>
+              <!-- All Seasons Link -->
+              <div class="border-t border-slate-100 p-2 dark:border-slate-700">
+                <a
+                  href="/seasons"
+                  class="flex items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                >
+                  View all seasons
+                  <Icon name="mdi:arrow-right" size={16} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<!-- Mobile Seasons Section -->
-				<div class="mobile-dropdown">
-					<button
-						class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900">
-						Seasons
-						<Icon
-							name="mdi:chevron-down"
-							size={16}
-							class="transform transition-transform"
-						/>
-					</button>
-					<div class="hidden pl-4">
-						<a
-							href="/seasons/2025"
-							class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-							>2025 Season</a
-						>
-						<a
-							href="/seasons/2024"
-							class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-							>2024 Season</a
-						>
-					</div>
-				</div>
+        <!-- Learn Dropdown -->
+        <div class="nav-dropdown group relative">
+          <button
+            class:list={[
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              isActive("/learn") && "text-blue-600 dark:text-blue-400",
+            ]}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>Learn</span>
+            <Icon
+              name="mdi:chevron-down"
+              size={16}
+              class="nav-chevron transition-transform duration-200"
+            />
+          </button>
+          <div
+            class="nav-dropdown-menu pointer-events-none absolute left-0 top-full z-50 w-64 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
+          >
+            <div
+              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+            >
+              <div class="p-2">
+                <a
+                  href="/learn/whatis"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:help-circle"
+                    size={20}
+                    class="mt-0.5 text-blue-500"
+                  />
+                  <div>
+                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                      What is F1?
+                    </div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                      Introduction to Formula 1
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/learn/technologies"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:cog"
+                    size={20}
+                    class="mt-0.5 text-green-500"
+                  />
+                  <div>
+                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                      Technology
+                    </div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                      Engineering & innovation
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/learn/future"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:rocket-launch"
+                    size={20}
+                    class="mt-0.5 text-purple-500"
+                  />
+                  <div>
+                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                      Future of F1
+                    </div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                      What's coming next
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<!-- Mobile Learn Section -->
-				<div class="mobile-dropdown">
-					<button
-						class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900">
-						Learn
-						<Icon
-							name="mdi:chevron-down"
-							size={16}
-							class="transform transition-transform"
-						/>
-					</button>
-					<div class="hidden pl-4">
-						<a
-							href="/about/whatis"
-							class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-							>What is F1</a
-						>
-						<a
-							href="/about/technologies"
-							class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-							>Technology</a
-						>
-						<a
-							href="/about/future"
-							class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 hover:text-slate-900"
-							>Future of F1</a
-						>
-					</div>
-				</div>
+        <!-- About Dropdown -->
+        <div class="nav-dropdown group relative">
+          <button
+            class:list={[
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              isActive("/about") && "text-blue-600 dark:text-blue-400",
+            ]}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>About</span>
+            <Icon
+              name="mdi:chevron-down"
+              size={16}
+              class="nav-chevron transition-transform duration-200"
+            />
+          </button>
+          <div
+            class="nav-dropdown-menu pointer-events-none absolute right-0 top-full z-50 w-56 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
+          >
+            <div
+              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+            >
+              <div class="p-2">
+                <a
+                  href="/about"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:information"
+                    size={18}
+                    class="text-slate-600"
+                  />
+                  About Trackside
+                </a>
+                <a
+                  href="/contact"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon name="mdi:email" size={18} class="text-slate-600" />
+                  Contact
+                </a>
+                <a
+                  href="/about/faqs"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:frequently-asked-questions"
+                    size={18}
+                    class="text-slate-600"
+                  />
+                  FAQs
+                </a>
+                <a
+                  href="/about/attributions"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:hand-heart"
+                    size={18}
+                    class="text-slate-600"
+                  />
+                  Attributions
+                </a>
+                <a
+                  href="/about/resources"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                >
+                  <Icon
+                    name="mdi:bookmark-box"
+                    size={18}
+                    class="text-slate-600"
+                  />
+                  Resources
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-				<a
-					href="/about"
-					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-					>About</a
-				>
-				<a
-					href="/contact"
-					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-					>Contact</a
-				>
-				<a
-					href="/components"
-					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-					>Components</a
-				>
-			</div>
-		</div>
-	</nav>
+      <!-- Mobile Navigation Button -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-700"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <Icon
+            name="mdi:menu"
+            size={24}
+            class="menu-icon"
+            aria-hidden="true"
+          />
+          <Icon
+            name="mdi:close"
+            size={24}
+            class="close-icon hidden"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu hidden md:hidden"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <div class="space-y-1 px-2 pb-4 pt-2">
+        <!-- Home -->
+        <a
+          href="/"
+          class:list={[
+            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+            isActive("/")
+              ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+              : "text-slate-700 hover:bg-slate-50",
+          ]}>Home</a
+        >
+
+        <!-- Blog -->
+        <a
+          href="/blog"
+          class:list={[
+            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+            isActive("/blog")
+              ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+              : "text-slate-700 hover:bg-slate-50",
+          ]}>Blog</a
+        >
+
+        <!-- Mobile Seasons Section -->
+        <div class="mobile-dropdown">
+          <button
+            class:list={[
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              isActive("/seasons")
+                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                : "text-slate-700 hover:bg-slate-50",
+            ]}
+            aria-expanded="false"
+          >
+            Seasons
+            <Icon
+              name="mdi:chevron-down"
+              size={20}
+              class="mobile-chevron transition-transform duration-200"
+            />
+          </button>
+          <div class="mobile-dropdown-content hidden overflow-hidden">
+            <div
+              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+            >
+              <!-- Current Season Highlight -->
+              <a
+                href={`/seasons/${currentSeason}`}
+                class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+              >
+                <Icon name="mdi:flag-checkered" size={16} />
+                {currentSeason} Season
+                <span
+                  class="rounded bg-green-100 px-1.5 py-0.5 text-xs text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                  >Current</span
+                >
+              </a>
+              <!-- Quick Links -->
+              <div class="grid grid-cols-3 gap-1 py-1">
+                <a
+                  href={`/seasons/${currentSeason}/drivers`}
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  >Drivers</a
+                >
+                <a
+                  href={`/seasons/${currentSeason}/constructors`}
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  >Teams</a
+                >
+                <a
+                  href={`/seasons/${currentSeason}/races`}
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  >Races</a
+                >
+              </div>
+              <!-- Past Seasons -->
+              <a
+                href="/seasons/2025"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >2025 Season</a
+              >
+              <a
+                href="/seasons/2024"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >2024 Season</a
+              >
+              <a
+                href="/seasons"
+                class="block rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                >View all seasons →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Learn Section -->
+        <div class="mobile-dropdown">
+          <button
+            class:list={[
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              isActive("/learn")
+                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                : "text-slate-700 hover:bg-slate-50",
+            ]}
+            aria-expanded="false"
+          >
+            Learn
+            <Icon
+              name="mdi:chevron-down"
+              size={20}
+              class="mobile-chevron transition-transform duration-200"
+            />
+          </button>
+          <div class="mobile-dropdown-content hidden overflow-hidden">
+            <div
+              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+            >
+              <a
+                href="/learn/whatis"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >What is F1?</a
+              >
+              <a
+                href="/learn/technologies"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >Technology of F1</a
+              >
+              <a
+                href="/learn/future"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >Future of F1</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile About Section -->
+        <div class="mobile-dropdown">
+          <button
+            class:list={[
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              isActive("/about")
+                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                : "text-slate-700 hover:bg-slate-50",
+            ]}
+            aria-expanded="false"
+          >
+            About
+            <Icon
+              name="mdi:chevron-down"
+              size={20}
+              class="mobile-chevron transition-transform duration-200"
+            />
+          </button>
+          <div class="mobile-dropdown-content hidden overflow-hidden">
+            <div
+              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+            >
+              <a
+                href="/about"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >About Trackside</a
+              >
+              <a
+                href="/contact"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >Contact</a
+              >
+              <a
+                href="/about/faqs"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >FAQs</a
+              >
+              <a
+                href="/about/attributions"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                >Attributions</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <script>
-	// Add this script for mobile menu functionality
-	document.addEventListener("DOMContentLoaded", () => {
-		// Mobile menu toggle
-		const mobileMenuButton = document.querySelector(".mobile-menu-button")
-		const mobileMenu = document.querySelector(".mobile-menu")
+  // Enhanced mobile menu functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenuButton = document.querySelector(".mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
 
-		mobileMenuButton?.addEventListener("click", () => {
-			mobileMenu?.classList.toggle("hidden")
-		})
+    // Toggle mobile menu
+    mobileMenuButton?.addEventListener("click", () => {
+      const isExpanded =
+        mobileMenuButton.getAttribute("aria-expanded") === "true";
+      mobileMenuButton.setAttribute("aria-expanded", (!isExpanded).toString());
+      mobileMenu?.classList.toggle("hidden");
+      menuIcon?.classList.toggle("hidden");
+      closeIcon?.classList.toggle("hidden");
+    });
 
-		// Mobile dropdowns
-		const mobileDropdowns = document.querySelectorAll(".mobile-dropdown")
-		mobileDropdowns.forEach((dropdown) => {
-			const button = dropdown.querySelector("button")
-			const content = dropdown.querySelector("div")
-			const arrow = button?.querySelector("svg")
+    // Mobile dropdowns with smooth animation
+    const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
+    mobileDropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector("button");
+      const content = dropdown.querySelector(
+        ".mobile-dropdown-content",
+      ) as HTMLElement;
+      const chevron = dropdown.querySelector(".mobile-chevron");
 
-			button?.addEventListener("click", () => {
-				content?.classList.toggle("hidden")
-				arrow?.classList.toggle("rotate-180")
-			})
-		})
-	})
+      button?.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", (!isExpanded).toString());
+        content?.classList.toggle("hidden");
+        chevron?.classList.toggle("rotate-180");
+      });
+    });
+
+    // Desktop dropdown keyboard accessibility
+    const navDropdowns = document.querySelectorAll(".nav-dropdown");
+    navDropdowns.forEach((dropdown) => {
+      const trigger = dropdown.querySelector(".nav-dropdown-trigger");
+      const menu = dropdown.querySelector(".nav-dropdown-menu");
+
+      trigger?.addEventListener("click", () => {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", (!isExpanded).toString());
+        menu?.classList.toggle("!opacity-100");
+        menu?.classList.toggle("!pointer-events-auto");
+      });
+
+      // Close on escape
+      dropdown.addEventListener("keydown", (e: Event) => {
+        if ((e as KeyboardEvent).key === "Escape") {
+          trigger?.setAttribute("aria-expanded", "false");
+          menu?.classList.remove("!opacity-100", "!pointer-events-auto");
+          (trigger as HTMLElement)?.focus();
+        }
+      });
+    });
+
+    // Close mobile menu on window resize to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        mobileMenu?.classList.add("hidden");
+        menuIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+        mobileMenuButton?.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
 </script>
 
 <style>
-	/* Remove most existing styles as we're using Tailwind classes */
-	.social-links {
-		display: none;
-	}
+  /* Dropdown hover state for chevron rotation */
+  .nav-dropdown:hover .nav-chevron {
+    transform: rotate(180deg);
+  }
 
-	@media (min-width: 768px) {
-		.social-links {
-			display: flex;
-		}
-	}
+  /* Focus styles for accessibility */
+  .nav-dropdown-trigger:focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
 </style>

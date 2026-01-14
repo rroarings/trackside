@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/haas/car/car-haas-01-copy.png"
-carImageAlt: "Haas 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/haas/car/car-haas-01-copy.png"
-carImageLargeAlt: "Haas 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Haas 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Haas 2026 Constructor car"
 carModel: "VF-25"
 careerStats:
   firstEntry: 2016

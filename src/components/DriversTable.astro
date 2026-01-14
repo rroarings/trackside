@@ -10,7 +10,9 @@ interface Props {
 const { drivers } = Astro.props as Props;
 ---
 
-<table class="w-full border border-slate-300 dark:text-slate-200">
+<table
+  class="w-full border border-slate-300 dark:border-slate-600 dark:text-slate-200"
+>
   <thead>
     <tr class="border-b dark:border-slate-400">
       <th class="w-16 px-4 py-3 text-left">Pos</th>
@@ -37,7 +39,7 @@ const { drivers } = Astro.props as Props;
 
         return (
           // role=row kept implicit by table semantics; making the name the single link reduces tab noise
-          <tr class="border-b border-slate-300 transition-colors duration-150 hover:bg-slate-300 dark:border-slate-500 dark:hover:bg-slate-800">
+          <tr class="border-b border-slate-300 transition-colors duration-150 hover:bg-slate-300 dark:border-slate-500 dark:hover:bg-slate-700">
             <td class="px-4 py-3">{position}</td>
             <td class="px-4 py-3">
               <a

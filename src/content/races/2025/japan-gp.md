@@ -15,9 +15,7 @@ raceWeekendDescription: "First race of the season."
 season: "2025"
 winningDriver: "Max Verstappen"
 winningConstructor: "Red Bull Racing"
-fastestLapDriver: z.string().optional(),
-fastestLapConstructor: z.string().optional(),
-fastestLapTime: z.string().optional(),
+time: "1:22:06.983"
 raceNumber: 3
 raceCompleted: true
 pubDate: "July, 19, 2025"

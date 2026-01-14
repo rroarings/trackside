@@ -14,10 +14,8 @@ raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
 winningDriver: "George Russell"
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningConstructor: "Mercedes"
+time: "1:40:22.367"
 raceNumber: 18
 raceCompleted: true
 pubDate: "July, 19, 2025"

@@ -13,11 +13,9 @@ raceWeekend: "Race"
 raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
-winningDriver: "George Russell"
-winningConstructor: "Mercedes"
-fastestLapDriver: z.string().optional(),
-fastestLapConstructor: z.string().optional(),
-fastestLapTime: z.string().optional(),
+winningDriver: "Lando Norris"
+winningConstructor: "McLaren"
+time: "1:23:47.693"
 raceNumber: 11
 raceCompleted: true
 pubDate: "July, 19, 2025"

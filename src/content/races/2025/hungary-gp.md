@@ -14,10 +14,8 @@ raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
 winningDriver: "Lando Norris"
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningConstructor: "McLaren"
+time: "1:35:31.231"
 raceNumber: 14
 raceCompleted: true
 pubDate: "July, 19, 2025"

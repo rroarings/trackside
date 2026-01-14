@@ -1,336 +1,352 @@
 ---
-import BaseHead from "../../components/BaseHead.astro"
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
-import GridSection from "../../components/GridSection.astro"
-import TwoColumnSection from "../../components/TwoColumnSection.astro"
-import { Image } from "astro:assets"
-import { Icon } from "astro-icon/components"
-import cn02 from "../../assets/circuits/02china/cn02.jpg"
-import intro from "../../assets/section/racei1.jpg"
-import machinery from "../../assets/section/racei1.jpg"
-import drivers from "../../assets/section/racei1.jpg"
-import tracks from "../../assets/section/racei1.jpg"
-import LatestPosts from "../../components/LatestPosts.astro"
-import BreakpointIndicator from "../../components/BreakpointIndicator.astro"
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import GridSection from "../../components/GridSection.astro";
+import TwoColumnSection from "../../components/TwoColumnSection.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import cn02 from "../../assets/circuits/02china/cn02.jpg";
+import intro from "../../assets/section/racei1.jpg";
+import machinery from "../../assets/section/racei1.jpg";
+import drivers from "../../assets/section/racei1.jpg";
+import tracks from "../../assets/section/racei1.jpg";
+import LatestPosts from "../../components/LatestPosts.astro";
 
-const isDevMode = import.meta.env.DEV
-
-const pageTitle = "What is Formula 1?"
+const pageTitle = "What is Formula 1?";
 const description =
-	"Discover Formula 1, the pinnacle of motorsport, where speed, innovation, and strategy collide to create the ultimate racing spectacle."
+  "Discover Formula 1, the pinnacle of motorsport, where speed, innovation, and strategy collide to create the ultimate racing spectacle.";
 
 const f1BasicsItems = [
-	{
-		title: "The Introduction",
-		description:
-			"Formula 1, often referred to as F1, is the pinnacle of motorsport and one of the most thrilling and prestigious racing championships in the world.",
-		image: intro,
-		imageAlt: "What is Formula 1",
-		pageLink: "/learn/whatis",
-	},
-	{
-		title: "The Machinery",
-		description:
-			"Formula 1 cars are open-wheel, single-seater vehicles designed for maximum speed and performance.",
-		image: machinery,
-		imageAlt: "The Machinery",
-		pageLink: "/learn/technologies",
-	},
-	{
-		title: "The Drivers",
-		description:
-			"Behind the wheel are some of the most talented and daring drivers on the planet, competing for glory in a high-stakes environment.",
-		image: drivers,
-		imageAlt: "The Drivers",
-		pageLink: "/seasons/2025/drivers",
-	},
-	{
-		title: "The Tracks",
-		description:
-			"Races take place on a variety of circuits, ranging from iconic street tracks like Monaco to purpose-built circuits like Silverstone.",
-		image: tracks,
-		imageAlt: "The Tracks",
-		pageLink: "/seasons/2025/races",
-	},
-]
+  {
+    title: "The Introduction",
+    description:
+      "Formula 1, often referred to as F1, is the pinnacle of motorsport and one of the most thrilling and prestigious racing championships in the world.",
+    image: intro,
+    imageAlt: "What is Formula 1",
+    pageLink: "/learn/whatis",
+  },
+  {
+    title: "The Machinery",
+    description:
+      "Formula 1 cars are open-wheel, single-seater vehicles designed for maximum speed and performance.",
+    image: machinery,
+    imageAlt: "The Machinery",
+    pageLink: "/learn/technologies",
+  },
+  {
+    title: "The Drivers",
+    description:
+      "Behind the wheel are some of the most talented and daring drivers on the planet, competing for glory in a high-stakes environment.",
+    image: drivers,
+    imageAlt: "The Drivers",
+    pageLink: "/seasons/2025/drivers",
+  },
+  {
+    title: "The Tracks",
+    description:
+      "Races take place on a variety of circuits, ranging from iconic street tracks like Monaco to purpose-built circuits like Silverstone.",
+    image: tracks,
+    imageAlt: "The Tracks",
+    pageLink: "/seasons/2025/races",
+  },
+];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-slate-100 dark:bg-slate-900">
-	<head>
-		<BaseHead
-			title={pageTitle}
-			description={description}
-		/>
-	</head>
-	<body>
-		{isDevMode && <BreakpointIndicator />}
-		<Header />
-		<main>
-			<!-- Hero Section -->
-			<section class="py-10 text-center">
-				<h1 class="mb-4 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-slate-100">
-					{pageTitle}
-				</h1>
-				<div class="mx-auto max-w-3xl">
-					<p class="mb-8 text-xl text-slate-800 dark:text-slate-400">
-						Formula 1 is the pinnacle of motorsport, where speed, innovation, and strategy collide
-						to create the ultimate racing spectacle.
-					</p>
-				</div>
-				<div
-					class="mx-auto mb-4 max-w-4xl overflow-hidden rounded-lg shadow-xl dark:shadow-slate-800">
-					<Image
-						src={cn02}
-						alt="A bird sitting on a nest of eggs."
-						loading="eager"
-						class="w-full rounded-lg object-cover"
-					/>
-				</div>
-			</section>
+<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+  <head>
+    <BaseHead title={pageTitle} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <section class="py-10 text-center">
+        <h1
+          class="mb-4 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-slate-100"
+        >
+          {pageTitle}
+        </h1>
+        <div class="mx-auto max-w-3xl">
+          <p class="mb-8 text-xl text-slate-800 dark:text-slate-400">
+            Formula 1 is the pinnacle of motorsport, where speed, innovation,
+            and strategy collide to create the ultimate racing spectacle.
+          </p>
+        </div>
+        <div
+          class="mx-auto mb-4 max-w-4xl overflow-hidden rounded-lg shadow-xl dark:shadow-slate-800"
+        >
+          <Image
+            src={cn02}
+            alt="A bird sitting on a nest of eggs."
+            loading="eager"
+            class="w-full rounded-lg object-cover"
+          />
+        </div>
+      </section>
 
-			<!-- F1 Essentials Guide -->
-			<section class="bg-slate-100 py-16 dark:bg-slate-900">
-				<div class="container mx-auto px-4">
-					<div class="mb-12 text-center">
-						<h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
-							Your guide to Formula 1 essentials
-						</h2>
-						<p class="text-slate-800 dark:text-slate-400">
-							Everything you need to know about the pinnacle of motorsport
-						</p>
-					</div>
+      <!-- F1 Essentials Guide -->
+      <section class="bg-slate-100 py-16 dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 text-center">
+            <h2 class="mb-4 text-3xl font-bold dark:text-slate-100">
+              Your guide to Formula 1 essentials
+            </h2>
+            <p class="text-slate-800 dark:text-slate-400">
+              Everything you need to know about the pinnacle of motorsport
+            </p>
+          </div>
 
-					<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-						<!-- The Basics -->
-						<a
-							href="#understanding"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">The Basics</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								What makes F1 unique? Dive into its structure, speed, and global appeal.
-							</p>
-						</a>
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <!-- The Basics -->
+            <a
+              href="#understanding"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                The Basics
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                What makes F1 unique? Dive into its structure, speed, and global
+                appeal.
+              </p>
+            </a>
 
-						<!-- Behind the Machines -->
-						<a
-							href="#technology"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
-								Behind the Machines
-							</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								How F1 cars push the limits of performance and innovation.
-							</p>
-						</a>
+            <!-- Behind the Machines -->
+            <a
+              href="#technology"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                Behind the Machines
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                How F1 cars push the limits of performance and innovation.
+              </p>
+            </a>
 
-						<!-- Future of Racing -->
-						<a
-							href="#future"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
-								Future of Racing
-							</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								Explore how AI, data, and sustainability are shaping tomorrow's grid.
-							</p>
-						</a>
+            <!-- Future of Racing -->
+            <a
+              href="#future"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                Future of Racing
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                Explore how AI, data, and sustainability are shaping tomorrow's
+                grid.
+              </p>
+            </a>
 
-						<!-- Scoring & Standings -->
-						<a
-							href="#championships"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
-								Scoring & Standings
-							</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								Learn how championships are won by drivers and constructors throughout the season.
-							</p>
-						</a>
+            <!-- Scoring & Standings -->
+            <a
+              href="#championships"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                Scoring & Standings
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                Learn how championships are won by drivers and constructors
+                throughout the season.
+              </p>
+            </a>
 
-						<!-- 2025 Season -->
-						<a
-							href="#spectacle"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
-								2025 Highlights
-							</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								Highlights from the current year showcasing dramatic stories.
-							</p>
-						</a>
+            <!-- 2025 Season -->
+            <a
+              href="#spectacle"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                2025 Highlights
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                Highlights from the current year showcasing dramatic stories.
+              </p>
+            </a>
 
-						<!-- 2025 Coverage -->
-						<a
-							href="#why-it-matters"
-							class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-							<h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
-								2025 Coverage
-							</h3>
-							<p class="text-slate-800 dark:text-slate-400">
-								Up-to-date coverage of the 2025 F1 season.
-							</p>
-						</a>
-					</div>
-				</div>
-			</section>
+            <!-- 2025 Coverage -->
+            <a
+              href="#why-it-matters"
+              class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+            >
+              <h3 class="mb-2 text-xl text-slate-900 dark:text-slate-200">
+                2025 Coverage
+              </h3>
+              <p class="text-slate-800 dark:text-slate-400">
+                Up-to-date coverage of the 2025 F1 season.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
 
-			<!-- Understanding F1 Section -->
-			<section
-				id="understanding"
-				class="bg-slate-100 dark:bg-slate-900">
-				<GridSection
-					title="Understanding the pinnacle of motorsports"
-					items={f1BasicsItems}
-				/>
-			</section>
+      <!-- Understanding F1 Section -->
+      <section id="understanding" class="bg-slate-100 dark:bg-slate-900">
+        <GridSection
+          title="Understanding the pinnacle of motorsports"
+          items={f1BasicsItems}
+        />
+      </section>
 
-			<!-- Championships Section -->
-			<section
-				id="championships"
-				class="bg-slate-100 py-16 dark:bg-slate-900">
-				<div class="mx-auto max-w-7xl px-4">
-					<h2 class="mb-4 text-center text-3xl font-bold dark:text-slate-100">
-						World Championships at stake
-					</h2>
-					<p class="mx-auto mb-12 max-w-4xl text-center text-slate-800 dark:text-slate-400">
-						Formula 1 is not just about individual races; it's a season-long competition to crown
-						the best. It is as much about teamwork as individual skill, with every point
-						contributing to the season's narrative.
-					</p>
-					<div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
-						<!-- Drivers' Championship Card -->
-						<div
-							class="group flex h-full flex-col justify-between rounded-xl border border-slate-200 p-8 dark:border-0 dark:bg-slate-800">
-							<div class="mb-6 flex flex-col items-center gap-3">
-								<div class="rounded-full bg-slate-300 p-3 dark:bg-slate-300">
-									<Icon
-										name="mdi:racing-helmet"
-										aria-hidden="true"
-										class="a h-6 w-6 shrink-0 text-slate-800"
-									/>
-								</div>
-								<h3
-									class="flex items-center text-center text-2xl font-bold leading-tight dark:text-slate-100">
-									Drivers Championship
-								</h3>
-							</div>
-							<div>
-								<p class="mb-8 text-center text-slate-800 dark:text-slate-400">
-									Awarded to the driver who accumulates the most points throughout the season.
-								</p>
-								<div class="rounded-lg p-6">
-									<div class="flex flex-col items-center">
-										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">22</span>
-										<span
-											class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
-											>Drivers Racing</span
-										>
-									</div>
-								</div>
-							</div>
-						</div>
+      <!-- Championships Section -->
+      <section id="championships" class="bg-slate-100 py-16 dark:bg-slate-900">
+        <div class="mx-auto max-w-7xl px-4">
+          <h2 class="mb-4 text-center text-3xl font-bold dark:text-slate-100">
+            World Championships at stake
+          </h2>
+          <p
+            class="mx-auto mb-12 max-w-4xl text-center text-slate-800 dark:text-slate-400"
+          >
+            Formula 1 is not just about individual races; it's a season-long
+            competition to crown the best. It is as much about teamwork as
+            individual skill, with every point contributing to the season's
+            narrative.
+          </p>
+          <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+            <!-- Drivers' Championship Card -->
+            <div
+              class="group flex h-full flex-col justify-between rounded-xl border border-slate-200 p-8 dark:border-0 dark:bg-slate-800"
+            >
+              <div class="mb-6 flex flex-col items-center gap-3">
+                <div class="rounded-full bg-slate-300 p-3 dark:bg-slate-300">
+                  <Icon
+                    name="mdi:racing-helmet"
+                    aria-hidden="true"
+                    class="a h-6 w-6 shrink-0 text-slate-800"
+                  />
+                </div>
+                <h3
+                  class="flex items-center text-center text-2xl font-bold leading-tight dark:text-slate-100"
+                >
+                  Drivers Championship
+                </h3>
+              </div>
+              <div>
+                <p class="mb-8 text-center text-slate-800 dark:text-slate-400">
+                  Awarded to the driver who accumulates the most points
+                  throughout the season.
+                </p>
+                <div class="rounded-lg p-6">
+                  <div class="flex flex-col items-center">
+                    <span
+                      class="text-4xl font-bold text-slate-900 dark:text-slate-200"
+                      >22</span
+                    >
+                    <span
+                      class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
+                      >Drivers Racing</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
 
-						<!-- Constructors' Championship Card -->
-						<div
-							class="group flex h-full flex-col justify-between rounded-xl border border-slate-200 p-8 dark:border-0 dark:bg-slate-800">
-							<div class="mb-6 flex flex-col items-center gap-3">
-								<div class="rounded-full bg-slate-300 p-3 dark:bg-slate-300">
-									<Icon
-										name="mdi:account-group"
-										aria-hidden="true"
-										class="a h-6 w-6 shrink-0 text-slate-800"
-									/>
-								</div>
-								<h3
-									class="flex items-center text-center text-2xl font-bold leading-tight dark:text-slate-100">
-									Constructors Championship
-								</h3>
-							</div>
-							<div>
-								<p class="mb-8 text-center text-slate-800 dark:text-slate-400">
-									Teams compete for this title based on their drivers' combined performance.
-								</p>
-								<div class="rounded-lg p-6">
-									<div class="flex flex-col items-center">
-										<span class="text-4xl font-bold text-slate-900 dark:text-slate-200">11</span>
-										<span
-											class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
-											>Teams Racing</span
-										>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+            <!-- Constructors' Championship Card -->
+            <div
+              class="group flex h-full flex-col justify-between rounded-xl border border-slate-200 p-8 dark:border-0 dark:bg-slate-800"
+            >
+              <div class="mb-6 flex flex-col items-center gap-3">
+                <div class="rounded-full bg-slate-300 p-3 dark:bg-slate-300">
+                  <Icon
+                    name="mdi:account-group"
+                    aria-hidden="true"
+                    class="a h-6 w-6 shrink-0 text-slate-800"
+                  />
+                </div>
+                <h3
+                  class="flex items-center text-center text-2xl font-bold leading-tight dark:text-slate-100"
+                >
+                  Constructors Championship
+                </h3>
+              </div>
+              <div>
+                <p class="mb-8 text-center text-slate-800 dark:text-slate-400">
+                  Teams compete for this title based on their drivers' combined
+                  performance.
+                </p>
+                <div class="rounded-lg p-6">
+                  <div class="flex flex-col items-center">
+                    <span
+                      class="text-4xl font-bold text-slate-900 dark:text-slate-200"
+                      >11</span
+                    >
+                    <span
+                      class="mt-1 text-sm font-medium uppercase tracking-wide text-slate-800 dark:text-slate-200"
+                      >Teams Racing</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<!-- Technology Section -->
-			<div id="technology">
-				<TwoColumnSection
-					title="The Technology"
-					content={`
+      <!-- Technology Section -->
+      <div id="technology">
+        <TwoColumnSection
+          title="The Technology"
+          content={`
 					<p>
 						Formula 1 is a testing ground for automotive and engineering innovations that often influence road‑car design and performance—pushing boundaries in efficiency and speed—while recent years have driven a push toward sustainability through hybrid power units and a commitment to 100% sustainable fuels by 2030 to secure the sport’s future and address global environmental challenges.
 					</p>
 					`}
-					imageSrc={cn02}
-					imageAlt="F1 Technology"
-				/>
-			</div>
+          imageSrc={cn02}
+          imageAlt="F1 Technology"
+        />
+      </div>
 
-			<!-- Spectacle Section -->
-			<div id="spectacle">
-				<TwoColumnSection
-					title="The Spectacle"
-					content={`
+      <!-- Spectacle Section -->
+      <div id="spectacle">
+        <TwoColumnSection
+          title="The Spectacle"
+          content={`
 						<p>
 							A typical F1 race weekend builds from practice sessions—where teams fine‑tune setup and collect data—into a high‑intensity qualifying session (often split into Q1–Q3) that determines the starting grid, and culminates in the Grand Prix itself, where strategy, tire management, pit‑stop timing and split‑second driver decisions combine to decide the result; support races, fan activities and evolving track conditions add context and momentum, creating a continuous rise in tension and excitement across the weekend.
 						</p>
 					`}
-					imageSrc={cn02}
-					imageAlt="F1 Race Weekend"
-					reversed={true}
-				/>
-			</div>
+          imageSrc={cn02}
+          imageAlt="F1 Race Weekend"
+          reversed={true}
+        />
+      </div>
 
-			<!-- Why It Matters Section -->
-			<div id="why-it-matters">
-				<TwoColumnSection
-					title="Why It Matters"
-					content={`
+      <!-- Why It Matters Section -->
+      <div id="why-it-matters">
+        <TwoColumnSection
+          title="Why It Matters"
+          content={`
 						<p>
 							Formula 1 isn't just about racing; it's about pushing boundaries, showcasing human ingenuity, and celebrating the relentless pursuit of excellence, capturing the imagination of fans with its blend of speed, strategy, and high-octane drama—offering something for everyone, whether you're a lifelong fan or new to the sport, and serving as more than a race: a passion, a tradition, and a glimpse into the future of technology and sport.
 						</p>
 					`}
-					imageSrc={cn02}
-					imageAlt="F1 Impact"
-				/>
-			</div>
+          imageSrc={cn02}
+          imageAlt="F1 Impact"
+        />
+      </div>
 
-			<!-- The Future Section -->
-			<div id="future">
-				<TwoColumnSection
-					title="The Future"
-					content={`
+      <!-- The Future Section -->
+      <div id="future">
+        <TwoColumnSection
+          title="The Future"
+          content={`
 						<p>
 							Formula 1 continues to evolve—driven by advances in hybrid powertrains and sustainable fuels, strengthened safety and technical regulations, and new forms of fan engagement and media innovation—ensuring the sport pushes engineering boundaries, nurtures emerging talent, and broadens its global appeal, positioning it to remain the pinnacle of motorsport for generations to come.
 						</p>
 						`}
-					imageSrc={cn02}
-					imageAlt="F1 Race Weekend"
-					reversed={true}
-				/>
-			</div>
+          imageSrc={cn02}
+          imageAlt="F1 Race Weekend"
+          reversed={true}
+        />
+      </div>
 
-			<!-- Latest Blog Posts Section -->
-			<LatestPosts />
-		</main>
+      <!-- Latest Blog Posts Section -->
+      <LatestPosts />
+    </main>
 
-		<Footer />
-	</body>
+    <Footer />
+  </body>
 </html>

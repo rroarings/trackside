@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
-carImageAlt: "McLaren 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/mclaren/car/car-mclaren-01-copy.png"
-carImageLargeAlt: "McLaren 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "McLaren 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "McLaren 2026 Constructor car"
 carModel: "MCL39"
 careerStats:
   firstEntry: 1966

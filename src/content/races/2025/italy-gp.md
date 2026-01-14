@@ -14,10 +14,8 @@ raceWeekendOrder: 0
 raceWeekendDescription: "First race of the season."
 season: "2025"
 winningDriver: "Max Verstappen"
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningConstructor: "Red Bull Racing"
+time: "1:13:24.325"
 raceNumber: 16
 raceCompleted: true
 pubDate: "July, 19, 2025"

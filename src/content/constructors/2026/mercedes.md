@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/mercedes/car/car-mercedes-01-copy.png"
-carImageAlt: "Mercedes 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/mercedes/car/car-mercedes-01-copy.png"
-carImageLargeAlt: "Mercedes 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Mercedes 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Mercedes 2026 Constructor car"
 carModel: "W16"
 careerStats:
   firstEntry: 1954

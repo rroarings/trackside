@@ -9,6 +9,7 @@ import alpineBG from "../assets/component/teamCard-alpine.png";
 import racingBullsBG from "../assets/component/teamCard-racing-bulls.png";
 import redBullBG from "../assets/component/teamCard-red-bull.png";
 import cadillacBG from "../assets/component/teamCard-placeholder.png";
+import audiBG from "../assets/component/teamCard-audi.png";
 
 export const teamBgMap: Record<string, any> = {
   McLaren: mclarenBG,
@@ -22,4 +23,5 @@ export const teamBgMap: Record<string, any> = {
   Haas: haasBG,
   Alpine: alpineBG,
   Cadillac: cadillacBG,
+  Audi: audiBG,
 };

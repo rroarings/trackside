@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/red-bull-racing/car/car-red-bull-01-copy.png"
-carImageAlt: "Red Bull Racing 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/red-bull-racing/car/car-red-bull-01-copy.png"
-carImageLargeAlt: "Red Bull Racing 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Red Bull Racing 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Red Bull Racing 2026 Constructor car"
 carModel: "RB21"
 careerStats:
   firstEntry: 2005
@@ -16,7 +16,7 @@ careerStats:
   fastestLaps: 101
 championshipPosition: 3
 constructorName: "Red Bull Racing"
-constructorPoints: 451
+constructorPoints: 0
 dnf: 0
 description: "Red Bull Racing team description"
 engineSupplier: "Honda RBPT"

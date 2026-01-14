@@ -2,7 +2,7 @@
 driverFirstName: "Nico"
 driverLastName: "Hulkenberg"
 driverNumber: 27
-driverTeam: "Kick Sauber"
+driverTeam: "Audi"
 description: "Nico Hulkenberg 2026 Driver Profile"
 season: "2026"
 nationality: "German"

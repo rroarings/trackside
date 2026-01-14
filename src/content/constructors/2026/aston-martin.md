@@ -1,8 +1,8 @@
 ---
-carImage: "../../../assets/constructors/aston-martin/car/car-aston-martin-01-copy.png"
-carImageAlt: "Aston Martin 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/aston-martin/car/car-aston-martin-01-copy.png"
-carImageLargeAlt: "Aston Martin 2025 Constructor car"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Aston Martin 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Aston Martin 2026 Constructor car"
 carModel: "AMR25"
 careerStats:
   firstEntry: 1959

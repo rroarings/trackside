@@ -7,7 +7,7 @@ description: "Sergio Perez 2026 Driver Profile"
 season: "2026"
 nationality: "Mexican"
 countryCode: "mx"
-profileImage: "../../../assets/constructors/alpine/drivers/gasly-02.png"
+profileImage: "../../../assets/constructors/cadillac/drivers/checo-portrait-main-2026.png"
 age: 34
 profileImageLarge: ""
 profileImageAlt: "Portrait of Sergio Perez"

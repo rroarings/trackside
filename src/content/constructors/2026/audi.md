@@ -1,9 +1,9 @@
 ---
-carImage: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
-carImageAlt: "Kick Sauber 2025 Constructor car"
-carImageLarge: "../../../assets/constructors/kick-sauber/car/car-kick-sauber-01-copy.png"
-carImageLargeAlt: "Kick Sauber 2025 Constructor car"
-carModel: "C45"
+carImage: "../../../assets/car-2026-placeholder.png"
+carImageAlt: "Audi 2026 Constructor car"
+carImageLarge: "../../../assets/car-2026-placeholder.png"
+carImageLargeAlt: "Audi 2026 Constructor car"
+carModel: ""
 careerStats:
   firstEntry: 1993
   racesEntered: 611
@@ -15,10 +15,10 @@ careerStats:
   polePositions: 1
   fastestLaps: 0
 championshipPosition: 9
-constructorName: "Kick Sauber"
+constructorName: "Audi"
 constructorPoints: 0
 dnf: 0
-description: "Kick Sauber team description"
+description: "Audi team description"
 engineSupplier: "Ferrari"
 fastestLaps: 0
 grandPrixWins: 0
@@ -39,7 +39,7 @@ pubDate: "January 2, 2026"
 updatedDate: "January 2, 2026"
 ---
 
-# The Swiss outfit Kick Sauber enters its transitional 2025 season with renewed ambition
+# The German powerhouse Audi returns in 2026
 
 The Swiss outfit Kick Sauber enters its transitional 2025 season with renewed ambition, blending veteran experience with raw rookie talent as it gears up for its Audi factory evolution in 2026. With Nico Hülkenberg providing seasoned leadership and Gabriel Bortoleto injecting youthful flair, the team has shown flashes of midfield promise amid ongoing development challenges.
 
