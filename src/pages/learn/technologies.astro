@@ -1,630 +1,510 @@
 ---
-import { Icon } from "astro-icon/components";
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import TwoColumnSection from "../../components/TwoColumnSection.astro";
-import jp02 from "../../assets/circuits/03japan/jp02.jpg";
-import raceseqWebm from "../../assets/videos/raceseq.webm";
-import raceseqMp4 from "../../assets/videos/raceseq.mp4";
+import { Icon } from "astro-icon/components"
+import BaseHead from "../../components/BaseHead.astro"
+import Header from "../../components/Header.astro"
+import Footer from "../../components/Footer.astro"
+import TwoColumnSection from "../../components/TwoColumnSection.astro"
+import jp02 from "../../assets/circuits/03japan/jp02.jpg"
+import raceseqWebm from "../../assets/videos/raceseq.webm"
+import raceseqMp4 from "../../assets/videos/raceseq.mp4"
 
-const pageTitle = "Technology of Formula 1";
+const pageTitle = "Technology of Formula 1"
 const description =
-  "Formula 1 is at the cutting edge of automotive technology, pushing boundaries in engineering, data analytics, and innovation.";
+	"Formula 1 is at the cutting edge of automotive technology, pushing boundaries in engineering, data analytics, and innovation."
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
-  <head>
-    <BaseHead title={pageTitle} description={description} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <!-- Hero Section -->
-      <section class="bg-slate-100 py-16 dark:bg-slate-900">
-        <div class="container mx-auto">
-          <div class="mb-10 text-center">
-            <h1 class="mb-4 text-4xl font-bold md:text-5xl dark:text-slate-100">
-              {pageTitle}
-            </h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400">
-              Technological prowess drives Formula 1 innovation
-            </p>
-          </div>
+<html
+	lang="en"
+	class="bg-slate-100 dark:bg-slate-900">
+	<head>
+		<BaseHead
+			title={pageTitle}
+			description={description}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section class="bg-slate-100 py-16 dark:bg-slate-900">
+				<div class="container mx-auto">
+					<div class="mb-10 text-center">
+						<h1 class="mb-4 text-4xl font-bold md:text-5xl dark:text-slate-100">
+							{pageTitle}
+						</h1>
+						<p class="text-xl text-slate-600 dark:text-slate-400">
+							Technological prowess drives Formula 1 innovation
+						</p>
+					</div>
 
-          <!-- Technology Grid Layout -->
-          <div
-            class="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3"
-          >
-            <!-- Engineering -->
-            <div
-              class="group relative flex flex-col overflow-hidden rounded-xl"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div
-                  class="relative mb-6 flex flex-col items-center overflow-hidden text-center"
-                >
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:gear"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-200">
-                    Engineering
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Pushing the boundaries of automotive engineering with
-                  cutting-edge solutions
-                </p>
-              </div>
-            </div>
+					<!-- Technology Grid Layout -->
+					<div
+						class="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
+						<!-- Engineering -->
+						<div class="group relative flex flex-col overflow-hidden rounded-xl">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="relative mb-6 flex flex-col items-center overflow-hidden text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:gear"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-200">Engineering</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Pushing the boundaries of automotive engineering with cutting-edge solutions
+								</p>
+							</div>
+						</div>
 
-            <!-- Sustainability -->
-            <div
-              class="group relative my-0 flex flex-col overflow-hidden rounded-xl md:row-span-2"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div class="mb-6 flex flex-col items-center text-center">
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:leaf"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">
-                    Sustainability
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Leading the charge in sustainable racing technologies
-                </p>
-              </div>
-            </div>
+						<!-- Sustainability -->
+						<div class="group relative my-0 flex flex-col overflow-hidden rounded-xl md:row-span-2">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="mb-6 flex flex-col items-center text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:leaf"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">Sustainability</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Leading the charge in sustainable racing technologies
+								</p>
+							</div>
+						</div>
 
-            <!-- Analytics -->
-            <div
-              class="group relative flex flex-col overflow-hidden rounded-xl"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div class="mb-6 flex flex-col items-center text-center">
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:chart-line"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">
-                    Data Analytics
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Real-time data analysis shapes strategy and performance
-                  optimization
-                </p>
-              </div>
-            </div>
+						<!-- Analytics -->
+						<div class="group relative flex flex-col overflow-hidden rounded-xl">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="mb-6 flex flex-col items-center text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:chart-line"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">Data Analytics</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Real-time data analysis shapes strategy and performance optimization
+								</p>
+							</div>
+						</div>
 
-            <!-- Aerodynamics -->
-            <div
-              class="group relative flex flex-col overflow-hidden rounded-xl"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div class="mb-6 flex flex-col items-center text-center">
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:windy"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">
-                    Aerodynamics
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Advanced research in airflow and downforce optimization
-                </p>
-              </div>
-            </div>
+						<!-- Aerodynamics -->
+						<div class="group relative flex flex-col overflow-hidden rounded-xl">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="mb-6 flex flex-col items-center text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:windy"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">Aerodynamics</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Advanced research in airflow and downforce optimization
+								</p>
+							</div>
+						</div>
 
-            <!-- Performance -->
-            <div
-              class="group relative flex flex-col overflow-hidden rounded-xl"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div class="mb-6 flex flex-col items-center text-center">
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:car-speed-limiter"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-200">
-                    Performance
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Maximizing speed and efficiency through innovative solutions
-                </p>
-              </div>
-            </div>
+						<!-- Performance -->
+						<div class="group relative flex flex-col overflow-hidden rounded-xl">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="mb-6 flex flex-col items-center text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:car-speed-limiter"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-200">Performance</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Maximizing speed and efficiency through innovative solutions
+								</p>
+							</div>
+						</div>
 
-            <!-- Innovation -->
-            <div
-              class="group relative flex flex-col overflow-hidden rounded-xl lg:col-span-3"
-            >
-              <div
-                class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800"
-              >
-                <div class="mb-6 flex flex-col items-center text-center">
-                  <div
-                    class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:brain"
-                      class="inline-block text-2xl text-slate-800 dark:text-slate-900"
-                    />
-                  </div>
-                  <h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">
-                    Innovation
-                  </h3>
-                </div>
-                <p class="text-center text-slate-600 dark:text-slate-400">
-                  Where engineering meets innovation to create the future of
-                  motorsport
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+						<!-- Innovation -->
+						<div class="group relative flex flex-col overflow-hidden rounded-xl lg:col-span-3">
+							<div
+								class="flex flex-1 flex-col bg-slate-200/80 p-8 backdrop-blur-sm dark:bg-slate-800">
+								<div class="mb-6 flex flex-col items-center text-center">
+									<div class="rounded-full bg-slate-400/20 p-4 dark:bg-slate-300">
+										<Icon
+											name="mdi:brain"
+											class="inline-block text-2xl text-slate-800 dark:text-slate-900"
+										/>
+									</div>
+									<h3 class="mt-4 text-lg text-slate-800 dark:text-slate-100">Innovation</h3>
+								</div>
+								<p class="text-center text-slate-600 dark:text-slate-400">
+									Where engineering meets innovation to create the future of motorsport
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <!-- Simulations Section -->
-      <TwoColumnSection
-        title="Augmented reality and virtual simulations"
-        content={`
+			<!-- Simulations Section -->
+			<TwoColumnSection
+				title="Augmented reality and virtual simulations"
+				content={`
         <p>
           Augmented reality and virtual simulations are becoming increasingly important in Formula One, enabling teams to improve design and testing by simulating scenarios and testing components—such as aerodynamic changes—virtually without physical prototypes, while also enhancing the fan experience through apps that let users explore cars and tracks in 3D; these technologies have the potential to transform how Formula One is developed and experienced and are likely to become even more important in the years to come.
         </p>
         `}
-        imageSrc={jp02}
-        imageAlt="F1 Car Virtual Simulation"
-      />
+				imageSrc={jp02}
+				imageAlt="F1 Car Virtual Simulation"
+			/>
 
-      <!-- Technicalities Section -->
-      <TwoColumnSection
-        title="Technicalities to talk about"
-        content={`
+			<!-- Technicalities Section -->
+			<TwoColumnSection
+				title="Technicalities to talk about"
+				content={`
           <p>
             In recent years, Formula 1 has introduced technical changes—such as raising the minimum car weight and tightening rules around wind tunnel and simulator use—to improve safety and competitiveness while encouraging innovation and creativity, helping to ensure F1 remains at the forefront of automotive technology and reinforcing its reputation as one of the most exciting and dynamic motorsports in the world.
           </p>
           `}
-        imageSrc={jp02}
-        imageAlt="F1 Car Technical Details"
-        reversed={true}
-      />
+				imageSrc={jp02}
+				imageAlt="F1 Car Technical Details"
+				reversed={true}
+			/>
 
-      <!-- Video Feature Section -->
-      <section class="bg-slate-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-4xl">
-            <h2
-              class="mb-12 text-center text-3xl font-bold dark:text-slate-100"
-            >
-              Experience F1 Technology
-            </h2>
-            <div
-              class="overflow-hidden rounded-xl shadow-lg dark:shadow-slate-700"
-            >
-              <video
-                class="h-full w-full rounded-xl object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src={raceseqWebm} type="video/webm" />
-                <source src={raceseqMp4} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+			<!-- Video Feature Section -->
+			<section class="bg-slate-100 py-12 dark:bg-slate-900">
+				<div class="container mx-auto px-4">
+					<div class="mx-auto max-w-4xl">
+						<h2 class="mb-12 text-center text-3xl font-bold dark:text-slate-100">
+							Experience F1 Technology
+						</h2>
+						<div class="overflow-hidden rounded-xl shadow-lg dark:shadow-slate-700">
+							<video
+								class="h-full w-full rounded-xl object-cover"
+								autoplay
+								muted
+								loop
+								playsinline>
+								<source
+									src={raceseqWebm}
+									type="video/webm"
+								/>
+								<source
+									src={raceseqMp4}
+									type="video/mp4"
+								/>
+								Your browser does not support the video tag.
+							</video>
+						</div>
 
-            <div class="mt-8 text-center">
-              <p class="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">
-                Explore the cutting-edge technology that powers modern Formula 1
-                cars, from advanced aerodynamics to hybrid power units.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+						<div class="mt-8 text-center">
+							<p class="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">
+								Explore the cutting-edge technology that powers modern Formula 1 cars, from advanced
+								aerodynamics to hybrid power units.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <!-- Cost Cap Section -->
-      <section class="bg-slate-100 py-16 dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-          <div class="mx-auto">
-            <div class="mb-12 text-center">
-              <h2
-                class="mb-4 text-3xl font-bold md:text-4xl dark:text-slate-100"
-              >
-                Cost Cap Impact
-              </h2>
-              <p
-                class="mx-auto max-w-3xl text-lg text-slate-600 dark:text-slate-400"
-              >
-                Transforming F1's financial landscape with a $140M cost cap,
-                creating a more competitive and sustainable future for the
-                sport.
-              </p>
-            </div>
+			<!-- Cost Cap Section -->
+			<section class="bg-slate-100 py-16 dark:bg-slate-900">
+				<div class="container mx-auto px-4">
+					<div class="mx-auto">
+						<div class="mb-12 text-center">
+							<h2 class="mb-4 text-3xl font-bold md:text-4xl dark:text-slate-100">
+								Cost Cap Impact
+							</h2>
+							<p class="mx-auto max-w-3xl text-lg text-slate-600 dark:text-slate-400">
+								Transforming F1's financial landscape with a $140M cost cap, creating a more
+								competitive and sustainable future for the sport.
+							</p>
+						</div>
 
-            <!-- Stats Bar - Key Metrics -->
-            <div
-              class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4"
-            >
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-green-100 p-3 dark:bg-green-300">
-                    <Icon
-                      name="mdi:piggy-bank"
-                      class="inline-block text-2xl text-green-600 dark:text-green-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">
-                      Annual Budget
-                    </p>
-                    <p class="text-2xl font-bold dark:text-slate-300">$140M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-blue-100 p-3 dark:bg-blue-300">
-                    <Icon
-                      name="mdi:calendar-multiselect"
-                      class="inline-block text-2xl text-blue-600 dark:text-blue-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">
-                      Race Calendar
-                    </p>
-                    <p class="text-2xl font-bold dark:text-slate-300">
-                      24 races
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-rose-100 p-3 dark:bg-rose-300">
-                    <Icon
-                      name="mdi:account-supervisor"
-                      class="inline-block text-2xl text-rose-600 dark:text-rose-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">
-                      Teams
-                    </p>
-                    <p class="text-2xl font-bold dark:text-slate-300">11</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-orange-100 p-3 dark:bg-orange-300">
-                    <Icon
-                      name="mdi:arrow-compress-all"
-                      class="inline-block text-2xl text-orange-600 dark:text-orange-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">
-                      Pressure
-                    </p>
-                    <p class="text-2xl font-bold dark:text-slate-300">100%</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+						<!-- Stats Bar - Key Metrics -->
+						<div class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
+							<div class="mx-auto rounded-xl p-6">
+								<div class="flex items-center gap-4">
+									<div class="rounded-lg bg-green-100 p-3 dark:bg-green-300">
+										<Icon
+											name="mdi:piggy-bank"
+											class="inline-block text-2xl text-green-600 dark:text-green-900"
+										/>
+									</div>
+									<div>
+										<p class="text-sm text-slate-600 dark:text-slate-400">Annual Budget</p>
+										<p class="text-2xl font-bold dark:text-slate-300">$140M</p>
+									</div>
+								</div>
+							</div>
+							<div class="mx-auto rounded-xl p-6">
+								<div class="flex items-center gap-4">
+									<div class="rounded-lg bg-blue-100 p-3 dark:bg-blue-300">
+										<Icon
+											name="mdi:calendar-multiselect"
+											class="inline-block text-2xl text-blue-600 dark:text-blue-900"
+										/>
+									</div>
+									<div>
+										<p class="text-sm text-slate-600 dark:text-slate-400">Race Calendar</p>
+										<p class="text-2xl font-bold dark:text-slate-300">24 races</p>
+									</div>
+								</div>
+							</div>
+							<div class="mx-auto rounded-xl p-6">
+								<div class="flex items-center gap-4">
+									<div class="rounded-lg bg-rose-100 p-3 dark:bg-rose-300">
+										<Icon
+											name="mdi:account-supervisor"
+											class="inline-block text-2xl text-rose-600 dark:text-rose-900"
+										/>
+									</div>
+									<div>
+										<p class="text-sm text-slate-600 dark:text-slate-400">Teams</p>
+										<p class="text-2xl font-bold dark:text-slate-300">11</p>
+									</div>
+								</div>
+							</div>
+							<div class="mx-auto rounded-xl p-6">
+								<div class="flex items-center gap-4">
+									<div class="rounded-lg bg-orange-100 p-3 dark:bg-orange-300">
+										<Icon
+											name="mdi:arrow-compress-all"
+											class="inline-block text-2xl text-orange-600 dark:text-orange-900"
+										/>
+									</div>
+									<div>
+										<p class="text-sm text-slate-600 dark:text-slate-400">Pressure</p>
+										<p class="text-2xl font-bold dark:text-slate-300">100%</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-            <!-- Content Grid -->
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div class="space-y-4">
-                <h3
-                  class="text-xl font-semibold text-slate-900 dark:text-slate-200"
-                >
-                  Financial Equality
-                </h3>
-                <p class="text-slate-600 dark:text-slate-400">
-                  The introduction of a cost cap in Formula One marks a
-                  significant shift towards financial sustainability. Teams are
-                  now restricted to $140 million per year for car development,
-                  leveling the playing field between established powerhouses and
-                  smaller teams. This cap ensures that success is determined
-                  more by innovation and efficiency than by financial might.
-                </p>
-                <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Balanced competition across all teams
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Focus on technical innovation
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Sustainable business model
-                  </li>
-                </ul>
-              </div>
-              <div class="space-y-4">
-                <h3
-                  class="text-xl font-semibold text-slate-900 dark:text-slate-200"
-                >
-                  Impact on Competition
-                </h3>
-                <p class="text-slate-600 dark:text-slate-400">
-                  This new approach prevents financial dominance from
-                  determining championship outcomes. Teams must now prioritize
-                  efficiency and strategic resource allocation, leading to more
-                  unpredictable and exciting races. The cost cap has already
-                  shown signs of narrowing the performance gap between teams,
-                  creating more opportunities for midfield teams to compete for
-                  podiums.
-                </p>
-                <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Closer racing battles
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Efficient resource management
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      class="h-5 w-5 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    More competitive midfield
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+						<!-- Content Grid -->
+						<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+							<div class="space-y-4">
+								<h3 class="text-xl font-semibold text-slate-900 dark:text-slate-200">
+									Financial Equality
+								</h3>
+								<p class="text-slate-600 dark:text-slate-400">
+									The introduction of a cost cap in Formula One marks a significant shift towards
+									financial sustainability. Teams are now restricted to $140 million per year for
+									car development, leveling the playing field between established powerhouses and
+									smaller teams. This cap ensures that success is determined more by innovation and
+									efficiency than by financial might.
+								</p>
+								<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										Balanced competition across all teams
+									</li>
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										Focus on technical innovation
+									</li>
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										Sustainable business model
+									</li>
+								</ul>
+							</div>
+							<div class="space-y-4">
+								<h3 class="text-xl font-semibold text-slate-900 dark:text-slate-200">
+									Impact on Competition
+								</h3>
+								<p class="text-slate-600 dark:text-slate-400">
+									This new approach prevents financial dominance from determining championship
+									outcomes. Teams must now prioritize efficiency and strategic resource allocation,
+									leading to more unpredictable and exciting races. The cost cap has already shown
+									signs of narrowing the performance gap between teams, creating more opportunities
+									for midfield teams to compete for podiums.
+								</p>
+								<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										Closer racing battles
+									</li>
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										Efficient resource management
+									</li>
+									<li class="flex items-center gap-2">
+										<Icon
+											name="mdi:check-bold"
+											size={24}
+											class={"h-6 w-6 text-green-600"}
+										/>
+										More competitive midfield
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <!-- Data-Driven Section -->
-      <section class="relative overflow-hidden py-20 dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-          <div class="mb-10">
-            <h2
-              class="text-center text-3xl font-bold text-slate-900 dark:text-slate-200"
-            >
-              Data-Driven Edge
-            </h2>
-            <p
-              class="mx-auto mt-2 max-w-xl text-center text-base text-slate-600 dark:text-slate-400"
-            >
-              How analytics and telemetry shape every millisecond of F1
-              performance
-            </p>
-          </div>
-          <div class="mx-auto flex max-w-2xl flex-col gap-6">
-            <div
-              class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70"
-            >
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800"
-              >
-                <Icon
-                  name="mdi:signal-variant"
-                  class="h-7 w-7 text-slate-800 dark:text-slate-300"
-                />
-              </div>
-              <div>
-                <h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">
-                  Real-Time Telemetry
-                </h3>
-                <p class="text-base text-slate-800 dark:text-slate-400">
-                  Live data streams guide every race-day decision, from pit
-                  stops to tire choices.
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70"
-            >
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800"
-              >
-                <Icon
-                  name="mdi:registration-mark"
-                  class="h-7 w-7 text-slate-800 dark:text-slate-300"
-                />
-              </div>
-              <div>
-                <h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">
-                  Predictive Analytics
-                </h3>
-                <p class="text-base text-slate-800 dark:text-slate-400">
-                  Advanced models forecast tire wear, fuel strategy, and race
-                  outcomes for a competitive edge.
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70"
-            >
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800"
-              >
-                <Icon
-                  name="mdi:strategy"
-                  class="h-7 w-7 text-slate-800 dark:text-slate-300"
-                />
-              </div>
-              <div>
-                <h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">
-                  Data-Backed Strategy
-                </h3>
-                <p class="text-base text-slate-800 dark:text-slate-400">
-                  Every move is optimized—data turns milliseconds into podiums.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+			<!-- Data-Driven Section -->
+			<section class="relative overflow-hidden py-20 dark:bg-slate-900">
+				<div class="container mx-auto px-4">
+					<div class="mb-10">
+						<h2 class="text-center text-3xl font-bold text-slate-900 dark:text-slate-200">
+							Data-Driven Edge
+						</h2>
+						<p
+							class="mx-auto mt-2 max-w-xl text-center text-base text-slate-600 dark:text-slate-400">
+							How analytics and telemetry shape every millisecond of F1 performance
+						</p>
+					</div>
+					<div class="mx-auto flex max-w-2xl flex-col gap-6">
+						<div class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70">
+							<div
+								class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800">
+								<Icon
+									name="mdi:signal-variant"
+									class="h-7 w-7 text-slate-800 dark:text-slate-300"
+								/>
+							</div>
+							<div>
+								<h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">Real-Time Telemetry</h3>
+								<p class="text-base text-slate-800 dark:text-slate-400">
+									Live data streams guide every race-day decision, from pit stops to tire choices.
+								</p>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70">
+							<div
+								class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800">
+								<Icon
+									name="mdi:registration-mark"
+									class="h-7 w-7 text-slate-800 dark:text-slate-300"
+								/>
+							</div>
+							<div>
+								<h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">
+									Predictive Analytics
+								</h3>
+								<p class="text-base text-slate-800 dark:text-slate-400">
+									Advanced models forecast tire wear, fuel strategy, and race outcomes for a
+									competitive edge.
+								</p>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 rounded-xl bg-slate-200 p-6 dark:bg-slate-900/70">
+							<div
+								class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-800">
+								<Icon
+									name="mdi:strategy"
+									class="h-7 w-7 text-slate-800 dark:text-slate-300"
+								/>
+							</div>
+							<div>
+								<h3 class="mb-1 text-lg text-slate-900 dark:text-slate-200">
+									Data-Backed Strategy
+								</h3>
+								<p class="text-base text-slate-800 dark:text-slate-400">
+									Every move is optimized—data turns milliseconds into podiums.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <!-- Teamwork Section -->
-      <section class="bg-slate-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-          <h2 class="mb-12 text-center text-3xl font-bold dark:text-slate-100">
-            Teamwork makes the dream work
-          </h2>
+			<!-- Teamwork Section -->
+			<section class="bg-slate-100 py-12 dark:bg-slate-900">
+				<div class="container mx-auto px-4">
+					<h2 class="mb-12 text-center text-3xl font-bold dark:text-slate-100">
+						Teamwork makes the dream work
+					</h2>
 
-          <div
-            class="mx-auto mt-8 grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-          >
-            <!-- One Team Card -->
-            <div class="space-y-4">
-              <div
-                class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900"
-              >
-                <Icon
-                  name="mdi:account-group"
-                  class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
-                />
-              </div>
-              <h3 class="dark:text-slate-200">One Team, One Goal</h3>
-              <p class="text-slate-600 dark:text-slate-400">
-                From factory to finish line, everyone works toward a single
-                mission: performance. Designers, mechanics, and support staff
-                all play a part. In F1, collaboration and unity turn potential
-                into podiums.
-              </p>
-            </div>
+					<div class="mx-auto mt-8 grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+						<!-- One Team Card -->
+						<div class="space-y-4">
+							<div
+								class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900">
+								<Icon
+									name="mdi:account-group"
+									class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
+								/>
+							</div>
+							<h3 class="dark:text-slate-200">One Team, One Goal</h3>
+							<p class="text-slate-600 dark:text-slate-400">
+								From factory to finish line, everyone works toward a single mission: performance.
+								Designers, mechanics, and support staff all play a part. In F1, collaboration and
+								unity turn potential into podiums.
+							</p>
+						</div>
 
-            <!-- Brains Behind Card -->
-            <div class="space-y-4">
-              <div
-                class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900"
-              >
-                <Icon
-                  name="mdi:account-wrench"
-                  class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
-                />
-              </div>
-              <h3 class="dark:text-slate-200">Behind the Speed</h3>
-              <p class="text-slate-600 dark:text-slate-400">
-                Race engineers and strategists are the unsung heroes. They
-                analyze live data, adapt to changing conditions, and guide the
-                driver through every lap. Success relies on trust, quick
-                thinking, and seamless communication.
-              </p>
-            </div>
+						<!-- Brains Behind Card -->
+						<div class="space-y-4">
+							<div
+								class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900">
+								<Icon
+									name="mdi:account-wrench"
+									class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
+								/>
+							</div>
+							<h3 class="dark:text-slate-200">Behind the Speed</h3>
+							<p class="text-slate-600 dark:text-slate-400">
+								Race engineers and strategists are the unsung heroes. They analyze live data, adapt
+								to changing conditions, and guide the driver through every lap. Success relies on
+								trust, quick thinking, and seamless communication.
+							</p>
+						</div>
 
-            <!-- Precision Card -->
-            <div class="space-y-4">
-              <div
-                class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900"
-              >
-                <Icon
-                  name="mdi:account-hard-hat"
-                  class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
-                />
-              </div>
-              <h3 class="dark:text-slate-200">Pit Wall Precision</h3>
-              <p class="text-slate-600 dark:text-slate-400">
-                Teamwork in F1 is a finely tuned operation. Pit crews execute
-                lightning-fast stops, with each member playing a vital role. One
-                mistake can cost seconds — and the race.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+						<!-- Precision Card -->
+						<div class="space-y-4">
+							<div
+								class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-slate-200 text-white dark:bg-slate-300 dark:text-slate-900">
+								<Icon
+									name="mdi:account-hard-hat"
+									class="inline-block h-8 w-8 text-slate-800 dark:text-slate-900"
+								/>
+							</div>
+							<h3 class="dark:text-slate-200">Pit Wall Precision</h3>
+							<p class="text-slate-600 dark:text-slate-400">
+								Teamwork in F1 is a finely tuned operation. Pit crews execute lightning-fast stops,
+								with each member playing a vital role. One mistake can cost seconds — and the race.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
-    <Footer />
-  </body>
+		<Footer />
+	</body>
 </html>
