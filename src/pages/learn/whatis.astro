@@ -12,9 +12,6 @@ import machinery from "../../assets/section/racei1.jpg";
 import drivers from "../../assets/section/racei1.jpg";
 import tracks from "../../assets/section/racei1.jpg";
 import LatestPosts from "../../components/LatestPosts.astro";
-import BreakpointIndicator from "../../components/BreakpointIndicator.astro";
-
-const isDevMode = import.meta.env.DEV;
 
 const pageTitle = "What is Formula 1?";
 const description =
@@ -62,7 +59,6 @@ const f1BasicsItems = [
     <BaseHead title={pageTitle} description={description} />
   </head>
   <body>
-    {isDevMode && <BreakpointIndicator />}
     <Header />
     <main>
       <!-- Hero Section -->
