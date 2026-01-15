@@ -5,6 +5,7 @@ interface Feature {
   title: string;
   description: string;
   icon?: string;
+  href?: string;
 }
 
 interface Props {
@@ -14,9 +15,8 @@ interface Props {
   background?: "white" | "slate";
 }
 
-const { title, features, columns = 2, background = "white" } = Astro.props;
+const { title, features, columns = 2 } = Astro.props;
 
-const bgClass = background === "slate" ? "bg-slate-50" : "bg-white";
 const gridCols = {
   2: "sm:grid-cols-2",
   3: "sm:grid-cols-3",
@@ -55,25 +55,31 @@ const gridCols = {
 
     <div class={`grid grid-cols-1 ${gridCols} gap-6`}>
       {
-        features.map((feature) => (
-          <div class="group flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="group-hover:inset-shadow-sm group-hover:inset-shadow-slate-400 flex size-12 items-center justify-center rounded-lg bg-slate-900 text-white transition-all duration-300 dark:bg-slate-500">
-                {feature.icon ? (
-                  <Icon name={feature.icon} size="1.6em" />
-                ) : (
-                  <Icon name="mdi:asterisk" size="1.6em" />
-                )}
+        features.map((feature) => {
+          const Wrapper = feature.href ? "a" : "div";
+          return (
+            <Wrapper
+              href={feature.href}
+              class={`group -m-2 flex items-start space-x-4 rounded-lg p-2 transition-colors duration-300 ${feature.href ? "" : ""}`}
+            >
+              <div class="shrink-0">
+                <div class="group-hover:inset-shadow-sm group-hover:inset-shadow-slate-400 flex size-12 items-center justify-center rounded-lg bg-slate-900 text-white transition-all duration-300 dark:bg-slate-700">
+                  {feature.icon ? (
+                    <Icon name={feature.icon} size="1.6em" />
+                  ) : (
+                    <Icon name="mdi:asterisk" size="1.6em" />
+                  )}
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 class="dark:text-slate-200">{feature.title}</h3>
-              <p class="text-slate-800 dark:text-slate-400">
-                {feature.description}
-              </p>
-            </div>
-          </div>
-        ))
+              <div>
+                <h3 class="dark:text-slate-200">{feature.title}</h3>
+                <p class="text-slate-800 dark:text-slate-300">
+                  {feature.description}
+                </p>
+              </div>
+            </Wrapper>
+          );
+        })
       }
     </div>
   </div>

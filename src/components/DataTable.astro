@@ -1,0 +1,98 @@
+---
+/**
+ * Generic data table component for displaying standings data
+ * Used by DriversTable and ConstructorsTable components
+ */
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface TableColumn<T = any> {
+  /** Header text for the column */
+  header: string;
+  /** Key to access the value from row data, or a function to compute it */
+  accessor: keyof T | ((row: T) => string | number);
+  /** Optional CSS class for the header cell */
+  headerClass?: string;
+  /** Optional CSS class for the data cell */
+  cellClass?: string;
+  /** Whether this column should be a link */
+  isLink?: boolean;
+  /** Function to generate the href for link columns */
+  getHref?: (row: T) => string;
+  /** Function to generate aria-label for link columns */
+  getAriaLabel?: (row: T) => string;
+}
+
+export interface TableRow {
+  [key: string]: unknown;
+}
+
+interface Props {
+  /** Array of data rows to display */
+  rows: TableRow[];
+  /** Column definitions - using any to allow generic column types */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: TableColumn<any>[];
+  /** Optional table caption for accessibility */
+  caption?: string;
+}
+
+const { rows, columns, caption } = Astro.props;
+
+function getValue(
+  row: TableRow,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  accessor: string | ((row: any) => string | number),
+): string | number {
+  if (typeof accessor === "function") {
+    return accessor(row);
+  }
+  const value = row[accessor];
+  return value !== undefined && value !== null ? String(value) : "";
+}
+---
+
+<table class="w-full dark:bg-slate-800 dark:text-slate-200">
+  {caption && <caption class="sr-only">{caption}</caption>}
+  <thead>
+    <tr class="border-2 border-e-0 border-s-0 border-t-0 dark:border-slate-500">
+      {
+        columns.map((col: TableColumn) => (
+          <th class={col.headerClass || "px-6 py-4 text-left"}>{col.header}</th>
+        ))
+      }
+    </tr>
+  </thead>
+  <tbody>
+    {
+      rows.map((row: TableRow) => (
+        <tr class="border-b border-slate-300 text-base transition-colors duration-200 hover:bg-slate-300 dark:border-slate-500 dark:hover:bg-slate-700">
+          {columns.map((col: TableColumn) => {
+            const value = getValue(
+              row,
+              col.accessor as string | ((row: TableRow) => string | number),
+            );
+            const cellClass = col.cellClass || "px-6 py-4";
+
+            if (col.isLink && col.getHref) {
+              const href = col.getHref(row);
+              const ariaLabel = col.getAriaLabel?.(row) || String(value);
+              return (
+                <td class={cellClass}>
+                  <a
+                    href={href}
+                    aria-label={ariaLabel}
+                    class="block w-full focus:outline-none focus:ring-2 focus:ring-rose-400"
+                  >
+                    {value || "Unknown"}
+                  </a>
+                </td>
+              );
+            }
+
+            return <td class={cellClass}>{value}</td>;
+          })}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
