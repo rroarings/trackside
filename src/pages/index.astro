@@ -25,48 +25,56 @@ const features = [
     description:
       "Explore in-depth profiles of the drivers competing in the FORMULA 1™ championship.",
     icon: "mdi:account-search",
+    href: "/seasons/2026/drivers",
   },
   {
     title: "Constructor Profiles",
     description:
       "Discover the constructors shaping the FORMULA 1™ grid in the recent seasons.",
     icon: "mdi:train-car-autorack",
+    href: "/seasons/2026/constructors",
   },
   {
     title: "Championship Standings",
     description:
       "Follow the latest driver and constructor standings as the FORMULA 1™ season unfolds.",
     icon: "mdi:format-list-numbered",
+    href: "/seasons/2025",
   },
   {
     title: "Race Highlights",
     description:
       "Relive key moments and pivotal decisions from recent FORMULA 1™ races.",
     icon: "mdi:timer",
+    href: "/seasons/2025/calendar",
   },
   {
     title: "Season Breakdowns",
     description:
       "Analyze team and driver performances across the FORMULA 1™ season with insights and reviews.",
     icon: "mdi:library-video",
+    href: "/seasons",
   },
   {
     title: "F1 Technologies",
     description:
       "Trackside covers the cutting-edge technology driving Formula 1's rapid evolution.",
     icon: "mdi:hammer-wrench",
+    href: "/learn/technologies",
   },
   {
     title: "Past Season Archive",
     description:
-      "Travel through the rich history of F1 with a look at the 2023, 2024 and 2025 seasons.",
+      "Travel through the rich history of F1 with a look at the 2024 and 2025 seasons.",
     icon: "mdi:box-outline",
+    href: "/seasons",
   },
   {
     title: "Fan Community",
     description:
       "Trackside celebrates the passion and excitement of Formula 1 culture.",
     icon: "mdi:account-group",
+    href: "/",
   },
 ];
 ---
@@ -139,6 +147,60 @@ const features = [
         </div>
       </section>
 
+      <!-- Quick Links Section -->
+      <section
+        class="relative left-1/2 right-1/2 my-6 -ml-[50vw] -mr-[50vw] w-screen bg-slate-800"
+      >
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-2 gap-4 p-6 font-semibold text-slate-300 sm:grid-cols-4 sm:gap-6"
+        >
+          <a
+            href="/seasons/2026"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+          >
+            2026 Schedule
+            <Icon
+              name="mdi:arrow-right-thin"
+              size={24}
+              class="size-10 text-slate-300"
+            />
+          </a>
+          <a
+            href="/seasons/2025"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+          >
+            2025 Results
+            <Icon
+              name="mdi:arrow-right-thin"
+              size={24}
+              class="size-10 text-slate-300"
+            />
+          </a>
+          <a
+            href="/blog"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+          >
+            Latest News
+            <Icon
+              name="mdi:arrow-right-thin"
+              size={24}
+              class="size-10 text-slate-300"
+            />
+          </a>
+          <a
+            href="/learn/whatis"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+          >
+            Learn F1
+            <Icon
+              name="mdi:arrow-right-thin"
+              size={24}
+              class="size-10 text-slate-300"
+            />
+          </a>
+        </div>
+      </section>
+
       <!-- 2025 Highlights Section -->
       <TwoColumnSection
         title="2025 Highlights"
@@ -152,42 +214,40 @@ const features = [
       />
 
       <!-- Latest Highlight Card -->
-      <section class="py-10 dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-4xl">
-            <a
-              href="/seasons/2025"
-              class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-slate-800 dark:hover:shadow-slate-500"
-            >
-              <div class="md:flex">
-                <div class="md:shrink-0">
-                  <Image
-                    src={race02}
-                    alt="Latest race highlight"
-                    class="h-48 w-full object-cover md:h-full md:w-64"
-                    loading="eager"
-                  />
-                </div>
-                <div class="p-6">
-                  <h3 class="text-xl font-semibold dark:text-slate-100">
-                    Latest Highlight: Dramatic Race Moment
-                  </h3>
-                  <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                    A decisive moment from the most recent Grand Prix — an
-                    on-track overtake that changed the race outcome. Read the
-                    breakdown and see the key moments and analysis.
-                  </p>
-                  <div class="mt-4">
-                    <span
-                      class="inline-block rounded border-2 border-rose-400 bg-rose-600 px-3 py-1 text-sm text-white transition-colors duration-200 hover:bg-rose-700 dark:border-rose-500 dark:bg-rose-700 dark:hover:bg-rose-800"
-                    >
-                      Read highlight
-                    </span>
-                  </div>
+      <section class="w-full py-10 dark:bg-slate-900">
+        <div class="mx-auto px-4">
+          <a
+            href="/seasons/2025"
+            class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-slate-800 dark:hover:shadow-slate-500"
+          >
+            <div class="md:flex">
+              <div class="md:shrink-0">
+                <Image
+                  src={race02}
+                  alt="Latest race highlight"
+                  class="h-64 w-full object-cover md:h-full md:w-72 lg:w-80"
+                  loading="eager"
+                />
+              </div>
+              <div class="px-8 py-12">
+                <h3 class="text-xl font-semibold dark:text-slate-100">
+                  Latest Highlight: Dramatic Race Moment
+                </h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                  A decisive moment from the most recent Grand Prix — an
+                  on-track overtake that changed the race outcome. Read the
+                  breakdown and see the key moments and analysis.
+                </p>
+                <div class="mt-4">
+                  <span
+                    class="inline-block rounded border-2 border-rose-400 bg-rose-600 px-3 py-1 text-sm text-white transition-colors duration-200 hover:bg-rose-700 dark:border-rose-500 dark:bg-rose-700 dark:hover:bg-rose-800"
+                  >
+                    Read highlight
+                  </span>
                 </div>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -203,7 +263,7 @@ const features = [
         title="Learn about the tech, strategy, and history of F1"
         content={`<p>Explore deep-dive explainers on aerodynamics, simulations, race strategy, and the tech that powers modern Formula 1. Our Learn section breaks complex topics into approachable reads with diagrams and examples.`}
         ctaText="Explore what makes Formula 1"
-        ctaLink="/whatis"
+        ctaLink="/learn/whatis"
         background="slate"
         imageSrc={race01}
         imageAlt="F1 Technology"
