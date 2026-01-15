@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import DataTable, { type TableColumn, type TableRow } from "./DataTable.astro";
+import { buildSeasonEntityPath } from "../utils/slugUtils";
 
 type ConstructorEntry = CollectionEntry<"constructors">;
 
@@ -7,54 +9,54 @@ interface Props {
   teams: ConstructorEntry[];
 }
 
-const { teams } = Astro.props as Props;
+const { teams } = Astro.props;
+
+// Transform constructor entries into table row format
+interface ConstructorRow extends TableRow {
+  entry: ConstructorEntry;
+  position: number | string;
+  name: string;
+  drivers: string;
+  points: number;
+}
+
+const rows: ConstructorRow[] = teams.map((team) => ({
+  entry: team,
+  position: team.data.championshipPosition ?? "-",
+  name: team.data.constructorName ?? "Unknown Team",
+  drivers:
+    team.data.teamDrivers && Array.isArray(team.data.teamDrivers)
+      ? team.data.teamDrivers.join(", ")
+      : "N/A",
+  points: team.data.constructorPoints ?? 0,
+}));
+
+const columns: TableColumn<ConstructorRow>[] = [
+  {
+    header: "Pos",
+    accessor: "position",
+    headerClass: "w-16 px-4 py-3 text-left",
+  },
+  {
+    header: "Team",
+    accessor: "name",
+    headerClass: "w-1/3 px-4 py-3 text-left",
+    isLink: true,
+    getHref: (row) => buildSeasonEntityPath(row.entry, "constructors"),
+    getAriaLabel: (row) => `View constructor ${row.name}`,
+  },
+  {
+    header: "Drivers",
+    accessor: "drivers",
+    headerClass: "w-1/3 px-4 py-3 text-left",
+  },
+  {
+    header: "Points",
+    accessor: "points",
+    headerClass: "px-4 py-3 text-right",
+    cellClass: "px-4 py-3 text-right",
+  },
+];
 ---
 
-<table
-  class="w-full border border-slate-300 dark:border-slate-600 dark:text-slate-200"
->
-  <thead>
-    <tr class="border-b dark:border-slate-400">
-      <th class="w-16 px-4 py-3">Pos</th>
-      <th class="w-1/3 px-4 py-3">Team</th>
-      <th class="w-1/3 px-4 py-3">Drivers</th>
-      <th class="px-4 py-3 text-right">Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    {
-      teams.map((team) => {
-        const rawId = (team && (team as any).id) || "";
-        const teamSlug =
-          String(rawId).replace(/\/+$/, "").split("/").pop() || "";
-        const year = (team.data && team.data.season) || "2025";
-        const href = `/seasons/${year}/constructors/${teamSlug}`;
-
-        const position = team.data?.championshipPosition ?? "-";
-        const name = team.data?.constructorName ?? "Unknown Team";
-        const drivers =
-          team.data?.teamDrivers && Array.isArray(team.data.teamDrivers)
-            ? team.data.teamDrivers.join(", ")
-            : (team.data?.teamDrivers ?? "N/A");
-        const points = team.data?.constructorPoints ?? 0;
-
-        return (
-          <tr class="border-b border-slate-300 transition-colors duration-150 hover:bg-slate-300 dark:border-slate-500 dark:hover:bg-slate-700">
-            <td class="px-4 py-3">{position}</td>
-            <td class="px-4 py-3">
-              <a
-                href={href}
-                aria-label={`View constructor ${name}`}
-                class="block w-full focus:outline-none focus:ring-2 focus:ring-rose-400"
-              >
-                {name}
-              </a>
-            </td>
-            <td class="px-4 py-3">{drivers}</td>
-            <td class="px-4 py-3 text-right">{points}</td>
-          </tr>
-        );
-      })
-    }
-  </tbody>
-</table>
+<DataTable rows={rows} columns={columns} caption="Constructor standings" />
