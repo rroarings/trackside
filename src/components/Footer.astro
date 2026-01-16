@@ -9,7 +9,7 @@ import tracksideLogoWhite from "../assets/logos/trackside-logowhite.png";
 const currentSeason = "2026";
 ---
 
-<footer class="bg-slate-50 dark:bg-slate-900" role="contentinfo">
+<footer class="bg-zinc-50 dark:bg-zinc-900" role="contentinfo">
   <div class="mx-auto max-w-7xl px-6 py-12 lg:py-16">
     <!-- Main Footer Grid -->
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
@@ -30,7 +30,7 @@ const currentSeason = "2026";
           />
         </a>
         <p
-          class="mt-4 max-w-xs text-base leading-relaxed text-slate-600 dark:text-slate-400"
+          class="mt-4 max-w-xs text-base leading-relaxed text-zinc-600 dark:text-zinc-300"
         >
           Your fan-powered guide to Formula 1. Explore drivers, teams, race
           calendars, and the technology behind the world's fastest motorsport.
@@ -44,10 +44,10 @@ const currentSeason = "2026";
                 href="https://github.com/rroarings/trackside"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-600 dark:hover:text-white"
+                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
                 aria-label="Visit our GitHub repository"
               >
-                <Icon name="mdi:github" size={20} aria-hidden="true" />
+                <Icon name="mdi:github" class="text-zinc-300" size={20} aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -55,10 +55,10 @@ const currentSeason = "2026";
                 href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-600 dark:hover:text-white"
+                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
                 aria-label="Connect on LinkedIn"
               >
-                <Icon name="mdi:linkedin" size={20} aria-hidden="true" />
+                <Icon name="mdi:linkedin" class="text-zinc-300" size={20} aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -66,10 +66,10 @@ const currentSeason = "2026";
                 href="https://www.notnickcalvo.com"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-600 dark:hover:text-white"
+                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
                 aria-label="Visit Nick Calvo's personal website"
               >
-                <Icon name="mdi:web" size={20} aria-hidden="true" />
+                <Icon name="mdi:web" class="text-zinc-300" size={20} aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -77,10 +77,10 @@ const currentSeason = "2026";
                 href="https://www.youtube.com/@0vlack"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-all duration-200 hover:bg-red-600 hover:text-white dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-red-600 dark:hover:text-white"
+                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
                 aria-label="Subscribe on YouTube"
               >
-                <Icon name="mdi:youtube" size={20} aria-hidden="true" />
+                <Icon name="mdi:youtube" class="text-zinc-300" size={20} aria-hidden="true" />
               </a>
             </li>
           </ul>
@@ -88,11 +88,11 @@ const currentSeason = "2026";
       </div>
 
       <!-- Navigation Columns -->
-      <div class="grid grid-cols-2 gap-x-8 gap-y-10 lg:col-span-8">
+      <div class="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4 lg:col-span-8">
         <!-- Current Season -->
         <nav aria-label="Current season navigation">
           <h3
-            class="text-2xl! uppercase tracking-tight text-slate-900 dark:text-slate-100"
+            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
           >
             {currentSeason} Season
           </h3>
@@ -100,7 +100,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href={`/seasons/${currentSeason}`}
-                class="inline-flex items-center gap-1 text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Season Overview
               </a>
@@ -108,7 +108,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href={`/seasons/${currentSeason}/drivers`}
-                class="inline-flex items-center gap-1 text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Drivers
               </a>
@@ -116,7 +116,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href={`/seasons/${currentSeason}/constructors`}
-                class="inline-flex items-center gap-1 text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Constructors
               </a>
@@ -124,7 +124,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href={`/seasons/${currentSeason}/races`}
-                class="inline-flex items-center gap-1 text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Race Calendar
               </a>
@@ -144,7 +144,7 @@ const currentSeason = "2026";
         <!-- Learn F1 -->
         <nav aria-label="Learn about Formula 1">
           <h3
-            class="text-2xl! uppercase tracking-wider text-slate-900 dark:text-slate-100"
+            class="text-xl! uppercase tracking-wider text-zinc-900 dark:text-zinc-100"
           >
             Learn F1
           </h3>
@@ -152,7 +152,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/learn/whatis"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 What Is F1?
               </a>
@@ -160,7 +160,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/learn/technologies"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Technology
               </a>
@@ -168,7 +168,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/learn/future"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Future of F1
               </a>
@@ -176,7 +176,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/blog"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Blog
               </a>
@@ -186,14 +186,14 @@ const currentSeason = "2026";
 
         <!-- Past Seasons -->
         <nav aria-label="Past seasons archive">
-          <h3 class="text-2xl! uppercase text-slate-900 dark:text-slate-100">
+          <h3 class="text-xl! uppercase text-zinc-900 dark:text-zinc-100">
             Archives
           </h3>
           <ul class="mt-4 space-y-3" role="list">
             <li>
               <a
                 href="/seasons/2025"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 2025 Season
               </a>
@@ -201,7 +201,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/seasons/2024"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 2024 Season
               </a>
@@ -212,7 +212,7 @@ const currentSeason = "2026";
         <!-- Site Info -->
         <nav aria-label="Site information">
           <h3
-            class="text-2xl! uppercase tracking-tight text-slate-900 dark:text-slate-100"
+            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
           >
             Trackside
           </h3>
@@ -220,7 +220,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/about"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 About
               </a>
@@ -228,7 +228,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/contact"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Contact
               </a>
@@ -236,7 +236,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/about/faqs"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 FAQs
               </a>
@@ -244,7 +244,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/about/attributions"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Attributions
               </a>
@@ -252,7 +252,7 @@ const currentSeason = "2026";
             <li>
               <a
                 href="/about/resources"
-                class="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
               >
                 Resources
               </a>
@@ -263,12 +263,12 @@ const currentSeason = "2026";
     </div>
 
     <!-- Divider -->
-    <div class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-700">
+    <div class="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-700">
       <div
         class="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
       >
         <!-- Copyright -->
-        <p class="text-slate-600 dark:text-slate-400">
+        <p class="text-zinc-600 dark:text-zinc-300">
           {today.getFullYear()} Trackside. All rights reserved.
         </p>
 
@@ -279,19 +279,19 @@ const currentSeason = "2026";
         >
           <a
             href="/"
-            class="text-slate-500 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
           >
             Home
           </a>
           <a
             href="/blog"
-            class="text-slate-500 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
           >
             Blog
           </a>
           <a
             href="/contact"
-            class="text-slate-500 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
           >
             Contact
           </a>
@@ -300,7 +300,7 @@ const currentSeason = "2026";
 
       <!-- Disclaimer -->
       <p
-        class="mt-6 text-center leading-relaxed text-slate-600 sm:text-left dark:text-slate-500"
+        class="mt-6 text-center leading-relaxed text-zinc-600 sm:text-left dark:text-zinc-300"
       >
         This website is unofficial and is not associated in any way with the
         Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD
