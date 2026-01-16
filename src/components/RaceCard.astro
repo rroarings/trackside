@@ -3,6 +3,7 @@ import { type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import { Image } from "astro:assets";
 import { toUTCMidnight } from "../utils/dateUtils";
+import { getSlugFromEntry } from "../utils/slugUtils";
 
 interface Props {
   race: CollectionEntry<"races">;
@@ -13,8 +14,7 @@ interface Props {
 
 const { race, completedRaces = [], isNextRace, loading = "lazy" } = Astro.props;
 
-const parts = race.id.split("/");
-const raceSlug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "");
+const raceSlug = getSlugFromEntry(race);
 
 const nowUTC = toUTCMidnight(new Date());
 const raceDateUTC = toUTCMidnight(new Date(race.data.raceDate));
@@ -61,13 +61,13 @@ const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
     class:list={[
       "group h-full overflow-hidden rounded-lg border transition-all duration-300",
       {
-        "transition-all duration-300 hover:border-red-600 hover:bg-red-50 dark:bg-slate-800":
+        "transition-all duration-300 hover:border-red-600 hover:bg-red-50 dark:bg-zinc-800 hover:dark:bg-red-900":
           isNextRace,
-        "transition-all duration-300 hover:border-blue-600 hover:bg-blue-50 dark:bg-slate-800":
+        "transition-all duration-300 hover:border-blue-600 hover:bg-blue-50 dark:bg-zinc-800 hover:dark:bg-blue-900":
           isPreviousRace,
-        "transition-all duration-300 hover:border-green-600 hover:bg-green-50 dark:bg-slate-800":
+        "transition-all duration-300 hover:border-green-600 hover:bg-green-50 dark:bg-zinc-800 hover:dark:bg-green-900":
           race.data.raceCompleted && !isPreviousRace,
-        "transition-all duration-300 hover:border-amber-600 hover:bg-amber-50 dark:bg-slate-800":
+        "transition-all duration-300 hover:border-amber-600 hover:bg-amber-50 dark:bg-zinc-800 hover:dark:bg-amber-900":
           !isNextRace && !isPreviousRace && !race.data.raceCompleted,
       },
     ]}
@@ -92,21 +92,21 @@ const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
           </span>
         )
       }
-      <span class="text-sm text-slate-700 dark:text-slate-200"
+      <span class="text-sm text-zinc-700 dark:text-zinc-200"
         >Round {race.data.raceNumber}</span
       >
     </div>
 
     <div class="p-6 pt-2">
-      <p class="mb-1 text-2xl md:text-4xl dark:text-slate-100">
+      <p class="mb-1 text-2xl md:text-4xl dark:text-zinc-100">
         {race.data.trackCountry}
       </p>
-      <p class="mb-2 text-sm uppercase hover:underline dark:text-slate-100">
+      <p class="mb-2 text-sm uppercase hover:underline dark:text-zinc-100">
         {race.data.raceName}
       </p>
 
       <dl
-        class="mb-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm dark:text-slate-200"
+        class="mb-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm dark:text-zinc-200"
       >
         <dt class="font-medium">Date:</dt>
         <dd><FormattedDate date={race.data.raceDate} /></dd>
