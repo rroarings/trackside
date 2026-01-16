@@ -1,313 +1,276 @@
 ---
-import { Image } from "astro:assets";
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { Icon } from "astro-icon/components";
-import astroLogoDark from "../../assets/logos/astro-logo-light.svg";
-import tailwindLogo from "../../assets/logos/tailwindcss-mark.svg";
-import typescriptLogo from "../../assets/logos/ts-logo-128.svg";
-import mdxLogo from "../../assets/logos/mdx-svgrepo-com.svg";
-import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg";
-import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg";
-import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg";
-import iconifyLogo from "../../assets/logos/iconify-icon.png";
+import { Image } from "astro:assets"
+import BaseHead from "../../components/BaseHead.astro"
+import Header from "../../components/Header.astro"
+import Footer from "../../components/Footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts"
+import { Icon } from "astro-icon/components"
+import astroLogoDark from "../../assets/logos/astro-logo-light.svg"
+import tailwindLogo from "../../assets/logos/tailwindcss-mark.svg"
+import typescriptLogo from "../../assets/logos/ts-logo-128.svg"
+import mdxLogo from "../../assets/logos/mdx-svgrepo-com.svg"
+import prettierLogo from "../../assets/logos/prettier-svgrepo-com.svg"
+import f1Logo from "../../assets/logos/racing-car-svgrepo-com.svg"
+import svgRepoLogo from "../../assets/logos/svgrepo-logo-icon.svg"
+import iconifyLogo from "../../assets/logos/iconify-icon.png"
 interface Tool {
-  name: string;
-  description: string;
-  logo: ImageMetadata;
-  url: string;
+	name: string
+	description: string
+	logo: ImageMetadata
+	url: string
 }
 
 const tools: Tool[] = [
-  {
-    name: "Astro",
-    description:
-      "The all-in-one web framework designed for speed, powering our modern F1 blog with optimal performance.",
-    logo: astroLogoDark,
-    url: "https://astro.build/",
-  },
-  {
-    name: "Tailwind CSS",
-    description:
-      "The utility-first CSS framework that helps us create a sleek, responsive design as precise as F1 engineering.",
-    logo: tailwindLogo,
-    url: "https://tailwindcss.com",
-  },
-  {
-    name: "TypeScript",
-    description:
-      "Brings type safety and enhanced developer experience to our codebase.",
-    logo: typescriptLogo,
-    url: "https://www.typescriptlang.org/",
-  },
-  {
-    name: "MDX",
-    description:
-      "Enables interactive content in our blog posts, combining Markdown with dynamic components for engaging stories.",
-    logo: mdxLogo,
-    url: "https://mdxjs.com",
-  },
-  {
-    name: "Prettier",
-    description: "Maintains our code formatting standards across the project.",
-    logo: prettierLogo,
-    url: "https://prettier.io",
-  },
-  {
-    name: "Formula 1",
-    description:
-      "The pinnacle of motorsport that inspires our content. We use official F1 references while respecting their trademarks.",
-    logo: f1Logo,
-    url: "https://www.formula1.com",
-  },
-  {
-    name: "SVG Repo",
-    description:
-      "Provides our site with high-quality vector icons and images, ensuring scalable graphics across all devices.",
-    logo: svgRepoLogo,
-    url: "https://www.svgrepo.com",
-  },
-  {
-    name: "Iconify",
-    description:
-      "Delivers a unified icon framework, letting us use thousands of open-source icons from many sets with easy integration.",
-    logo: iconifyLogo,
-    url: "https://icon-sets.iconify.design/",
-  },
-];
+	{
+		name: "Astro",
+		description:
+			"The all-in-one web framework designed for speed, powering our modern F1 blog with optimal performance.",
+		logo: astroLogoDark,
+		url: "https://astro.build/",
+	},
+	{
+		name: "Tailwind CSS",
+		description:
+			"The utility-first CSS framework that helps us create a sleek, responsive design as precise as F1 engineering.",
+		logo: tailwindLogo,
+		url: "https://tailwindcss.com",
+	},
+	{
+		name: "TypeScript",
+		description: "Brings type safety and enhanced developer experience to our codebase.",
+		logo: typescriptLogo,
+		url: "https://www.typescriptlang.org/",
+	},
+	{
+		name: "MDX",
+		description:
+			"Enables interactive content in our blog posts, combining Markdown with dynamic components for engaging stories.",
+		logo: mdxLogo,
+		url: "https://mdxjs.com",
+	},
+	{
+		name: "Prettier",
+		description: "Maintains our code formatting standards across the project.",
+		logo: prettierLogo,
+		url: "https://prettier.io",
+	},
+	{
+		name: "Formula 1",
+		description:
+			"The pinnacle of motorsport that inspires our content. We use official F1 references while respecting their trademarks.",
+		logo: f1Logo,
+		url: "https://www.formula1.com",
+	},
+	{
+		name: "SVG Repo",
+		description:
+			"Provides our site with high-quality vector icons and images, ensuring scalable graphics across all devices.",
+		logo: svgRepoLogo,
+		url: "https://www.svgrepo.com",
+	},
+	{
+		name: "Iconify",
+		description:
+			"Delivers a unified icon framework, letting us use thousands of open-source icons from many sets with easy integration.",
+		logo: iconifyLogo,
+		url: "https://icon-sets.iconify.design/",
+	},
+]
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
-  <head>
-    <BaseHead
-      title={`Attributions | ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <!-- Hero Section -->
-      <section class="bg-slate-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto mb-12 text-center">
-          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
-            Site Attributions
-          </h1>
-          <p class="text-xl text-slate-600 dark:text-slate-400">
-            Our Formula 1 fan site is powered by cutting-edge tools and inspired
-            by the sport's innovation.
-          </p>
-        </div>
-      </section>
+<html
+	lang="en"
+	class="bg-zinc-100 dark:bg-zinc-900">
+	<head>
+		<BaseHead
+			title={`Attributions | ${SITE_TITLE}`}
+			description={SITE_DESCRIPTION}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section class="bg-zinc-100 pb-12 dark:bg-zinc-900">
+				<div class="container mx-auto mb-12 text-center">
+					<h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">Site Attributions</h1>
+					<p class="text-xl text-zinc-600 dark:text-zinc-300">
+						Our Formula 1 fan site is powered by cutting-edge tools and inspired by the sport's
+						innovation.
+					</p>
+				</div>
+			</section>
 
-      <!-- Tools Grid -->
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {
-          tools.map((tool) => (
-            <div class="group flex h-full flex-col rounded-lg border border-slate-200 p-6 transition-all duration-300 hover:border-slate-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800">
-              <div class="mb-4">
-                <Image
-                  src={tool.logo}
-                  width={64}
-                  height={64}
-                  class=""
-                  alt={`${tool.name} logo`}
-                  loading="eager"
-                />
-              </div>
-              <h3 class="mb-2 text-xl dark:text-slate-200">{tool.name}</h3>
-              <p class="mb-auto text-slate-600 dark:text-slate-400">
-                {tool.description}
-              </p>
-              <a
-                href={tool.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-2 inline-flex items-center gap-2 text-blue-600 transition-all duration-300 ease-in-out group-hover:underline"
-              >
-                Visit {tool.name} →
-              </a>
-            </div>
-          ))
-        }
-      </div>
+			<!-- Tools Grid -->
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{
+					tools.map((tool) => (
+						<div class="group flex h-full flex-col rounded-lg border border-zinc-200 p-6 transition-all duration-300 hover:border-zinc-400 hover:bg-zinc-200 dark:border-zinc-600 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800">
+							<div class="mb-4">
+								<Image
+									src={tool.logo}
+									width={64}
+									height={64}
+									class=""
+									alt={`${tool.name} logo`}
+									loading="eager"
+								/>
+							</div>
+							<h3 class="mb-2 text-xl dark:text-zinc-200">{tool.name}</h3>
+							<p class="mb-auto text-zinc-600 dark:text-zinc-300">{tool.description}</p>
+							<a
+								href={tool.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="mt-2 inline-flex items-center gap-2 text-blue-600 transition-all duration-300 group-hover:underline dark:text-zinc-300 hover:dark:text-sky-300">
+								Visit {tool.name} →
+							</a>
+						</div>
+					))
+				}
+			</div>
 
-      <!-- Contact Section -->
-      <section class="bg-slate-100 py-12 dark:bg-slate-900">
-        <div class="container mx-auto">
-          <h2 class="mb-4 text-center text-3xl font-bold dark:text-slate-100">
-            Connect with us
-          </h2>
-          <p
-            class="wrap-break-word mx-auto max-w-4xl text-center text-slate-600 dark:text-slate-400"
-          >
-            Have feedback or questions? Reach out to us via <a
-              href="mailto:trackside@example.com"
-              class="text-blue-600 transition-colors duration-200 hover:text-blue-800"
-            >
-              trackside@example.com
-            </a> or connect with us on our social media channels. Thank you for being
-            part of our journey. Together, we celebrate the exhilarating world of
-            Formula 1!
-          </p>
-          <div
-            class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2"
-          >
-            <!-- Contact Information Card -->
-            <div
-              class="flex flex-col justify-between rounded-2xl border border-slate-300 bg-slate-200 p-10 dark:border-slate-700 dark:bg-slate-900"
-            >
-              <div class="flex flex-col space-y-6">
-                <h3
-                  class="text-center text-2xl text-slate-900 dark:text-slate-200"
-                >
-                  Contact Information
-                </h3>
-                <div
-                  class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 dark:bg-slate-800"
-                >
-                  <div class="rounded-full bg-slate-200 p-3 dark:bg-slate-300">
-                    <Icon
-                      name="mdi:email"
-                      size={24}
-                      class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
-                    />
-                  </div>
-                  <div class="flex flex-col space-y-1">
-                    <span class="text-slate-900 dark:text-slate-200"
-                      >Send Me a Message</span
-                    >
-                    <a
-                      href="mailto:trackside@example.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
-                      >Send me an email</a
-                    >
-                  </div>
-                </div>
-                <div
-                  class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800"
-                >
-                  <div
-                    class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:linkedin"
-                      size={24}
-                      class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
-                    />
-                  </div>
-                  <div class="flex flex-col space-y-1">
-                    <span class="text-slate-900 dark:text-slate-200"
-                      >LinkedIn</span
-                    >
-                    <a
-                      href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
-                      >Connect with me</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Connect With Me Card -->
-            <div
-              class="flex flex-col justify-between rounded-2xl border border-slate-300 bg-slate-200 p-10 dark:border-slate-700 dark:bg-slate-900"
-            >
-              <div class="flex flex-col space-y-6">
-                <h3
-                  class="text-center text-2xl text-slate-900 dark:text-slate-200"
-                >
-                  Connect With Me
-                </h3>
-                <div
-                  class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800"
-                >
-                  <div
-                    class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:github"
-                      size={24}
-                      class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
-                    />
-                  </div>
-                  <div class="flex flex-col space-y-1">
-                    <span class="text-slate-900 dark:text-slate-200"
-                      >Trackside GitHub</span
-                    >
-                    <a
-                      href="https://github.com/rroarings"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
-                      >View the project repository</a
-                    >
-                  </div>
-                </div>
-                <div
-                  class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800"
-                >
-                  <div
-                    class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:github"
-                      size={24}
-                      class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
-                    />
-                  </div>
-                  <div class="flex flex-col space-y-1">
-                    <span class="text-slate-900 dark:text-slate-200"
-                      >Personal GitHub</span
-                    >
-                    <a
-                      href="https://github.com/rroarings"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
-                      >View my repositories</a
-                    >
-                  </div>
-                </div>
+			<!-- Contact Section -->
+			<section class="bg-zinc-100 py-12 dark:bg-zinc-900">
+				<div class="container mx-auto">
+					<h2 class="mb-4 text-center text-3xl font-bold dark:text-zinc-100">Connect with us</h2>
+					<p class="wrap-break-word mx-auto max-w-4xl text-center text-zinc-600 dark:text-zinc-300">
+						Have feedback or questions? Reach out to us via <a
+							href="mailto:trackside@example.com"
+							class="text-blue-600 transition-colors duration-200 hover:text-blue-800">
+							trackside@example.com
+						</a> or connect with us on our social media channels. Thank you for being part of our journey.
+						Together, we celebrate the exhilarating world of Formula 1!
+					</p>
+					<div class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
+						<!-- Contact Information Card -->
+						<div
+							class="flex flex-col justify-between rounded-2xl border border-zinc-300 bg-zinc-200 p-10 dark:border-zinc-700 dark:bg-zinc-900">
+							<div class="flex flex-col space-y-6">
+								<h3 class="text-center text-2xl text-zinc-900 dark:text-zinc-200">
+									Contact Information
+								</h3>
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-zinc-50 p-4 dark:bg-zinc-800">
+									<div class="rounded-full bg-zinc-200 p-3 dark:bg-zinc-300">
+										<Icon
+											name="mdi:email"
+											size={24}
+											class={"h-6 w-6 text-zinc-600 dark:text-zinc-900 group-hover:text-sky-600 transition-colors duration-300"}
+										/>
+									</div>
+									<div class="flex flex-col space-y-1">
+										<span class="text-zinc-900 dark:text-zinc-200">Send Me a Message</span>
+										<a
+											href="mailto:trackside@example.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-zinc-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-zinc-300 hover:dark:text-sky-300"
+											>Send me an email</a
+										>
+									</div>
+								</div>
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-zinc-50 p-4 transition-all duration-300 dark:bg-zinc-800">
+									<div
+										class="rounded-full bg-zinc-200 p-3 transition-all duration-300 dark:bg-zinc-300">
+										<Icon
+											name="mdi:linkedin"
+											size={24}
+											class={"h-6 w-6 text-zinc-600 dark:text-zinc-900 group-hover:text-sky-600 transition-colors duration-300"}
+										/>
+									</div>
+									<div class="flex flex-col space-y-1">
+										<span class="text-zinc-900 dark:text-zinc-200">LinkedIn</span>
+										<a
+											href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-zinc-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-zinc-300 hover:dark:text-sky-300"
+											>Connect with me</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Connect With Me Card -->
+						<div
+							class="flex flex-col justify-between rounded-2xl border border-zinc-300 bg-zinc-200 p-10 dark:border-zinc-700 dark:bg-zinc-900">
+							<div class="flex flex-col space-y-6">
+								<h3 class="text-center text-2xl text-zinc-900 dark:text-zinc-200">
+									Connect With Me
+								</h3>
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-zinc-50 p-4 transition-all duration-300 dark:bg-zinc-800">
+									<div
+										class="rounded-full bg-zinc-200 p-3 transition-all duration-300 dark:bg-zinc-300">
+										<Icon
+											name="mdi:github"
+											size={24}
+											class={"h-6 w-6 text-zinc-600 dark:text-zinc-900 group-hover:text-sky-600 transition-colors duration-300"}
+										/>
+									</div>
+									<div class="flex flex-col space-y-1">
+										<span class="text-zinc-900 dark:text-zinc-200">Trackside GitHub</span>
+										<a
+											href="https://github.com/rroarings"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-zinc-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-zinc-300 hover:dark:text-sky-300"
+											>View the project repository</a
+										>
+									</div>
+								</div>
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-zinc-50 p-4 transition-all duration-300 dark:bg-zinc-800">
+									<div
+										class="rounded-full bg-zinc-200 p-3 transition-all duration-300 dark:bg-zinc-300">
+										<Icon
+											name="mdi:github"
+											size={24}
+											class={"h-6 w-6 text-zinc-600 dark:text-zinc-900 group-hover:text-sky-600 transition-colors duration-300"}
+										/>
+									</div>
+									<div class="flex flex-col space-y-1">
+										<span class="text-zinc-900 dark:text-zinc-200">Personal GitHub</span>
+										<a
+											href="https://github.com/rroarings"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-zinc-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-zinc-300 hover:dark:text-sky-300"
+											>View my repositories</a
+										>
+									</div>
+								</div>
 
-                <div
-                  class="group flex items-center gap-4 rounded-xl bg-slate-50 p-4 transition-all duration-300 dark:bg-slate-800"
-                >
-                  <div
-                    class="rounded-full bg-slate-200 p-3 transition-all duration-300 dark:bg-slate-300"
-                  >
-                    <Icon
-                      name="mdi:web"
-                      size={24}
-                      class={"h-6 w-6 text-slate-600 dark:text-slate-900 group-hover:text-sky-600 transition-colors duration-300"}
-                    />
-                  </div>
-                  <div class="flex flex-col space-y-1">
-                    <span class="text-slate-900 dark:text-slate-200"
-                      >Personal Website</span
-                    >
-                    <a
-                      href="https://notnickcalvo.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-slate-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-slate-400"
-                      >Explore my projects and blog</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <Footer />
-  </body>
+								<div
+									class="group flex items-center gap-4 rounded-xl bg-zinc-50 p-4 transition-all duration-300 dark:bg-zinc-800">
+									<div
+										class="rounded-full bg-zinc-200 p-3 transition-all duration-300 dark:bg-zinc-300">
+										<Icon
+											name="mdi:web"
+											size={24}
+											class={"h-6 w-6 text-zinc-600 dark:text-zinc-900 group-hover:text-sky-600 transition-colors duration-300"}
+										/>
+									</div>
+									<div class="flex flex-col space-y-1">
+										<span class="text-zinc-900 dark:text-zinc-200">Personal Website</span>
+										<a
+											href="https://notnickcalvo.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-zinc-600 no-underline transition-colors duration-300 hover:text-sky-600 hover:underline dark:text-zinc-300 hover:dark:text-sky-300"
+											>Explore my projects and blog</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
 </html>
