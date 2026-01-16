@@ -7,7 +7,6 @@ import TwoColumnSection from "../components/TwoColumnSection.astro";
 import Standings from "../components/Standings.astro";
 import LatestPosts from "../components/LatestPosts.astro";
 import FeaturesGrid from "../components/FeaturesGrid.astro";
-import BreakpointIndicator from "../components/BreakpointIndicator.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
@@ -86,7 +85,6 @@ const features = [
   </head>
   <body>
     <Header />
-    {!isDevMode && <BreakpointIndicator />}
     <main class="bg-zinc-100 dark:bg-zinc-900">
       <!-- Hero Section -->
       <section class="bg-zinc-100 pb-10 dark:bg-zinc-900">

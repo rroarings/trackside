@@ -8,7 +8,6 @@ import SeasonNavCards from "../../../components/SeasonNavCards.astro";
 import Standings from "../../../components/Standings.astro";
 import RaceCalendar from "../../../components/RaceCalendar.astro";
 import LatestPosts from "../../../components/LatestPosts.astro";
-import BreakpointIndicator from "../../../components/BreakpointIndicator.astro";
 
 const isDevMode = import.meta.env.DEV;
 ---
@@ -22,8 +21,7 @@ const isDevMode = import.meta.env.DEV;
     />
   </head>
   <body>
-    {!isDevMode && <BreakpointIndicator />}
-    <Header />
+s    <Header />
     <main>
       <Breadcrumbs
         items={[
