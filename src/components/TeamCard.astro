@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { teamBgMap } from "../utils/teamBgMap";
+import { getSlugFromEntry } from "../utils/slugUtils";
 import placeholderBG from "../assets/component/teamCard-placeholder.png";
 
 interface Props {
@@ -16,8 +17,11 @@ interface Props {
 }
 
 const { team, driverMap, teamIndex, eagerCount = 4, year } = Astro.props;
-const teamBg = teamBgMap[team.data.constructorName] || null;
-const teamSlug = team.id.split("/").pop();
+const teamBgRaw = teamBgMap[team.data.constructorName] || null;
+const teamBg = teamBgRaw
+  ? (await getImage({ src: teamBgRaw, format: "webp", width: 800 })).src
+  : null;
+const teamSlug = getSlugFromEntry(team);
 const resolvedYear = year ?? team.data.season ?? "2025";
 ---
 
@@ -26,14 +30,14 @@ const resolvedYear = year ?? team.data.season ?? "2025";
   class="group block h-full"
 >
   <article
-    class="relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-300 shadow-md transition-shadow hover:shadow-lg dark:border-slate-800"
+    class="relative flex h-full flex-col overflow-hidden rounded-lg border border-zinc-300 shadow-md transition-shadow hover:shadow-lg dark:border-zinc-800"
   >
     {
       teamBg ? (
         <div
           aria-hidden="true"
           class="pointer-events-none absolute inset-0 z-0"
-          style={`background-image: url('${teamBg.src}'); background-size: cover; background-position: center; transform: scaleX(-1);`}
+          style={`background-image: url('${teamBg}'); background-size: cover; background-position: center; transform: scaleX(-1);`}
         />
       ) : null
     }
@@ -49,7 +53,7 @@ const resolvedYear = year ?? team.data.season ?? "2025";
     </div>
     <div class="relative z-10 flex h-full flex-1 flex-col">
       {/* Team Section */}
-      <div class="border-b border-slate-100/20 text-slate-100">
+      <div class="border-b border-zinc-100/20 text-zinc-100">
         <div class="p-4">
           <h3 class="mb-2 flex items-center justify-between text-lg font-bold">
             <span class="group-hover:underline">
@@ -70,7 +74,7 @@ const resolvedYear = year ?? team.data.season ?? "2025";
                 let driverInfo = driverMap.get(driverName);
                 return (
                   <div class="mb-1 flex items-center gap-2">
-                    <div class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-50/30 bg-slate-300/20 lg:size-10">
+                    <div class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-50/30 bg-zinc-300/20 lg:size-10">
                       {driverInfo ? (
                         <Image
                           src={driverInfo.profileImage}

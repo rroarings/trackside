@@ -12,7 +12,7 @@ interface Props {
   title?: string;
   features: Feature[];
   columns?: 2 | 3 | 4;
-  background?: "white" | "slate";
+  background?: "white" | "zinc";
 }
 
 const { title, features, columns = 2 } = Astro.props;
@@ -28,7 +28,7 @@ const gridCols = {
   @reference "../styles/global.css";
   @reference "tailwindcss";
   h3 {
-    @apply m-0 text-xl tracking-tight dark:text-slate-200;
+    @apply m-0 text-xl tracking-tight dark:text-zinc-200;
   }
 
   @media (min-width: 768px) {
@@ -43,12 +43,12 @@ const gridCols = {
     }
   }
 </style>
-<section class={`py-12 bg-slate-100 dark:bg-slate-900`}>
+<section class={`py-12 bg-zinc-100 dark:bg-zinc-900`}>
   <div class="mx-auto max-w-7xl px-4">
     {
       title && (
-        <div class="mb-6 border-b border-slate-200 pb-2">
-          <h2 class="font-bold dark:text-slate-100">{title}</h2>
+        <div class="mb-6 border-b border-zinc-200 pb-2">
+          <h2 class="font-bold dark:text-zinc-100">{title}</h2>
         </div>
       )
     }
@@ -60,10 +60,10 @@ const gridCols = {
           return (
             <Wrapper
               href={feature.href}
-              class={`group -m-2 flex items-start space-x-4 rounded-lg p-2 transition-colors duration-300 ${feature.href ? "" : ""}`}
+              class={`group flex items-start space-x-4 rounded-lg p-2 transition-colors duration-300 ${feature.href ? "" : ""}`}
             >
               <div class="shrink-0">
-                <div class="group-hover:inset-shadow-sm group-hover:inset-shadow-slate-400 flex size-12 items-center justify-center rounded-lg bg-slate-900 text-white transition-all duration-300 dark:bg-slate-700">
+                <div class="group-hover:inset-shadow-sm group-hover:inset-shadow-zinc-400 flex size-12 items-center justify-center rounded-lg bg-zinc-900 text-white transition-all duration-300 dark:bg-zinc-700">
                   {feature.icon ? (
                     <Icon name={feature.icon} size="1.6em" />
                   ) : (
@@ -72,8 +72,8 @@ const gridCols = {
                 </div>
               </div>
               <div>
-                <h3 class="dark:text-slate-200">{feature.title}</h3>
-                <p class="text-slate-800 dark:text-slate-300">
+                <h3 class="dark:text-zinc-200">{feature.title}</h3>
+                <p class="text-zinc-800 dark:text-zinc-300">
                   {feature.description}
                 </p>
               </div>

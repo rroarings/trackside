@@ -54,7 +54,7 @@ const raceFaqs = [
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
       title={`FAQs | ${SITE_TITLE}`}
@@ -68,12 +68,12 @@ const raceFaqs = [
       <section class="container mx-auto mt-8 max-w-6xl px-4 py-8">
         <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h1 class="text-4xl font-bold dark:text-slate-100">
+            <h1 class="text-4xl font-bold dark:text-zinc-100">
               Trackside FAQs
             </h1>
           </div>
           <div class="flex flex-col justify-end">
-            <p class="text-lg text-slate-600 dark:text-slate-400">
+            <p class="text-lg text-zinc-600 dark:text-zinc-400">
               Welcome to the FAQs hub for Trackside, your dedicated Formula 1
               fan site. Here, you'll find answers about navigating the site,
               season-specific details, and what we are about.
@@ -84,15 +84,13 @@ const raceFaqs = [
 
       <!-- General FAQs -->
       <section class="container mx-auto max-w-6xl px-4 py-12">
-        <h2 class="mb-6 text-2xl font-bold dark:text-slate-200">
-          General FAQs
-        </h2>
+        <h2 class="mb-6 text-2xl font-bold dark:text-zinc-200">General FAQs</h2>
         <Accordion items={generalFaqs} />
       </section>
 
       <!-- Race Information FAQs -->
       <section class="container mx-auto max-w-6xl px-4 py-12 pb-16">
-        <h2 class="mb-6 text-2xl font-bold dark:text-slate-200">
+        <h2 class="mb-6 text-2xl font-bold dark:text-zinc-200">
           Race Information FAQs
         </h2>
         <Accordion items={raceFaqs} />

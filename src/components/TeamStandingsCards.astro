@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { teamBgMap } from "../utils/teamBgMap";
 import placeholderBG from "../assets/component/teamCard-placeholder.png";
 
@@ -17,6 +17,22 @@ const topThree = sortedTeams.slice(0, 3);
 const displayOrder =
   topThree.length === 3 ? [topThree[0], topThree[1], topThree[2]] : topThree;
 
+// Pre-process background images to WebP format
+const optimizedBgImages = await Promise.all(
+  displayOrder.map(async (team) => {
+    const teamBg = teamBgMap[team.data.constructorName];
+    if (teamBg) {
+      const optimized = await getImage({
+        src: teamBg,
+        format: "webp",
+        width: 800,
+      });
+      return optimized.src;
+    }
+    return null;
+  }),
+);
+
 const gridClasses = [
   "md:col-span-2 md:row-start-1 lg:col-span-1 lg:row-start-auto",
   "md:col-start-1 md:row-start-2 lg:col-span-1 lg:row-start-auto",
@@ -29,7 +45,7 @@ const gridClasses = [
 >
   {
     displayOrder.map((team, index) => {
-      const teamBg = teamBgMap[team.data.constructorName] || null;
+      const bgUrl = optimizedBgImages[index];
       const teamSlug = (team as any).slug ?? team.id.split("/").pop();
 
       return (
@@ -38,8 +54,8 @@ const gridClasses = [
             <article
               class="relative flex h-96 flex-row overflow-hidden rounded-lg px-8 py-4 transition-all duration-300"
               style={
-                teamBg
-                  ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
+                bgUrl
+                  ? `background-image: url('${bgUrl}'); background-size: cover; background-position: center;`
                   : ""
               }
             >

@@ -31,7 +31,7 @@ const { Content } = await render(race);
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-950">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
       title={`${race.data.trackName} | ${SITE_TITLE}`}
@@ -54,10 +54,10 @@ const { Content } = await render(race);
       <!-- Race Header - Left aligned without background -->
       <section class="race-header pt-12">
         <div class="container mx-auto px-4">
-          <h1 class="mb-2 text-4xl font-bold dark:text-slate-100">
+          <h1 class="mb-2 text-4xl font-bold dark:text-zinc-100">
             {race.data.raceName}
           </h1>
-          <p class="text-slate-700 dark:text-slate-400">
+          <p class="text-zinc-700 dark:text-zinc-400">
             <FormattedDate date={race.data.raceDate} /> • {
               race.data.trackLocation
             }
@@ -75,7 +75,7 @@ const { Content } = await render(race);
                   Race Completed
                 </span>
               ) : (
-                <span class="inline-block rounded border border-slate-400 bg-slate-200 px-4 py-2 text-slate-800 transition-colors duration-300 dark:border-amber-600 dark:bg-amber-700 dark:text-white dark:hover:bg-amber-800">
+                <span class="inline-block rounded border border-zinc-400 bg-zinc-200 px-4 py-2 text-zinc-800 transition-colors duration-300 dark:border-amber-600 dark:bg-amber-700 dark:text-white dark:hover:bg-amber-800">
                   Upcoming Race
                 </span>
               )
@@ -89,29 +89,29 @@ const { Content } = await render(race);
         <div class="container mx-auto px-4">
           <!-- Race Stats -->
           <div
-            class="mb-8 rounded-lg border border-slate-300 p-6 shadow-sm dark:border-slate-800"
+            class="mb-8 rounded-lg border border-zinc-300 p-6 shadow-sm dark:border-zinc-800"
           >
-            <h2 class="mb-4 text-2xl font-bold dark:text-slate-200">
+            <h2 class="mb-4 text-2xl font-bold dark:text-zinc-200">
               Race Details
             </h2>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
                 <ul class="space-y-3">
                   <li class="flex justify-between">
-                    <span class="dark:text-slate-400">Date:</span>
-                    <span class="text-slate-600 dark:text-slate-300"
+                    <span class="dark:text-zinc-400">Date:</span>
+                    <span class="text-zinc-600 dark:text-zinc-300"
                       ><FormattedDate date={race.data.raceDate} /></span
                     >
                   </li>
                   <li class="flex justify-between">
-                    <span class="dark:text-slate-400">Location:</span>
-                    <span class="text-slate-600 dark:text-slate-300"
+                    <span class="dark:text-zinc-400">Location:</span>
+                    <span class="text-zinc-600 dark:text-zinc-300"
                       >{race.data.trackLocation}</span
                     >
                   </li>
                   <li class="flex justify-between">
-                    <span class="dark:text-slate-400">Race Number:</span>
-                    <span class="text-slate-600 dark:text-slate-300"
+                    <span class="dark:text-zinc-400">Race Number:</span>
+                    <span class="text-zinc-600 dark:text-zinc-300"
                       >{race.data.raceNumber}</span
                     >
                   </li>
@@ -123,20 +123,20 @@ const { Content } = await render(race);
                   <div>
                     <ul class="space-y-3">
                       <li class="flex justify-between">
-                        <span class="dark:text-slate-400">Winner:</span>
-                        <span class="text-slate-600 dark:text-slate-300">
+                        <span class="dark:text-zinc-400">Winner:</span>
+                        <span class="text-zinc-600 dark:text-zinc-300">
                           {race.data.winningDriver}
                         </span>
                       </li>
                       <li class="flex justify-between">
-                        <span class="dark:text-slate-400">Winning Team:</span>
-                        <span class="text-slate-600 dark:text-slate-300">
+                        <span class="dark:text-zinc-400">Winning Team:</span>
+                        <span class="text-zinc-600 dark:text-zinc-300">
                           {race.data.winningConstructor}
                         </span>
                       </li>
                       <li class="flex justify-between">
-                        <span class="dark:text-slate-400">Fastest Lap:</span>
-                        <span class="text-slate-600 dark:text-slate-300">
+                        <span class="dark:text-zinc-400">Fastest Lap:</span>
+                        <span class="text-zinc-600 dark:text-zinc-300">
                           {race.data.fastestLapTime}
                           {race.data.fastestLapDriver &&
                             ` (${race.data.fastestLapDriver})`}

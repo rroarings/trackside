@@ -80,25 +80,25 @@ const features = [
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
     {!isDevMode && <BreakpointIndicator />}
-    <main class="bg-slate-100 dark:bg-slate-900">
+    <main class="bg-zinc-100 dark:bg-zinc-900">
       <!-- Hero Section -->
-      <section class="bg-slate-100 pb-10 dark:bg-slate-900">
+      <section class="bg-zinc-100 pb-10 dark:bg-zinc-900">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="text-center">
             <h1
-              class="mx-auto mb-4 max-w-4xl text-4xl font-bold leading-tight text-slate-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight dark:text-slate-100"
+              class="mx-auto mb-4 max-w-4xl text-4xl font-bold leading-tight text-zinc-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight dark:text-zinc-100"
             >
               Your Trackside View of Formula 1
             </h1>
             <p
-              class="mx-auto max-w-3xl px-6 text-lg text-slate-800 dark:text-slate-300"
+              class="mx-auto max-w-3xl px-6 text-lg text-zinc-800 dark:text-zinc-300"
             >
               Experience F1 through a fan's perspective. Get the latest race
               insights, driver profiles, and in-depth analysis of the world's
@@ -118,7 +118,7 @@ const features = [
               <!-- Secondary Button -->
               <a
                 href="/blog"
-                class="inline-flex items-center justify-center rounded border-2 border-transparent bg-slate-600 px-4 py-2 text-white transition-all duration-300 hover:bg-slate-700 dark:bg-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+                class="inline-flex items-center justify-center rounded border-2 border-transparent bg-zinc-600 px-4 py-2 text-white transition-all duration-300 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
                 role="button"
               >
                 Read Our Blog
@@ -149,53 +149,53 @@ const features = [
 
       <!-- Quick Links Section -->
       <section
-        class="relative left-1/2 right-1/2 my-6 -ml-[50vw] -mr-[50vw] w-screen bg-slate-800"
+        class="relative left-1/2 right-1/2 my-6 -ml-[50vw] -mr-[50vw] w-screen bg-zinc-800"
       >
         <div
-          class="mx-auto grid max-w-7xl grid-cols-2 gap-4 p-6 font-semibold text-slate-300 sm:grid-cols-4 sm:gap-6"
+          class="mx-auto grid max-w-7xl grid-cols-2 gap-4 p-6 font-semibold text-zinc-300 sm:grid-cols-4 sm:gap-6"
         >
           <a
             href="/seasons/2026"
-            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-zinc-700 p-4 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900"
           >
             2026 Schedule
             <Icon
               name="mdi:arrow-right-thin"
               size={24}
-              class="size-10 text-slate-300"
+              class="size-10 text-zinc-300"
             />
           </a>
           <a
             href="/seasons/2025"
-            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-zinc-700 p-4 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900"
           >
             2025 Results
             <Icon
               name="mdi:arrow-right-thin"
               size={24}
-              class="size-10 text-slate-300"
+              class="size-10 text-zinc-300"
             />
           </a>
           <a
             href="/blog"
-            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-zinc-700 p-4 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900"
           >
             Latest News
             <Icon
               name="mdi:arrow-right-thin"
               size={24}
-              class="size-10 text-slate-300"
+              class="size-10 text-zinc-300"
             />
           </a>
           <a
             href="/learn/whatis"
-            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-slate-700 p-4 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-zinc-700 p-4 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900"
           >
             Learn F1
             <Icon
               name="mdi:arrow-right-thin"
               size={24}
-              class="size-10 text-slate-300"
+              class="size-10 text-zinc-300"
             />
           </a>
         </div>
@@ -207,33 +207,35 @@ const features = [
         content="Dive into the most exciting moments of the 2025 Formula 1 season. Explore race highlights, dramatic overtakes, and pivotal decisions that shaped the championship. Watch exclusive clips and read in-depth breakdowns of key races and driver performances."
         ctaText="Explore 2025 Clips & Breakdowns"
         ctaLink="/seasons/2025"
-        background="slate"
+        background="zinc"
         imageSrc={race01}
         imageAlt="F1 Technology"
         imageLoading="eager"
       />
 
       <!-- Latest Highlight Card -->
-      <section class="w-full py-10 dark:bg-slate-900">
+      <section class="w-full py-10 dark:bg-zinc-900">
         <div class="mx-auto px-4">
           <a
             href="/seasons/2025"
-            class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-slate-800 dark:hover:shadow-slate-500"
+            class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-zinc-800 dark:hover:shadow-zinc-500"
           >
             <div class="md:flex">
               <div class="md:shrink-0">
                 <Image
                   src={race02}
                   alt="Latest race highlight"
+                  widths={[640, 960, 1280]}
+                  sizes="(max-width: 768px) 100vw, 320px"
                   class="h-64 w-full object-cover md:h-full md:w-72 lg:w-80"
                   loading="eager"
                 />
               </div>
               <div class="px-8 py-12">
-                <h3 class="text-xl font-semibold dark:text-slate-100">
+                <h3 class="text-xl font-semibold dark:text-zinc-100">
                   Latest Highlight: Dramatic Race Moment
                 </h3>
-                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                <p class="mt-2 text-zinc-600 dark:text-zinc-300">
                   A decisive moment from the most recent Grand Prix — an
                   on-track overtake that changed the race outcome. Read the
                   breakdown and see the key moments and analysis.
@@ -264,15 +266,15 @@ const features = [
         content={`<p>Explore deep-dive explainers on aerodynamics, simulations, race strategy, and the tech that powers modern Formula 1. Our Learn section breaks complex topics into approachable reads with diagrams and examples.`}
         ctaText="Explore what makes Formula 1"
         ctaLink="/learn/whatis"
-        background="slate"
+        background="zinc"
         imageSrc={race01}
         imageAlt="F1 Technology"
       />
 
       <!-- Standings Section -->
-      <section class="bg-slate-100 py-16 dark:bg-slate-900">
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
-          <h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
+          <h2 class="mb-6 text-center text-2xl font-bold dark:text-zinc-100">
             2025 Championship Results
           </h2>
           <Standings season="2025" />
@@ -280,13 +282,13 @@ const features = [
       </section>
 
       <!-- Race Spotlight Section -->
-      <section class="bg-slate-100 py-12 dark:bg-slate-900">
+      <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
           <header class="mb-12 text-center">
-            <h2 class="text-3xl font-bold dark:text-slate-100">
+            <h2 class="text-3xl font-bold dark:text-zinc-100">
               2026 Race Calendar
             </h2>
-            <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">
+            <p class="mt-2 text-lg text-zinc-600 dark:text-zinc-300">
               A look at the previous, next, and upcoming races on the 2026
               calendar.
             </p>

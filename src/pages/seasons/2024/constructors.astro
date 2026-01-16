@@ -7,13 +7,14 @@ import TeamCard from "../../../components/TeamCard.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { SITE_TITLE } from "../../../consts";
 import { getCollection } from "astro:content";
+import { getSlugFromEntry } from "../../../utils/slugUtils";
 
-// Get all teams for 2025 season
+// Get all teams for 2024 season
 const teams = await getCollection("constructors", ({ data }) => {
   return data.season === "2024";
 });
 
-// Get all drivers for 2025 season to match with teams
+// Get all drivers for 2024 season to match with teams
 const drivers = await getCollection("drivers", ({ data }) => {
   return data.season === "2024";
 });
@@ -24,7 +25,7 @@ drivers.forEach((driver) => {
   const fullName = `${driver.data.driverFirstName} ${driver.data.driverLastName}`;
   driverMap.set(fullName, {
     profileImage: driver.data.profileImage,
-    slug: driver.id,
+    slug: getSlugFromEntry(driver),
     countryCode: driver.data.countryCode,
   });
 });
@@ -50,7 +51,7 @@ const eagerCount = 4;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
       title={`2025 F1 Teams | ${SITE_TITLE}`}
@@ -71,10 +72,10 @@ const eagerCount = 4;
       <!-- Teams Header -->
       <section class="pt-16 text-center">
         <div class="container mx-auto px-4">
-          <h1 class="mb-4 text-4xl font-bold dark:text-slate-100">
+          <h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">
             2024 Formula 1 Constructors
           </h1>
-          <p class="text-lg text-slate-700 dark:text-slate-400">
+          <p class="text-lg text-zinc-700 dark:text-zinc-300">
             Constructor teams and their racing machines
           </p>
         </div>

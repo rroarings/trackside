@@ -20,7 +20,7 @@ const currentSeason = "2026";
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white/95 py-2 shadow-sm backdrop-blur-sm dark:bg-slate-800/95"
+  class="sticky top-0 z-50 bg-white/95 py-2 shadow-sm backdrop-blur-sm dark:bg-zinc-800/95"
 >
   <nav class="container mx-auto px-4" aria-label="Main navigation">
     <div class="flex h-16 items-center justify-between">
@@ -49,7 +49,7 @@ const currentSeason = "2026";
         <HeaderLink
           href="/"
           class:list={[
-            "transition-colors duration-200 dark:text-slate-200",
+            "transition-colors duration-200 dark:text-zinc-200",
             isActive("/") && "text-blue-600 dark:text-blue-400",
           ]}
         >
@@ -59,7 +59,7 @@ const currentSeason = "2026";
         <HeaderLink
           href="/blog"
           class:list={[
-            "transition-colors duration-200 dark:text-slate-200",
+            "transition-colors duration-200 dark:text-zinc-200",
             isActive("/blog") && "text-blue-600 dark:text-blue-400",
           ]}
         >
@@ -70,7 +70,7 @@ const currentSeason = "2026";
         <div class="nav-dropdown group relative">
           <button
             class:list={[
-              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
               isActive("/seasons") && "text-blue-600 dark:text-blue-400",
             ]}
             aria-expanded="false"
@@ -84,14 +84,14 @@ const currentSeason = "2026";
             />
           </button>
           <div
-            class="nav-dropdown-menu w-130 pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
+            class="nav-dropdown-menu pointer-events-none absolute left-0 top-full z-50 w-72 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
           >
             <div
-              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+              class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-600 dark:bg-zinc-800"
             >
               <!-- Current Season Highlight -->
               <div
-                class="bg-linear-to-r border-b border-slate-100 from-blue-50 to-slate-50 p-4 dark:border-slate-700 dark:from-blue-900/20 dark:to-slate-800"
+                class="bg-linear-to-r border-b border-zinc-100 from-blue-50 to-zinc-50 p-4 dark:border-zinc-700 dark:from-blue-900/20 dark:to-zinc-800"
               >
                 <a
                   href={`/seasons/${currentSeason}`}
@@ -104,7 +104,7 @@ const currentSeason = "2026";
                   </div>
                   <div>
                     <div
-                      class="font-semibold text-slate-900 group-hover/current:text-blue-600 dark:text-slate-100 dark:group-hover/current:text-blue-400"
+                      class="font-semibold text-zinc-900 group-hover/current:text-blue-600 dark:text-zinc-100 dark:group-hover/current:text-blue-400"
                     >
                       {currentSeason} Season
                       <span
@@ -112,7 +112,7 @@ const currentSeason = "2026";
                         >Current</span
                       >
                     </div>
-                    <div class="text-sm text-slate-500 dark:text-slate-400">
+                    <div class="text-sm text-zinc-500 dark:text-zinc-400">
                       View standings, drivers & race calendar
                     </div>
                   </div>
@@ -120,61 +120,57 @@ const currentSeason = "2026";
               </div>
 
               <!-- Quick Links Grid -->
-              <div class="grid grid-cols-3 gap-1 p-2">
+              <div class="grid grid-cols-2 gap-1 p-2">
                 <a
                   href={`/seasons/${currentSeason}/drivers`}
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:account-group"
                     size={18}
-                    class="text-slate-400"
+                    class="text-zinc-400"
                   />
                   Drivers
                 </a>
                 <a
                   href={`/seasons/${currentSeason}/constructors`}
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
-                  <Icon
-                    name="mdi:car-sports"
-                    size={18}
-                    class="text-slate-400"
-                  />
+                  <Icon name="mdi:car-sports" size={18} class="text-zinc-400" />
                   Constructors
                 </a>
                 <a
                   href={`/seasons/${currentSeason}/races`}
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="col-span-2 flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
-                  <Icon name="mdi:calendar" size={18} class="text-slate-400" />
+                  <Icon name="mdi:calendar" size={18} class="text-zinc-400" />
                   Race Calendar
                 </a>
               </div>
 
               <!-- Past Seasons -->
-              <div class="border-t border-slate-100 p-2 dark:border-slate-700">
+              <div class="border-t border-zinc-100 p-2 dark:border-zinc-700">
                 <div
-                  class="px-3 py-1 text-xs font-medium uppercase tracking-wide text-slate-400"
+                  class="px-3 py-1 text-xs font-medium uppercase tracking-wide text-zinc-300"
                 >
                   Past Seasons
                 </div>
                 <div class="mt-1 flex gap-1">
                   <a
                     href="/seasons/2025"
-                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                     >2025</a
                   >
                   <a
                     href="/seasons/2024"
-                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                    class="flex-1 rounded-lg px-3 py-2 text-center text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                     >2024</a
                   >
                 </div>
               </div>
 
               <!-- All Seasons Link -->
-              <div class="border-t border-slate-100 p-2 dark:border-slate-700">
+              <div class="border-t border-zinc-100 p-2 dark:border-zinc-700">
                 <a
                   href="/seasons"
                   class="flex items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
@@ -191,7 +187,7 @@ const currentSeason = "2026";
         <div class="nav-dropdown group relative">
           <button
             class:list={[
-              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
               isActive("/learn") && "text-blue-600 dark:text-blue-400",
             ]}
             aria-expanded="false"
@@ -208,59 +204,55 @@ const currentSeason = "2026";
             class="nav-dropdown-menu pointer-events-none absolute left-0 top-full z-50 w-64 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
           >
             <div
-              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+              class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-600 dark:bg-zinc-800"
             >
               <div class="p-2">
                 <a
                   href="/learn/whatis"
-                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:help-circle"
                     size={20}
-                    class="mt-0.5 text-blue-500"
+                    class="mt-0.5 text-zinc-400"
                   />
                   <div>
-                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                    <div class="font-medium text-zinc-900 dark:text-zinc-100">
                       What is F1?
                     </div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                    <div class="text-xs text-zinc-500 dark:text-zinc-400">
                       Introduction to Formula 1
                     </div>
                   </div>
                 </a>
                 <a
                   href="/learn/technologies"
-                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700"
                 >
-                  <Icon
-                    name="mdi:cog"
-                    size={20}
-                    class="mt-0.5 text-green-500"
-                  />
+                  <Icon name="mdi:cog" size={20} class="mt-0.5 text-zinc-400" />
                   <div>
-                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                    <div class="font-medium text-zinc-900 dark:text-zinc-100">
                       Technology
                     </div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                    <div class="text-xs text-zinc-500 dark:text-zinc-400">
                       Engineering & innovation
                     </div>
                   </div>
                 </a>
                 <a
                   href="/learn/future"
-                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+                  class="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:rocket-launch"
                     size={20}
-                    class="mt-0.5 text-purple-500"
+                    class="mt-0.5 text-zinc-400"
                   />
                   <div>
-                    <div class="font-medium text-slate-900 dark:text-slate-100">
+                    <div class="font-medium text-zinc-900 dark:text-zinc-100">
                       Future of F1
                     </div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                    <div class="text-xs text-zinc-500 dark:text-zinc-400">
                       What's coming next
                     </div>
                   </div>
@@ -274,7 +266,7 @@ const currentSeason = "2026";
         <div class="nav-dropdown group relative">
           <button
             class:list={[
-              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-slate-200",
+              "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
               isActive("/about") && "text-blue-600 dark:text-blue-400",
             ]}
             aria-expanded="false"
@@ -291,57 +283,53 @@ const currentSeason = "2026";
             class="nav-dropdown-menu pointer-events-none absolute right-0 top-full z-50 w-56 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100"
           >
             <div
-              class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+              class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-600 dark:bg-zinc-800"
             >
               <div class="p-2">
                 <a
                   href="/about"
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:information"
                     size={18}
-                    class="text-slate-600"
+                    class="text-zinc-400"
                   />
                   About Trackside
                 </a>
                 <a
                   href="/contact"
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
-                  <Icon name="mdi:email" size={18} class="text-slate-600" />
+                  <Icon name="mdi:email" size={18} class="text-zinc-400" />
                   Contact
                 </a>
                 <a
                   href="/about/faqs"
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:frequently-asked-questions"
                     size={18}
-                    class="text-slate-600"
+                    class="text-zinc-400"
                   />
                   FAQs
                 </a>
                 <a
                   href="/about/attributions"
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
-                  <Icon
-                    name="mdi:hand-heart"
-                    size={18}
-                    class="text-slate-600"
-                  />
+                  <Icon name="mdi:hand-heart" size={18} class="text-zinc-400" />
                   Attributions
                 </a>
                 <a
                   href="/about/resources"
-                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
                   <Icon
                     name="mdi:bookmark-box"
                     size={18}
-                    class="text-slate-600"
+                    class="text-zinc-400"
                   />
                   Resources
                 </a>
@@ -355,7 +343,7 @@ const currentSeason = "2026";
       <div class="md:hidden">
         <button
           type="button"
-          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-700"
+          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-zinc-300 dark:hover:bg-zinc-700"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="Toggle navigation menu"
@@ -388,10 +376,10 @@ const currentSeason = "2026";
         <a
           href="/"
           class:list={[
-            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
             isActive("/")
               ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
-              : "text-slate-700 hover:bg-slate-50",
+              : "text-zinc-700 hover:bg-zinc-50",
           ]}>Home</a
         >
 
@@ -399,10 +387,10 @@ const currentSeason = "2026";
         <a
           href="/blog"
           class:list={[
-            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
             isActive("/blog")
               ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
-              : "text-slate-700 hover:bg-slate-50",
+              : "text-zinc-700 hover:bg-zinc-50",
           ]}>Blog</a
         >
 
@@ -410,10 +398,10 @@ const currentSeason = "2026";
         <div class="mobile-dropdown">
           <button
             class:list={[
-              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/seasons")
                 ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
-                : "text-slate-700 hover:bg-slate-50",
+                : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
           >
@@ -426,7 +414,7 @@ const currentSeason = "2026";
           </button>
           <div class="mobile-dropdown-content hidden overflow-hidden">
             <div
-              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+              class="mt-1 space-y-1 border-l-2 border-zinc-200 pl-3 dark:border-zinc-600"
             >
               <!-- Current Season Highlight -->
               <a
@@ -444,29 +432,29 @@ const currentSeason = "2026";
               <div class="grid grid-cols-3 gap-1 py-1">
                 <a
                   href={`/seasons/${currentSeason}/drivers`}
-                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                   >Drivers</a
                 >
                 <a
                   href={`/seasons/${currentSeason}/constructors`}
-                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                   >Teams</a
                 >
                 <a
                   href={`/seasons/${currentSeason}/races`}
-                  class="rounded-lg px-2 py-1.5 text-center text-xs text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                   >Races</a
                 >
               </div>
               <!-- Past Seasons -->
               <a
                 href="/seasons/2025"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >2025 Season</a
               >
               <a
                 href="/seasons/2024"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >2024 Season</a
               >
               <a
@@ -482,10 +470,10 @@ const currentSeason = "2026";
         <div class="mobile-dropdown">
           <button
             class:list={[
-              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/learn")
                 ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
-                : "text-slate-700 hover:bg-slate-50",
+                : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
           >
@@ -498,21 +486,21 @@ const currentSeason = "2026";
           </button>
           <div class="mobile-dropdown-content hidden overflow-hidden">
             <div
-              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+              class="mt-1 space-y-1 border-l-2 border-zinc-200 pl-3 dark:border-zinc-600"
             >
               <a
                 href="/learn/whatis"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >What is F1?</a
               >
               <a
                 href="/learn/technologies"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >Technology of F1</a
               >
               <a
                 href="/learn/future"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >Future of F1</a
               >
             </div>
@@ -523,10 +511,10 @@ const currentSeason = "2026";
         <div class="mobile-dropdown">
           <button
             class:list={[
-              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-slate-200 dark:hover:bg-slate-700",
+              "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/about")
                 ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
-                : "text-slate-700 hover:bg-slate-50",
+                : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
           >
@@ -539,31 +527,31 @@ const currentSeason = "2026";
           </button>
           <div class="mobile-dropdown-content hidden overflow-hidden">
             <div
-              class="mt-1 space-y-1 border-l-2 border-slate-200 pl-3 dark:border-slate-600"
+              class="mt-1 space-y-1 border-l-2 border-zinc-200 pl-3 dark:border-zinc-600"
             >
               <a
                 href="/about"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >About Trackside</a
               >
               <a
                 href="/contact"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >Contact</a
               >
               <a
                 href="/about/faqs"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >FAQs</a
               >
               <a
                 href="/about/attributions"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >Attributions</a
               >
               <a
                 href="/about/resources"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                class="block rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                 >Resources</a
               >
             </div>

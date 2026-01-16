@@ -14,7 +14,7 @@ const isDevMode = import.meta.env.DEV;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-100 dark:bg-slate-900">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
       title={`2026 F1 Season | ${SITE_TITLE}`}
@@ -34,12 +34,10 @@ const isDevMode = import.meta.env.DEV;
       />
 
       <!-- 2025 Season Header -->
-      <section class="pb-6 pt-6 text-center dark:text-slate-100">
+      <section class="pb-6 pt-6 text-center dark:text-zinc-100">
         <div class="container mx-auto px-4">
           <h1 class="mb-4 text-4xl font-bold">State of the Season</h1>
-          <p
-            class="mx-auto max-w-3xl text-lg text-slate-700 dark:text-slate-400"
-          >
+          <p class="mx-auto max-w-3xl text-lg text-zinc-700 dark:text-zinc-300">
             The 2026 season is shaping up to be a thriller. With new regulations
             shaking up the grid and fierce rivalries igniting, follow along for
             real-time standings, race results, and in-depth analysis.
@@ -51,9 +49,9 @@ const isDevMode = import.meta.env.DEV;
       <SeasonNavCards season="2026" />
 
       <!-- Standings Section -->
-      <section class="bg-slate-100 py-16 dark:bg-slate-900">
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
-          <h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-100">
+          <h2 class="mb-6 text-center text-2xl font-bold dark:text-zinc-100">
             2026 Championship Standings
           </h2>
           <Standings season="2026" imageLoading="eager" />
@@ -61,9 +59,9 @@ const isDevMode = import.meta.env.DEV;
       </section>
 
       <!-- Race Calendar -->
-      <section class="bg-slate-100 py-16 dark:bg-slate-900">
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
-          <h2 class="mb-8 text-center text-2xl font-bold dark:text-slate-100">
+          <h2 class="mb-8 text-center text-2xl font-bold dark:text-zinc-100">
             2026 Race Calendar Preview
           </h2>
           <RaceCalendar
