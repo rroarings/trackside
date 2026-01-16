@@ -2,10 +2,8 @@
 import BaseHead from "../../../../components/BaseHead.astro";
 import Header from "../../../../components/Header.astro";
 import Footer from "../../../../components/Footer.astro";
-import BreakpointIndicator from "../../../../components/BreakpointIndicator.astro";
 import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
 import StatCard from "../../../../components/StatCard.astro";
-import SeasonButtons from "../../../../components/SeasonButtons.astro";
 import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.astro";
 import FormattedDate from "../../../../components/FormattedDate.astro";
 import { SITE_TITLE } from "../../../../consts";
@@ -45,7 +43,6 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null;
   </head>
   <body>
     <Header />
-    <BreakpointIndicator />
     <main>
       <Breadcrumbs
         items={[
