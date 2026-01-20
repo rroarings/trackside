@@ -78,14 +78,14 @@ const sortedByTeam = [...drivers].sort((a, b) => {
           <div class="mt-8 flex justify-center gap-2">
             <button
               id="sort-standings"
-              class="sort-btn rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 bg-zinc-200 text-zinc-700 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+              class="sort-btn rounded-lg bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
               data-active="false"
             >
               By Standings
             </button>
             <button
               id="sort-team"
-              class="sort-btn rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 bg-sky-600 text-white"
+              class="sort-btn rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white transition-all duration-200"
               data-active="true"
             >
               By Team
@@ -97,7 +97,9 @@ const sortedByTeam = [...drivers].sort((a, b) => {
       <!-- Drivers Grid - By Standings -->
       <section id="grid-standings" class="hidden pb-16 pt-4">
         <div class="container mx-auto">
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div
+            class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
             {
               sortedByStandings.map((driver, i) => (
                 <DriverCard
@@ -115,7 +117,9 @@ const sortedByTeam = [...drivers].sort((a, b) => {
       <!-- Drivers Grid - By Team -->
       <section id="grid-team" class="pb-16 pt-4">
         <div class="container mx-auto">
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div
+            class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
             {
               sortedByTeam.map((driver, i) => (
                 <DriverCard
@@ -156,7 +160,12 @@ const sortedByTeam = [...drivers].sort((a, b) => {
         "dark:hover:bg-zinc-600",
       ];
 
-      function setActive(activeBtn: HTMLElement, inactiveBtn: HTMLElement, showGrid: HTMLElement, hideGrid: HTMLElement) {
+      function setActive(
+        activeBtn: HTMLElement,
+        inactiveBtn: HTMLElement,
+        showGrid: HTMLElement,
+        hideGrid: HTMLElement,
+      ) {
         // Update button styles
         activeBtn.classList.remove(...inactiveClasses);
         activeBtn.classList.add(...activeClasses);
