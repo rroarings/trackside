@@ -32,7 +32,7 @@ sprintPodiums: 0
 sprintPoints: 0
 sprintPolePositions: 0
 sprintWins: 0
-teamDrivers: ["Isack Hadjar", "Liam Lawson"]
+teamDrivers: ["Liam Lawson", "Arvid Lindblad"]
 teamLogo: ""
 teamPrincipal: "Alan Permane"
 pubDate: "January 2, 2026"

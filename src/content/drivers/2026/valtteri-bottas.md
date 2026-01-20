@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Valtteri Bottas"
 profileImageLargeAlt: "Portrait of Valtteri Bottas"
 driverLogo: ""
 driverPoints: 0
-championshipPosition: 23
+championshipPosition: 21
 championships: 0
 grandPrixWins: 0
 podiums: 0
