@@ -12,11 +12,9 @@ import { Image } from "astro:assets";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import race01 from "../assets/section/racei1.jpg";
 import race02 from "../assets/section/racei2.jpg";
-import race03 from "../assets/section/racei3.jpg";
 import raceseqWebm from "../assets/videos/raceseqComp.webm";
 import raceseqMp4 from "../assets/videos/raceseq.mp4";
 
-const isDevMode = import.meta.env.DEV;
 
 const features = [
   {
@@ -147,7 +145,7 @@ const features = [
 
       <!-- Quick Links Section -->
       <section
-        class="relative left-1/2 right-1/2 my-6 -ml-[50vw] -mr-[50vw] w-screen bg-zinc-800"
+        class="relative left-1/2 right-1/2 my-6 -ml-[50vw] -mr-[50vw] w-screen bg-zinc-300 dark:bg-zinc-800"
       >
         <div
           class="mx-auto grid max-w-7xl grid-cols-2 gap-4 p-6 font-semibold text-zinc-300 sm:grid-cols-4 sm:gap-6"
@@ -216,7 +214,7 @@ const features = [
         <div class="mx-auto px-4">
           <a
             href="/seasons/2025"
-            class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-zinc-800 dark:hover:shadow-zinc-500"
+            class="group block overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-zinc-800"
           >
             <div class="md:flex">
               <div class="md:shrink-0">
