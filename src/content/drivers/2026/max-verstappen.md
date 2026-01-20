@@ -1,7 +1,7 @@
 ---
 driverFirstName: "Max"
 driverLastName: "Verstappen"
-driverNumber: 1
+driverNumber: 3
 driverTeam: "Red Bull Racing"
 description: "Max Verstappen 2026 Driver Profile"
 season: "2026"

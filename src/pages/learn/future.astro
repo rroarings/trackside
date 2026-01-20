@@ -44,18 +44,62 @@ const rookies = [
     alt: "Gabriel Bortoleto driver portrait",
   },
   {
-    name: "Jack Doohan",
-    desc: "Son of motorcycle legend Mick Doohan, the Alpine reserve earned his seat through strong F2 performances.",
-    img: doohanPortrait,
-    alt: "Jack Doohan driver portrait",
-  },
-  {
     name: "Liam Lawson",
     desc: "New Zealander who seized his chance as Red Bull's super-sub, delivering points on multiple occasions.",
     img: lawsonPortrait,
     alt: "Liam Lawson driver portrait",
   },
   // ...other rookies
+];
+
+const keyStats = [
+  { value: "50%", label: "Electric Power" },
+  { value: "100%", label: "Sustainable Fuel" },
+  { value: "11", label: "Teams on Grid" },
+  { value: "30kg", label: "Lighter Cars" },
+];
+
+const regulationsGrid = [
+  {
+    title: "Power Unit Revolution",
+    icon: "mdi:lightning-bolt",
+    items: [
+      "Electric motor output increases to 350kW—equal to the internal combustion engine",
+      "MGU-H (heat energy recovery) removed to simplify power units and reduce costs",
+      "100% sustainable fuel mandatory—drop-in compatible with standard engines",
+      "Five PU manufacturers: Mercedes, Ferrari, Red Bull-Ford, Honda, and Audi",
+    ],
+  },
+  {
+    title: "Active Aerodynamics",
+    icon: "mdi:airplane",
+    items: [
+      "Both front and rear wings dynamically adjust angle based on track position",
+      "Closed position in corners for grip; open position on straights for low drag",
+      "DRS replaced by Active Aero for all, plus new Overtake Mode within 1 second",
+      "Reduced downforce and flatter floors for closer racing and varied setups",
+    ],
+  },
+  {
+    title: "Expanded Grid",
+    icon: "mdi:flag-checkered",
+    items: [
+      "Cadillac F1 joins as the 11th team—first new constructor since Haas in 2016",
+      "Bottas & Checo return under the Cadillac banner",
+      "Audi takes full ownership of Kick Sauber, becoming a works team",
+      "22 drivers on the grid—largest F1 field in over a decade",
+    ],
+  },
+  {
+    title: "Smaller, Nimbler Cars",
+    icon: "mdi:car-sports",
+    items: [
+      "Minimum weight reduced by 30kg—targeting 768kg vs current 798kg",
+      "Shorter wheelbase for improved agility through slow-speed corners",
+      "Simplified front wing design to reduce sensitivity to dirty air",
+      "Enhanced safety structures with updated crash test requirements",
+    ],
+  },
 ];
 ---
 
@@ -75,7 +119,7 @@ const rookies = [
           {pageTitle}
         </h1>
         <div class="mx-auto max-w-3xl">
-          <p class="mb-8 leading-loose text-zinc-600 dark:text-zinc-300">
+          <p class="mb-8 leading-loose text-zinc-800 dark:text-zinc-300">
             Formula 1 has always been at the forefront of technological
             advancements, and the future promises to be no different.
           </p>
@@ -94,7 +138,7 @@ const rookies = [
             <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
               2026: A New Era Begins
             </h2>
-            <p class="mx-auto max-w-3xl text-zinc-600 dark:text-zinc-300">
+            <p class="mx-auto max-w-3xl text-zinc-800 dark:text-zinc-300">
               The 2026 season marks the most significant regulation overhaul in
               F1 history, reshaping power units, aerodynamics, and the
               competitive landscape.
@@ -103,288 +147,50 @@ const rookies = [
 
           <!-- Key Stats Bar -->
           <div class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div
-              class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800"
-            >
-              <p class="text-3xl font-bold text-sky-600 dark:text-sky-400">
-                50%
-              </p>
-              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-                Electric Power
-              </p>
-            </div>
-            <div
-              class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800"
-            >
-              <p
-                class="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
-              >
-                100%
-              </p>
-              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-                Sustainable Fuel
-              </p>
-            </div>
-            <div
-              class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800"
-            >
-              <p class="text-3xl font-bold text-rose-600 dark:text-rose-400">
-                11
-              </p>
-              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-                Teams on Grid
-              </p>
-            </div>
-            <div
-              class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800"
-            >
-              <p class="text-3xl font-bold text-amber-600 dark:text-amber-400">
-                30kg
-              </p>
-              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-                Lighter Cars
-              </p>
-            </div>
+            {
+              keyStats.map((stat) => (
+                <div class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800">
+                  <p class="text-3xl font-bold text-zinc-600 dark:text-zinc-400">
+                    {stat.value}
+                  </p>
+                  <p class="mt-1 text-base text-zinc-600 dark:text-zinc-300">
+                    {stat.label}
+                  </p>
+                </div>
+              ))
+            }
           </div>
 
           <!-- Regulations Grid -->
           <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2">
-            <!-- Power Unit Changes -->
-            <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="rounded-full bg-sky-100 p-3 dark:bg-sky-900/30">
-                  <Icon
-                    name="mdi:lightning-bolt"
-                    class="h-6 w-6 text-sky-600 dark:text-sky-400"
-                  />
+            {
+              regulationsGrid.map((card) => (
+                <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
+                  <div class="mb-4 flex items-center gap-3">
+                    <div class="rounded-full bg-sky-100 p-3 dark:bg-sky-900/30">
+                      <Icon
+                        name={card.icon}
+                        class="h-6 w-6 text-sky-600 dark:text-sky-400"
+                      />
+                    </div>
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+                      {card.title}
+                    </h3>
+                  </div>
+                  <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
+                    {card.items.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <Icon
+                          name="mdi:check-circle"
+                          class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-100"
-                >
-                  Power Unit Revolution
-                </h3>
-              </div>
-              <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Electric motor output increases to 350kW—equal to the
-                    internal combustion engine</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >MGU-H (heat energy recovery) removed to simplify power
-                    units and reduce costs</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >100% sustainable fuel mandatory—drop-in compatible with
-                    standard engines</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Five PU manufacturers: Mercedes, Ferrari, Red Bull-Ford,
-                    Honda, and Audi</span
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <!-- Aerodynamic Changes -->
-            <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="rounded-full bg-rose-100 p-3 dark:bg-rose-900/30">
-                  <Icon
-                    name="mdi:airplane"
-                    class="h-6 w-6 text-rose-600 dark:text-rose-400"
-                  />
-                </div>
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-100"
-                >
-                  Active Aerodynamics
-                </h3>
-              </div>
-              <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Both front and rear wings dynamically adjust angle based on
-                    track position</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Closed position in corners for grip; open position on
-                    straights for low drag</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >DRS replaced by Active Aero for all, plus new Overtake Mode
-                    within 1 second</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Reduced downforce and flatter floors for closer racing and
-                    varied setups</span
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <!-- New Entrants -->
-            <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="rounded-full bg-amber-100 p-3 dark:bg-amber-900/30">
-                  <Icon
-                    name="mdi:flag-checkered"
-                    class="h-6 w-6 text-amber-600 dark:text-amber-400"
-                  />
-                </div>
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-100"
-                >
-                  Expanded Grid
-                </h3>
-              </div>
-              <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Cadillac F1 joins as the 11th team—first new constructor
-                    since Haas in 2016</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Cadillac F1 joins as the 11th team, powered by Ferrari
-                    until GM PU in 2029</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Audi takes full ownership of Kick Sauber, becoming a works
-                    team</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >22 drivers on the grid—largest F1 field in over a decade</span
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <!-- Car Design -->
-            <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-              <div class="mb-4 flex items-center gap-3">
-                <div
-                  class="rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30"
-                >
-                  <Icon
-                    name="mdi:car-sports"
-                    class="h-6 w-6 text-emerald-600 dark:text-emerald-400"
-                  />
-                </div>
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-100"
-                >
-                  Smaller, Nimbler Cars
-                </h3>
-              </div>
-              <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Minimum weight reduced by 30kg—targeting 768kg vs current
-                    798kg</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Shorter wheelbase for improved agility through slow-speed
-                    corners</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Simplified front wing design to reduce sensitivity to dirty
-                    air</span
-                  >
-                </li>
-                <li class="flex items-start gap-2">
-                  <Icon
-                    name="mdi:check-circle"
-                    class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                  />
-                  <span
-                    >Enhanced safety structures with updated crash test
-                    requirements</span
-                  >
-                </li>
-              </ul>
-            </div>
+              ))
+            }
           </div>
         </div>
       </section>
@@ -452,7 +258,7 @@ const rookies = [
             <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
               What does the future hold?
             </h2>
-            <p class="text-lg text-zinc-600 dark:text-zinc-300">
+            <p class="text-lg text-zinc-800 dark:text-zinc-300">
               These rising stars are already making headlines. Here's who to
               watch as Formula 1 evolves into a new era.
             </p>
@@ -463,12 +269,12 @@ const rookies = [
           >
             {
               rookies.map((rookie) => (
-                <div class="flex h-full flex-col rounded-xl bg-zinc-200/80 dark:bg-zinc-800">
+                <div class="flex h-full flex-col rounded-xl bg-zinc-200 dark:bg-zinc-800">
                   <div class="flex-1 p-6">
                     <h4 class="mb-2 text-xl dark:text-zinc-100">
                       {rookie.name}
                     </h4>
-                    <p class="text-zinc-600 dark:text-zinc-300">
+                    <p class="text-zinc-800 dark:text-zinc-300">
                       {rookie.desc}
                     </p>
                   </div>

@@ -74,6 +74,27 @@ const dataDrivenItems = [
     icon: "mdi:strategy",
   },
 ];
+
+const teamworkItems = [
+  {
+    title: "One Team, One Goal",
+    description:
+      "From factory to finish line, everyone works toward a single mission: performance. Designers, mechanics, and support staff all play a part. In F1, collaboration and unity turn potential into podiums.",
+    icon: "mdi:account-group",
+  },
+  {
+    title: "Behind the Speed",
+    description:
+      "Race engineers and strategists are the unsung heroes. They analyze live data, adapt to changing conditions, and guide the driver through every lap. Success relies on trust, quick thinking, and seamless communication.",
+    icon: "mdi:account-wrench",
+  },
+  {
+    title: "Pit Wall Precision",
+    description:
+      "Teamwork in F1 is a finely tuned operation. Pit crews execute lightning-fast stops, with each member playing a vital role. One mistake can cost seconds — and the race.",
+    icon: "mdi:account-hard-hat",
+  },
+];
 ---
 
 <!doctype html>
@@ -91,7 +112,7 @@ const dataDrivenItems = [
             <h1 class="mb-4 text-4xl font-bold md:text-5xl dark:text-zinc-100">
               {pageTitle}
             </h1>
-            <p class="text-zinc-600 dark:text-zinc-300">
+            <p class="text-zinc-800 dark:text-zinc-300">
               Technological prowess drives Formula 1 innovation
             </p>
           </div>
@@ -103,7 +124,7 @@ const dataDrivenItems = [
             {
               technologyItems.map((item) => (
                 <div
-                  class={`group relative flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm transition-all duration-300 hover:border-sky-500/50 hover:shadow-md dark:bg-zinc-800 dark:hover:shadow-zinc-700/50 ${item.gridClass}`}
+                  class={`group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:bg-zinc-800 dark:hover:shadow-zinc-700/50 ${item.gridClass}`}
                 >
                   <div class="flex flex-1 flex-col p-6">
                     <div class="mb-4 flex items-center gap-4">
@@ -117,7 +138,7 @@ const dataDrivenItems = [
                         {item.title}
                       </h3>
                     </div>
-                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+                    <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-300">
                       {item.description}
                     </p>
                   </div>
@@ -177,7 +198,7 @@ const dataDrivenItems = [
             </div>
 
             <div class="mt-8 text-center">
-              <p class="mx-auto max-w-2xl text-zinc-600 dark:text-zinc-300">
+              <p class="mx-auto max-w-2xl text-zinc-800 dark:text-zinc-300">
                 Explore the cutting-edge technology that powers modern Formula 1
                 cars, from advanced aerodynamics to hybrid power units.
               </p>
@@ -197,7 +218,7 @@ const dataDrivenItems = [
                 Cost Cap Impact
               </h2>
               <p
-                class="mx-auto max-w-3xl text-lg text-zinc-600 dark:text-zinc-300"
+                class="mx-auto max-w-3xl text-lg text-zinc-800 dark:text-zinc-300"
               >
                 Transforming F1's financial landscape with a $140M cost cap,
                 creating a more competitive and sustainable future for the
@@ -218,7 +239,7 @@ const dataDrivenItems = [
                     />
                   </div>
                   <div>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-300">
+                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
                       Annual Budget
                     </p>
                     <p class="text-2xl font-bold dark:text-zinc-200">$140M</p>
@@ -234,7 +255,7 @@ const dataDrivenItems = [
                     />
                   </div>
                   <div>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-300">
+                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
                       Race Calendar
                     </p>
                     <p class="text-2xl font-bold dark:text-zinc-200">
@@ -252,7 +273,7 @@ const dataDrivenItems = [
                     />
                   </div>
                   <div>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-300">
+                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
                       Teams
                     </p>
                     <p class="text-2xl font-bold dark:text-zinc-200">11</p>
@@ -268,7 +289,7 @@ const dataDrivenItems = [
                     />
                   </div>
                   <div>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-300">
+                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
                       Pressure
                     </p>
                     <p class="text-2xl font-bold dark:text-zinc-200">100%</p>
@@ -285,7 +306,7 @@ const dataDrivenItems = [
                 >
                   Financial Equality
                 </h3>
-                <p class="leading-loose text-zinc-600 dark:text-zinc-300">
+                <p class="leading-loose text-zinc-800 dark:text-zinc-300">
                   The introduction of a cost cap in Formula One marks a
                   significant shift towards financial sustainability. Teams are
                   now restricted to $140 million per year for car development,
@@ -293,7 +314,7 @@ const dataDrivenItems = [
                   smaller teams. This cap ensures that success is determined
                   more by innovation and efficiency than by financial might.
                 </p>
-                <ul class="space-y-2 text-zinc-600 dark:text-zinc-300">
+                <ul class="space-y-2 text-zinc-800 dark:text-zinc-300">
                   <li class="flex items-center gap-2">
                     <Icon
                       name="mdi:check-bold"
@@ -326,7 +347,7 @@ const dataDrivenItems = [
                 >
                   Impact on Competition
                 </h3>
-                <p class="leading-loose text-zinc-600 dark:text-zinc-300">
+                <p class="leading-loose text-zinc-800 dark:text-zinc-300">
                   This new approach prevents financial dominance from
                   determining championship outcomes. Teams must now prioritize
                   efficiency and strategic resource allocation, leading to more
@@ -335,7 +356,7 @@ const dataDrivenItems = [
                   creating more opportunities for midfield teams to compete for
                   podiums.
                 </p>
-                <ul class="space-y-2 text-zinc-600 dark:text-zinc-300">
+                <ul class="space-y-2 text-zinc-800 dark:text-zinc-300">
                   <li class="flex items-center gap-2">
                     <Icon
                       name="mdi:check-bold"
@@ -374,14 +395,14 @@ const dataDrivenItems = [
             <h2 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
               Data-Driven Edge
             </h2>
-            <p class="mx-auto mt-2 text-zinc-600 dark:text-zinc-300">
+            <p class="mx-auto mt-2 text-zinc-800 dark:text-zinc-300">
               How analytics and telemetry shape every millisecond of F1
               performance
             </p>
           </div>
           <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
             {
-              dataDrivenItems.map((item, index) => (
+              dataDrivenItems.map((item) => (
                 <div class="group relative flex flex-col items-center rounded-xl bg-white p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md dark:bg-zinc-800 dark:hover:shadow-sky-600/50">
                   <div class="mb-4 rounded-full bg-zinc-100 p-4 transition-colors duration-300 group-hover:bg-sky-100 dark:bg-zinc-700 dark:group-hover:bg-sky-900/30">
                     <Icon
@@ -392,7 +413,7 @@ const dataDrivenItems = [
                   <h3 class="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                     {item.title}
                   </h3>
-                  <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+                  <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-300">
                     {item.description}
                   </p>
                 </div>
@@ -412,61 +433,22 @@ const dataDrivenItems = [
           <div
             class="mx-auto mt-8 grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            <!-- One Team Card -->
-            <div class="group space-y-4">
-              <div
-                class="group-hover:inset-shadow-sm group-hover:inset-shadow-zinc-400 inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 text-white transition-all duration-200 dark:bg-zinc-800"
-              >
-                <Icon
-                  name="mdi:account-group"
-                  class="inline-block h-8 w-8 text-zinc-800 dark:text-zinc-300"
-                />
-              </div>
-              <h3 class="dark:text-zinc-200">One Team, One Goal</h3>
-              <p class="leading-loose text-zinc-600 dark:text-zinc-300">
-                From factory to finish line, everyone works toward a single
-                mission: performance. Designers, mechanics, and support staff
-                all play a part. In F1, collaboration and unity turn potential
-                into podiums.
-              </p>
-            </div>
-
-            <!-- Brains Behind Card -->
-            <div class="group space-y-4">
-              <div
-                class="group-hover:inset-shadow-sm group-hover:inset-shadow-zinc-400 inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 text-white transition-all duration-200 dark:bg-zinc-800"
-              >
-                <Icon
-                  name="mdi:account-wrench"
-                  class="inline-block h-8 w-8 text-zinc-800 dark:text-zinc-300"
-                />
-              </div>
-              <h3 class="dark:text-zinc-200">Behind the Speed</h3>
-              <p class="leading-loose text-zinc-600 dark:text-zinc-300">
-                Race engineers and strategists are the unsung heroes. They
-                analyze live data, adapt to changing conditions, and guide the
-                driver through every lap. Success relies on trust, quick
-                thinking, and seamless communication.
-              </p>
-            </div>
-
-            <!-- Precision Card -->
-            <div class="group space-y-4">
-              <div
-                class="group-hover:inset-shadow-sm group-hover:inset-shadow-zinc-400 inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 text-white transition-all duration-200 dark:bg-zinc-800"
-              >
-                <Icon
-                  name="mdi:account-hard-hat"
-                  class="inline-block h-8 w-8 text-zinc-800 dark:text-zinc-300"
-                />
-              </div>
-              <h3 class="dark:text-zinc-200">Pit Wall Precision</h3>
-              <p class="leading-loose text-zinc-600 dark:text-zinc-300">
-                Teamwork in F1 is a finely tuned operation. Pit crews execute
-                lightning-fast stops, with each member playing a vital role. One
-                mistake can cost seconds — and the race.
-              </p>
-            </div>
+            {
+              teamworkItems.map((item) => (
+                <div class="group space-y-4">
+                  <div class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 transition-colors duration-300 group-hover:bg-sky-100 dark:bg-zinc-800 dark:group-hover:bg-sky-900/30">
+                    <Icon
+                      name={item.icon}
+                      class="h-8 w-8 text-zinc-700 transition-colors duration-300 group-hover:text-sky-600 dark:text-zinc-300 dark:group-hover:text-sky-400"
+                    />
+                  </div>
+                  <h3 class="dark:text-zinc-200">{item.title}</h3>
+                  <p class="leading-loose text-zinc-800 dark:text-zinc-300">
+                    {item.description}
+                  </p>
+                </div>
+              ))
+            }
           </div>
         </div>
       </section>

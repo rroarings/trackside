@@ -8,6 +8,7 @@ import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.as
 import FormattedDate from "../../../../components/FormattedDate.astro";
 import { SITE_TITLE } from "../../../../consts";
 import { getCollection } from "astro:content";
+import { getSlugFromEntry } from "../../../../utils/slugUtils";
 
 export async function getStaticPaths() {
   const drivers = await getCollection(
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
     ({ data }) => data.season === "2026",
   );
   return drivers.map((driver) => {
-    const slug = (driver as any).slug ?? driver.id.split("/").pop();
+    const slug = getSlugFromEntry(driver);
     return {
       params: { slug },
       props: { driver },
@@ -31,6 +32,36 @@ import { teamBgMap } from "../../../../utils/teamBgMap";
 const { Content } = await render(driver);
 // team background for driver's team
 const teamBg = teamBgMap[driver.data.driverTeam] || null;
+
+// Hero stats grid items
+const heroStats = [
+  { value: driver.data.driverTeam, label: "Team" },
+  { value: driver.data.nationality, label: "Nationality" },
+  { value: driver.data.age, label: "Age" },
+  { value: driver.data.championshipPosition, label: "Championship Position" },
+  { value: driver.data.driverPoints, label: "Points" },
+  { value: driver.data.grandPrixWins, label: "Grand Prix Wins" },
+];
+
+// Season stats for StatCard section
+const seasonStats = [
+  { value: driver.data.championshipPosition, label: "Championship Position" },
+  { value: driver.data.driverPoints, label: "Driver Points" },
+  { value: driver.data.grandPrixWins, label: "Grand Prix Wins" },
+  { value: driver.data.polePositions, label: "Pole Positions" },
+  { value: driver.data.fastestLaps, label: "Fastest Laps" },
+  { value: driver.data.podiums, label: "Podiums" },
+];
+
+// Lifetime stats for StatCard section
+const lifetimeStats = [
+  { value: driver.data.careerStats?.championships, label: "Championships" },
+  { value: driver.data.careerStats?.careerPoints, label: "Career Points" },
+  { value: driver.data.careerStats?.grandPrixWins, label: "Grand Prix Wins" },
+  { value: driver.data.careerStats?.polePositions, label: "Pole Positions" },
+  { value: driver.data.careerStats?.fastestLaps, label: "Fastest Laps" },
+  { value: driver.data.careerStats?.podiumPositions, label: "Podiums" },
+];
 ---
 
 <!doctype html>
@@ -63,206 +94,82 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null;
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <!-- Left: Driver Image with team background -->
           <div
-            class="flex flex-1 overflow-hidden rounded-2xl"
+            class="flex flex-1 items-end justify-end overflow-hidden rounded-2xl"
             style={teamBg
-              ? `background-image: url('${teamBg.src}'); background-size: cover;`
+              ? `background-image: url('${teamBg.src}'); background-size: cover; background-position: center;`
               : ""}
           >
-            <div class="flex flex-1 justify-end">
-              <Image
-                src={driver.data.profileImageLarge || driver.data.profileImage}
-                alt={driver.data.profileImageLargeAlt ||
-                  driver.data.profileImageAlt}
-                width={400}
-                height={400}
-                class="h-full object-contain"
-                loading="eager"
-              />
-            </div>
+            <Image
+              src={driver.data.profileImageLarge || driver.data.profileImage}
+              alt={driver.data.profileImageLargeAlt ||
+                driver.data.profileImageAlt}
+              width={400}
+              height={400}
+              class="object-contain object-bottom"
+              loading="eager"
+            />
           </div>
           <!-- Right: Driver Info & Stats -->
           <div>
-            <h1
-              class="mb-2 text-4xl font-bold text-zinc-900 dark:text-zinc-100"
-            >
+            <h1 class="mb-2 font-bold text-zinc-900 dark:text-zinc-100">
               {driver.data.driverFirstName}
               {driver.data.driverLastName}
             </h1>
 
             <!-- Stats Grid -->
             <div class="grid grid-cols-2 gap-4">
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.driverTeam}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Team
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.age}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Age
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.championshipPosition}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Championship Position
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.driverPoints}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Points
-                </div>
-              </div>
-
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.grandPrixWins}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Grand Prix Wins
-                </div>
-              </div>
-              <div
-                class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800"
-              >
-                <div
-                  class="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-                >
-                  {driver.data.nationality}
-                </div>
-                <div class="text-base text-zinc-500 dark:text-zinc-400">
-                  Nationality
-                </div>
-              </div>
+              {
+                heroStats.map((stat) => (
+                  <div class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800">
+                    <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                      {stat.value}
+                    </div>
+                    <div class="text-base text-zinc-800 dark:text-zinc-400">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
       </section>
 
       <!-- Two Column Statistics Section -->
-      <section class="bg-zinc-100 p-8 py-12 dark:bg-zinc-900">
-        <div class="container mx-auto">
+      <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
+        <div class="container mx-auto px-4">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-zinc-200">
             Driver Statistics
           </h2>
-          <div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* Team Statistics Column */}
-            <div class="p-6">
+          <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Season Statistics Column */}
+            <div class="rounded-xl p-6">
               <h3
-                class="mb-4 text-center text-xl font-semibold dark:text-zinc-100"
+                class="mb-6 text-center text-xl font-semibold dark:text-zinc-100"
               >
                 2026 Season
               </h3>
-              <div class="-mx-2 flex flex-wrap">
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.championshipPosition}
-                    label="Championship Position"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.driverPoints}
-                    label="Driver Points"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.grandPrixWins}
-                    label="Grand Prix Wins"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.polePositions}
-                    label="Pole Positions"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.fastestLaps}
-                    label="Fastest Laps"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard value={driver.data.podiums} label="Podiums" />
-                </div>
+              <div class="grid grid-cols-2 gap-4">
+                {
+                  seasonStats.map((stat) => (
+                    <StatCard value={stat.value} label={stat.label} />
+                  ))
+                }
               </div>
             </div>
             {/* Lifetime Statistics Column */}
-            <div class="rounded bg-zinc-200/50 p-6 dark:bg-zinc-500/50">
+            <div class="rounded-xl bg-zinc-200/50 p-6 dark:bg-zinc-700/70">
               <h3
-                class="mb-4 text-center text-xl font-semibold dark:text-zinc-100"
+                class="mb-6 text-center text-xl font-semibold dark:text-zinc-100"
               >
                 Lifetime
               </h3>
-              <div class="-mx-2 flex flex-wrap">
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.championships}
-                    label="Championships"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.careerPoints}
-                    label="Career Points"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.grandPrixWins}
-                    label="Grand Prix Wins"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.polePositions}
-                    label="Pole Positions"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.fastestLaps}
-                    label="Fastest Laps"
-                  />
-                </div>
-                <div class="mb-6 w-1/2 px-2 md:w-1/2">
-                  <StatCard
-                    value={driver.data.careerStats?.podiumPositions}
-                    label="Podiums"
-                  />
-                </div>
+              <div class="grid grid-cols-2 gap-4">
+                {
+                  lifetimeStats.map((stat) => (
+                    <StatCard value={stat.value} label={stat.label} />
+                  ))
+                }
               </div>
             </div>
           </div>
@@ -272,22 +179,16 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null;
       <!-- Driver Biography -->
       <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
         <div class="container mx-auto">
-          <div class="prose prose-lg dark:prose-invert max-w-fit">
+          <div
+            class="prose prose-lg dark:prose-invert text-zinc-800 dark:text-zinc-300"
+          >
             <Content />
           </div>
         </div>
       </section>
 
-      <!-- Back Link -->
-      <SeasonButtonsModular
-        leftHref="/seasons/2026/drivers/"
-        leftText="Back to 2026 Drivers"
-        rightHref="/seasons"
-        rightText="Back to Seasons"
-      />
-
       {/* Last Updated Section */}
-      <section class="pt-12 text-center">
+      <section class="py-8">
         <p class="text-zinc-600 dark:text-zinc-400">
           {
             driver.data.updatedDate && (
@@ -299,6 +200,14 @@ const teamBg = teamBgMap[driver.data.driverTeam] || null;
           }
         </p>
       </section>
+
+      {/* Back Link */}
+      <SeasonButtonsModular
+        leftHref="/seasons/2026/drivers/"
+        leftText="Back to 2026 Drivers"
+        rightHref="/seasons"
+        rightText="Back to Seasons"
+      />
     </main>
     <Footer />
   </body>

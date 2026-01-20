@@ -14,12 +14,34 @@ const drivers = await getCollection("drivers", ({ data }) => {
 });
 
 // Sort drivers by championship position (1-24)
-const sortedDrivers = drivers.sort((a, b) => {
-  // Use championship position first, if equal fall back to points
+const sortedByStandings = [...drivers].sort((a, b) => {
   if (a.data.championshipPosition !== b.data.championshipPosition) {
     return a.data.championshipPosition - b.data.championshipPosition;
   }
   return b.data.driverPoints - a.data.driverPoints;
+});
+
+// Group drivers by team (sorted alphabetically by team name)
+const teamOrder = [
+  "Alpine",
+  "Aston Martin",
+  "Cadillac",
+  "Ferrari",
+  "Haas",
+  "Kick Sauber",
+  "McLaren",
+  "Mercedes",
+  "Racing Bulls",
+  "Red Bull Racing",
+  "Williams",
+];
+
+const sortedByTeam = [...drivers].sort((a, b) => {
+  const teamA = teamOrder.indexOf(a.data.driverTeam);
+  const teamB = teamOrder.indexOf(b.data.driverTeam);
+  if (teamA !== teamB) return teamA - teamB;
+  // Within same team, sort by driver number or name
+  return a.data.driverLastName.localeCompare(b.data.driverLastName);
 });
 ---
 
@@ -48,18 +70,58 @@ const sortedDrivers = drivers.sort((a, b) => {
           <h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">
             2026 Formula 1 Drivers
           </h1>
-          <p class="text-lg text-gray-700 dark:text-zinc-300">
+          <p class="text-lg text-gray-800 dark:text-zinc-300">
             Complete driver profiles and season statistics
           </p>
+
+          <!-- Sort Toggle -->
+          <div class="mt-8 flex justify-center gap-2">
+            <button
+              id="sort-standings"
+              class="sort-btn rounded-lg bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+              data-active="false"
+            >
+              By Standings
+            </button>
+            <button
+              id="sort-team"
+              class="sort-btn rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white transition-all duration-200"
+              data-active="true"
+            >
+              By Team
+            </button>
+          </div>
         </div>
       </section>
 
-      <!-- Drivers Grid -->
-      <section class="pb-16 pt-4">
+      <!-- Drivers Grid - By Standings -->
+      <section id="grid-standings" class="hidden pb-16 pt-4">
         <div class="container mx-auto">
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
             {
-              sortedDrivers.map((driver, i) => (
+              sortedByStandings.map((driver, i) => (
+                <DriverCard
+                  driver={driver}
+                  index={i}
+                  eagerCount={6}
+                  year="2026"
+                />
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Drivers Grid - By Team -->
+      <section id="grid-team" class="pb-16 pt-4">
+        <div class="container mx-auto">
+          <div
+            class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            {
+              sortedByTeam.map((driver, i) => (
                 <DriverCard
                   driver={driver}
                   index={i}
@@ -81,5 +143,50 @@ const sortedDrivers = drivers.sort((a, b) => {
       />
     </main>
     <Footer />
+
+    <script>
+      const btnStandings = document.getElementById("sort-standings");
+      const btnTeam = document.getElementById("sort-team");
+      const gridStandings = document.getElementById("grid-standings");
+      const gridTeam = document.getElementById("grid-team");
+
+      const activeClasses = ["bg-sky-600", "text-white"];
+      const inactiveClasses = [
+        "bg-zinc-200",
+        "text-zinc-700",
+        "hover:bg-zinc-300",
+        "dark:bg-zinc-700",
+        "dark:text-zinc-300",
+        "dark:hover:bg-zinc-600",
+      ];
+
+      function setActive(
+        activeBtn: HTMLElement,
+        inactiveBtn: HTMLElement,
+        showGrid: HTMLElement,
+        hideGrid: HTMLElement,
+      ) {
+        // Update button styles
+        activeBtn.classList.remove(...inactiveClasses);
+        activeBtn.classList.add(...activeClasses);
+        activeBtn.dataset.active = "true";
+
+        inactiveBtn.classList.remove(...activeClasses);
+        inactiveBtn.classList.add(...inactiveClasses);
+        inactiveBtn.dataset.active = "false";
+
+        // Toggle grids
+        showGrid.classList.remove("hidden");
+        hideGrid.classList.add("hidden");
+      }
+
+      btnStandings?.addEventListener("click", () => {
+        setActive(btnStandings, btnTeam!, gridStandings!, gridTeam!);
+      });
+
+      btnTeam?.addEventListener("click", () => {
+        setActive(btnTeam, btnStandings!, gridTeam!, gridStandings!);
+      });
+    </script>
   </body>
 </html>

@@ -7,6 +7,7 @@ import FormattedDate from "../../../../components/FormattedDate.astro";
 import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
 import SeasonButtons from "../../../../components/SeasonButtons.astro";
 import { SITE_TITLE } from "../../../../consts";
+import { getSlugFromEntry } from "../../../../utils/slugUtils";
 
 export async function getStaticPaths() {
   const races = await getCollection("races", ({ data }) => {
@@ -14,8 +15,7 @@ export async function getStaticPaths() {
   });
 
   return races.map((race) => {
-    const parts = race.id.split("/");
-    const slug = parts[parts.length - 1].replace(/\.(md|mdx)$/, "");
+    const slug = getSlugFromEntry(race);
     return {
       params: { slug },
       props: { race },
@@ -30,11 +30,11 @@ const { Content } = await render(race);
 ---
 
 <!doctype html>
-<html lang="en" class="bg-zinc-100 dark:bg-zinc-950">
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
       title={`${race.data.trackName} | ${SITE_TITLE}`}
-      description={`Information about the ${race.data.trackName} Grand Prix of the 2025 Formula 1 season`}
+      description={`Information about the ${race.data.trackName} Grand Prix of the 2024 Formula 1 season`}
     />
   </head>
   <body>
