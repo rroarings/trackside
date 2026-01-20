@@ -1,82 +1,79 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro"
-import Header from "../../../components/Header.astro"
-import Footer from "../../../components/Footer.astro"
-import { SITE_TITLE } from "../../../consts"
-import Breadcrumbs from "../../../components/Breadcrumbs.astro"
-import SeasonNavCards from "../../../components/SeasonNavCards.astro"
-import Standings from "../../../components/Standings.astro"
-import RaceCalendar from "../../../components/RaceCalendar.astro"
-import LatestPosts from "../../../components/LatestPosts.astro"
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { SITE_TITLE } from "../../../consts";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import SeasonNavCards from "../../../components/SeasonNavCards.astro";
+import Standings from "../../../components/Standings.astro";
+import RaceCalendar from "../../../components/RaceCalendar.astro";
+import LatestPosts from "../../../components/LatestPosts.astro";
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-zinc-100 dark:bg-zinc-900">
-	<head>
-		<BaseHead
-			title={`2024 F1 Season | ${SITE_TITLE}`}
-			description="Complete 2024 Formula 1 race calendar and season overview"
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Breadcrumbs
-				items={[
-					{ text: "Home", href: "/" },
-					{ text: "Seasons", href: "/seasons" },
-					{ text: "2024", href: "/seasons/2024/" },
-				]}
-			/>
-			<!-- 2024 Season Header -->
-			<section class="pb-6 pt-6 text-center dark:text-zinc-100">
-				<div class="container mx-auto px-4">
-					<h1 class="mb-4 text-4xl font-bold">State of the Season</h1>
-					<p class="mx-auto max-w-4xl text-lg leading-loose text-zinc-800 dark:text-zinc-300">
-						The 2024 season is shaping up to be a thriller. With new regulations shaking up the grid
-						and fierce rivalries igniting, follow along for real-time standings, race results, and
-						in-depth analysis.
-					</p>
-				</div>
-			</section>
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
+  <head>
+    <BaseHead
+      title={`2024 F1 Season | ${SITE_TITLE}`}
+      description="Complete 2024 Formula 1 race calendar and season overview"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Seasons", href: "/seasons" },
+          { text: "2024", href: "/seasons/2024/" },
+        ]}
+      />
+      <!-- 2024 Season Header -->
+      <section class="pb-6 pt-6 text-center dark:text-zinc-100">
+        <div class="container mx-auto px-4">
+          <h1 class="mb-4 text-4xl font-bold">State of the Season</h1>
+          <p
+            class="mx-auto max-w-4xl text-lg leading-loose text-zinc-800 dark:text-zinc-300"
+          >
+            The 2024 season is shaping up to be a thriller. With new regulations
+            shaking up the grid and fierce rivalries igniting, follow along for
+            real-time standings, race results, and in-depth analysis.
+          </p>
+        </div>
+      </section>
 
-			<!-- Driver / Constructor Nav Cards -->
-			<SeasonNavCards season="2024" />
+      <!-- Driver / Constructor Nav Cards -->
+      <SeasonNavCards season="2024" />
 
-			<!-- Standings Section -->
-			<section class="bg-zinc-100 py-16 dark:bg-zinc-900">
-				<div class="container mx-auto px-4">
-					<h2 class="mb-6 text-center text-2xl font-bold dark:text-zinc-100">
-						2024 Championship Standings
-					</h2>
+      <!-- Standings Section -->
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
+        <div class="container mx-auto px-4">
+          <h2 class="mb-6 text-center text-2xl font-bold dark:text-zinc-100">
+            2024 Championship Standings
+          </h2>
 
-					<Standings
-						season="2024"
-						imageLoading="eager"
-					/>
-				</div>
-			</section>
+          <Standings season="2024" imageLoading="eager" />
+        </div>
+      </section>
 
-			<!-- Race Calendar -->
-			<section class="bg-zinc-100 py-16 dark:bg-zinc-900">
-				<div class="container mx-auto px-4">
-					<h2 class="mb-8 text-center text-2xl font-bold dark:text-zinc-100">
-						Race Spotlight: What's Next on the Calendar
-					</h2>
-					<RaceCalendar
-						season="2024"
-						showAllRaces={true}
-						showTitle={true}
-						eagerCount={0}
-					/>
-				</div>
-			</section>
+      <!-- Race Calendar -->
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
+        <div class="container mx-auto px-4">
+          <h2 class="mb-8 text-center text-2xl font-bold dark:text-zinc-100">
+            Race Spotlight: What's Next on the Calendar
+          </h2>
+          <RaceCalendar
+            season="2024"
+            showAllRaces={true}
+            showTitle={true}
+            eagerCount={0}
+          />
+        </div>
+      </section>
 
-			<!-- Latest Blog Posts Section -->
-			<LatestPosts />
-		</main>
-		<Footer />
-	</body>
+      <!-- Latest Blog Posts Section -->
+      <LatestPosts />
+    </main>
+    <Footer />
+  </body>
 </html>
