@@ -8,6 +8,7 @@ import StatCard from "../../../../components/StatCard.astro";
 import DriverCard from "../../../../components/DriverCard.astro";
 import { SITE_TITLE } from "../../../../consts";
 import { getCollection } from "astro:content";
+import { getSlugFromEntry } from "../../../../utils/slugUtils";
 
 export async function getStaticPaths() {
   const teams = await getCollection(
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
     ({ data }) => data.season === "2024",
   );
   return teams.map((team) => {
-    const slug = team.id.split("/").pop();
+    const slug = getSlugFromEntry(team);
     return {
       params: { slug },
       props: { team },
@@ -29,7 +30,7 @@ import { render } from "astro:content";
 import { Image } from "astro:assets";
 const { Content } = await render(team);
 
-// Get all drivers for 2025 season
+// Get all drivers for 2024 season
 const drivers = await getCollection(
   "drivers",
   ({ data }) => data.season === "2024",
@@ -47,7 +48,7 @@ drivers.forEach((driver) => {
   <head>
     <BaseHead
       title={`${team.data.constructorName} | ${SITE_TITLE}`}
-      description={`2025 F1 team profile for ${team.data.constructorName} with their ${team.data.carModel} car`}
+      description={`2024 F1 team profile for ${team.data.constructorName} with their ${team.data.carModel} car`}
     />
   </head>
   <body>
@@ -136,7 +137,7 @@ drivers.forEach((driver) => {
       <section class="hidden bg-zinc-100 py-12 dark:bg-zinc-900">
         <div class="container mx-auto">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-zinc-200">
-            2025 Season Statistics
+            2024 Season Statistics
           </h2>
           <div class="mx-auto max-w-7xl">
             <div class="-mx-2 flex flex-wrap">
@@ -233,7 +234,7 @@ drivers.forEach((driver) => {
               <h3
                 class="mb-4 text-center text-xl font-semibold dark:text-zinc-100"
               >
-                2025 Season Statistics
+                2024 Season Statistics
               </h3>
               <div class="-mx-2 flex flex-wrap px-4">
                 <div class="mb-6 w-1/2 px-2 md:w-1/2">
