@@ -1,202 +1,204 @@
 ---
-import BaseHead from "../../components/BaseHead.astro"
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
-import TwoColumnSection from "../../components/TwoColumnSection.astro"
-import LatestPosts from "../../components/LatestPosts.astro"
-import { Image } from "astro:assets"
-import { Icon } from "astro-icon/components"
-import jp02 from "../../assets/circuits/03japan/jp02.jpg"
-import bh03 from "../../assets/circuits/04bahrain/bh03.jpg"
-import kimiPortrait from "../../assets/constructors/mercedes/drivers/antonelli-02.png"
-import bearmanPortrait from "../../assets/constructors/haas/drivers/bearman-02.png"
-import hadjarPortrait from "../../assets/constructors/racing-bulls/drivers/hadjar-02.png"
-import bortoletoPortrait from "../../assets/constructors/kick-sauber/drivers/bortoleto-02.png"
-import doohanPortrait from "../../assets/constructors/alpine/drivers/doohan-02.png"
-import lawsonPortrait from "../../assets/constructors/racing-bulls/drivers/lawson-02.png"
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import TwoColumnSection from "../../components/TwoColumnSection.astro";
+import LatestPosts from "../../components/LatestPosts.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import jp02 from "../../assets/circuits/03japan/jp02.jpg";
+import bh03 from "../../assets/circuits/04bahrain/bh03.jpg";
+import kimiPortrait from "../../assets/constructors/mercedes/drivers/antonelli-02.png";
+import bearmanPortrait from "../../assets/constructors/haas/drivers/bearman-02.png";
+import hadjarPortrait from "../../assets/constructors/racing-bulls/drivers/hadjar-02.png";
+import bortoletoPortrait from "../../assets/constructors/kick-sauber/drivers/bortoleto-02.png";
+import doohanPortrait from "../../assets/constructors/alpine/drivers/doohan-02.png";
+import lawsonPortrait from "../../assets/constructors/racing-bulls/drivers/lawson-02.png";
 
-const pageTitle = "Future of Formula 1"
+const pageTitle = "Future of Formula 1";
 const description =
-	"Discover what lies ahead for Formula 1 as we explore emerging technologies, sustainability initiatives, and the next generation of racing talent."
+  "Discover what lies ahead for Formula 1 as we explore emerging technologies, sustainability initiatives, and the next generation of racing talent.";
 const rookies = [
-	{
-		name: "Kimi Antonelli",
-		desc: "Mercedes prodigy who impressed in Formula 2 with exceptional race craft and maturity beyond his years.",
-		img: kimiPortrait,
-		alt: "Kimi Antonelli driver portrait",
-	},
-	{
-		name: "Oliver Bearman",
-		desc: "Ferrari academy graduate who earned his Haas seat after a stunning F1 debut filling in at Saudi Arabia.",
-		img: bearmanPortrait,
-		alt: "Oliver Bearman driver portrait",
-	},
-	{
-		name: "Isack Hadjar",
-		desc: "Red Bull junior who fought for the F2 title, known for aggressive overtakes and cool-headed consistency.",
-		img: hadjarPortrait,
-		alt: "Isack Hadjar driver portrait",
-	},
-	{
-		name: "Gabriel Bortoleto",
-		desc: "McLaren-backed F2 champion joining Kick Sauber, celebrated for his strategic intelligence and raw speed.",
-		img: bortoletoPortrait,
-		alt: "Gabriel Bortoleto driver portrait",
-	},
-	{
-		name: "Liam Lawson",
-		desc: "New Zealander who seized his chance as Red Bull's super-sub, delivering points on multiple occasions.",
-		img: lawsonPortrait,
-		alt: "Liam Lawson driver portrait",
-	},
-	// ...other rookies
-]
+  {
+    name: "Kimi Antonelli",
+    desc: "Mercedes prodigy who impressed in Formula 2 with exceptional race craft and maturity beyond his years.",
+    img: kimiPortrait,
+    alt: "Kimi Antonelli driver portrait",
+  },
+  {
+    name: "Oliver Bearman",
+    desc: "Ferrari academy graduate who earned his Haas seat after a stunning F1 debut filling in at Saudi Arabia.",
+    img: bearmanPortrait,
+    alt: "Oliver Bearman driver portrait",
+  },
+  {
+    name: "Isack Hadjar",
+    desc: "Red Bull junior who fought for the F2 title, known for aggressive overtakes and cool-headed consistency.",
+    img: hadjarPortrait,
+    alt: "Isack Hadjar driver portrait",
+  },
+  {
+    name: "Gabriel Bortoleto",
+    desc: "McLaren-backed F2 champion joining Kick Sauber, celebrated for his strategic intelligence and raw speed.",
+    img: bortoletoPortrait,
+    alt: "Gabriel Bortoleto driver portrait",
+  },
+  {
+    name: "Liam Lawson",
+    desc: "New Zealander who seized his chance as Red Bull's super-sub, delivering points on multiple occasions.",
+    img: lawsonPortrait,
+    alt: "Liam Lawson driver portrait",
+  },
+  // ...other rookies
+];
 
 const keyStats = [
-	{ value: "50%", label: "Electric Power" },
-	{ value: "100%", label: "Sustainable Fuel" },
-	{ value: "11", label: "Teams on Grid" },
-	{ value: "30kg", label: "Lighter Cars" },
-]
+  { value: "50%", label: "Electric Power" },
+  { value: "100%", label: "Sustainable Fuel" },
+  { value: "11", label: "Teams on Grid" },
+  { value: "30kg", label: "Lighter Cars" },
+];
 
 const regulationsGrid = [
-	{
-		title: "Power Unit Revolution",
-		icon: "mdi:lightning-bolt",
-		items: [
-			"Electric motor output increases to 350kW—equal to the internal combustion engine",
-			"MGU-H (heat energy recovery) removed to simplify power units and reduce costs",
-			"100% sustainable fuel mandatory—drop-in compatible with standard engines",
-			"Five PU manufacturers: Mercedes, Ferrari, Red Bull-Ford, Honda, and Audi",
-		],
-	},
-	{
-		title: "Active Aerodynamics",
-		icon: "mdi:airplane",
-		items: [
-			"Both front and rear wings dynamically adjust angle based on track position",
-			"Closed position in corners for grip; open position on straights for low drag",
-			"DRS replaced by Active Aero for all, plus new Overtake Mode within 1 second",
-			"Reduced downforce and flatter floors for closer racing and varied setups",
-		],
-	},
-	{
-		title: "Expanded Grid",
-		icon: "mdi:flag-checkered",
-		items: [
-			"Cadillac F1 joins as the 11th team—first new constructor since Haas in 2016",
-			"Bottas & Checo return under the Cadillac banner",
-			"Audi takes full ownership of Kick Sauber, becoming a works team",
-			"22 drivers on the grid—largest F1 field in over a decade",
-		],
-	},
-	{
-		title: "Smaller, Nimbler Cars",
-		icon: "mdi:car-sports",
-		items: [
-			"Minimum weight reduced by 30kg—targeting 768kg vs current 798kg",
-			"Shorter wheelbase for improved agility through slow-speed corners",
-			"Simplified front wing design to reduce sensitivity to dirty air",
-			"Enhanced safety structures with updated crash test requirements",
-		],
-	},
-]
+  {
+    title: "Power Unit Revolution",
+    icon: "mdi:lightning-bolt",
+    items: [
+      "Electric motor output increases to 350kW—equal to the internal combustion engine",
+      "MGU-H (heat energy recovery) removed to simplify power units and reduce costs",
+      "100% sustainable fuel mandatory—drop-in compatible with standard engines",
+      "Five PU manufacturers: Mercedes, Ferrari, Red Bull-Ford, Honda, and Audi",
+    ],
+  },
+  {
+    title: "Active Aerodynamics",
+    icon: "mdi:airplane",
+    items: [
+      "Both front and rear wings dynamically adjust angle based on track position",
+      "Closed position in corners for grip; open position on straights for low drag",
+      "DRS replaced by Active Aero for all, plus new Overtake Mode within 1 second",
+      "Reduced downforce and flatter floors for closer racing and varied setups",
+    ],
+  },
+  {
+    title: "Expanded Grid",
+    icon: "mdi:flag-checkered",
+    items: [
+      "Cadillac F1 joins as the 11th team—first new constructor since Haas in 2016",
+      "Bottas & Checo return under the Cadillac banner",
+      "Audi takes full ownership of Kick Sauber, becoming a works team",
+      "22 drivers on the grid—largest F1 field in over a decade",
+    ],
+  },
+  {
+    title: "Smaller, Nimbler Cars",
+    icon: "mdi:car-sports",
+    items: [
+      "Minimum weight reduced by 30kg—targeting 768kg vs current 798kg",
+      "Shorter wheelbase for improved agility through slow-speed corners",
+      "Simplified front wing design to reduce sensitivity to dirty air",
+      "Enhanced safety structures with updated crash test requirements",
+    ],
+  },
+];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-zinc-100 dark:bg-zinc-900">
-	<head>
-		<BaseHead
-			title={pageTitle}
-			description={description}
-		/>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<!-- Hero Section -->
-			<div class="pb-10 text-center">
-				<h1 class="mb-4 text-4xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-100">
-					{pageTitle}
-				</h1>
-				<div class="mx-auto max-w-3xl">
-					<p class="mb-8 leading-loose text-zinc-800 dark:text-zinc-300">
-						Formula 1 has always been at the forefront of technological advancements, and the future
-						promises to be no different.
-					</p>
-				</div>
-				<div class="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-xl dark:shadow-zinc-800">
-					<Image
-						src={bh03}
-						alt="weepah"
-						loading="eager"
-					/>
-				</div>
-			</div>
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
+  <head>
+    <BaseHead title={pageTitle} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <div class="pb-10 text-center">
+        <h1
+          class="mb-4 text-4xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-100"
+        >
+          {pageTitle}
+        </h1>
+        <div class="mx-auto max-w-3xl">
+          <p class="mb-8 leading-loose text-zinc-800 dark:text-zinc-300">
+            Formula 1 has always been at the forefront of technological
+            advancements, and the future promises to be no different.
+          </p>
+        </div>
+        <div
+          class="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-xl dark:shadow-zinc-800"
+        >
+          <Image src={bh03} alt="weepah" loading="eager" />
+        </div>
+      </div>
 
-			<!-- 2026 Regulations Section -->
-			<section class="py-16 dark:bg-zinc-900">
-				<div class="container mx-auto px-4">
-					<div class="mb-12 text-center">
-						<h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">2026: A New Era Begins</h2>
-						<p class="mx-auto max-w-3xl text-zinc-800 dark:text-zinc-300">
-							The 2026 season marks the most significant regulation overhaul in F1 history,
-							reshaping power units, aerodynamics, and the competitive landscape.
-						</p>
-					</div>
+      <!-- 2026 Regulations Section -->
+      <section class="py-16 dark:bg-zinc-900">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 text-center">
+            <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
+              2026: A New Era Begins
+            </h2>
+            <p class="mx-auto max-w-3xl text-zinc-800 dark:text-zinc-300">
+              The 2026 season marks the most significant regulation overhaul in
+              F1 history, reshaping power units, aerodynamics, and the
+              competitive landscape.
+            </p>
+          </div>
 
-					<!-- Key Stats Bar -->
-					<div class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-						{
-							keyStats.map((stat) => (
-								<div class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800">
-									<p class="text-3xl font-bold text-zinc-600 dark:text-zinc-400">{stat.value}</p>
-									<p class="mt-1 text-base text-zinc-600 dark:text-zinc-300">{stat.label}</p>
-								</div>
-							))
-						}
-					</div>
+          <!-- Key Stats Bar -->
+          <div class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {
+              keyStats.map((stat) => (
+                <div class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800">
+                  <p class="text-3xl font-bold text-zinc-600 dark:text-zinc-400">
+                    {stat.value}
+                  </p>
+                  <p class="mt-1 text-base text-zinc-600 dark:text-zinc-300">
+                    {stat.label}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
 
-					<!-- Regulations Grid -->
-					<div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2">
-						{
-							regulationsGrid.map((card) => (
-								<div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-									<div class="mb-4 flex items-center gap-3">
-										<div class="rounded-full bg-sky-100 p-3 dark:bg-sky-900/30">
-											<Icon
-												name={card.icon}
-												class="h-6 w-6 text-sky-600 dark:text-sky-400"
-											/>
-										</div>
-										<h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-											{card.title}
-										</h3>
-									</div>
-									<ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
-										{card.items.map((item) => (
-											<li class="flex items-start gap-2">
-												<Icon
-													name="mdi:check-circle"
-													class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-												/>
-												<span>{item}</span>
-											</li>
-										))}
-									</ul>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</section>
+          <!-- Regulations Grid -->
+          <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2">
+            {
+              regulationsGrid.map((card) => (
+                <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
+                  <div class="mb-4 flex items-center gap-3">
+                    <div class="rounded-full bg-sky-100 p-3 dark:bg-sky-900/30">
+                      <Icon
+                        name={card.icon}
+                        class="h-6 w-6 text-sky-600 dark:text-sky-400"
+                      />
+                    </div>
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+                      {card.title}
+                    </h3>
+                  </div>
+                  <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
+                    {card.items.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <Icon
+                          name="mdi:check-circle"
+                          class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
-			<!-- Data & Analytics Section -->
-			<TwoColumnSection
-				title="Data and analytical revolution"
-				content={`
+      <!-- Data & Analytics Section -->
+      <TwoColumnSection
+        title="Data and analytical revolution"
+        content={`
         <p>
           Data and analytics are reshaping F1—teams use telemetry and modeling to
           optimize performance and strategy, and AI/ML will accelerate insights.
@@ -204,16 +206,16 @@ const regulationsGrid = [
           competitive and drive broader innovation.
         </p>
         `}
-				imageSrc={jp02}
-				imageAlt="F1 Data Analytics"
-				imageLoading="eager"
-				background="zinc"
-			/>
+        imageSrc={jp02}
+        imageAlt="F1 Data Analytics"
+        imageLoading="eager"
+        background="zinc"
+      />
 
-			<!-- New Innovations Section -->
-			<TwoColumnSection
-				title="New innovations and dynamics"
-				content={`
+      <!-- New Innovations Section -->
+      <TwoColumnSection
+        title="New innovations and dynamics"
+        content={`
         <p>
           The future of the sport will be shaped by a more diverse and
           inclusive culture—initiatives like We Race As One are promoting
@@ -222,16 +224,16 @@ const regulationsGrid = [
           more sustainable and innovative future for Formula 1.
         </p>
         `}
-				imageSrc={jp02}
-				imageAlt="F1 Innovation and Development"
-				reversed={true}
-			/>
+        imageSrc={jp02}
+        imageAlt="F1 Innovation and Development"
+        reversed={true}
+      />
 
-			<!-- New Innovations Section -->
-			<TwoColumnSection
-				title="Harnessing the energy"
-				background="zinc"
-				content={`
+      <!-- New Innovations Section -->
+      <TwoColumnSection
+        title="Harnessing the energy"
+        background="zinc"
+        content={`
             <p>
             One of the emerging topics in the future of Formula 1 is
             sustainability: as a sport that relies heavily on technology and
@@ -244,48 +246,56 @@ const regulationsGrid = [
             F1 remains relevant and responsible to fans and stakeholders alike.
             </p>
         `}
-				imageSrc={jp02}
-				imageAlt="F1 Innovation and Development"
-				reversed={false}
-			/>
+        imageSrc={jp02}
+        imageAlt="F1 Innovation and Development"
+        reversed={false}
+      />
 
-			<!-- Rookies Showcase Section -->
-			<section class="bg-zinc-100 py-16 dark:bg-zinc-900">
-				<div class="container mx-auto px-4">
-					<div class="mb-12 text-center">
-						<h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">What does the future hold?</h2>
-						<p class="text-lg text-zinc-800 dark:text-zinc-300">
-							These rising stars are already making headlines. Here's who to watch as Formula 1
-							evolves into a new era.
-						</p>
-					</div>
+      <!-- Rookies Showcase Section -->
+      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 text-center">
+            <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
+              What does the future hold?
+            </h2>
+            <p class="text-lg text-zinc-800 dark:text-zinc-300">
+              These rising stars are already making headlines. Here's who to
+              watch as Formula 1 evolves into a new era.
+            </p>
+          </div>
 
-					<div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-						{
-							rookies.map((rookie) => (
-								<div class="flex h-full flex-col rounded-xl bg-zinc-200 dark:bg-zinc-800">
-									<div class="flex-1 p-6">
-										<h4 class="mb-2 text-xl dark:text-zinc-100">{rookie.name}</h4>
-										<p class="text-zinc-800 dark:text-zinc-300">{rookie.desc}</p>
-									</div>
-									<div class="flex h-64 overflow-hidden">
-										<Image
-											src={rookie.img}
-											alt={rookie.alt}
-											class="h-full w-full object-contain"
-										/>
-									</div>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</section>
+          <div
+            class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {
+              rookies.map((rookie) => (
+                <div class="flex h-full flex-col rounded-xl bg-zinc-200 dark:bg-zinc-800">
+                  <div class="flex-1 p-6">
+                    <h4 class="mb-2 text-xl dark:text-zinc-100">
+                      {rookie.name}
+                    </h4>
+                    <p class="text-zinc-800 dark:text-zinc-300">
+                      {rookie.desc}
+                    </p>
+                  </div>
+                  <div class="flex h-64 overflow-hidden">
+                    <Image
+                      src={rookie.img}
+                      alt={rookie.alt}
+                      class="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
-			<!-- Latest Blog Posts Section -->
-			<LatestPosts />
-		</main>
+      <!-- Latest Blog Posts Section -->
+      <LatestPosts />
+    </main>
 
-		<Footer />
-	</body>
+    <Footer />
+  </body>
 </html>
