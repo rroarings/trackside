@@ -1,334 +1,307 @@
 ---
-const today = new Date();
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import tracksideLogoBlack from "../assets/logos/trackside-logoblack.png";
-import tracksideLogoWhite from "../assets/logos/trackside-logowhite.png";
+const today = new Date()
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import tracksideLogoBlack from "../assets/logos/trackside-logoblack.png"
+import tracksideLogoWhite from "../assets/logos/trackside-logowhite.png"
 
 // Current season for footer links
-const currentSeason = "2026";
+const currentSeason = "2026"
+
+// Social links data
+interface SocialLink {
+	name: string
+	url: string
+	icon: string
+	label: string
+}
+
+const socialLinks: SocialLink[] = [
+	{
+		name: "GitHub",
+		url: "https://github.com/rroarings/trackside",
+		icon: "mdi:github",
+		label: "Visit our GitHub repository",
+	},
+	{
+		name: "LinkedIn",
+		url: "https://www.linkedin.com/in/nick-calvo-56b61218b/",
+		icon: "mdi:linkedin",
+		label: "Connect on LinkedIn",
+	},
+	{
+		name: "Website",
+		url: "https://www.notnickcalvo.com",
+		icon: "mdi:web",
+		label: "Visit Nick Calvo's personal website",
+	},
+	{
+		name: "YouTube",
+		url: "https://www.youtube.com/@0vlack",
+		icon: "mdi:youtube",
+		label: "Subscribe on YouTube",
+	},
+]
 ---
 
-<footer class="bg-zinc-50 dark:bg-zinc-900" role="contentinfo">
-  <div class="mx-auto max-w-7xl px-6 py-12 lg:py-16">
-    <!-- Main Footer Grid -->
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
-      <!-- Brand Column -->
-      <div class="lg:col-span-4">
-        <a href="/" class="inline-block" aria-label="Trackside Home">
-          <Image
-            src={tracksideLogoBlack}
-            alt="Trackside Logo"
-            class="block h-auto w-40 dark:hidden"
-            loading="lazy"
-          />
-          <Image
-            src={tracksideLogoWhite}
-            alt="Trackside Logo"
-            class="hidden h-auto w-40 dark:block"
-            loading="lazy"
-          />
-        </a>
-        <p
-          class="mt-4 max-w-xs text-base leading-relaxed text-zinc-600 dark:text-zinc-300"
-        >
-          Your fan-powered guide to Formula 1. Explore drivers, teams, race
-          calendars, and the technology behind the world's fastest motorsport.
-        </p>
+<footer
+	class="bg-zinc-100 dark:bg-zinc-900"
+	role="contentinfo">
+	<div class="mx-auto max-w-7xl px-6 py-12 lg:py-16">
+		<!-- Main Footer Grid -->
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+			<!-- Brand Column -->
+			<div class="lg:col-span-4">
+				<a
+					href="/"
+					class="inline-block"
+					aria-label="Trackside Home">
+					<Image
+						src={tracksideLogoBlack}
+						alt="Trackside Logo"
+						class="block h-auto w-40 dark:hidden"
+						loading="lazy"
+					/>
+					<Image
+						src={tracksideLogoWhite}
+						alt="Trackside Logo"
+						class="hidden h-auto w-40 dark:block"
+						loading="lazy"
+					/>
+				</a>
+				<p class="mt-4 max-w-xs text-base leading-relaxed text-zinc-600 dark:text-zinc-300">
+					Your fan-powered guide to Formula 1. Explore drivers, teams, race calendars, and the
+					technology behind the world's fastest motorsport.
+				</p>
 
-        <!-- Social Links -->
-        <nav aria-label="Social media links" class="mt-6">
-          <ul class="flex gap-3">
-            <li>
-              <a
-                href="https://github.com/rroarings/trackside"
-                rel="noopener noreferrer"
-                target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
-                aria-label="Visit our GitHub repository"
-              >
-                <Icon
-                  name="mdi:github"
-                  class="text-zinc-300"
-                  size={20}
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/nick-calvo-56b61218b/"
-                rel="noopener noreferrer"
-                target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
-                aria-label="Connect on LinkedIn"
-              >
-                <Icon
-                  name="mdi:linkedin"
-                  class="text-zinc-300"
-                  size={20}
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.notnickcalvo.com"
-                rel="noopener noreferrer"
-                target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
-                aria-label="Visit Nick Calvo's personal website"
-              >
-                <Icon
-                  name="mdi:web"
-                  class="text-zinc-300"
-                  size={20}
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/@0vlack"
-                rel="noopener noreferrer"
-                target="_blank"
-                class="flex size-10 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 transition-all duration-200 hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
-                aria-label="Subscribe on YouTube"
-              >
-                <Icon
-                  name="mdi:youtube"
-                  class="text-zinc-300"
-                  size={20}
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+				<!-- Social Links -->
+				<nav
+					aria-label="Social media links"
+					class="mt-6">
+					<ul class="flex gap-3">
+						{
+							socialLinks.map((link) => (
+								<li>
+									<a
+										href={link.url}
+										rel="noopener noreferrer"
+										target="_blank"
+										class="group flex size-10 items-center justify-center rounded-lg bg-zinc-200 text-zinc-600 transition-all duration-200 hover:bg-blue-500 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
+										aria-label={link.label}>
+										<Icon
+											name={link.icon}
+											class="text-zinc-600 transition-colors duration-200 group-hover:text-white dark:text-zinc-400"
+											size={20}
+											aria-hidden="true"
+										/>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
 
-      <!-- Navigation Columns -->
-      <div
-        class="grid grid-cols-2 gap-x-8 gap-y-10 lg:col-span-8 lg:grid-cols-4"
-      >
-        <!-- Current Season -->
-        <nav aria-label="Current season navigation">
-          <h3
-            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
-          >
-            {currentSeason} Season
-          </h3>
-          <ul class="mt-4 space-y-3" role="list">
-            <li>
-              <a
-                href={`/seasons/${currentSeason}`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Season Overview
-              </a>
-            </li>
-            <li>
-              <a
-                href={`/seasons/${currentSeason}/drivers`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Drivers
-              </a>
-            </li>
-            <li>
-              <a
-                href={`/seasons/${currentSeason}/constructors`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Constructors
-              </a>
-            </li>
-            <li>
-              <a
-                href={`/seasons/${currentSeason}/races`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Race Calendar
-              </a>
-            </li>
-            <li class="pt-2">
-              <a
-                href="/seasons"
-                class="inline-flex items-center gap-1 text-blue-600 transition-colors duration-200 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-              >
-                All Seasons
-                <Icon name="mdi:arrow-right" size={18} aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
-        </nav>
+			<!-- Navigation Columns -->
+			<div class="grid grid-cols-2 gap-x-8 gap-y-10 lg:col-span-8 lg:grid-cols-4">
+				<!-- Current Season -->
+				<nav aria-label="Current season navigation">
+					<h3 class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+						{currentSeason} Season
+					</h3>
+					<ul
+						class="mt-4 space-y-3"
+						role="list">
+						<li>
+							<a
+								href={`/seasons/${currentSeason}`}
+								class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Season Overview
+							</a>
+						</li>
+						<li>
+							<a
+								href={`/seasons/${currentSeason}/drivers`}
+								class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Drivers
+							</a>
+						</li>
+						<li>
+							<a
+								href={`/seasons/${currentSeason}/constructors`}
+								class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Constructors
+							</a>
+						</li>
+						<li>
+							<a
+								href={`/seasons/${currentSeason}/races`}
+								class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Race Calendar
+							</a>
+						</li>
+						<li class="pt-2">
+							<a
+								href="/seasons"
+								class="inline-flex items-center gap-1 text-blue-600 transition-colors duration-200 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+								All Seasons
+								<Icon
+									name="mdi:arrow-right"
+									size={18}
+									aria-hidden="true"
+								/>
+							</a>
+						</li>
+					</ul>
+				</nav>
 
-        <!-- Learn F1 -->
-        <nav aria-label="Learn about Formula 1">
-          <h3
-            class="text-xl! uppercase tracking-wider text-zinc-900 dark:text-zinc-100"
-          >
-            Learn F1
-          </h3>
-          <ul class="mt-4 space-y-3" role="list">
-            <li>
-              <a
-                href="/learn/whatis"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                What Is F1?
-              </a>
-            </li>
-            <li>
-              <a
-                href="/learn/technologies"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Technology
-              </a>
-            </li>
-            <li>
-              <a
-                href="/learn/future"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Future of F1
-              </a>
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
+				<!-- Learn F1 -->
+				<nav aria-label="Learn about Formula 1">
+					<h3 class="text-xl! uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
+						Learn F1
+					</h3>
+					<ul
+						class="mt-4 space-y-3"
+						role="list">
+						<li>
+							<a
+								href="/learn/whatis"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								What Is F1?
+							</a>
+						</li>
+						<li>
+							<a
+								href="/learn/technologies"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Technology
+							</a>
+						</li>
+						<li>
+							<a
+								href="/learn/future"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Future of F1
+							</a>
+						</li>
+						<li>
+							<a
+								href="/blog"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Blog
+							</a>
+						</li>
+					</ul>
+				</nav>
 
-        <!-- Past Seasons -->
-        <nav aria-label="Past seasons archive">
-          <h3 class="text-xl! uppercase text-zinc-900 dark:text-zinc-100">
-            Archives
-          </h3>
-          <ul class="mt-4 space-y-3" role="list">
-            <li>
-              <a
-                href="/seasons/2025"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                2025 Season
-              </a>
-            </li>
-            <li>
-              <a
-                href="/seasons/2024"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                2024 Season
-              </a>
-            </li>
-          </ul>
-        </nav>
+				<!-- Past Seasons -->
+				<nav aria-label="Past seasons archive">
+					<h3 class="text-xl! uppercase text-zinc-900 dark:text-zinc-100">Archives</h3>
+					<ul
+						class="mt-4 space-y-3"
+						role="list">
+						<li>
+							<a
+								href="/seasons/2025"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								2025 Season
+							</a>
+						</li>
+						<li>
+							<a
+								href="/seasons/2024"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								2024 Season
+							</a>
+						</li>
+					</ul>
+				</nav>
 
-        <!-- Site Info -->
-        <nav aria-label="Site information">
-          <h3
-            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
-          >
-            Trackside
-          </h3>
-          <ul class="mt-4 space-y-3" role="list">
-            <li>
-              <a
-                href="/about"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about/faqs"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about/attributions"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Attributions
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about/resources"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-              >
-                Resources
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+				<!-- Site Info -->
+				<nav aria-label="Site information">
+					<h3 class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+						Trackside
+					</h3>
+					<ul
+						class="mt-4 space-y-3"
+						role="list">
+						<li>
+							<a
+								href="/about"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								About
+							</a>
+						</li>
+						<li>
+							<a
+								href="/contact"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Contact
+							</a>
+						</li>
+						<li>
+							<a
+								href="/about/faqs"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								FAQs
+							</a>
+						</li>
+						<li>
+							<a
+								href="/about/attributions"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Attributions
+							</a>
+						</li>
+						<li>
+							<a
+								href="/about/resources"
+								class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+								Resources
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
-    <!-- Divider -->
-    <div class="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-700">
-      <div
-        class="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
-      >
-        <!-- Copyright -->
-        <p class="text-zinc-600 dark:text-zinc-300">
-          {today.getFullYear()} Trackside. All rights reserved.
-        </p>
+		<!-- Divider -->
+		<div class="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-700">
+			<div
+				class="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+				<!-- Copyright -->
+				<p class="text-zinc-600 dark:text-zinc-300">
+					{today.getFullYear()} Trackside. All rights reserved.
+				</p>
 
-        <!-- Quick Links -->
-        <nav
-          aria-label="Legal and quick links"
-          class="flex flex-wrap justify-center gap-4 text-sm sm:justify-end"
-        >
-          <a
-            href="/"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Home
-          </a>
-          <a
-            href="/blog"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Blog
-          </a>
-          <a
-            href="/contact"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Contact
-          </a>
-        </nav>
-      </div>
+				<!-- Quick Links -->
+				<nav
+					aria-label="Legal and quick links"
+					class="flex flex-wrap justify-center gap-4 text-sm sm:justify-end">
+					<a
+						href="/"
+						class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+						Home
+					</a>
+					<a
+						href="/blog"
+						class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+						Blog
+					</a>
+					<a
+						href="/contact"
+						class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400">
+						Contact
+					</a>
+				</nav>
+			</div>
 
-      <!-- Disclaimer -->
-      <p
-        class="mt-6 text-center leading-relaxed text-zinc-600 sm:text-left dark:text-zinc-300"
-      >
-        This website is unofficial and is not associated in any way with the
-        Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD
-        CHAMPIONSHIP, GRAND PRIX and related marks are trade marks of Formula
-        One Licensing B.V.
-      </p>
-    </div>
-  </div>
+			<!-- Disclaimer -->
+			<p class="mt-6 text-center leading-relaxed text-zinc-600 sm:text-left dark:text-zinc-300">
+				This website is unofficial and is not associated in any way with the Formula 1 companies.
+				F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks
+				are trade marks of Formula One Licensing B.V.
+			</p>
+		</div>
+	</div>
 </footer>
