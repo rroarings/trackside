@@ -7,6 +7,7 @@ import StatCard from "../../../../components/StatCard.astro";
 import SeasonButtons from "../../../../components/SeasonButtons.astro";
 import { SITE_TITLE } from "../../../../consts";
 import { getCollection } from "astro:content";
+import { getSlugFromEntry } from "../../../../utils/slugUtils";
 
 export async function getStaticPaths() {
   const drivers = await getCollection(
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
     ({ data }) => data.season === "2024",
   );
   return drivers.map((driver) => {
-    const slug = driver.id.split("/").pop();
+    const slug = getSlugFromEntry(driver);
     return {
       params: { slug },
       props: { driver },
@@ -33,7 +34,7 @@ const { Content } = await render(driver);
   <head>
     <BaseHead
       title={`${driver.data.driverFirstName} ${driver.data.driverLastName} | ${SITE_TITLE}`}
-      description={`2025 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
+      description={`2024 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
     />
   </head>
   <body>
