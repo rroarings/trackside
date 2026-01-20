@@ -1,7 +1,7 @@
 ---
 driverFirstName: "Lando"
 driverLastName: "Norris"
-driverNumber: 4
+driverNumber: 1
 driverTeam: "McLaren"
 description: "Lando Norris 2026 Driver Profile"
 season: "2026"
