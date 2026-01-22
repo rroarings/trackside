@@ -5,13 +5,13 @@ trackLocation: "Mexico City"
 trackCountry: "Mexico"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
-trackImageAlt: "Albert Park Circuit image"
-trackImageLargeAlt: "Albert Park Circuit image"
+trackImageAlt: "Autodromo Hermanos Rodriguez"
+trackImageLargeAlt: "Autodromo Hermanos Rodriguez"
 raceDate: "October 26, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
-raceWeekendDescription: "First race of the season."
+raceWeekendDescription: "Situated at high altitude, the thin air challenges engine cooling and significantly reduces aerodynamic downforce."
 season: "2025"
 winningDriver: "Lando Norris"
 winningConstructor: "McLaren"
@@ -24,14 +24,20 @@ heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 
 # Mexico Grand Prix 2025
 
-The Australian Grand Prix at Albert Park saw home hero Oscar Piastri claim his maiden Formula 1 victory in front of an ecstatic Melbourne crowd. The young Australian driver delivered a flawless performance to secure McLaren's first win of the 2025 season.
-
 ## Race Highlights
 
-- Oscar Piastri won his first ever Formula 1 race at his home Grand Prix
-- Lando Norris made it a McLaren 1-2 and claimed the fastest lap point
-- Max Verstappen completed the podium in third
-- Lewis Hamilton brought his Ferrari home in fourth position
-- George Russell finished fifth for Mercedes
+- Lando Norris converted his pole position into a dominant victory, securing McLaren's first win in Mexico since 1989
+- Charles Leclerc finished second for Ferrari, 30 seconds behind the leader
+- Max Verstappen rounded out the podium in third place after a tumultuous race involving multiple track-cutting incidents
+- Oliver Bearman achieved Haas' joint-best ever finish by taking a remarkable fourth place
+- Oscar Piastri finished fifth, causing the lead of the Drivers' Championship to shift to his teammate Norris by a single point
+- Carlos Sainz Jr. was classified 17th after a late-race accident in the stadium section triggered a Virtual Safety Car
+- Lewis Hamilton dropped out of podium contention due to a ten-second time penalty for gaining an advantage off-track
 
-Perfect conditions greeted the drivers in Melbourne, with temperatures of 24°C and clear skies throughout the race. The recently resurfaced Albert Park circuit provided excellent grip and racing conditions.
+## Race Summary
+
+Lando Norris delivered a masterclass in Mexico City, commanding the race from pole position to win by over 30 seconds. While the start was chaotic with four cars going into the first turn together, Norris maintained his composure as his rivals Max Verstappen and Charles Leclerc battled for position behind him. This victory marked a historic milestone for McLaren, representing their first win at the Autódromo Hermanos Rodríguez in over three decades.
+
+The afternoon was defined by intense on-track disputes and strategic penalties among the frontrunners. Lewis Hamilton was sidelined from the podium fight after receiving a ten-second penalty for cutting the track while defending against Verstappen. Meanwhile, Carlos Sainz Jr. faced a difficult race that ended in a smoking retirement after a late spin, which forced the race to conclude under a Virtual Safety Car period.
+
+Championship implications were significant following the checkered flag, as Lando Norris officially overtook teammate Oscar Piastri for the lead of the World Drivers' Championship. With only a one-point gap between the McLaren pair, the title fight remains incredibly tight. In the Constructors' standings, Ferrari managed to leapfrog Mercedes for second place, sitting just ten points ahead of Red Bull as the season heads to Brazil.
