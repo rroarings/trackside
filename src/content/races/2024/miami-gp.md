@@ -1,7 +1,7 @@
 ---
 raceName: "Formula 1 Crypto.com Miami Grand Prix 2025"
 trackName: "Miami International Autodrome"
-trackLocation: "Miami Garderns, Florida"
+trackLocation: "Miami Gardens, Florida"
 trackCountry: "Miami"
 trackImage: "../../../assets/circuits/06miami/mi02.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
