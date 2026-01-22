@@ -1,17 +1,17 @@
 ---
 raceName: "Formula 1 Crypto.com Miami Grand Prix 2025"
 trackName: "Miami International Autodrome"
-trackLocation: "Miami Garderns, Florida"
+trackLocation: "Miami Gardens, Florida"
 trackCountry: "United States"
 trackImage: "../../../assets/circuits/06miami/mi02.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Albert Park Circuit image"
-trackImageLargeAlt: "Albert Park Circuit image"
+trackImageAlt: "Miami International Autodrome"
+trackImageLargeAlt: "Miami International Autodrome"
 raceDate: "May 4, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
-raceWeekendDescription: "First race of the season."
+raceWeekendDescription: "A temporary circuit built around Hard Rock Stadium, offering a high-speed 'street' feel."
 season: "2025"
 winningDriver: "Oscar Piastri"
 winningConstructor: "McLaren"
@@ -24,14 +24,20 @@ heroImage: "../../../assets/circuits/06miami/mi02.jpg"
 
 # Miami Grand Prix 2025
 
-The Australian Grand Prix at Albert Park saw home hero Oscar Piastri claim his maiden Formula 1 victory in front of an ecstatic Melbourne crowd. The young Australian driver delivered a flawless performance to secure McLaren's first win of the 2025 season.
-
 ## Race Highlights
 
-- Oscar Piastri won his first ever Formula 1 race at his home Grand Prix
-- Lando Norris made it a McLaren 1-2 and claimed the fastest lap point
-- Max Verstappen completed the podium in third
-- Lewis Hamilton brought his Ferrari home in fourth position
-- George Russell finished fifth for Mercedes
+- Oscar Piastri took the win from P4, extending his championship lead to 16 points over teammate Lando Norris
+- Lando Norris set the fastest lap (1:29.746) during his charge back to second place
+- George Russell secured the final podium spot for Mercedes, taking advantage of a mid-race Virtual Safety Car
+- Kimi Antonelli scored points in both the Sprint (P7) and the Grand Prix (P6) during his debut home-adjacent race weekend
+- Max Verstappen finished fourth after losing the lead to Piastri and struggling with pace following several off-track defensive moves
+- Alexander Albon matched his best result of the season with a P5 finish for Williams
+- Jack Doohan and Liam Lawson both retired following an opening-lap collision at Turn 1
 
-Perfect conditions greeted the drivers in Melbourne, with temperatures of 24°C and clear skies throughout the race. The recently resurfaced Albert Park circuit provided excellent grip and racing conditions.
+## Race Summary
+
+Oscar Piastri secured his third consecutive victory at the 2025 Miami Grand Prix, further solidifying his lead in the World Drivers' Championship. Starting from fourth on the grid, Piastri navigated a chaotic opening lap that saw polesitter Max Verstappen force Lando Norris off the track, dropping Norris to sixth. Piastri quickly moved up the order, passing Kimi Antonelli and eventually overtaking Verstappen on lap 14 after the Red Bull driver locked up into Turn 1.
+
+The race was defined by strategic maneuvers and multiple Virtual Safety Car (VSC) periods. Lando Norris staged an impressive recovery after his early setback, engaging in a fierce multi-lap duel with Verstappen. Norris eventually cleared the Red Bull on lap 18 to secure second place, completing a dominant 1-2 finish for McLaren. Meanwhile, George Russell capitalized on a VSC period triggered by Oliver Bearman's engine failure to pit and retain third place, finishing ahead of Verstappen.
+
+Further down the points, Williams enjoyed a strong outing with Alexander Albon finishing fifth and Carlos Sainz Jr. taking ninth despite late-race contact with Lewis Hamilton. Ferrari had a mixed day; Charles Leclerc and Hamilton engaged in a team-ordered swap as they struggled to pass Antonelli's Mercedes, ultimately finishing seventh and eighth respectively. The race also marked the final F1 appearance for Alpine's Jack Doohan, who retired on the opening lap following a collision with Liam Lawson.
