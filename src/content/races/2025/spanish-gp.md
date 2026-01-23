@@ -22,7 +22,7 @@ pubDate: "July, 19, 2025"
 heroImage: "../../../assets/circuits/09spain/sp01.jpg"
 ---
 
-# Monaco Grand Prix 2025
+# Spainish Grand Prix 2025
 
 ## Race Highlights
 
