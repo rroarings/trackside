@@ -22,7 +22,7 @@ pubDate: "July, 19, 2025"
 heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 ---
 
-# United States Grand Prix 2025
+# United States Grand Prix (COTA) 2025
 
 ## Race Highlights
 
