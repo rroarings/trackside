@@ -2,7 +2,7 @@
 raceName: "Formula 1 Qatar Airways Azerbaijan Grand Prix 2025"
 trackName: "Baku City Circuit"
 trackLocation: "Baku"
-trackCountry: "Baku"
+trackCountry: "Azerbaijan"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageAlt: "Baku City Circuit"
