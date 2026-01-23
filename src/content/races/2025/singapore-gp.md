@@ -1,7 +1,7 @@
 ---
 raceName: "Formula 1 Singapore Airlines Singapore Grand Prix 2025"
 trackName: "Marina Bay Street Circuit"
-trackLocation: "Singapore"
+trackLocation: "Marina Bay"
 trackCountry: "Singapore"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"

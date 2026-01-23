@@ -31,7 +31,7 @@ heroImage: "../../../assets/circuits/01australia/aus01.jpg"
 - Kimi Antonelli delivered a standout performance, recovering from a 16th-place start to finish fourth in his debut race
 - Alexander Albon secured a career-best fifth place for Williams, the team's highest finish since 2021
 - Isack Hadjar suffered an accident on the formation lap and was unable to start the race
-- Gabriel Bortoleto, Jack Doohan, and Carlos Sainz Jr. were among the six drivers who retired due to on-track accidents
+- Gabriel Bortoleto, Jack Doohan, and Carlos Sainz were among the six drivers who retired due to on-track accidents
 - Lewis Hamilton finished tenth in his first race for Ferrari after a challenging weekend for the Italian team
 
 ## Race Summary

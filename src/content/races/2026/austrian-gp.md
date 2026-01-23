@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Lenovo Austrian Grand Prix 2026"
-trackName: "Suzuka Circuit"
-trackLocation: "Austria"
+trackName: "Red Bull Ring"
+trackLocation: "Spielberg"
 trackCountry: "Austria"
-trackImage: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImage: "../../../assets/circuits/11austria/as01.jpg"
+trackImageLarge: "../../../assets/circuits/11austria/as01.jpg"
+trackImageAlt: "Red Bull Ring"
+trackImageLargeAlt: "Red Bull Ring"
 raceDate: "June 28, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -21,7 +21,7 @@ fastestLapTime: ""
 raceNumber: 10
 raceCompleted: false
 pubDate: "January 02, 2026"
-heroImage: "../../../assets/circuits/06miami/mi01.jpg"
+heroImage: "../../../assets/circuits/11austria/as01.jpg"
 ---
 
 # Australian Grand Prix 2026

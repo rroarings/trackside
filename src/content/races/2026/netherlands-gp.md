@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Heineken Dutch Grand Prix 2026"
-trackName: "Silverstone"
-trackLocation: "The Netherlands"
+trackName: "Circuit Zandvoort"
+trackLocation: "Zandvoort"
 trackCountry: "The Netherlands"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Circuit Zandvoort"
+trackImageLargeAlt: "Circuit Zandvoort"
 raceDate: "August 23, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Netherlands Grand Prix 2026
 
-Round 1 in Australia.
+Round 14 in The Netherlands.

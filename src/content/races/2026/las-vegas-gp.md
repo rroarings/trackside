@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Heineken Las Vegas Grand Prix 2026"
-trackName: "Silverstone"
-trackLocation: "Las Vegas"
+trackName: "Las Vegas Strip Circuit"
+trackLocation: "Paradise, Nevada"
 trackCountry: "United States"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Las Vegas Strip Circuit"
+trackImageLargeAlt: "Las Vegas Strip Circuit"
 raceDate: "November 21, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Las Vegas Grand Prix 2026
 
-Round 1 in Australia.
+Round 22 in Las Vegas, Nevada.

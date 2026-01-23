@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Aramco Japanese Grand Prix 2026"
 trackName: "Suzuka Circuit"
-trackLocation: "Shanghai"
+trackLocation: "Suzuka"
 trackCountry: "Japan"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Suzuka Circuit"
+trackImageLargeAlt: "Suzuka Circuit"
 raceDate: "March 29, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Japan Grand Prix 2026
 
-Round 1 in Australia.
+Round 3 in Japan.

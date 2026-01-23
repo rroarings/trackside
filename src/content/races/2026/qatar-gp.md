@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Qatar Airways Qatar Grand Prix 2026"
-trackName: "Silverstone"
-trackLocation: "Qatar"
+trackName: "Lusail International Circuit"
+trackLocation: "Lusail"
 trackCountry: "Qatar"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Lusail International Circuit"
+trackImageLargeAlt: "Lusail International Circuit"
 raceDate: "November 29, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Qatar Grand Prix 2026
 
-Round 1 in Australia.
+Round 23 in Qatar.

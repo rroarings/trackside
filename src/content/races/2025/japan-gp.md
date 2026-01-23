@@ -1,7 +1,7 @@
 ---
 raceName: "Formula 1 Lenovo Japanese Grand Prix 2025"
 trackName: "Suzuka Circuit"
-trackLocation: "Japan"
+trackLocation: "Suzuka"
 trackCountry: "Japan"
 trackImage: "../../../assets/circuits/03japan/jp03.jpg"
 trackImageLarge: "../../../assets/circuits/03japan/jp03.jpg"
