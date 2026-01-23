@@ -5,13 +5,13 @@ trackLocation: "Baku"
 trackCountry: "Baku"
 trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
-trackImageAlt: "Albert Park Circuit image"
-trackImageLargeAlt: "Albert Park Circuit image"
+trackImageAlt: "Baku City Circuit"
+trackImageLargeAlt: "Baku City Circuit"
 raceDate: "September 21, 2025"
 raceTime: "23:00"
 raceWeekend: "Race"
 raceWeekendOrder: 0
-raceWeekendDescription: "First race of the season."
+raceWeekendDescription: "A unique mix of a 2km-long flat-out straight and a tight, winding section through the old city walls."
 season: "2025"
 winningDriver: "Max Verstappen"
 winningConstructor: "Red Bull Racing"
@@ -24,14 +24,20 @@ heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 
 # Azerbaijan Grand Prix 2025
 
-The Australian Grand Prix at Albert Park saw home hero Oscar Piastri claim his maiden Formula 1 victory in front of an ecstatic Melbourne crowd. The young Australian driver delivered a flawless performance to secure McLaren's first win of the 2025 season.
-
 ## Race Highlights
 
-- Oscar Piastri won his first ever Formula 1 race at his home Grand Prix
-- Lando Norris made it a McLaren 1-2 and claimed the fastest lap point
-- Max Verstappen completed the podium in third
-- Lewis Hamilton brought his Ferrari home in fourth position
-- George Russell finished fifth for Mercedes
+- Max Verstappen converted his pole position into a dominant victory, leading every lap to secure his sixth career grand chelem
+- George Russell claimed second place for Mercedes, marking his seventh podium of the season despite feeling unwell throughout the weekend
+- Carlos Sainz Jr. finished third, delivering the first podium for Williams from a full race distance since 2017
+- Oscar Piastri retired on the opening lap following a jump start that triggered anti-stall and a subsequent crash at turn six
+- Liam Lawson achieved a career-best fifth-place finish for Racing Bulls, who have now scored points in five consecutive races
+- Alexander Albon finished 13th after receiving a ten-second time penalty for causing a collision with Alpine's Franco Colapinto
+- Kimi Antonelli secured his best starting position of fourth and maintained that position to the finish line for Mercedes
 
-Perfect conditions greeted the drivers in Melbourne, with temperatures of 24°C and clear skies throughout the race. The recently resurfaced Albert Park circuit provided excellent grip and racing conditions.
+## Race Summary
+
+Max Verstappen delivered a masterclass in Baku, securing his second victory at the Baku City Circuit and his sixth career grand chelem. The Red Bull driver led from start to finish, recording both pole position and the fastest lap of the race. Verstappen's victory allowed him to close the gap in the Drivers' Championship as both McLaren drivers struggled to maximize their points haul during a high-drama weekend.
+
+A chaotic opening lap significantly reshaped the race after championship leader Oscar Piastri jumped the start, dropped to the back of the field, and ultimately crashed out. This incident triggered an early safety car and forced several drivers, including Fernando Alonso, into reactive errors that resulted in penalties. The race settled into a strategic battle on the narrow street circuit, highlighted by a mid-race collision between Alexander Albon and Franco Colapinto that forced the latter into a spin.
+
+Williams celebrated a historic result as Carlos Sainz Jr. secured third place, marking the team's first podium from a full race distance in eight years. Behind the podium finishers, Liam Lawson led a strong double-points finish for Racing Bulls, while Lando Norris managed a seventh-place finish to reduce Piastri's championship lead to 25 points. Following the race, Mercedes moved into second place in the Constructors' Championship, overtaking Ferrari by four points.

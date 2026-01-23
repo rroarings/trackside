@@ -1,59 +1,63 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro";
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
-import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import RaceCalendar from "../../../components/RaceCalendar.astro";
-import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro";
-import { SITE_TITLE } from "../../../consts";
+import BaseHead from "../../../components/BaseHead.astro"
+import Header from "../../../components/Header.astro"
+import Footer from "../../../components/Footer.astro"
+import Breadcrumbs from "../../../components/Breadcrumbs.astro"
+import RaceCalendar from "../../../components/RaceCalendar.astro"
+import SeasonButtonsModular from "../../../components/SeasonButtonsModular.astro"
+import { SITE_TITLE } from "../../../consts"
 ---
 
 <!doctype html>
-<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
-  <head>
-    <BaseHead
-      title={`2025 F1 Races | ${SITE_TITLE}`}
-      description="Complete list of races for the 2025 Formula 1 season"
-    />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <Breadcrumbs
-        items={[
-          { text: "Home", href: "/" },
-          { text: "Seasons", href: "/seasons" },
-          { text: "2025 Season", href: "/seasons/2025/" },
-          { text: "Races", href: "/seasons/2025/races" },
-        ]}
-      />
-      <!-- 2025 Races Header -->
-      <section class="pt-16 text-center">
-        <div class="container mx-auto px-4">
-          <h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">
-            2025 Formula 1 Races
-          </h1>
-          <p class="text-lg text-zinc-700 dark:text-zinc-300">
-            Complete race calendar for the 2025 season
-          </p>
-        </div>
-      </section>
+<html
+	lang="en"
+	class="bg-zinc-100 dark:bg-zinc-900">
+	<head>
+		<BaseHead
+			title={`2025 F1 Races | ${SITE_TITLE}`}
+			description="Complete list of races for the 2025 Formula 1 season"
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<Breadcrumbs
+				items={[
+					{ text: "Home", href: "/" },
+					{ text: "Seasons", href: "/seasons" },
+					{ text: "2025 Season", href: "/seasons/2025/" },
+					{ text: "Races", href: "/seasons/2025/races" },
+				]}
+			/>
+			<!-- 2025 Races Header -->
+			<section class="pt-16 text-center">
+				<div class="container mx-auto px-4">
+					<h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">2025 Formula 1 Races</h1>
+					<p class="text-lg text-zinc-700 dark:text-zinc-300">
+						Complete race calendar for the 2025 season
+					</p>
+				</div>
+			</section>
 
-      <!-- Race Calendar -->
-      <section class="py-6">
-        <div class="container mx-auto px-4">
-          <RaceCalendar season="2025" showAllRaces={true} eagerCount={6} />
-        </div>
-      </section>
+			<!-- Race Calendar -->
+			<section class="py-6">
+				<div class="container mx-auto px-4">
+					<RaceCalendar
+						season="2025"
+						showAllRaces={true}
+						eagerCount={6}
+					/>
+				</div>
+			</section>
 
-      <!-- Back Link -->
-      <SeasonButtonsModular
-        leftHref="/seasons/2025/"
-        leftText="Back to 2025 Season"
-        rightHref="/seasons"
-        rightText="Back to Seasons"
-      />
-    </main>
-    <Footer />
-  </body>
+			<!-- Back Link -->
+			<SeasonButtonsModular
+				leftHref="/seasons/2025/"
+				leftText="Back to 2025 Season"
+				rightHref="/seasons"
+				rightText="Back to Seasons"
+			/>
+		</main>
+		<Footer />
+	</body>
 </html>
