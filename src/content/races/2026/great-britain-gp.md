@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Pirelli British Grand Prix 2026"
-trackName: "Silverstone"
-trackLocation: "Great Britain"
+trackName: "Silverstone Circuit"
+trackLocation: "Silverstone"
 trackCountry: "Great Britain"
-trackImage: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImage: "../../../assets/circuits/12great-britain/gb01.jpg"
+trackImageLarge: "../../../assets/circuits/12great-britain/gb01.jpg"
+trackImageAlt: "Silverstone"
+trackImageLargeAlt: "Silverstone"
 raceDate: "July 05, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -21,7 +21,7 @@ fastestLapTime: ""
 raceNumber: 11
 raceCompleted: false
 pubDate: "January 02, 2026"
-heroImage: "../../../assets/circuits/06miami/mi01.jpg"
+heroImage: "../../../assets/circuits/12great-britain/gb01.jpg"
 ---
 
 # Australian Grand Prix 2026
