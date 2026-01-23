@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Gran Premio de la Ciudad de Mexico 2026"
-trackName: "Silverstone"
-trackLocation: "Mexico"
+trackName: "Autodromo Hermanos Rodriguez"
+trackLocation: "Mexico City"
 trackCountry: "Mexico"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Autodromo Hermanos Rodriguez"
+trackImageLargeAlt: "Autodromo Hermanos Rodriguez"
 raceDate: "November 1, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Mexico City Grand Prix 2026
 
-Round 1 in Australia.
+Round 20 in Mexico City.
