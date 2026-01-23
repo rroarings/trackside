@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Louis Vuitton Grand Prix de Monaco 2026"
-trackName: "Suzuka Circuit"
+trackName: "Circuit de Monaco"
 trackLocation: "Monaco"
 trackCountry: "Monaco"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImageAlt: "Circuit de Monaco"
+trackImageLargeAlt: "Circuit de Monaco"
 raceDate: "June 07, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -24,6 +24,6 @@ pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
 
-# Australian Grand Prix 2026
+# Monaco Grand Prix 2026
 
-Round 1 in Australia.
+Round 8 in Monaco.
