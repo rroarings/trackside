@@ -25,10 +25,10 @@ const sortedByStandings = [...drivers].sort((a, b) => {
 const teamOrder = [
   "Alpine",
   "Aston Martin",
+  "Audi",
   "Cadillac",
   "Ferrari",
   "Haas",
-  "Kick Sauber",
   "McLaren",
   "Mercedes",
   "Racing Bulls",
@@ -43,6 +43,8 @@ const sortedByTeam = [...drivers].sort((a, b) => {
   // Within same team, sort by driver number or name
   return a.data.driverLastName.localeCompare(b.data.driverLastName);
 });
+
+const eagerCount = 4;
 ---
 
 <!doctype html>
@@ -105,7 +107,7 @@ const sortedByTeam = [...drivers].sort((a, b) => {
                 <DriverCard
                   driver={driver}
                   index={i}
-                  eagerCount={6}
+                  eagerCount={eagerCount}
                   year="2026"
                 />
               ))
@@ -125,7 +127,7 @@ const sortedByTeam = [...drivers].sort((a, b) => {
                 <DriverCard
                   driver={driver}
                   index={i}
-                  eagerCount={6}
+                  eagerCount={eagerCount}
                   year="2026"
                 />
               ))
