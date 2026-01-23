@@ -1,12 +1,12 @@
 ---
 raceName: "Formula 1 Qatar Airways Australian Grand Prix 2026"
 trackName: "Albert Park Circuit"
-trackLocation: "Albert Park"
+trackLocation: "Australia"
 trackCountry: "Australia"
-trackImage: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
-trackImageAlt: "Miami International Autodrome"
-trackImageLargeAlt: "Miami International Autodrome"
+trackImage: "../../../assets/circuits/01australia/aus01.jpg"
+trackImageLarge: "../../../assets/circuits/01australia/aus01.jpg"
+trackImageAlt: "Albert Park Circuit"
+trackImageLargeAlt: "Albert Park Circuit"
 raceDate: "March 08, 2026"
 raceTime: ""
 raceWeekend: "Race"
@@ -21,7 +21,7 @@ fastestLapTime: ""
 raceNumber: 1
 raceCompleted: false
 pubDate: "January 02, 2026"
-heroImage: "../../../assets/circuits/06miami/mi01.jpg"
+heroImage: "../../../assets/circuits/01australia/aus01.jpg"
 ---
 
 # Australian Grand Prix 2026
