@@ -13,13 +13,13 @@ raceWeekend: "Race"
 raceWeekendOrder: 2
 raceWeekendDescription: "Round 2"
 season: "2026"
-winningDriver: ""
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningDriver: "Kimi Antonelli"
+winningConstructor: "Mercedes"
+fastestLapDriver: "Kimi Antonelli"
+fastestLapConstructor: "Mercedes"
+fastestLapTime: "1:35.275"
 raceNumber: 2
-raceCompleted: false
+raceCompleted: true
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/02china/cn01.jpg"
 ---
