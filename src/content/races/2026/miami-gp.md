@@ -2,7 +2,7 @@
 raceName: "Formula 1 Crypto.com Miami Grand Prix 2026"
 trackName: "Miami International Autodrome"
 trackLocation: "Miami Gardens, Florida"
-trackCountry: "United States"
+trackCountry: "Miami"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageAlt: "Miami International Autodrome"
