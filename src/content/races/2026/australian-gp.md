@@ -13,13 +13,13 @@ raceWeekend: "Race"
 raceWeekendOrder: 1
 raceWeekendDescription: "Round 1"
 season: "2026"
-winningDriver: ""
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningDriver: "George Russell"
+winningConstructor: "Mercedes"
+fastestLapDriver: "Max Verstappen"
+fastestLapConstructor: "Red Bull Racing"
+fastestLapTime: "1:22.091"
 raceNumber: 1
-raceCompleted: false
+raceCompleted: true
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/01australia/aus01.jpg"
 ---
