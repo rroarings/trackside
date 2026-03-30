@@ -13,13 +13,13 @@ raceWeekend: "Race"
 raceWeekendOrder: 3
 raceWeekendDescription: "Round 3"
 season: "2026"
-winningDriver: ""
-winningConstructor: ""
-fastestLapDriver: ""
-fastestLapConstructor: ""
-fastestLapTime: ""
+winningDriver: "Kimi Antonelli"
+winningConstructor: "Mercedes"
+fastestLapDriver: "Kimi Antonelli"
+fastestLapConstructor: "Mercedes"
+fastestLapTime: "1:32.432"
 raceNumber: 3
-raceCompleted: false
+raceCompleted: true
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---
