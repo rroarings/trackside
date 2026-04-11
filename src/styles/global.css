@@ -8,40 +8,15 @@
 @plugin "@tailwindcss/typography";
 @import "../../node_modules/flag-icons/css/flag-icons.min.css";
 
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Noto Sans";
-  /* Variable TrueType font (supports weight axis) */
-  src: url("/fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
-  /* Allow the variable font to be used across the full weight range */
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Noto Sans";
-  /* Italic variable TrueType font */
-  src: url("/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf")
-    format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
+@theme {
+  /* Deepen the dark zinc scale for a richer near-black dark mode */
+  --color-zinc-950: #050505;
+  --color-zinc-900: #0f0f0f;
+  --color-zinc-800: #1c1c1c;
+  --color-zinc-700: #2a2a2a;
 }
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -63,8 +38,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Atkinson", serif;
-  line-height: 1.2;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 h1 {
   font-size: 3.052em;

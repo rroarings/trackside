@@ -12,6 +12,9 @@ const navCards = [
     title: "Drivers",
     href: `/seasons/${season}/drivers`,
     icon: "mdi:racing-helmet",
+    accentClass: "from-sky-500/90 to-sky-300/45",
+    iconToneClass: "text-sky-600 dark:text-sky-400",
+    meta: "Profiles and standings",
     description: `View all Formula 1 drivers competing in the ${season} championship season. Explore driver profiles, statistics, and current championship standings.`,
     gridClass: "",
   },
@@ -19,6 +22,9 @@ const navCards = [
     title: "Constructors",
     href: `/seasons/${season}/constructors`,
     icon: "mdi:car-convertible",
+    accentClass: "from-rose-500/90 to-rose-300/45",
+    iconToneClass: "text-rose-600 dark:text-rose-400",
+    meta: "Teams and performance",
     description: `Discover the ${season} Formula 1 constructor teams, their cars, and current standings. Learn about team principals, engines, and technical developments.`,
     gridClass: "",
   },
@@ -26,6 +32,9 @@ const navCards = [
     title: "Races",
     href: `/seasons/${season}/races`,
     icon: "mdi:calendar-month",
+    accentClass: "from-amber-500/90 to-amber-300/45",
+    iconToneClass: "text-amber-600 dark:text-amber-400",
+    meta: "Calendar and results",
     description: `Explore the complete ${season} Formula 1 race calendar. View circuit details, race results, and upcoming Grand Prix events.`,
     gridClass: "md:col-span-2 md:row-start-2",
   },
@@ -34,28 +43,68 @@ const navCards = [
 
 <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
   <div class="container mx-auto px-4">
+    <div class="mb-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+        Season Navigation
+      </p>
+      <h2 class="mt-2 text-2xl font-black text-zinc-900 dark:text-zinc-100 md:text-3xl">
+        {season} Championship Hub
+      </h2>
+    </div>
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-2">
       {
         navCards.map((card) => (
           <a
             href={card.href}
-            class:list={["group block h-full", card.gridClass]}
+            class:list={[
+              "group block h-full rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/80 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-100 dark:focus-visible:ring-offset-zinc-900",
+              card.gridClass,
+            ]}
           >
-            <div class="h-full rounded-lg border border-zinc-200 p-6 transition-all duration-300 hover:border-zinc-400 hover:bg-zinc-200 dark:border-zinc-600 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800">
-              <div class="mb-4 flex items-center justify-between">
-                <h3 class="text-2xl font-bold transition-colors duration-300 dark:text-zinc-100">
-                  {card.title}
-                </h3>
-                <Icon
-                  name={card.icon}
-                  aria-hidden="true"
-                  class="size-10 shrink-0 text-zinc-600 transition-all duration-200 group-hover:text-sky-600 dark:text-zinc-300 dark:group-hover:text-sky-400"
-                />
+            <article class="relative h-full overflow-hidden rounded-md border border-zinc-300/80 bg-zinc-50/90 transition-all duration-250 hover:-translate-y-1 hover:border-zinc-400/90 hover:shadow-xl dark:border-zinc-700/75 dark:bg-zinc-800/85 dark:hover:border-zinc-500/80 dark:hover:shadow-zinc-950/35">
+              <div class="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.02)_0,rgba(0,0,0,0.02)_2px,transparent_2px,transparent_10px)] dark:bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.025)_0,rgba(255,255,255,0.025)_2px,transparent_2px,transparent_10px)]"></div>
+              <div class={`h-1.5 w-full bg-linear-to-r ${card.accentClass}`}></div>
+
+              <div class="relative flex h-full flex-col p-6">
+                <div class="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-400">
+                      {season} season
+                    </p>
+                    <h3 class="mt-1 text-2xl font-black text-zinc-900 transition-colors duration-200 group-hover:text-zinc-950 dark:text-zinc-100 dark:group-hover:text-zinc-50">
+                      {card.title}
+                    </h3>
+                    <p class="mt-1 text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                      {card.meta}
+                    </p>
+                  </div>
+                  <div class="relative rounded-md border border-zinc-300/80 bg-zinc-100 p-3 dark:border-zinc-700 dark:bg-zinc-900">
+                    <div class="pointer-events-none absolute inset-1 rounded-sm border border-zinc-400/20 dark:border-zinc-400/10"></div>
+                    <Icon
+                      name={card.icon}
+                      aria-hidden="true"
+                      class:list={["relative size-7 shrink-0 transition-transform duration-250 group-hover:scale-110", card.iconToneClass]}
+                    />
+                  </div>
+                </div>
+
+                <p class="text-zinc-700 transition-colors duration-200 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100">
+                  {card.description}
+                </p>
+
+                <div class="mt-5 flex items-center justify-between text-sm font-semibold text-zinc-700 dark:text-zinc-200">
+                  <span class="inline-flex items-center gap-2 transition-colors duration-250 group-hover:text-rose-400">
+                    <span class="h-1.5 w-1.5 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+                    Open {card.title}
+                  </span>
+                  <Icon
+                    name="mdi:arrow-right"
+                    aria-hidden="true"
+                    class="size-5 transition-all duration-250 group-hover:translate-x-1 group-hover:text-rose-400"
+                  />
+                </div>
               </div>
-              <p class="text-zinc-600 transition-colors duration-300 group-hover:text-zinc-800 dark:text-zinc-300 group-hover:dark:text-zinc-100">
-                {card.description}
-              </p>
-            </div>
+            </article>
           </a>
         ))
       }

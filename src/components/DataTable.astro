@@ -51,13 +51,21 @@ function getValue(
 }
 ---
 
-<table class="w-full bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200">
+<table
+  class="w-full overflow-hidden rounded-2xl border border-zinc-300 bg-white text-zinc-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200"
+>
   {caption && <caption class="sr-only">{caption}</caption>}
   <thead>
-    <tr class="border-2 border-e-0 border-s-0 border-t-0 dark:border-zinc-500">
+    <tr
+      class="border-b border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-950"
+    >
       {
         columns.map((col: TableColumn) => (
-          <th class={col.headerClass || "px-6 py-4 text-left"}>{col.header}</th>
+          <th
+            class={`${col.headerClass || "px-6 py-4 text-left"} text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400`}
+          >
+            {col.header}
+          </th>
         ))
       }
     </tr>
@@ -65,13 +73,15 @@ function getValue(
   <tbody>
     {
       rows.map((row: TableRow) => (
-        <tr class="border-b border-zinc-300 text-base transition-colors duration-200 hover:bg-zinc-400/50 dark:border-zinc-500 dark:hover:bg-zinc-700">
+        <tr class="border-b border-zinc-200 text-base transition-colors duration-200 hover:bg-zinc-100 dark:border-zinc-800 dark:hover:bg-zinc-800/70">
           {columns.map((col: TableColumn) => {
             const value = getValue(
               row,
               col.accessor as string | ((row: TableRow) => string | number),
             );
             const cellClass = col.cellClass || "px-6 py-4";
+            const isPositionColumn = col.accessor === "position";
+            const isPointsColumn = col.accessor === "points";
 
             if (col.isLink && col.getHref) {
               const href = col.getHref(row);
@@ -81,7 +91,7 @@ function getValue(
                   <a
                     href={href}
                     aria-label={ariaLabel}
-                    class="block w-full focus:outline-none focus:ring-2 focus:ring-rose-400"
+                    class="block w-full font-semibold text-zinc-900 transition-colors duration-200 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-400 dark:text-zinc-100 dark:hover:text-rose-400"
                   >
                     {value || "Unknown"}
                   </a>
@@ -89,7 +99,19 @@ function getValue(
               );
             }
 
-            return <td class={cellClass}>{value}</td>;
+            return (
+              <td
+                class={`${cellClass} ${isPointsColumn ? "font-semibold text-zinc-700 dark:text-zinc-300" : "text-zinc-700 dark:text-zinc-300"}`}
+              >
+                {isPositionColumn ? (
+                  <span class="inline-flex min-w-9 items-center justify-center rounded-full border border-zinc-300 bg-zinc-100 px-2 py-1 text-sm font-bold text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100">
+                    {value}
+                  </span>
+                ) : (
+                  value
+                )}
+              </td>
+            );
           })}
         </tr>
       ))
