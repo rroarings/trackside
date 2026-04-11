@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Oscar Piastri"
 profileImageLargeAlt: "Portrait of Oscar Piastri"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 3
+driverPoints: 21
+championshipPosition: 6
 championships: 0
 grandPrixWins: 7
 podiums: 14

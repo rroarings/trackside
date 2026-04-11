@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 3742
   polePositions: 128
   fastestLaps: 132
-championshipPosition: 5
+championshipPosition: 9
 constructorName: "Williams"
-constructorPoints: 0
+constructorPoints: 2
 dnf: 0
 description: "Williams team description"
 engineSupplier: "Mercedes"

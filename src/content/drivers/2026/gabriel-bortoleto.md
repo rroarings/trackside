@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Gabriel Bortoleto"
 profileImageLargeAlt: "Portrait of Gabriel Bortoleto"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 18
+driverPoints: 2
+championshipPosition: 13
 championships: 0
 grandPrixWins: 0
 podiums: 0

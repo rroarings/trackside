@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of George Russell"
 profileImageLargeAlt: "Portrait of George Russell"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 4
+driverPoints: 63
+championshipPosition: 2
 championships: 0
 grandPrixWins: 1
 podiums: 6

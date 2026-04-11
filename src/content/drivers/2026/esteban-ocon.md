@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Esteban Ocon"
 profileImageLargeAlt: "Portrait of Esteban Ocon"
 driverLogo: ""
-driverPoints: 0
+driverPoints: 1
 championshipPosition: 15
 championships: 0
 grandPrixWins: 0

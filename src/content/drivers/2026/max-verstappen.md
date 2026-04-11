@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Max Verstappen"
 profileImageLargeAlt: "Portrait of Max Verstappen"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 2
+driverPoints: 12
+championshipPosition: 9
 championships: 4
 grandPrixWins: 5
 podiums: 11

@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 369
   polePositions: 1
   fastestLaps: 0
-championshipPosition: 8
+championshipPosition: 4
 constructorName: "Haas"
-constructorPoints: 0
+constructorPoints: 46
 dnf: 0
 description: "Haas team description"
 engineSupplier: "Ferrari"

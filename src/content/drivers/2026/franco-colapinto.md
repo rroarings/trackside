@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Franco Colapinto"
 profileImageLargeAlt: "Portrait of Franco Colapinto"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 20
+driverPoints: 1
+championshipPosition: 16
 championships: 0
 grandPrixWins: 0
 podiums: 0

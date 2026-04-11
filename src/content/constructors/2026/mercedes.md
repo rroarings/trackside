@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 8045.5
   polePositions: 136
   fastestLaps: 114
-championshipPosition: 2
+championshipPosition: 1
 constructorName: "Mercedes"
-constructorPoints: 0
+constructorPoints: 135
 dnf: 0
 description: "Mercedes team description"
 engineSupplier: "Mercedes"

@@ -7,28 +7,28 @@ description: "Kimi Antonelli 2026 Driver Profile"
 season: "2026"
 nationality: "Italian"
 countryCode: "it"
-age: 18
+age: 19
 profileImage: "../../../assets/constructors/mercedes/drivers/antonelli-02.png"
 profileImageLarge: ""
 profileImageAlt: "Portrait of Kimi Antonelli"
 profileImageLargeAlt: "Portrait of Kimi Antonelli"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 7
+driverPoints: 72
+championshipPosition: 1
 championships: 0
-grandPrixWins: 0
-podiums: 1
+grandPrixWins: 2
+podiums: 2
 polePositions: 0
 fastestLaps: 0
 careerStats:
   championships: 0
   careerPoints: 64
-  grandPrixWins: 0
-  polePositions: 0
+  grandPrixWins: 2
+  polePositions: 2
   fastestLaps: 2
-  podiumPositions: 1
+  podiumPositions: 3
 pubDate: "January 2, 2026"
-updatedDate: "January 2, 2026"
+updatedDate: "March 30, 2026"
 heroImage: ""
 ---
 

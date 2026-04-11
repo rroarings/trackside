@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Arvid Lindblad"
 profileImageLargeAlt: "Portrait of Arvid Lindblad"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 24
+driverPoints: 4
+championshipPosition: 11
 championships: 0
 grandPrixWins: 0
 podiums: 0

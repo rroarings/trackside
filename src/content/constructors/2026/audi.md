@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 1078
   polePositions: 1
   fastestLaps: 0
-championshipPosition: 9
+championshipPosition: 8
 constructorName: "Audi"
-constructorPoints: 0
+constructorPoints: 2
 dnf: 0
 description: "Audi team description"
 engineSupplier: "Ferrari"

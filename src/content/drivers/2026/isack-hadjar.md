@@ -13,7 +13,7 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Isack Hadjar"
 profileImageLargeAlt: "Portrait of Isack Hadjar"
 driverLogo: ""
-driverPoints: 0
+driverPoints: 4
 championshipPosition: 12
 championships: 0
 grandPrixWins: 0

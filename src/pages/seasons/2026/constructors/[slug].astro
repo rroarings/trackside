@@ -4,7 +4,6 @@ import Header from "../../../../components/Header.astro";
 import Footer from "../../../../components/Footer.astro";
 import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
 import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.astro";
-import StatCard from "../../../../components/StatCard.astro";
 import DriverCard from "../../../../components/DriverCard.astro";
 import FormattedDate from "../../../../components/FormattedDate.astro";
 import { SITE_TITLE } from "../../../../consts";
@@ -45,6 +44,27 @@ drivers.forEach((driver) => {
 });
 // team background image (optional)
 const teamBg = teamBgMap[team.data.constructorName] || null;
+const teamAccentMap: Record<string, string> = {
+  McLaren: "rgb(249 115 22)",
+  Ferrari: "rgb(220 38 38)",
+  Mercedes: "rgb(20 184 166)",
+  Williams: "rgb(37 99 235)",
+  "Red Bull Racing": "rgb(59 130 246)",
+  "Kick Sauber": "rgb(34 197 94)",
+  "Racing Bulls": "rgb(6 182 212)",
+  "Aston Martin": "rgb(16 185 129)",
+  Haas: "rgb(239 68 68)",
+  Alpine: "rgb(14 165 233)",
+  Cadillac: "rgb(244 63 94)",
+  Audi: "rgb(220 38 38)",
+};
+const teamAccent = teamAccentMap[team.data.constructorName] || "rgb(244 63 94)";
+const teamCode = team.data.constructorName
+  .split(" ")
+  .map((word) => word[0])
+  .join("")
+  .slice(0, 3)
+  .toUpperCase();
 
 // Hero stats grid items
 const heroStats = [
@@ -110,47 +130,64 @@ const lifetimeStats = [
         ]}
       />
       <!-- Team Profile Header -->
-      <section
-        class="container mb-8 mt-12 rounded-2xl bg-white p-6 shadow-lg dark:bg-zinc-950"
-      >
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <!-- Left: Car Image -->
-          <div
-            class="flex flex-1 overflow-hidden rounded-2xl"
-            style={teamBg
-              ? `background-image: url('${teamBg.src}'); background-size: cover;`
-              : ""}
-          >
-            <div class="flex flex-1 p-6">
-              <Image
-                src={team.data.carImageLarge || team.data.carImage}
-                alt={team.data.carImageLargeAlt || team.data.carImageAlt}
-                width={600}
-                height={600}
-                class="h-full w-full object-contain"
-                loading="eager"
-              />
+      <section class="container mb-8 mt-12">
+        <div
+          class="team-profile-shell relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/90 p-6 shadow-lg dark:border-zinc-700/70 dark:bg-zinc-900/80"
+          style={`--team-accent:${teamAccent};`}
+        >
+          <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+          <div class="relative z-10 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+          <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+          <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+          <div class="relative z-10 grid grid-cols-1 gap-8 pt-5 lg:grid-cols-2">
+            <div
+              class="relative flex flex-1 overflow-hidden rounded-md border border-zinc-300/60 dark:border-zinc-700/60"
+              style={teamBg
+                ? `background-image: linear-gradient(to top, rgb(9 9 11 / 0.78), rgb(9 9 11 / 0.2)), url('${teamBg.src}'); background-size: cover; background-position: center;`
+                : ""}
+            >
+              <div class="absolute left-4 top-4 z-20 inline-flex items-center gap-2 rounded-sm border border-zinc-200/35 bg-zinc-950/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-100">
+                <span class="h-1.5 w-1.5 rounded-full bg-zinc-300"></span>
+                Team Profile
+              </div>
+              <p class="pointer-events-none absolute bottom-3 left-3 z-10 text-7xl font-black uppercase tracking-tight text-zinc-100/14 md:text-8xl">
+                {teamCode}
+              </p>
+              <div class="flex flex-1 p-6 pt-12">
+                <Image
+                  src={team.data.carImageLarge || team.data.carImage}
+                  alt={team.data.carImageLargeAlt || team.data.carImageAlt}
+                  width={600}
+                  height={600}
+                  class="h-full w-full object-contain"
+                  loading="eager"
+                />
+              </div>
             </div>
-          </div>
-          <!-- Right: Constructor Info & Stats -->
-          <div class="space-y-4">
-            <h1 class="font-bold text-zinc-900 dark:text-zinc-100">
-              {team.data.constructorName}
-            </h1>
-            <!-- Stats Grid -->
-            <div class="grid gap-4 sm:grid-cols-2">
-              {
-                heroStats.map((stat) => (
-                  <div class="rounded-xl bg-zinc-200/50 p-4 text-center dark:bg-zinc-800">
-                    <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-                      {stat.value}
+
+            <div class="space-y-4">
+              <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                2026 Constructor Briefing
+              </p>
+              <h1 class="text-4xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100 md:text-5xl">
+                {team.data.constructorName}
+              </h1>
+             
+
+              <div class="grid gap-3 sm:grid-cols-2">
+                {
+                  heroStats.map((stat) => (
+                    <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-4 dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                      <div class="text-lg font-black text-zinc-900 dark:text-zinc-100 md:text-xl">
+                        {stat.value}
+                      </div>
+                      <div class="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div class="text-base text-zinc-800 dark:text-zinc-400">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))
-              }
+                  ))
+                }
+              </div>
             </div>
           </div>
         </div>
@@ -186,35 +223,60 @@ const lifetimeStats = [
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-zinc-200">
             Team Statistics
           </h2>
-          <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
+          <div
+            class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2"
+            style={`--team-accent:${teamAccent};`}
+          >
             {/* Season Statistics Column */}
-            <div class="rounded-xl p-6">
-              <h3
-                class="mb-6 text-center text-xl font-semibold dark:text-zinc-100"
-              >
-                2026 Season
-              </h3>
-              <div class="grid grid-cols-2 gap-4">
-                {
-                  seasonStats.map((stat) => (
-                    <StatCard value={stat.value} label={stat.label} />
-                  ))
-                }
+            <div class="stats-panel relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/85 p-6 dark:border-zinc-700/70 dark:bg-zinc-900/80">
+              <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+              <div class="relative z-10">
+                <div class="mb-3 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+                <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+                <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+                <h3 class="mb-6 text-center text-xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+                  2026 Season
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                  {
+                    seasonStats.map((stat) => (
+                      <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-3 text-center dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                        <div class="text-xl font-black text-zinc-900 dark:text-zinc-100">
+                          {stat.value}
+                        </div>
+                        <div class="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
             {/* Lifetime Statistics Column */}
-            <div class="rounded-xl bg-zinc-200/50 p-6 dark:bg-zinc-700/70">
-              <h3
-                class="mb-6 text-center text-xl font-semibold dark:text-zinc-100"
-              >
-                Lifetime
-              </h3>
-              <div class="grid grid-cols-2 gap-4">
-                {
-                  lifetimeStats.map((stat) => (
-                    <StatCard value={stat.value} label={stat.label} />
-                  ))
-                }
+            <div class="stats-panel relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/85 p-6 dark:border-zinc-700/70 dark:bg-zinc-900/80">
+              <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+              <div class="relative z-10">
+                <div class="mb-3 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+                <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+                <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+                <h3 class="mb-6 text-center text-xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+                  Lifetime
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                  {
+                    lifetimeStats.map((stat) => (
+                      <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-3 text-center dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                        <div class="text-xl font-black text-zinc-900 dark:text-zinc-100">
+                          {stat.value}
+                        </div>
+                        <div class="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           </div>
@@ -255,5 +317,56 @@ const lifetimeStats = [
       />
     </main>
     <Footer />
+
+    <style>
+      .panel-grid-overlay {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgb(0 0 0 / 0.02) 0,
+          rgb(0 0 0 / 0.02) 2px,
+          transparent 2px,
+          transparent 12px
+        );
+      }
+
+      :global(.dark) .panel-grid-overlay {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgb(255 255 255 / 0.22) 0,
+          rgb(255 255 255 / 0.22) 2px,
+          transparent 2px,
+          transparent 12px
+        );
+      }
+
+      :global(.dark) .team-profile-shell,
+      :global(.dark) .stats-panel {
+        background-color: rgb(9 9 11 / 0.9);
+      }
+
+      .panel-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid rgb(0 0 0 / 0.14);
+        opacity: 0.85;
+      }
+
+      .panel-corner-top {
+        right: 9px;
+        top: 9px;
+        transform: skew(18deg);
+      }
+
+      .panel-corner-bottom {
+        left: 9px;
+        bottom: 9px;
+        transform: skew(-18deg);
+      }
+
+      :global(.dark) .panel-corner {
+        border-top-color: rgb(255 255 255 / 0.16);
+      }
+    </style>
   </body>
 </html>

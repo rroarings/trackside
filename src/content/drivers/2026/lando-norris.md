@@ -13,8 +13,8 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Lando Norris"
 profileImageLargeAlt: "Portrait of Lando Norris"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 1
+driverPoints: 25
+championshipPosition: 5
 championships: 0
 grandPrixWins: 6
 podiums: 16

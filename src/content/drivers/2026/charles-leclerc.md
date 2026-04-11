@@ -13,11 +13,11 @@ profileImageLarge: ""
 profileImageAlt: "Portrait of Charles Leclerc"
 profileImageLargeAlt: "Portrait of Charles Leclerc"
 driverLogo: ""
-driverPoints: 0
-championshipPosition: 5
+driverPoints: 49
+championshipPosition: 3
 championships: 0
 grandPrixWins: 0
-podiums: 5
+podiums: 1
 polePositions: 1
 fastestLaps: 0
 careerStats:
