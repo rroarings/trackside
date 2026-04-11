@@ -2,6 +2,7 @@
 import { type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { toUTCMidnight } from "../utils/dateUtils";
 import { getSlugFromEntry } from "../utils/slugUtils";
 
@@ -37,94 +38,266 @@ const isPreviousRace =
   race.data.raceCompleted &&
   raceDateUTC.getTime() === lastCompletedRaceDate;
 
+const raceDateObj = new Date(race.data.raceDate);
+const dayNumber = new Intl.DateTimeFormat("en-US", {
+  day: "2-digit",
+  timeZone: "UTC",
+}).format(raceDateObj);
+const monthShort = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  timeZone: "UTC",
+})
+  .format(raceDateObj)
+  .toUpperCase();
+const weekdayShort = new Intl.DateTimeFormat("en-US", {
+  weekday: "short",
+  timeZone: "UTC",
+}).format(raceDateObj);
+const yearNumber = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  timeZone: "UTC",
+}).format(raceDateObj);
+
 const getStatusLabel = () => {
   if (isNextRace) {
     return {
       label: "Next",
-      class: "bg-red-600 text-white motion-safe:animate-pulse",
+      chipClass:
+        "border-rose-300/90 bg-rose-500 text-white",
+      railClass: "from-rose-500/90 to-rose-300/45",
+      iconToneClass: "text-rose-600 dark:text-rose-400",
     };
   }
   if (isPreviousRace) {
-    return { label: "Previous", class: "bg-blue-600 text-white" };
+    return {
+      label: "Previous",
+      chipClass: "border-sky-300/90 bg-sky-500 text-white",
+      railClass: "from-sky-500/90 to-sky-300/45",
+      iconToneClass: "text-sky-600 dark:text-sky-400",
+    };
   }
   if (race.data.raceCompleted) {
-    return { label: "Completed", class: "bg-green-600 text-white" };
+    return {
+      label: "Completed",
+      chipClass: "border-emerald-300/90 bg-emerald-500 text-white",
+      railClass: "from-emerald-500/90 to-emerald-300/45",
+      iconToneClass: "text-emerald-600 dark:text-emerald-400",
+    };
   }
-  return { label: "Upcoming", class: "bg-amber-600 text-white" };
+  return {
+    label: "Upcoming",
+    chipClass: "border-amber-300/90 bg-amber-500 text-white",
+    railClass: "from-amber-500/90 to-amber-300/45",
+    iconToneClass: "text-amber-600 dark:text-amber-400",
+  };
 };
 
-const { label: statusLabel, class: statusLabelClass } = getStatusLabel();
+const {
+  label: statusLabel,
+  chipClass: statusLabelClass,
+  railClass: statusRailClass,
+  iconToneClass,
+} = getStatusLabel();
 ---
 
-<a href={`/seasons/${race.data.season}/races/${raceSlug}`} class="block h-full">
-  <div
-    class:list={[
-      "group h-full overflow-hidden rounded-lg border transition-all duration-300",
-      {
-        "transition-all duration-300 hover:border-red-600 hover:bg-red-50 dark:bg-zinc-800 hover:dark:bg-red-900":
-          isNextRace,
-        "transition-all duration-300 hover:border-blue-600 hover:bg-blue-50 dark:bg-zinc-800 hover:dark:bg-blue-900":
-          isPreviousRace,
-        "transition-all duration-300 hover:border-green-600 hover:bg-green-50 dark:bg-zinc-800 hover:dark:bg-green-900":
-          race.data.raceCompleted && !isPreviousRace,
-        "transition-all duration-300 hover:border-amber-600 hover:bg-amber-50 dark:bg-zinc-800 hover:dark:bg-amber-900":
-          !isNextRace && !isPreviousRace && !race.data.raceCompleted,
-      },
-    ]}
-  >
+<a
+  href={`/seasons/${race.data.season}/races/${raceSlug}`}
+  class:list={[
+    "group block h-full rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/80 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-100 dark:focus-visible:ring-offset-zinc-900",
+    { "race-featured": isNextRace },
+  ]}
+>
+  <article class="race-card relative h-full overflow-hidden rounded-md border border-zinc-300/85 bg-zinc-50/95 dark:border-zinc-700/75 dark:bg-zinc-800/85">
+    <div class={`h-1.5 w-full bg-linear-to-r ${statusRailClass}`}></div>
+    <div class="race-corner race-corner-top" aria-hidden="true"></div>
+    <div class="race-corner race-corner-bottom" aria-hidden="true"></div>
+
     {
       race.data.trackImage && (
-        <Image
-          src={race.data.trackImage}
-          alt={race.data.trackImageAlt ?? `${race.data.trackName} circuit`}
-          width={640}
-          height={192}
-          densities={[1, 2]}
-          class="h-48 w-full object-cover"
-          loading={loading}
-        />
+        <div class="relative overflow-hidden h-48">
+          <Image
+            src={race.data.trackImage}
+            alt={race.data.trackImageAlt ?? `${race.data.trackName} circuit`}
+            width={640}
+            height={224}
+            densities={[1, 2]}
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading={loading}
+          />
+          <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/75 via-zinc-950/30 to-transparent"></div>
+          <div class="absolute left-4 top-4 flex items-center gap-2">
+            <span class={`rounded-sm border px-2 py-1 text-xs font-semibold uppercase tracking-widest ${statusLabelClass}`}>
+              {statusLabel}
+            </span>
+            <span class="rounded-sm border border-zinc-200/35 bg-zinc-950/55 px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-100">
+              Round {race.data.raceNumber}
+            </span>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="text-3xl font-black uppercase tracking-tight text-zinc-100 md:text-4xl">
+              {race.data.trackCountry}
+            </p>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-200">
+              {race.data.raceName}
+            </p>
+          </div>
+        </div>
       )
     }
-    <div class="flex items-center justify-between p-4">
-      {
-        statusLabel && (
-          <span
-            class={`rounded-full px-3 py-1 text-sm tracking-tight transition-colors duration-300 ${statusLabelClass}`}
-          >
-            {statusLabel}
-          </span>
-        )
-      }
-      <span class="text-sm text-zinc-700 dark:text-zinc-200"
-        >Round {race.data.raceNumber}</span
-      >
-    </div>
 
-    <div class="p-6 pt-2">
-      <p class="mb-1 text-2xl md:text-4xl dark:text-zinc-100">
-        {race.data.trackCountry}
-      </p>
-      <p class="mb-2 text-sm uppercase hover:underline dark:text-zinc-100">
-        {race.data.raceName}
-      </p>
+    {
+      !race.data.trackImage && (
+        <div class="px-5 pt-5">
+          <div class="mb-2 flex items-center justify-between">
+            <span class={`rounded-sm border px-2 py-1 text-xs font-semibold uppercase tracking-widest ${statusLabelClass}`}>
+              {statusLabel}
+            </span>
+            <span class="rounded-sm border border-zinc-300/80 bg-zinc-100 px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+              Round {race.data.raceNumber}
+            </span>
+          </div>
+          <p class="text-3xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl">
+            {race.data.trackCountry}
+          </p>
+          <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-300">
+            {race.data.raceName}
+          </p>
+        </div>
+      )
+    }
 
-      <dl
-        class="mb-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm dark:text-zinc-200"
-      >
-        <dt class="font-medium">Date:</dt>
-        <dd><FormattedDate date={race.data.raceDate} /></dd>
+    <div class="race-panel-content relative p-5">
+      <div class="grid grid-cols-[auto_1fr] gap-4">
+        <div class="rounded-md border border-zinc-300/80 bg-zinc-100 px-3 py-2 text-center dark:border-zinc-700 dark:bg-zinc-900">
+          <p class="text-3xl font-black leading-none text-zinc-900 dark:text-zinc-100">
+            {dayNumber}
+          </p>
+          <p class="mt-1 text-[11px] font-semibold uppercase tracking-widest text-zinc-700 dark:text-zinc-300">
+            {monthShort}
+          </p>
+          <p class="text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-400">
+            {weekdayShort}
+          </p>
+          <p class="text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-400">
+            {yearNumber}
+          </p>
+        </div>
 
-        {
-          race.data.raceCompleted && (
-            <>
-              <dt class="">Winner:</dt>
-              <dd class="">
+        <div class="space-y-2.5 text-sm text-zinc-700 dark:text-zinc-300">
+          <div class="flex items-start gap-2.5">
+            <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-zinc-300/80 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+              <Icon name="mdi:map-marker-outline" class:list={["h-3.5 w-3.5", iconToneClass]} />
+            </span>
+            <span>{race.data.trackName}</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-zinc-300/80 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+              <Icon name="mdi:calendar-range" class:list={["h-3.5 w-3.5", iconToneClass]} />
+            </span>
+            <span><FormattedDate date={race.data.raceDate} /></span>
+          </div>
+          {
+            race.data.raceCompleted && (
+              <div class="flex items-start gap-2.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-zinc-300/80 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+                  <Icon name="mdi:trophy-outline" class:list={["h-3.5 w-3.5", iconToneClass]} />
+                </span>
                 <span>{race.data.winningDriver}</span>
-              </dd>
-            </>
-          )
-        }
-      </dl>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center justify-between border-t border-zinc-300/80 pt-3 text-sm font-semibold text-zinc-700 dark:border-zinc-700/80 dark:text-zinc-200">
+        <span class="inline-flex items-center gap-2 transition-colors duration-250 group-hover:text-rose-500 dark:group-hover:text-rose-400">
+          <span class="h-1.5 w-1.5 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+          View Race Details
+        </span>
+        <div class="flex items-center gap-2">
+          <span class="h-1 w-1 rounded-full bg-zinc-400/80"></span>
+          <span class="h-1 w-1 rounded-full bg-zinc-400/60"></span>
+          <span class="h-1 w-1 rounded-full bg-zinc-400/40"></span>
+          <Icon
+            name="mdi:arrow-right"
+            aria-hidden="true"
+            class="size-5 transition-all duration-250 group-hover:translate-x-1 group-hover:text-rose-500 dark:group-hover:text-rose-400"
+          />
+        </div>
+      </div>
     </div>
-  </div>
+  </article>
 </a>
+
+<style>
+  .race-card {
+    background-image: linear-gradient(135deg, rgb(0 0 0 / 0.012), transparent 60%);
+    transition:
+      transform 260ms ease,
+      box-shadow 260ms ease,
+      border-color 260ms ease;
+  }
+
+  :global(.dark) .race-card {
+    background-image: linear-gradient(135deg, rgb(255 255 255 / 0.035), transparent 60%);
+  }
+
+  .race-panel-content {
+    position: relative;
+  }
+
+  .race-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+    opacity: 0.85;
+    z-index: 5;
+  }
+
+  .race-corner-top {
+    right: 9px;
+    top: 9px;
+    transform: skew(18deg);
+  }
+
+  .race-corner-bottom {
+    left: 9px;
+    bottom: 9px;
+    transform: skew(-18deg);
+  }
+
+  :global(.dark) .race-corner {
+    border-top-color: rgb(255 255 255 / 0.16);
+  }
+
+  .group:hover .race-card {
+    transform: translateY(-4px);
+    border-color: rgb(161 161 170 / 0.75);
+    box-shadow: 0 16px 34px rgb(0 0 0 / 0.18);
+  }
+
+  :global(.dark) .group:hover .race-card {
+    border-color: rgb(212 212 216 / 0.24);
+    box-shadow: 0 16px 34px rgb(0 0 0 / 0.34);
+  }
+
+  .race-featured .race-card {
+    box-shadow: 0 14px 30px rgb(244 63 94 / 0.12);
+  }
+
+  :global(.dark) .race-featured .race-card {
+    box-shadow: 0 16px 34px rgb(244 63 94 / 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .race-card,
+    .group:hover .race-card,
+    .group:hover img,
+    .group:hover svg {
+      transition: none;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

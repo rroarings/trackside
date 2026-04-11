@@ -23,58 +23,81 @@ const teamBg = teamBgRaw
   : null;
 const teamSlug = getSlugFromEntry(team);
 const resolvedYear = year ?? team.data.season ?? "2025";
+
+const teamAccentMap: Record<string, string> = {
+  McLaren: "rgb(249 115 22)",
+  Ferrari: "rgb(220 38 38)",
+  Mercedes: "rgb(20 184 166)",
+  Williams: "rgb(37 99 235)",
+  "Red Bull Racing": "rgb(59 130 246)",
+  "Kick Sauber": "rgb(34 197 94)",
+  "Racing Bulls": "rgb(6 182 212)",
+  "Aston Martin": "rgb(16 185 129)",
+  Haas: "rgb(239 68 68)",
+  Alpine: "rgb(14 165 233)",
+  Cadillac: "rgb(244 63 94)",
+  Audi: "rgb(220 38 38)",
+};
+
+const teamAccent = teamAccentMap[team.data.constructorName] || "rgb(244 63 94)";
+const teamCode = team.data.constructorName
+  .split(" ")
+  .map((word) => word[0])
+  .join("")
+  .slice(0, 3)
+  .toUpperCase();
+const cardBackgroundStyle = teamBg
+  ? `--team-accent:${teamAccent}; background-image: linear-gradient(to top, rgb(9 9 11 / 0.88), rgb(9 9 11 / 0.24)), url('${teamBg}'); background-size: cover; background-position: center;`
+  : `--team-accent:${teamAccent}; background-image: linear-gradient(to top, rgb(9 9 11 / 0.88), rgb(9 9 11 / 0.24));`;
 ---
 
 <a
   href={`/seasons/${resolvedYear}/constructors/${teamSlug}`}
-  class="group block h-full"
+  class="group block h-full rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/80 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-100 dark:focus-visible:ring-offset-zinc-900"
 >
   <article
-    class="relative flex h-full flex-col overflow-hidden rounded-lg border border-zinc-300 shadow-md transition-shadow hover:shadow-lg dark:border-zinc-800"
+    class="team-card relative flex h-full flex-col overflow-hidden rounded-md border border-zinc-300/80 dark:border-zinc-700/70"
+    style={cardBackgroundStyle}
   >
-    {
-      teamBg ? (
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute inset-0 z-0"
-          style={`background-image: url('${teamBg}'); background-size: cover; background-position: center; transform: scaleX(-1);`}
-        />
-      ) : null
-    }
-    <!-- Top overlay to improve legibility for title/avatars -->
-    <div
-      aria-hidden="true"
-      class="z-5 pointer-events-none absolute inset-x-0 top-0 h-1/2"
-    >
-      <div
-        class="bg-linear-to-b h-full w-full from-black/60 to-transparent backdrop-blur-[3px]"
-      >
-      </div>
-    </div>
+    <div class="pointer-events-none absolute inset-0 bg-zinc-900/12 dark:bg-zinc-900/24"></div>
+    <div class="team-corner team-corner-top" aria-hidden="true"></div>
+    <div class="team-corner team-corner-bottom" aria-hidden="true"></div>
+    <div class="h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+
     <div class="relative z-10 flex h-full flex-1 flex-col">
-      {/* Team Section */}
       <div class="border-b border-zinc-100/20 text-zinc-100">
         <div class="p-4">
-          <h3 class="mb-2 flex items-center justify-between text-lg font-bold">
-            <span class="group-hover:underline">
+          <div class="mb-2 inline-flex items-center gap-2 rounded-sm border border-zinc-200/30 bg-zinc-950/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-100">
+            <span class="h-1.5 w-1.5 rounded-full bg-zinc-300"></span>
+            Constructor Profile
+          </div>
+
+          <h3 class="mb-3 flex items-start justify-between gap-3">
+            <span class="text-2xl font-black uppercase tracking-tight text-zinc-100 transition-colors duration-250 group-hover:text-zinc-50 md:text-3xl">
               {team.data.constructorName}
             </span>
-            <span class="rounded px-4 py-2 text-2xl font-semibold">
-              {team.data.constructorPoints}
-              <span class="text-base font-normal">pts</span>
+            <span class="rounded-md border border-zinc-200/25 bg-zinc-950/55 px-3 py-2 text-right">
+              <span class="block text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-300">
+                Points
+              </span>
+              <span class="text-2xl font-black leading-none text-zinc-100">
+                {team.data.constructorPoints}
+                <span class="text-xs font-semibold uppercase tracking-wider text-zinc-300"> pts</span>
+              </span>
             </span>
           </h3>
 
-          {/* Driver Name + Avatars */}
-          <div
-            class="mt-2 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-start lg:gap-6"
-          >
+          <div class="mb-3 font-semibold uppercase tracking-[0.14em] text-zinc-200">
+            {team.data.carModel}
+          </div>
+
+          <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {
               team.data.teamDrivers.map((driverName) => {
                 let driverInfo = driverMap.get(driverName);
                 return (
-                  <div class="mb-1 flex items-center gap-2">
-                    <div class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-50/30 bg-zinc-300/20 lg:size-10">
+                  <div class="flex items-center gap-2 rounded-sm border border-zinc-200/20 bg-zinc-950/45 px-2 py-2">
+                    <div class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-50/30 bg-zinc-300/20">
                       {driverInfo ? (
                         <Image
                           src={driverInfo.profileImage}
@@ -89,13 +112,13 @@ const resolvedYear = year ?? team.data.season ?? "2025";
                           src={placeholderBG}
                           alt={driverName}
                           class="object-cover"
-                          width={32}
-                          height={32}
+                          width={96}
+                          height={96}
                           loading={teamIndex < eagerCount ? "eager" : "lazy"}
                         />
                       )}
                     </div>
-                    <span class="text-sm">{driverName}</span>
+                    <span class="text-sm text-zinc-100">{driverName}</span>
                   </div>
                 );
               })
@@ -104,19 +127,82 @@ const resolvedYear = year ?? team.data.season ?? "2025";
         </div>
       </div>
 
-      {/* Car Image - always flush to bottom, with blur overlay only here */}
-      <div class="relative overflow-hidden px-4 pt-8">
-        {/* Blurred background layer */}
-        <div class="backdrop-blur-xs pointer-events-none absolute inset-0 z-0">
-        </div>
-        {/* Car image stays sharp above the blur */}
+      <div class="relative mt-auto overflow-hidden px-4 pt-8">
+        
         <Image
           src={team.data.carImageLarge || team.data.carImage}
           alt={`${team.data.constructorName} ${team.data.carModel}`}
-          class="relative z-10 w-full object-cover"
+          class="team-car-image relative z-10 w-full object-contain"
           loading={teamIndex < eagerCount ? "eager" : "lazy"}
         />
+      </div>
+
+      <div class="mx-4 mb-3 mt-1 flex items-center justify-between border-t border-zinc-200/20 pt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-200">
+        <span class="inline-flex items-center gap-1.5 transition-colors duration-250 group-hover:text-rose-400">
+          <span class="h-1.5 w-1.5 rounded-full bg-zinc-300"></span>
+          View Team Details
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <span class="h-1 w-1 rounded-full bg-zinc-300/90"></span>
+          <span class="h-1 w-1 rounded-full bg-zinc-300/65"></span>
+          <span class="h-1 w-1 rounded-full bg-zinc-300/40"></span>
+        </span>
       </div>
     </div>
   </article>
 </a>
+
+<style>
+  .team-card {
+    background-color: rgb(24 24 27);
+    transition:
+      transform 250ms ease,
+      box-shadow 250ms ease,
+      border-color 250ms ease;
+  }
+
+  .team-corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-top: 1px solid rgb(255 255 255 / 0.2);
+    z-index: 5;
+  }
+
+  .team-corner-top {
+    right: 9px;
+    top: 9px;
+    transform: skew(18deg);
+  }
+
+  .team-corner-bottom {
+    left: 9px;
+    bottom: 9px;
+    transform: skew(-18deg);
+  }
+
+  .team-car-image {
+    transition: transform 240ms ease;
+  }
+
+  .group:hover .team-card {
+    transform: translateY(-4px);
+    border-color: rgb(212 212 216 / 0.45);
+    box-shadow: 0 16px 34px rgb(0 0 0 / 0.35);
+  }
+
+  .group:hover .team-car-image {
+    transform: translateY(-4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .team-card,
+    .team-car-image,
+    .group:hover .team-card,
+    .group:hover .team-car-image {
+      transition: none;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

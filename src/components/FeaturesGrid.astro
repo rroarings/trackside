@@ -27,18 +27,18 @@ const gridCols = {
 <style>
   @reference "../styles/global.css";
   @reference "tailwindcss";
-  h3 {
+  .feature-title {
     @apply m-0 text-xl tracking-tight dark:text-zinc-200;
   }
 
   @media (min-width: 768px) {
-    h3 {
+    .feature-title {
       @apply text-2xl;
     }
   }
 
   @media (min-width: 1024px) {
-    h3 {
+    .feature-title {
       @apply text-3xl;
     }
   }
@@ -47,35 +47,66 @@ const gridCols = {
   <div class="mx-auto max-w-7xl px-4">
     {
       title && (
-        <div class="mb-6 border-b border-zinc-200 pb-2">
-          <h2 class="font-bold dark:text-zinc-100">{title}</h2>
+        <div class="mb-8 border-b border-zinc-300 pb-3 dark:border-zinc-700">
+          <h2 class="font-bold text-zinc-900 dark:text-zinc-100">{title}</h2>
         </div>
       )
     }
 
     <div class={`grid grid-cols-1 ${gridCols} gap-6`}>
       {
-        features.map((feature) => {
+        features.map((feature, index) => {
           const Wrapper = feature.href ? "a" : "div";
+          const featureNumber = String(index + 1).padStart(2, "0");
+
           return (
             <Wrapper
               href={feature.href}
-              class={`group flex items-start space-x-4 rounded-lg p-2 transition-colors duration-300 ${feature.href ? "" : ""}`}
+              class="group relative overflow-hidden rounded-2xl border border-zinc-300 bg-white p-6 shadow-sm transition-colors duration-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800/80"
             >
-              <div class="shrink-0">
-                <div class="group-hover:inset-shadow-sm group-hover:dark:inset-shadow-zinc-400 flex size-12 items-center justify-center rounded-lg bg-zinc-900 text-white transition-all duration-300 dark:bg-zinc-700">
-                  {feature.icon ? (
-                    <Icon name={feature.icon} size="1.6em" />
-                  ) : (
-                    <Icon name="mdi:asterisk" size="1.6em" />
-                  )}
+              <span
+                class="absolute inset-x-0 top-0 h-1 bg-rose-600"
+                aria-hidden="true"
+              />
+              <span
+                class="pointer-events-none absolute right-4 top-3 text-6xl font-bold leading-none tracking-[-0.06em] text-zinc-100 transition-colors duration-300 group-hover:text-zinc-200 dark:text-zinc-800 dark:group-hover:text-zinc-700"
+                aria-hidden="true"
+              >
+                {featureNumber}
+              </span>
+              <div class="relative flex h-full flex-col gap-5">
+                <div class="flex items-start justify-between gap-4">
+                  <div class="shrink-0">
+                    <div class="group-hover:inset-shadow-sm group-hover:dark:inset-shadow-zinc-400 flex size-12 items-center justify-center rounded-lg bg-zinc-900 text-white transition-all duration-300 dark:bg-zinc-700">
+                      {feature.icon ? (
+                        <Icon name={feature.icon} size="1.6em" />
+                      ) : (
+                        <Icon name="mdi:asterisk" size="1.6em" />
+                      )}
+                    </div>
+                  </div>
+                  <span class="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-400 dark:text-zinc-500">
+                    Section
+                  </span>
                 </div>
-              </div>
-              <div>
-                <h3 class="dark:text-zinc-200">{feature.title}</h3>
-                <p class="text-zinc-800 dark:text-zinc-300">
-                  {feature.description}
-                </p>
+                <div class="space-y-3">
+                  <h3 class="feature-title text-zinc-900 dark:text-zinc-100">
+                    {feature.title}
+                  </h3>
+                  <p class="max-w-[34ch] text-zinc-700 dark:text-zinc-300">
+                    {feature.description}
+                  </p>
+                </div>
+                <div class="mt-auto flex items-center justify-between border-t border-zinc-200 pt-4 dark:border-zinc-800">
+                  <span class="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 transition-colors duration-300 group-hover:text-rose-500 dark:text-zinc-400">
+                    Explore
+                  </span>
+                  <Icon
+                    name="mdi:arrow-right"
+                    size="1.2em"
+                    class="text-zinc-500 transition-colors duration-300 group-hover:text-rose-500 dark:text-zinc-400"
+                  />
+                </div>
               </div>
             </Wrapper>
           );

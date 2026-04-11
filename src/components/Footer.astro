@@ -45,7 +45,7 @@ const socialLinks: SocialLink[] = [
 ---
 
 <footer class="bg-zinc-100 dark:bg-zinc-900" role="contentinfo">
-  <div class="mx-auto max-w-7xl px-6 py-12 lg:py-16">
+  <div class="mx-auto max-w-7xl px-8 py-12 lg:py-16">
     <!-- Main Footer Grid -->
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
       <!-- Brand Column -->
@@ -81,7 +81,7 @@ const socialLinks: SocialLink[] = [
                     href={link.url}
                     rel="noopener noreferrer"
                     target="_blank"
-                    class="group flex size-10 items-center justify-center rounded-lg bg-zinc-200 text-zinc-600 transition-all duration-200 hover:bg-blue-500 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-blue-600 dark:hover:text-white"
+                    class="group flex size-10 items-center justify-center rounded-lg bg-zinc-200 text-zinc-600 transition-all duration-200 hover:bg-rose-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-rose-700 dark:hover:text-white"
                     aria-label={link.label}
                   >
                     <Icon
@@ -105,7 +105,7 @@ const socialLinks: SocialLink[] = [
         <!-- Current Season -->
         <nav aria-label="Current season navigation">
           <h3
-            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
+            class="text-2xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
           >
             {currentSeason} Season
           </h3>
@@ -113,7 +113,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href={`/seasons/${currentSeason}`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Season Overview
               </a>
@@ -121,7 +121,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href={`/seasons/${currentSeason}/drivers`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Drivers
               </a>
@@ -129,7 +129,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href={`/seasons/${currentSeason}/constructors`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Constructors
               </a>
@@ -137,7 +137,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href={`/seasons/${currentSeason}/races`}
-                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="inline-flex items-center gap-1 text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Race Calendar
               </a>
@@ -145,7 +145,7 @@ const socialLinks: SocialLink[] = [
             <li class="pt-2">
               <a
                 href="/seasons"
-                class="inline-flex items-center gap-1 text-blue-600 transition-colors duration-200 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                class="inline-flex items-center gap-1 text-rose-600 transition-colors duration-200 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300"
               >
                 All Seasons
                 <Icon name="mdi:arrow-right" size={18} aria-hidden="true" />
@@ -157,7 +157,7 @@ const socialLinks: SocialLink[] = [
         <!-- Learn F1 -->
         <nav aria-label="Learn about Formula 1">
           <h3
-            class="text-xl! uppercase tracking-wider text-zinc-900 dark:text-zinc-100"
+            class="text-2xl! uppercase tracking-wider text-zinc-900 dark:text-zinc-100"
           >
             Learn F1
           </h3>
@@ -165,7 +165,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/learn/whatis"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 What Is F1?
               </a>
@@ -173,7 +173,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/learn/technologies"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Technology
               </a>
@@ -181,7 +181,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/learn/future"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Future of F1
               </a>
@@ -189,7 +189,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/blog"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Blog
               </a>
@@ -199,14 +199,14 @@ const socialLinks: SocialLink[] = [
 
         <!-- Past Seasons -->
         <nav aria-label="Past seasons archive">
-          <h3 class="text-xl! uppercase text-zinc-900 dark:text-zinc-100">
+          <h3 class="text-2xl! uppercase text-zinc-900 dark:text-zinc-100">
             Archives
           </h3>
           <ul class="mt-4 space-y-3" role="list">
             <li>
               <a
                 href="/seasons/2025"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 2025 Season
               </a>
@@ -214,7 +214,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/seasons/2024"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 2024 Season
               </a>
@@ -225,7 +225,7 @@ const socialLinks: SocialLink[] = [
         <!-- Site Info -->
         <nav aria-label="Site information">
           <h3
-            class="text-xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
+            class="text-2xl! uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
           >
             Trackside
           </h3>
@@ -233,7 +233,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/about"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 About
               </a>
@@ -241,7 +241,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/contact"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Contact
               </a>
@@ -249,7 +249,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/about/faqs"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 FAQs
               </a>
@@ -257,7 +257,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/about/attributions"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Attributions
               </a>
@@ -265,7 +265,7 @@ const socialLinks: SocialLink[] = [
             <li>
               <a
                 href="/about/resources"
-                class="text-zinc-600 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+                class="text-zinc-600 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
               >
                 Resources
               </a>
@@ -288,23 +288,23 @@ const socialLinks: SocialLink[] = [
         <!-- Quick Links -->
         <nav
           aria-label="Legal and quick links"
-          class="flex flex-wrap justify-center gap-4 text-sm sm:justify-end"
+          class="flex flex-wrap justify-center gap-4 sm:justify-end"
         >
           <a
             href="/"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
           >
             Home
           </a>
           <a
             href="/blog"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
           >
             Blog
           </a>
           <a
             href="/contact"
-            class="text-zinc-500 transition-colors duration-200 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+            class="text-zinc-500 transition-colors duration-200 hover:text-rose-500 dark:text-zinc-300 dark:hover:text-rose-400"
           >
             Contact
           </a>
@@ -313,7 +313,7 @@ const socialLinks: SocialLink[] = [
 
       <!-- Disclaimer -->
       <p
-        class="mt-6 text-center leading-relaxed text-zinc-600 sm:text-left dark:text-zinc-300"
+        class="mt-6 leading-relaxed text-zinc-600 dark:text-zinc-300"
       >
         This website is unofficial and is not associated in any way with the
         Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD

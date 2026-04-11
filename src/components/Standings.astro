@@ -59,7 +59,9 @@ const constructorsTabId = `constructors-tab-${season}`;
 const lastRaceTabId = `last-race-tab-${season}`;
 ---
 
-<div class="standings-component mx-auto w-full max-w-6xl rounded-lg">
+<div
+  class="standings-component mx-auto w-full max-w-6xl overflow-hidden rounded-2xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-900"
+>
   <!-- Hidden radio buttons for state management -->
   <input
     type="radio"
@@ -86,22 +88,24 @@ const lastRaceTabId = `last-race-tab-${season}`;
   }
 
   <!-- Tabs -->
-  <div class="flex">
+  <div
+    class="tab-list flex flex-wrap gap-2 border-b border-zinc-300 bg-zinc-100 p-3 dark:border-zinc-700 dark:bg-zinc-950"
+  >
     <label
       for={driversTabId}
-      class="tab-button drivers-label cursor-pointer px-6 py-3 dark:text-zinc-200"
+      class="tab-button drivers-label cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-300"
       >Drivers</label
     >
     <label
       for={constructorsTabId}
-      class="tab-button constructors-label cursor-pointer px-6 py-3 dark:text-zinc-200"
+      class="tab-button constructors-label cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-300"
       >Constructors</label
     >
     {
       lastRace && (
         <label
           for={lastRaceTabId}
-          class="tab-button last-race-label cursor-pointer px-6 py-3 dark:text-zinc-200"
+          class="tab-button last-race-label cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-300"
         >
           Last Race
         </label>
@@ -110,7 +114,7 @@ const lastRaceTabId = `last-race-tab-${season}`;
   </div>
 
   <!-- Tab Content -->
-  <div class="p-6">
+  <div class="p-6 sm:p-8">
     <!-- Drivers Table -->
     <div class="tab-content drivers-content">
       <StandingsCard
@@ -122,7 +126,7 @@ const lastRaceTabId = `last-race-tab-${season}`;
       <div class="mt-10 text-center">
         <a
           href={`/seasons/${season}/drivers`}
-          class="rounded border-2 border-transparent bg-zinc-600 px-4 py-2 text-white transition-all duration-300 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+          class="inline-flex items-center gap-2 rounded border-2 border-rose-500 bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800"
           >View All Drivers</a
         >
       </div>
@@ -135,7 +139,7 @@ const lastRaceTabId = `last-race-tab-${season}`;
       <div class="mt-10 text-center">
         <a
           href={`/seasons/${season}/constructors`}
-          class="rounded border-2 border-transparent bg-zinc-600 px-4 py-2 text-white transition-all duration-300 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+          class="inline-flex items-center gap-2 rounded border-2 border-rose-500 bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800"
           >View All Constructors</a
         >
       </div>
@@ -157,11 +161,12 @@ const lastRaceTabId = `last-race-tab-${season}`;
     display: none;
   }
   .tab-button {
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s ease-in-out;
-  }
-  .dark .tab-button {
-    color: #a1a1aa; /* text-zinc-400 */
+    border: 1px solid transparent;
+    transition:
+      color 0.2s ease-in-out,
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
   }
   .standings-component input[id^="drivers-tab"]:checked ~ .p-6 .drivers-content,
   .standings-component
@@ -174,34 +179,32 @@ const lastRaceTabId = `last-race-tab-${season}`;
     .last-race-content {
     display: block;
   }
-  .standings-component input[id^="drivers-tab"]:checked ~ .flex .drivers-label,
+  .standings-component
+    input[id^="drivers-tab"]:checked
+    ~ .tab-list
+    .drivers-label,
   .standings-component
     input[id^="constructors-tab"]:checked
-    ~ .flex
+    ~ .tab-list
     .constructors-label,
   .standings-component
     input[id^="last-race-tab"]:checked
-    ~ .flex
+    ~ .tab-list
     .last-race-label {
     font-weight: 600;
-    border-bottom-color: #dc2626; /* border-red-600 */
-  }
-  .dark
-    .standings-component
-    input[id^="drivers-tab"]:checked
-    ~ .flex
-    .drivers-label,
-  .dark
-    .standings-component
-    input[id^="constructors-tab"]:checked
-    ~ .flex
-    .constructors-label,
-  .dark
-    .standings-component
-    input[id^="last-race-tab"]:checked
-    ~ .flex
-    .last-race-label {
     color: #fff;
-    border-bottom-color: #f87171; /* red-400 or your accent */
+    background: linear-gradient(90deg, #e11d48 0%, #be123c 100%);
+    border-color: rgba(225, 29, 72, 0.65);
+    box-shadow: 0 10px 24px rgba(225, 29, 72, 0.22);
+  }
+  .tab-button:hover {
+    color: #18181b;
+    background-color: rgba(244, 244, 245, 0.9);
+    border-color: rgba(212, 212, 216, 0.9);
+  }
+  .dark .tab-button:hover {
+    color: #fff;
+    background-color: rgba(39, 39, 42, 0.95);
+    border-color: rgba(63, 63, 70, 1);
   }
 </style>
