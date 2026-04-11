@@ -19,6 +19,9 @@ fastestLapDriver: "Kimi Antonelli"
 fastestLapConstructor: "Mercedes"
 fastestLapTime: "1:35.275"
 raceNumber: 2
+laps: 56
+time: "1:33:15.607"
+hasSprint: true
 raceCompleted: true
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/02china/cn01.jpg"
