@@ -126,7 +126,7 @@ Never bet against **Mercedes** in a regulation change year. While they've strugg
 
 ## The Wildcard Factor: Regulation Lottery
 
-Here's the truth—anyone who says they *know* how 2026 will play out is selling you something. New regulations are the great equalizer in F1. Remember 2014 when Mercedes nailed the hybrid era? Or 2022 when Red Bull cracked the ground-effect rules? The team that interprets these regulations best could be the surprise package.
+Here's the truth—anyone who says they _know_ how 2026 will play out is selling you something. New regulations are the great equalizer in F1. Remember 2014 when Mercedes nailed the hybrid era? Or 2022 when Red Bull cracked the ground-effect rules? The team that interprets these regulations best could be the surprise package.
 
 **Teams that could surprise:**
 
@@ -157,4 +157,4 @@ One thing's for certain: **2026 is going to be one hell of a ride.**
 
 ---
 
-*These predictions were made before pre-season testing. Check back after Bahrain testing for updated hot takes!*
+_These predictions were made before pre-season testing. Check back after Bahrain testing for updated hot takes!_

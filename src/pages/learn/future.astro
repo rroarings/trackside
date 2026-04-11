@@ -18,51 +18,141 @@ import lawsonPortrait from "../../assets/constructors/racing-bulls/drivers/lawso
 const pageTitle = "Future of Formula 1";
 const description =
   "Discover what lies ahead for Formula 1 as we explore emerging technologies, sustainability initiatives, and the next generation of racing talent.";
-const rookies = [
+const nextGeneration = [
   {
-    name: "Kimi Antonelli",
+    firstName: "Kimi",
+    lastName: "Antonelli",
+    initials: "KA",
+    number: "12",
+    team: "Mercedes",
+    nationality: "Italy",
+    age: "19",
+    debut: "2025",
+    accent: "#06b6d4",
+    accentSoft: "rgb(6 182 212 / 0.36)",
     desc: "Mercedes prodigy who impressed in Formula 2 with exceptional race craft and maturity beyond his years.",
     img: kimiPortrait,
     alt: "Kimi Antonelli driver portrait",
   },
   {
-    name: "Oliver Bearman",
+    firstName: "Oliver",
+    lastName: "Bearman",
+    initials: "OB",
+    number: "87",
+    team: "Haas",
+    nationality: "United Kingdom",
+    age: "20",
+    debut: "2024",
+    accent: "#ef4444",
+    accentSoft: "rgb(239 68 68 / 0.34)",
     desc: "Ferrari academy graduate who earned his Haas seat after a stunning F1 debut filling in at Saudi Arabia.",
     img: bearmanPortrait,
     alt: "Oliver Bearman driver portrait",
   },
   {
-    name: "Isack Hadjar",
+    firstName: "Isack",
+    lastName: "Hadjar",
+    initials: "IH",
+    number: "6",
+    team: "Red Bull Racing",
+    nationality: "France",
+    age: "21",
+    debut: "2025",
+    accent: "#0861af",
+    accentSoft: "rgb(8 97 175 / 0.34)",
     desc: "Red Bull junior who fought for the F2 title, known for aggressive overtakes and cool-headed consistency.",
     img: hadjarPortrait,
     alt: "Isack Hadjar driver portrait",
   },
   {
-    name: "Gabriel Bortoleto",
-    desc: "McLaren-backed F2 champion joining Kick Sauber, celebrated for his strategic intelligence and raw speed.",
+    firstName: "Gabriel",
+    lastName: "Bortoleto",
+    initials: "GB",
+    number: "5",
+    team: "Audi",
+    nationality: "Brazil",
+    age: "20",
+    debut: "2025",
+    accent: "#dc2626",
+    accentSoft: "rgb(220 38 38 / 0.34)",
+    desc: "McLaren-backed F2 champion joining Audi, celebrated for his strategic intelligence and raw speed.",
     img: bortoletoPortrait,
     alt: "Gabriel Bortoleto driver portrait",
   },
   {
-    name: "Liam Lawson",
+    firstName: "Liam",
+    lastName: "Lawson",
+    initials: "LL",
+    number: "40",
+    team: "Racing Bulls",
+    nationality: "New Zealand",
+    age: "23",
+    debut: "2023",
+    accent: "#f97316",
+    accentSoft: "rgb(249 115 22 / 0.34)",
     desc: "New Zealander who seized his chance as Red Bull's super-sub, delivering points on multiple occasions.",
     img: lawsonPortrait,
     alt: "Liam Lawson driver portrait",
   },
-  // ...other rookies
+  {
+    firstName: "Arvid",
+    lastName: "Lindblad",
+    initials: "AL",
+    number: "85",
+    team: "Racing Bulls",
+    nationality: "Sweden",
+    age: "19",
+    debut: "2026",
+    accent: "#f97316",
+    accentSoft: "rgb(249 115 22 / 0.34)",
+    desc: "Red Bull junior who completed his first F2 campaign with speed and consistency, now stepping up as Lawson's teammate.",
+    img: doohanPortrait,
+    alt: "Arvid Lindblad driver portrait",
+  },
 ];
 
 const keyStats = [
-  { value: "50%", label: "Electric Power" },
-  { value: "100%", label: "Sustainable Fuel" },
-  { value: "11", label: "Teams on Grid" },
-  { value: "30kg", label: "Lighter Cars" },
+  {
+    value: "50%",
+    label: "Electric Share",
+    note: "Power unit output split target",
+    icon: "mdi:lightning-bolt",
+    accentClass: "from-sky-500/80 to-sky-400/30",
+    iconClass: "text-sky-500",
+  },
+  {
+    value: "100%",
+    label: "Sustainable Fuel",
+    note: "Drop-in fuel mandate",
+    icon: "mdi:leaf",
+    accentClass: "from-emerald-500/80 to-emerald-400/30",
+    iconClass: "text-emerald-500",
+  },
+  {
+    value: "11",
+    label: "Teams on Grid",
+    note: "Cadillac joins the field",
+    icon: "mdi:flag-checkered",
+    accentClass: "from-rose-500/80 to-rose-400/30",
+    iconClass: "text-rose-500",
+  },
+  {
+    value: "30kg",
+    label: "Weight Reduction",
+    note: "Smaller, nimbler 2026 cars",
+    icon: "mdi:scale-bathroom",
+    accentClass: "from-amber-500/80 to-amber-400/30",
+    iconClass: "text-amber-500",
+  },
 ];
 
 const regulationsGrid = [
   {
     title: "Power Unit Revolution",
     icon: "mdi:lightning-bolt",
+    chip: "Power Unit",
+    accentClass: "from-sky-500/90 to-sky-300/40",
+    iconToneClass: "text-sky-500 dark:text-sky-400",
     items: [
       "Electric motor output increases to 350kW—equal to the internal combustion engine",
       "MGU-H (heat energy recovery) removed to simplify power units and reduce costs",
@@ -73,6 +163,9 @@ const regulationsGrid = [
   {
     title: "Active Aerodynamics",
     icon: "mdi:airplane",
+    chip: "Aero",
+    accentClass: "from-violet-500/90 to-violet-300/40",
+    iconToneClass: "text-violet-500 dark:text-violet-400",
     items: [
       "Both front and rear wings dynamically adjust angle based on track position",
       "Closed position in corners for grip; open position on straights for low drag",
@@ -83,6 +176,9 @@ const regulationsGrid = [
   {
     title: "Expanded Grid",
     icon: "mdi:flag-checkered",
+    chip: "Teams",
+    accentClass: "from-rose-500/90 to-rose-300/40",
+    iconToneClass: "text-rose-500 dark:text-rose-400",
     items: [
       "Cadillac F1 joins as the 11th team—first new constructor since Haas in 2016",
       "Bottas & Checo return under the Cadillac banner",
@@ -93,6 +189,9 @@ const regulationsGrid = [
   {
     title: "Smaller, Nimbler Cars",
     icon: "mdi:car-sports",
+    chip: "Chassis",
+    accentClass: "from-amber-500/90 to-amber-300/40",
+    iconToneClass: "text-amber-500 dark:text-amber-400",
     items: [
       "Minimum weight reduced by 30kg—targeting 768kg vs current 798kg",
       "Shorter wheelbase for improved agility through slow-speed corners",
@@ -112,27 +211,70 @@ const regulationsGrid = [
     <Header />
     <main>
       <!-- Hero Section -->
-      <div class="pb-10 text-center">
-        <h1
-          class="mb-4 text-4xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-100"
-        >
-          {pageTitle}
-        </h1>
-        <div class="mx-auto max-w-3xl">
-          <p class="mb-8 leading-loose text-zinc-800 dark:text-zinc-300">
-            Formula 1 has always been at the forefront of technological
-            advancements, and the future promises to be no different.
-          </p>
+      <section class="pb-12">
+        <div class="container mx-auto px-4">
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-300/70 shadow-2xl dark:border-zinc-700/70">
+            <Image
+              src={bh03}
+              alt="Formula 1 car attacking a corner at speed"
+              loading="eager"
+              class="h-[60vh] min-h-130 w-full object-cover"
+            />
+
+            <div class="pointer-events-none absolute inset-0 bg-linear-to-r from-zinc-950/80 via-zinc-950/55 to-zinc-950/25"></div>
+            <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/50 to-transparent"></div>
+
+            <div class="absolute inset-0 flex items-end">
+              <div class="w-full p-6 sm:p-8 md:p-10 lg:max-w-4xl">
+                <p class="text-xs font-semibold uppercase tracking-widest text-zinc-200">
+                  Future Outlook • 2026 Regulation Shift
+                </p>
+                <h1 class="mt-3 text-4xl font-black leading-tight text-zinc-100 sm:text-5xl md:text-6xl">
+                  Next: 2026 and Beyond
+                </h1>
+                <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-200 sm:text-lg">
+                  Cleaner power, smarter aero, lighter cars, and an expanded
+                  grid are set to redefine how Formula 1 teams build speed.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="rounded-md border border-zinc-200/35 bg-zinc-950/45 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-100">
+                    11 teams
+                  </span>
+                  <span class="rounded-md border border-zinc-200/35 bg-zinc-950/45 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-100">
+                    100% sustainable fuel
+                  </span>
+                  <span class="rounded-md border border-zinc-200/35 bg-zinc-950/45 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-100">
+                    Active aero era
+                  </span>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#regulations-2026"
+                    class="inline-flex items-center justify-center rounded-md bg-zinc-100 px-4 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300"
+                  >
+                    Explore 2026 Rules
+                  </a>
+                  <a
+                    href="#rookies-watch"
+                    class="inline-flex items-center justify-center rounded-md border border-zinc-100/60 bg-zinc-950/35 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-950/55"
+                  >
+                    Meet the Rookies
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute right-4 top-4 rounded-md border border-zinc-200/35 bg-zinc-950/55 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zinc-100">
+              Launch Briefing
+            </div>
+          </div>
         </div>
-        <div
-          class="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-xl dark:shadow-zinc-800"
-        >
-          <Image src={bh03} alt="weepah" loading="eager" />
-        </div>
-      </div>
+      </section>
 
       <!-- 2026 Regulations Section -->
-      <section class="py-16 dark:bg-zinc-900">
+      <section id="regulations-2026" class="py-16 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
           <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
@@ -146,49 +288,83 @@ const regulationsGrid = [
           </div>
 
           <!-- Key Stats Bar -->
-          <div class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {
-              keyStats.map((stat) => (
-                <div class="rounded-xl bg-white p-6 text-center shadow-sm dark:bg-zinc-800">
-                  <p class="text-3xl font-bold text-zinc-600 dark:text-zinc-400">
-                    {stat.value}
-                  </p>
-                  <p class="mt-1 text-base text-zinc-600 dark:text-zinc-300">
-                    {stat.label}
-                  </p>
-                </div>
-              ))
-            }
+          <div class="relative mb-12 overflow-hidden rounded-2xl border border-zinc-300/70 bg-white/80 p-3 shadow-lg backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/70">
+            <div class="pointer-events-none absolute inset-0 stat-scan bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] dark:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)]"></div>
+            <div class="relative mb-3 flex items-center justify-between px-2">
+              <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                2026 regulation metrics
+              </p>
+            </div>
+            <div class="relative grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {
+                keyStats.map((stat, index) => (
+                  <article
+                    class="animate-stat-card rounded-xl border border-zinc-300/70 bg-zinc-50/85 p-4 dark:border-zinc-700/70 dark:bg-zinc-800/70"
+                    style={`animation-delay:${index * 80}ms`}
+                  >
+                    <div class={`mb-3 h-1.5 w-full rounded-full bg-linear-to-r ${stat.accentClass}`}></div>
+                    <div class="flex items-start gap-3">
+                      <div class="rounded-md border border-zinc-300/70 bg-zinc-100 p-2 dark:border-zinc-700 dark:bg-zinc-900">
+                        <Icon name={stat.icon} class={`h-5 w-5 ${stat.iconClass}`} />
+                      </div>
+                      <div>
+                        <p class="text-2xl font-black text-zinc-900 dark:text-zinc-100">{stat.value}</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+                          {stat.label}
+                        </p>
+                        <p class="mt-2 inline-flex rounded-md border border-zinc-300/80 bg-zinc-100 px-2 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
+                          {stat.note}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                ))
+              }
+            </div>
           </div>
 
           <!-- Regulations Grid -->
           <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2">
             {
               regulationsGrid.map((card) => (
-                <div class="rounded-xl bg-white p-8 shadow-sm dark:bg-zinc-800">
-                  <div class="mb-4 flex items-center gap-3">
-                    <div class="rounded-full bg-sky-100 p-3 dark:bg-sky-900/30">
-                      <Icon
-                        name={card.icon}
-                        class="h-6 w-6 text-sky-600 dark:text-sky-400"
-                      />
+                <article class="reg-card group relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/90 p-6 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-800/80">
+                  <div class={`mb-4 h-1.5 w-full rounded-full bg-linear-to-r ${card.accentClass}`}></div>
+                  <div class="reg-corner reg-corner-top" aria-hidden="true"></div>
+                  <div class="reg-corner reg-corner-bottom" aria-hidden="true"></div>
+
+                  <div class="mb-4 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <div class="reg-icon-badge rounded-md border border-zinc-300/80 bg-zinc-100 p-3 dark:border-zinc-700 dark:bg-zinc-900">
+                        <div class="reg-icon-ring absolute inset-1 rounded-sm"></div>
+                        <div class="relative z-10">
+                          <Icon
+                            name={card.icon}
+                            class={`h-5 w-5 ${card.iconToneClass}`}
+                          />
+                        </div>
+                      </div>
+                      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+                        {card.title}
+                      </h3>
                     </div>
-                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                      {card.title}
-                    </h3>
+                    <span class="inline-flex rounded-sm border border-zinc-300/80 bg-zinc-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+                      {card.chip}
+                    </span>
                   </div>
-                  <ul class="space-y-3 text-zinc-600 dark:text-zinc-300">
+                  <ul class="space-y-2.5 text-zinc-700 dark:text-zinc-300">
                     {card.items.map((item) => (
-                      <li class="flex items-start gap-2">
-                        <Icon
-                          name="mdi:check-circle"
-                          class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
-                        />
+                      <li class="reg-item flex items-start gap-2.5 pl-2">
+                        <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-zinc-300/80 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+                          <Icon
+                            name="mdi:chevron-double-right"
+                            class="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400"
+                          />
+                        </span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))
             }
           </div>
@@ -208,7 +384,7 @@ const regulationsGrid = [
         `}
         imageSrc={jp02}
         imageAlt="F1 Data Analytics"
-        imageLoading="eager"
+        imageLoading="lazy"
         background="zinc"
       />
 
@@ -226,6 +402,7 @@ const regulationsGrid = [
         `}
         imageSrc={jp02}
         imageAlt="F1 Innovation and Development"
+        imageLoading="lazy"
         reversed={true}
       />
 
@@ -252,15 +429,15 @@ const regulationsGrid = [
       />
 
       <!-- Rookies Showcase Section -->
-      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
+      <section id="rookies-watch" class="bg-zinc-100 py-16 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
           <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold dark:text-zinc-100">
-              What does the future hold?
+              The Next Generation
             </h2>
             <p class="text-lg text-zinc-800 dark:text-zinc-300">
-              These rising stars are already making headlines. Here's who to
-              watch as Formula 1 evolves into a new era.
+              These established drivers and rising talents are shaping the
+              future of Formula 1. Here's who to watch in 2026 and beyond.
             </p>
           </div>
 
@@ -268,28 +445,81 @@ const regulationsGrid = [
             class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {
-              rookies.map((rookie) => (
-                <div class="flex h-full flex-col rounded-xl bg-zinc-200 dark:bg-zinc-800">
-                  <div class="flex-1 p-6">
-                    <h4 class="mb-2 text-xl dark:text-zinc-100">
-                      {rookie.name}
+              nextGeneration.map((rookie, index) => (
+                <article
+                  class="rookie-panel group relative flex h-full min-h-120 flex-col overflow-hidden rounded-md border border-zinc-700/80 dark:border-zinc-700/80"
+                  style={`--rookie-accent:${rookie.accent}; --rookie-accent-soft:${rookie.accentSoft};`}
+                >
+                  <div class="rookie-top-strip h-1.5 w-full"></div>
+                  <div class="pointer-events-none absolute left-3 top-4 z-20 inline-flex items-center gap-2 rounded-sm border border-zinc-200/20 bg-zinc-950/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-200 dark:border-zinc-200/20 dark:bg-zinc-950/55 dark:text-zinc-200">
+                    <span class="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-300"></span>
+                    Next Gen Driver
+                  </div>
+                  <div class="pointer-events-none absolute right-3 top-4 z-20 rounded-sm border border-zinc-200/20 bg-zinc-950/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-200 dark:border-zinc-200/20 dark:bg-zinc-950/55 dark:text-zinc-200">
+                    {rookie.team}
+                  </div>
+                    <div class="pointer-events-none absolute right-3 top-12 z-20 rookie-number-badge rounded-sm px-2.5 py-2 text-center">
+                      <p class="text-xl font-black text-zinc-500 dark:text-zinc-100">#{rookie.number}</p>
+                    </div>
+
+                  <div class="rookie-corner rookie-corner-left" aria-hidden="true"></div>
+                  <div class="rookie-corner rookie-corner-right" aria-hidden="true"></div>
+
+                  <div class="relative z-10 flex flex-1 flex-col p-5 pt-12">
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
+                      Driver Profile
+                    </p>
+                    <h3 class="mt-2 text-sm font-semibold uppercase tracking-[0.15em] text-zinc-800 dark:text-zinc-300">
+                      {rookie.firstName}
+                    </h3>
+                    <h4 class="text-3xl font-black uppercase tracking-tight text-zinc-950 dark:text-zinc-100 md:text-4xl">
+                      {rookie.lastName}
                     </h4>
-                    <p class="text-zinc-800 dark:text-zinc-300">
+                    <p class="mt-3 max-w-xl text-sm leading-relaxed text-zinc-800 dark:text-zinc-300/95">
                       {rookie.desc}
                     </p>
+
+                    <div class="mt-4 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-700 dark:text-zinc-400">
+                      <span class="inline-flex items-center gap-1.5">
+                        <span class="h-1.5 w-1.5 rounded-full bg-zinc-500 dark:bg-zinc-500"></span>
+                        {rookie.nationality}
+                      </span>
+                      <span class="inline-flex items-center gap-1.5">
+                        <span class="h-1.5 w-1.5 rounded-full bg-zinc-500 dark:bg-zinc-500"></span>
+                        Age {rookie.age}
+                      </span>
+                      
+                    </div>
                   </div>
-                  <div class="flex h-64 overflow-hidden">
+
+                  <div class="rookie-portrait-wrap relative mt-auto h-72 overflow-hidden">
+                    <div class="rookie-gradient absolute inset-0"></div>
+                    <p class="pointer-events-none absolute bottom-4 left-4 z-10 text-7xl font-black uppercase tracking-tight text-zinc-100/10 md:text-8xl">
+                      {rookie.initials}
+                    </p>
                     <Image
                       src={rookie.img}
                       alt={rookie.alt}
-                      class="h-full w-full object-contain"
+                      class="rookie-portrait relative z-20 h-full w-full object-contain object-bottom"
                     />
+
+                    <div class="rookie-info-rail absolute inset-x-0 bottom-0 z-30 flex items-center justify-between border-t border-zinc-200/15 bg-zinc-950/75 px-4 py-2 dark:border-zinc-200/15 dark:bg-zinc-950/75">
+                      <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-200 dark:text-zinc-200">
+                        {rookie.nationality}
+                      </div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="h-1 w-1 rounded-full bg-zinc-400/80 dark:bg-zinc-400/80"></span>
+                        <span class="h-1 w-1 rounded-full bg-zinc-400/60 dark:bg-zinc-400/60"></span>
+                        <span class="h-1 w-1 rounded-full bg-zinc-400/40 dark:bg-zinc-400/40"></span>
+                      </div>
+                      <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-200 dark:text-zinc-200">
+                        Debut {rookie.debut}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </article>
               ))
             }
-          </div>
-        </div>
       </section>
 
       <!-- Latest Blog Posts Section -->
@@ -297,5 +527,257 @@ const regulationsGrid = [
     </main>
 
     <Footer />
+
+    <style>
+      .rookie-panel {
+        background-color: rgb(18 18 21);
+        background-image:
+          linear-gradient(135deg, rgb(255 255 255 / 0.02), transparent 60%),
+          repeating-linear-gradient(
+            45deg,
+            rgb(255 255 255 / 0.02) 0,
+            rgb(255 255 255 / 0.02) 2px,
+            transparent 2px,
+            transparent 8px
+          );
+        transition:
+          transform 250ms ease,
+          box-shadow 250ms ease,
+          border-color 250ms ease;
+      }
+
+      @media (prefers-color-scheme: light) {
+        .rookie-panel {
+          background-color: rgb(250 250 250);
+          background-image:
+            linear-gradient(135deg, rgb(0 0 0 / 0.02), transparent 60%),
+            repeating-linear-gradient(
+              45deg,
+              rgb(0 0 0 / 0.02) 0,
+              rgb(0 0 0 / 0.02) 2px,
+              transparent 2px,
+              transparent 8px
+            );
+          border-color: rgb(229 231 235 / 0.9);
+        }
+      }
+
+      .rookie-top-strip {
+        background: linear-gradient(90deg, var(--rookie-accent), rgb(255 255 255 / 0.18));
+        transition: filter 240ms ease;
+      }
+
+      .rookie-corner {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-top: 1px solid rgb(255 255 255 / 0.15);
+        z-index: 15;
+      }
+
+      @media (prefers-color-scheme: light) {
+        .rookie-corner {
+          border-top-color: rgb(0 0 0 / 0.15);
+        }
+      }
+
+      .rookie-number-badge {
+        background-color: rgb(42 42 43);
+      }
+
+      @media (prefers-color-scheme: light) {
+        .rookie-number-badge {
+          background-color: rgb(245 245 245);
+          border: 1px solid rgb(229 231 235);
+        }
+      }
+
+      .rookie-corner-left {
+        left: 8px;
+        bottom: 80px;
+        transform: skew(-18deg);
+      }
+
+      .rookie-corner-right {
+        right: 8px;
+        bottom: 80px;
+        transform: skew(18deg);
+      }
+
+      .rookie-gradient {
+        background: linear-gradient(to top, var(--rookie-accent-soft), transparent 68%);
+      }
+
+      .rookie-portrait {
+        transition: transform 240ms ease;
+      }
+
+      .group:hover .rookie-portrait {
+        transform: translateY(-5px);
+      }
+
+      .group:hover .rookie-top-strip {
+        filter: brightness(1.25);
+      }
+
+      .group:hover.rookie-panel {
+        transform: translateY(-4px);
+        border-color: rgb(255 255 255 / 0.26);
+        box-shadow: 0 14px 32px rgb(0 0 0 / 0.34);
+      }
+
+      @media (prefers-color-scheme: light) {
+        .group:hover.rookie-panel {
+          border-color: rgb(0 0 0 / 0.18);
+          box-shadow: 0 14px 32px rgb(0 0 0 / 0.12);
+        }
+      }
+
+      .group:hover .rookie-gradient {
+        background: linear-gradient(to top, color-mix(in srgb, var(--rookie-accent-soft) 110%, white 10%), transparent 62%);
+      }
+
+      .reg-card {
+        background-image:
+          linear-gradient(135deg, rgb(0 0 0 / 0.01), transparent 60%),
+          repeating-linear-gradient(
+            45deg,
+            rgb(0 0 0 / 0.018) 0,
+            rgb(0 0 0 / 0.018) 2px,
+            transparent 2px,
+            transparent 9px
+          );
+        transition:
+          transform 240ms ease,
+          box-shadow 240ms ease,
+          border-color 240ms ease;
+      }
+
+      :global(.dark) .reg-card {
+        background-image:
+          linear-gradient(135deg, rgb(255 255 255 / 0.02), transparent 60%),
+          repeating-linear-gradient(
+            45deg,
+            rgb(255 255 255 / 0.02) 0,
+            rgb(255 255 255 / 0.02) 2px,
+            transparent 2px,
+            transparent 9px
+          );
+      }
+
+      .reg-icon-badge {
+        position: relative;
+      }
+
+      .reg-icon-ring {
+        border: 1px solid rgb(0 0 0 / 0.08);
+      }
+
+      :global(.dark) .reg-icon-ring {
+        border-color: rgb(255 255 255 / 0.08);
+      }
+
+      .reg-item {
+        position: relative;
+      }
+
+      .reg-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        bottom: 4px;
+        width: 1px;
+        background: linear-gradient(to bottom, rgb(82 82 91 / 0.55), transparent);
+      }
+
+      :global(.dark) .reg-item::before {
+        background: linear-gradient(to bottom, rgb(228 228 231 / 0.45), transparent);
+      }
+
+      .reg-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid rgb(0 0 0 / 0.14);
+        opacity: 0.8;
+      }
+
+      .reg-corner-top {
+        right: 9px;
+        top: 9px;
+        transform: skew(18deg);
+      }
+
+      .reg-corner-bottom {
+        left: 9px;
+        bottom: 9px;
+        transform: skew(-18deg);
+      }
+
+      :global(.dark) .reg-corner {
+        border-top-color: rgb(255 255 255 / 0.16);
+      }
+
+      .group:hover.reg-card {
+        transform: translateY(-3px);
+        border-color: rgb(161 161 170 / 0.75);
+        box-shadow: 0 14px 30px rgb(0 0 0 / 0.18);
+      }
+
+      :global(.dark) .group:hover.reg-card {
+        border-color: rgb(212 212 216 / 0.24);
+        box-shadow: 0 14px 30px rgb(0 0 0 / 0.34);
+      }
+
+      .stat-scan {
+        animation: statsScan 1.7s ease-out;
+      }
+
+      .animate-stat-card {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+        animation: statReveal 420ms ease forwards;
+      }
+
+      @keyframes statReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes statsScan {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(110%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .rookie-panel,
+        .rookie-portrait,
+        .rookie-top-strip {
+          transition: none;
+        }
+
+        .group:hover.rookie-panel,
+        .group:hover .rookie-portrait,
+        .group:hover .rookie-top-strip {
+          transform: none;
+          filter: none;
+          box-shadow: none;
+        }
+
+        .stat-scan,
+        .animate-stat-card {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
   </body>
 </html>
