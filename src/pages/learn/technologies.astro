@@ -16,39 +16,39 @@ const technologyItems = [
   {
     title: "Engineering",
     description:
-      "Pushing the boundaries of automotive engineering with cutting-edge solutions",
+      "Pushing the boundaries of automotive engineering with cutting-edge solutions.",
     icon: "mdi:gear",
     gridClass: "",
   },
   {
     title: "Sustainability",
-    description: "Leading the charge in sustainable racing technologies",
+    description: "Leading the charge in sustainable racing technologies.",
     icon: "mdi:leaf",
     gridClass: "md:row-span-2",
   },
   {
     title: "Data Analytics",
     description:
-      "Real-time data analysis shapes strategy and performance optimization",
+      "Real-time data analysis shapes strategy and performance optimization.",
     icon: "mdi:chart-line",
     gridClass: "",
   },
   {
     title: "Aerodynamics",
-    description: "Advanced research in airflow and downforce optimization",
+    description: "Advanced research in airflow and downforce optimization.",
     icon: "mdi:windy",
     gridClass: "",
   },
   {
     title: "Performance",
-    description: "Maximizing speed and efficiency through innovative solutions",
+    description: "Maximizing speed and efficiency through innovative solutions.",
     icon: "mdi:car-speed-limiter",
     gridClass: "",
   },
   {
     title: "Innovation",
     description:
-      "Where engineering meets innovation to create the future of motorsport",
+      "Where engineering meets innovation to create the future of motorsport.",
     icon: "mdi:brain",
     gridClass: "md:col-span-2 lg:col-span-3",
   },
@@ -95,6 +95,62 @@ const teamworkItems = [
     icon: "mdi:account-hard-hat",
   },
 ];
+
+const costCapMetrics = [
+  {
+    label: "Budget Ceiling",
+    value: "$135M base",
+    trend: "+ inflation and event adjustments",
+    icon: "mdi:piggy-bank",
+    accentClass: "from-emerald-500/80 to-emerald-400/30",
+    iconClass: "text-emerald-400",
+  },
+  {
+    label: "Race Calendar",
+    value: "24 rounds",
+    trend: "High-logistics full season",
+    icon: "mdi:calendar-multiselect",
+    accentClass: "from-sky-500/80 to-sky-400/30",
+    iconClass: "text-sky-400",
+  },
+  {
+    label: "Teams Monitored",
+    value: "11 teams",
+    trend: "New entrant impact in 2026",
+    icon: "mdi:account-supervisor",
+    accentClass: "from-rose-500/80 to-rose-400/30",
+    iconClass: "text-rose-400",
+  },
+  {
+    label: "Compliance Focus",
+    value: "Audit-led",
+    trend: "Breach risk carries sporting cost",
+    icon: "mdi:shield-check",
+    accentClass: "from-amber-500/80 to-amber-400/30",
+    iconClass: "text-amber-400",
+  },
+];
+
+const videoFeatureHighlights = [
+  {
+    label: "Telemetry Stream",
+    value: "Live",
+    icon: "mdi:signal-variant",
+    toneClass: "text-emerald-500",
+  },
+  {
+    label: "Decision Window",
+    value: "Seconds",
+    icon: "mdi:timer-outline",
+    toneClass: "text-sky-500",
+  },
+  {
+    label: "Data Inputs",
+    value: "Millions",
+    icon: "mdi:chart-timeline-variant",
+    toneClass: "text-rose-500",
+  },
+];
 ---
 
 <!doctype html>
@@ -128,10 +184,10 @@ const teamworkItems = [
                 >
                   <div class="flex flex-1 flex-col p-6">
                     <div class="mb-4 flex items-center gap-4">
-                      <div class="rounded-full bg-zinc-100 p-3 transition-colors duration-300 group-hover:bg-sky-100 dark:bg-zinc-700 dark:group-hover:bg-sky-900/30">
+                      <div class="rounded-full bg-zinc-100 p-3 transition-colors duration-300 group-hover:bg-rose-100 dark:bg-zinc-700 dark:group-hover:bg-rose-900/30">
                         <Icon
                           name={item.icon}
-                          class="h-6 w-6 text-zinc-700 transition-colors duration-300 group-hover:text-sky-600 dark:text-zinc-300 dark:group-hover:text-sky-400"
+                          class="h-6 w-6 text-zinc-700 transition-colors duration-300 group-hover:text-rose-600 dark:text-zinc-300 dark:group-hover:text-rose-400"
                         />
                       </div>
                       <h3 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -175,215 +231,241 @@ const teamworkItems = [
       />
 
       <!-- Video Feature Section -->
-      <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
+      <section class="relative overflow-hidden bg-zinc-100 py-14 dark:bg-zinc-900">
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div class="absolute -left-24 top-6 h-52 w-52 rounded-full bg-sky-500/15 blur-3xl"></div>
+          <div class="absolute -right-20 bottom-0 h-56 w-56 rounded-full bg-rose-500/15 blur-3xl"></div>
+        </div>
         <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-4xl">
-            <h2 class="mb-12 text-center text-3xl font-bold dark:text-zinc-100">
-              Experience F1 Technology
-            </h2>
-            <div
-              class="overflow-hidden rounded-xl shadow-lg dark:shadow-zinc-700"
-            >
-              <video
-                class="h-full w-full rounded-xl object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src={raceseqWebm} type="video/webm" />
-                <source src={raceseqMp4} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <div class="mt-8 text-center">
-              <p class="mx-auto max-w-2xl text-zinc-800 dark:text-zinc-300">
-                Explore the cutting-edge technology that powers modern Formula 1
-                cars, from advanced aerodynamics to hybrid power units.
+          <div class="relative mx-auto max-w-6xl rounded-2xl border border-zinc-300/70 bg-white/65 p-4 shadow-lg backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/65">
+            <div class="mb-8 text-center">
+              <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-300">
+                Gameplay Capture
+              </p>
+              <h2 class="mt-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100 md:text-4xl">
+                Experience F1 Technology
+              </h2>
+              <p class="mx-auto mt-3 max-w-3xl text-zinc-700 dark:text-zinc-300">
+                Creator-recorded Formula 1 25 gameplay showing race starts,
+                corner sequences, and in-car driver POV with steering wheel
+                input.
               </p>
             </div>
+
+            <div class="grid gap-4 lg:grid-cols-12">
+              <div class="lg:col-span-8">
+                <div class="group relative overflow-hidden rounded-xl border border-zinc-300/70 shadow-xl dark:border-zinc-700/80 dark:shadow-zinc-950/50">
+                  <video
+                    class="aspect-video h-full w-full rounded-xl object-cover"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  >
+                    <source src={raceseqWebm} type="video/webm" />
+                    <source src={raceseqMp4} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/65 via-transparent to-zinc-950/25"></div>
+                  <div class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md border border-zinc-200/40 bg-zinc-950/60 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zinc-100">
+                    <span class="h-2 w-2 rounded-full bg-rose-500 animate-pulse"></span>
+                    Gameplay footage
+                  </div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+                    <p class="max-w-md text-sm font-medium text-zinc-100">
+                      Gameplay clips show how milliseconds are won through line
+                      choice, braking control, and driver feedback.
+                    </p>
+                    <div class="hidden rounded-md border border-zinc-200/40 bg-zinc-950/55 px-3 py-2 text-right text-xs text-zinc-200 md:block">
+                      <p class="font-semibold uppercase tracking-wide">Clip</p>
+                      <p>Formula 1 25 capture</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="lg:col-span-4">
+                <div class="h-full rounded-xl border border-zinc-300/70 bg-zinc-50/80 p-4 dark:border-zinc-700/70 dark:bg-zinc-800/70">
+                  <h3 class="text-base font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
+                    Key Signals
+                  </h3>
+                  <div class="mt-4 space-y-3">
+                    {
+                      videoFeatureHighlights.map((item, index) => (
+                        <div
+                          class="animate-video-pill flex items-center justify-between rounded-lg border border-zinc-300/70 bg-white/85 px-3 py-2 dark:border-zinc-700/70 dark:bg-zinc-900/70"
+                          style={`animation-delay:${index * 90}ms`}
+                        >
+                          <div class="flex items-center gap-2">
+                            <Icon name={item.icon} class={`h-4 w-4 ${item.toneClass}`} />
+                            <span class="text-sm text-zinc-700 dark:text-zinc-300">{item.label}</span>
+                          </div>
+                          <span class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{item.value}</span>
+                        </div>
+                      ))
+                    }
+                  </div>
+
+                  <div class="mt-5 rounded-lg border border-zinc-300/70 bg-white/85 p-3 dark:border-zinc-700/70 dark:bg-zinc-900/70">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                      Why it matters
+                    </p>
+                    <p class="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                      Even in sim racing, setup changes, braking precision,
+                      throttle control, and race-line choices stack up lap
+                      after lap.
+                    </p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+
+            <p class="mt-4 text-center text-xs tracking-wide text-zinc-600 dark:text-zinc-400">
+              Unofficial gameplay footage captured by Trackside. Not affiliated
+              with or endorsed by Formula 1, FIA, or Codemasters/EA.
+            </p>
           </div>
         </div>
       </section>
 
       <!-- Cost Cap Section -->
-      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
+      <section class="relative overflow-hidden bg-zinc-100 py-16 dark:bg-zinc-900">
+        <div
+          class="pointer-events-none absolute inset-0 opacity-35 dark:opacity-45"
+          aria-hidden="true"
+        >
+          <div class="absolute -left-24 top-8 h-56 w-56 rounded-full bg-rose-500/20 blur-3xl"></div>
+          <div class="absolute -right-20 bottom-6 h-64 w-64 rounded-full bg-sky-500/20 blur-3xl"></div>
+        </div>
         <div class="container mx-auto px-4">
-          <div class="mx-auto">
-            <div class="mb-12 text-center">
+          <div class="mx-auto max-w-6xl">
+            <div class="mb-12 text-center space-y-6">
               <h2
                 class="mb-4 text-3xl font-bold md:text-4xl dark:text-zinc-100"
               >
                 Cost Cap Impact
               </h2>
               <p
-                class="mx-auto max-w-3xl text-lg text-zinc-800 dark:text-zinc-300"
+                class="mx-auto text-lg text-zinc-800 dark:text-zinc-300"
               >
-                Transforming F1's financial landscape with a $140M cost cap,
-                creating a more competitive and sustainable future for the
-                sport.
+                Eleven teams. Zero room for waste. The cost cap turns
+                financial discipline into on-track performance.
+              </p>
+              <p class="mt-3 text-sm font-medium uppercase tracking-[0.16em] text-zinc-700 dark:text-zinc-300">
+                Updated for 2026 financial regulations
               </p>
             </div>
 
-            <!-- Stats Bar - Key Metrics -->
+            <!-- Telemetry Strip - Key Metrics -->
             <div
-              class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4"
+              class="relative mb-12 overflow-hidden rounded-2xl border border-zinc-300/70 bg-white/80 p-3 shadow-lg backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-900/75"
             >
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-green-100 p-3 dark:bg-green-300">
-                    <Icon
-                      name="mdi:piggy-bank"
-                      class="inline-block text-2xl text-green-600 dark:text-green-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
-                      Annual Budget
-                    </p>
-                    <p class="text-2xl font-bold dark:text-zinc-200">$140M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-blue-100 p-3 dark:bg-blue-300">
-                    <Icon
-                      name="mdi:calendar-multiselect"
-                      class="inline-block text-2xl text-blue-600 dark:text-blue-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
-                      Race Calendar
-                    </p>
-                    <p class="text-2xl font-bold dark:text-zinc-200">
-                      24 races
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-rose-100 p-3 dark:bg-rose-300">
-                    <Icon
-                      name="mdi:account-supervisor"
-                      class="inline-block text-2xl text-rose-600 dark:text-rose-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
-                      Teams
-                    </p>
-                    <p class="text-2xl font-bold dark:text-zinc-200">11</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-auto rounded-xl p-6">
-                <div class="flex items-center gap-4">
-                  <div class="rounded-lg bg-orange-100 p-3 dark:bg-orange-300">
-                    <Icon
-                      name="mdi:arrow-compress-all"
-                      class="inline-block text-2xl text-orange-600 dark:text-orange-900"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm text-zinc-800 dark:text-zinc-300">
-                      Pressure
-                    </p>
-                    <p class="text-2xl font-bold dark:text-zinc-200">100%</p>
-                  </div>
-                </div>
+              <div class="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent)] motion-safe:animate-[telemetryScan_1.8s_ease-out] dark:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)]"></div>
+              <div class="relative grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {
+                  costCapMetrics.map((metric, index) => (
+                    <article
+                      class="animate-telemetry-card relative overflow-hidden rounded-xl border border-zinc-300/70 bg-zinc-50/85 p-4 dark:border-zinc-700/70 dark:bg-zinc-800/70"
+                      style={`animation-delay:${index * 90}ms`}
+                    >
+                      <div class={`mb-3 h-1.5 w-full rounded-full bg-linear-to-r ${metric.accentClass}`}></div>
+                      <div class="flex items-start gap-3">
+                        <div class="mt-0.5 rounded-md border border-zinc-300/60 bg-zinc-100 p-2 dark:border-zinc-700 dark:bg-zinc-900">
+                          <Icon name={metric.icon} class={`h-5 w-5 ${metric.iconClass}`} />
+                        </div>
+                        <div class="min-w-0">
+                          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-700 dark:text-zinc-300">
+                            {metric.label}
+                          </p>
+                          <p class="mt-1 text-2xl font-black text-zinc-900 dark:text-zinc-100">
+                            {metric.value}
+                          </p>
+                          <p class="mt-2 inline-flex rounded-md border border-zinc-300/80 bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
+                            {metric.trend}
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  ))
+                }
               </div>
             </div>
 
             <!-- Content Grid -->
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div class="space-y-4">
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-200"
-                >
-                  Financial Equality
+              <div class="rounded-2xl border border-zinc-300/70 bg-white/85 p-6 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-800/70">
+                <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-200">
+                  Why the cap changes the race
                 </h3>
-                <p class="leading-loose text-zinc-800 dark:text-zinc-300">
-                  The introduction of a cost cap in Formula One marks a
-                  significant shift towards financial sustainability. Teams are
-                  now restricted to $140 million per year for car development,
-                  leveling the playing field between established powerhouses and
-                  smaller teams. This cap ensures that success is determined
-                  more by innovation and efficiency than by financial might.
+                <p class="mt-4 leading-relaxed text-zinc-800 dark:text-zinc-300">
+                  Big spend no longer guarantees the front row.
                 </p>
-                <ul class="space-y-2 text-zinc-800 dark:text-zinc-300">
+                <p class="mt-2 leading-relaxed text-zinc-800 dark:text-zinc-300">
+                  Teams win by spending smarter, developing cleaner, and reacting faster.
+                </p>
+                <p class="mt-2 leading-relaxed text-zinc-800 dark:text-zinc-300">
+                  The result is tighter gaps, more strategic variety, and stronger midfield fights.
+                </p>
+                <ul class="mt-4 space-y-2 text-zinc-800 dark:text-zinc-300">
                   <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    Balanced competition across all teams
+                    <Icon name="mdi:check-bold" size={20} class={"h-5 w-5 text-emerald-500"} />
+                    Innovation efficiency matters more than raw cash
                   </li>
                   <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    Focus on technical innovation
+                    <Icon name="mdi:check-bold" size={20} class={"h-5 w-5 text-emerald-500"} />
+                    Resource discipline shapes weekend performance
                   </li>
                   <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    Sustainable business model
+                    <Icon name="mdi:check-bold" size={20} class={"h-5 w-5 text-emerald-500"} />
+                    Closer performance windows increase unpredictability
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4">
-                <h3
-                  class="text-xl font-semibold text-zinc-900 dark:text-zinc-200"
-                >
-                  Impact on Competition
-                </h3>
-                <p class="leading-loose text-zinc-800 dark:text-zinc-300">
-                  This new approach prevents financial dominance from
-                  determining championship outcomes. Teams must now prioritize
-                  efficiency and strategic resource allocation, leading to more
-                  unpredictable and exciting races. The cost cap has already
-                  shown signs of narrowing the performance gap between teams,
-                  creating more opportunities for midfield teams to compete for
-                  podiums.
-                </p>
-                <ul class="space-y-2 text-zinc-800 dark:text-zinc-300">
-                  <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    Closer racing battles
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    Efficient resource management
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <Icon
-                      name="mdi:check-bold"
-                      size={24}
-                      class={"h-6 w-6 text-green-600"}
-                    />
-                    More competitive midfield
-                  </li>
-                </ul>
+              <div class="space-y-5">
+                <div class="rounded-2xl border border-zinc-300/70 bg-white/85 p-6 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-800/70">
+                  <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-200">
+                    What counts toward the cap
+                  </h3>
+                  <ul class="mt-4 space-y-2 text-zinc-800 dark:text-zinc-300">
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-sky-500" />
+                      Car development and performance upgrades
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-sky-500" />
+                      Most operations, manufacturing, and engineering costs
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-sky-500" />
+                      Simulation and testing program spend
+                    </li>
+                  </ul>
+                </div>
+                <div class="rounded-2xl border border-zinc-300/70 bg-white/85 p-6 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-800/70">
+                  <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-200">
+                    Excluded categories
+                  </h3>
+                  <ul class="mt-4 space-y-2 text-zinc-800 dark:text-zinc-300">
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-rose-500" />
+                      Driver salaries and select senior personnel pay
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-rose-500" />
+                      Marketing, heritage, and some non-performance costs
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <Icon name="mdi:chevron-right" class="h-5 w-5 text-rose-500" />
+                      Specific regulatory exemptions defined by FIA
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
+
+            <p class="mt-8 text-center text-xs tracking-wide text-zinc-700 dark:text-zinc-400">
+              Figures shown reflect 2026-era framework messaging: base cap plus regulation-defined adjustments.
+            </p>
           </div>
         </div>
       </section>
@@ -403,11 +485,11 @@ const teamworkItems = [
           <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
             {
               dataDrivenItems.map((item) => (
-                <div class="group relative flex flex-col items-center rounded-xl bg-white p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md dark:bg-zinc-800 dark:hover:shadow-sky-600/50">
-                  <div class="mb-4 rounded-full bg-zinc-100 p-4 transition-colors duration-300 group-hover:bg-sky-100 dark:bg-zinc-700 dark:group-hover:bg-sky-900/30">
+                <div class="group relative flex flex-col items-center rounded-xl bg-white p-8 text-center transition-all duration-300 dark:bg-zinc-800 ">
+                  <div class="mb-4 rounded-full bg-zinc-100 p-4 transition-colors duration-300 group-hover:bg-rose-100 dark:bg-zinc-700 dark:group-hover:bg-rose-900/30">
                     <Icon
                       name={item.icon}
-                      class="h-8 w-8 text-zinc-700 transition-colors duration-300 group-hover:text-sky-600 dark:text-zinc-300 dark:group-hover:text-sky-400"
+                      class="h-8 w-8 text-zinc-700 transition-colors duration-300 group-hover:text-rose-600 dark:text-zinc-300 dark:group-hover:text-rose-400"
                     />
                   </div>
                   <h3 class="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -436,10 +518,10 @@ const teamworkItems = [
             {
               teamworkItems.map((item) => (
                 <div class="group space-y-4">
-                  <div class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 transition-colors duration-300 group-hover:bg-sky-100 dark:bg-zinc-800 dark:group-hover:bg-sky-900/30">
+                  <div class="inline-flex h-16 w-16 items-center justify-center rounded-lg bg-zinc-200 transition-colors duration-300 group-hover:bg-rose-100 dark:bg-zinc-800 dark:group-hover:bg-rose-900/30">
                     <Icon
                       name={item.icon}
-                      class="h-8 w-8 text-zinc-700 transition-colors duration-300 group-hover:text-sky-600 dark:text-zinc-300 dark:group-hover:text-sky-400"
+                      class="h-8 w-8 text-zinc-700 transition-colors duration-300 group-hover:text-rose-600 dark:text-zinc-300 dark:group-hover:text-rose-400"
                     />
                   </div>
                   <h3 class="dark:text-zinc-200">{item.title}</h3>
@@ -455,5 +537,71 @@ const teamworkItems = [
     </main>
 
     <Footer />
+
+    <style>
+      .minimal-checker-ribbon {
+        background-image:
+          linear-gradient(45deg, rgb(24 24 27 / 0.07) 25%, transparent 25%),
+          linear-gradient(-45deg, rgb(24 24 27 / 0.07) 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, rgb(24 24 27 / 0.07) 75%),
+          linear-gradient(-45deg, transparent 75%, rgb(24 24 27 / 0.07) 75%);
+        background-size: 12px 12px;
+        background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+        border: 1px solid rgb(24 24 27 / 0.12);
+      }
+
+      :global(.dark) .minimal-checker-ribbon {
+        background-image:
+          linear-gradient(45deg, rgb(244 244 245 / 0.13) 25%, transparent 25%),
+          linear-gradient(-45deg, rgb(244 244 245 / 0.13) 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, rgb(244 244 245 / 0.13) 75%),
+          linear-gradient(-45deg, transparent 75%, rgb(244 244 245 / 0.13) 75%);
+        border-color: rgb(244 244 245 / 0.2);
+      }
+
+      
+
+      .animate-telemetry-card {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+        animation: telemetryReveal 450ms ease forwards;
+      }
+
+      .animate-video-pill {
+        opacity: 0;
+        transform: translateY(8px);
+        animation: telemetryReveal 420ms ease forwards;
+      }
+
+      @keyframes telemetryReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes telemetryScan {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(110%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .animate-telemetry-card {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+
+        .animate-video-pill {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+      }
+    </style>
   </body>
 </html>
