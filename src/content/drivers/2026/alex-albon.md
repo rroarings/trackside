@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Alex Albon"
 profileImageLargeAlt: "Portrait of Alex Albon"
 driverLogo: ""
 driverPoints: 0
-championshipPosition: 8
+championshipPosition: 18
 championships: 0
 grandPrixWins: 0
 podiums: 0

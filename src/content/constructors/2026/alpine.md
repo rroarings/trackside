@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 1998
   polePositions: 20
   fastestLaps: 0
-championshipPosition: 10
+championshipPosition: 5
 constructorName: "Alpine"
-constructorPoints: 0
+constructorPoints: 16
 dnf: 0
 description: "Alpine team description"
 engineSupplier: "Renault"

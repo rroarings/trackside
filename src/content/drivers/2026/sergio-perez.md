@@ -14,7 +14,7 @@ profileImageAlt: "Portrait of Sergio Perez"
 profileImageLargeAlt: "Portrait of Sergio Perez"
 driverLogo: ""
 driverPoints: 0
-championshipPosition: 22
+championshipPosition: 20
 championships: 0
 grandPrixWins: 0
 podiums: 0

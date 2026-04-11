@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 7663.5
   polePositions: 174
   fastestLaps: 182
-championshipPosition: 1
+championshipPosition: 3
 constructorName: "McLaren"
-constructorPoints: 0
+constructorPoints: 45
 dnf: 0
 description: "McLaren team description"
 engineSupplier: "Mercedes"

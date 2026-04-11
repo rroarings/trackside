@@ -14,7 +14,7 @@ careerStats:
   careerPoints: 843
   polePositions: 1
   fastestLaps: 3
-championshipPosition: 7
+championshipPosition: 11
 constructorName: "Aston Martin"
 constructorPoints: 0
 dnf: 0

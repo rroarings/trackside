@@ -14,9 +14,9 @@ careerStats:
   careerPoints: 927
   polePositions: 1
   fastestLaps: 0
-championshipPosition: 6
+championshipPosition: 7
 constructorName: "Racing Bulls"
-constructorPoints: 0
+constructorPoints: 14
 dnf: 0
 description: "Racing Bulls team description"
 engineSupplier: "Honda RBPT"
