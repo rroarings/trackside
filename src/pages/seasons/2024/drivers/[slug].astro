@@ -3,8 +3,8 @@ import BaseHead from "../../../../components/BaseHead.astro";
 import Header from "../../../../components/Header.astro";
 import Footer from "../../../../components/Footer.astro";
 import Breadcrumbs from "../../../../components/Breadcrumbs.astro";
-import StatCard from "../../../../components/StatCard.astro";
-import SeasonButtons from "../../../../components/SeasonButtons.astro";
+import SeasonButtonsModular from "../../../../components/SeasonButtonsModular.astro";
+import FormattedDate from "../../../../components/FormattedDate.astro";
 import { SITE_TITLE } from "../../../../consts";
 import { getCollection } from "astro:content";
 import { getSlugFromEntry } from "../../../../utils/slugUtils";
@@ -26,14 +26,64 @@ export async function getStaticPaths() {
 const { driver } = Astro.props;
 // Import the Content component separately
 import { render } from "astro:content";
+import { Image } from "astro:assets";
+import { teamBgMap } from "../../../../utils/teamBgMap";
 const { Content } = await render(driver);
+// team background for driver's team
+const teamBg = teamBgMap[driver.data.driverTeam] || null;
+const teamAccentMap: Record<string, string> = {
+  McLaren: "rgb(249 115 22)",
+  Ferrari: "rgb(220 38 38)",
+  Mercedes: "rgb(20 184 166)",
+  Williams: "rgb(37 99 235)",
+  "Red Bull Racing": "rgb(59 130 246)",
+  "Kick Sauber": "rgb(34 197 94)",
+  "Racing Bulls": "rgb(6 182 212)",
+  "Aston Martin": "rgb(16 185 129)",
+  Haas: "rgb(239 68 68)",
+  Alpine: "rgb(14 165 233)",
+  Cadillac: "rgb(244 63 94)",
+  Audi: "rgb(220 38 38)",
+};
+const teamAccent = teamAccentMap[driver.data.driverTeam] || "rgb(244 63 94)";
+const driverCode = `${driver.data.driverFirstName?.[0] ?? ""}${driver.data.driverLastName?.[0] ?? ""}`.toUpperCase();
+
+// Hero stats grid items
+const heroStats = [
+  { value: driver.data.driverTeam, label: "Team" },
+  { value: driver.data.nationality, label: "Nationality" },
+  { value: driver.data.age, label: "Age" },
+  { value: driver.data.championshipPosition, label: "Championship Position" },
+  { value: driver.data.driverPoints, label: "Points" },
+  { value: driver.data.grandPrixWins, label: "Grand Prix Wins" },
+];
+
+// Season stats for StatCard section
+const seasonStats = [
+  { value: driver.data.championshipPosition, label: "Championship Position" },
+  { value: driver.data.driverPoints, label: "Driver Points" },
+  { value: driver.data.grandPrixWins, label: "Grand Prix Wins" },
+  { value: driver.data.polePositions, label: "Pole Positions" },
+  { value: driver.data.fastestLaps, label: "Fastest Laps" },
+  { value: driver.data.podiums, label: "Podiums" },
+];
+
+// Lifetime stats for StatCard section
+const lifetimeStats = [
+  { value: driver.data.careerStats?.championships, label: "Championships" },
+  { value: driver.data.careerStats?.careerPoints, label: "Career Points" },
+  { value: driver.data.careerStats?.grandPrixWins, label: "Grand Prix Wins" },
+  { value: driver.data.careerStats?.polePositions, label: "Pole Positions" },
+  { value: driver.data.careerStats?.fastestLaps, label: "Fastest Laps" },
+  { value: driver.data.careerStats?.podiumPositions, label: "Podiums" },
+];
 ---
 
 <!doctype html>
 <html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
   <head>
     <BaseHead
-      title={`${driver.data.driverFirstName} ${driver.data.driverLastName} | ${SITE_TITLE}`}
+      title={`2024 ${driver.data.driverFirstName} ${driver.data.driverLastName} Driver Profile | ${SITE_TITLE}`}
       description={`2024 F1 driver profile for ${driver.data.driverFirstName} ${driver.data.driverLastName} driving for ${driver.data.driverTeam}`}
     />
   </head>
@@ -43,7 +93,8 @@ const { Content } = await render(driver);
       <Breadcrumbs
         items={[
           { text: "Home", href: "/" },
-          { text: "2024 Season", href: "/seasons/2024/" },
+          { text: "Seasons", href: "/seasons/" },
+          { text: "2024", href: "/seasons/2024/" },
           { text: "Drivers", href: "/seasons/2024/drivers" },
           {
             text: `${driver.data.driverFirstName} ${driver.data.driverLastName}`,
@@ -51,79 +102,128 @@ const { Content } = await render(driver);
         ]}
       />
 
-      <!-- Driver Profile Header -->
-      <section class="bg-zinc-100 py-16 dark:bg-zinc-900">
-        <div class="container mx-auto">
-          <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div>
-              <img
-                src={driver.data.profileImageLarge?.src ??
-                  driver.data.profileImage?.src ??
-                  "/blog-placeholder-1.jpg"}
-                alt={`${driver.data.driverFirstName} ${driver.data.driverLastName} Profile Image`}
-                class=""
-                loading="lazy"
+      <!-- driver slug hero -->
+      <section class="container mx-auto mb-8 mt-12">
+        <div
+          class="driver-profile-shell relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/90 p-6 shadow-lg dark:border-zinc-700/70 dark:bg-zinc-900/80"
+          style={`--team-accent:${teamAccent};`}
+        >
+          <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+          <div class="relative z-10 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+          <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+          <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+          <div class="relative z-10 grid grid-cols-1 gap-8 pt-5 lg:grid-cols-2">
+            <div
+              class="relative flex flex-1 items-end justify-end overflow-hidden rounded-md border border-zinc-300/60 dark:border-zinc-700/60"
+              style={teamBg
+                ? `background-image: linear-gradient(to top, rgb(9 9 11 / 0.78), rgb(9 9 11 / 0.2)), url('${teamBg.src}'); background-size: cover; background-position: center;`
+                : ""}
+            >
+              <div class="absolute left-4 top-4 z-20 inline-flex items-center gap-2 rounded-sm border border-zinc-200/35 bg-zinc-950/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-zinc-100">
+                <span class="h-1.5 w-1.5 rounded-full bg-zinc-300"></span>
+                Driver Profile
+              </div>
+              <p class="pointer-events-none absolute bottom-3 left-3 z-10 text-7xl font-black uppercase tracking-tight text-zinc-100/14 md:text-8xl">
+                {driverCode}
+              </p>
+              <Image
+                src={driver.data.profileImageLarge || driver.data.profileImage}
+                alt={driver.data.profileImageLargeAlt ||
+                  driver.data.profileImageAlt}
+                width={400}
+                height={400}
+                class="relative z-10 object-contain object-bottom"
+                loading="eager"
               />
             </div>
-            <div>
-              <h1 class="mb-4 text-4xl font-bold dark:text-zinc-100">
-                {driver.data.driverFirstName}
-                <span class="">{driver.data.driverLastName}</span>
+
+            <div class="space-y-4">
+              <p class="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                2024 Driver Briefing
+              </p>
+              <h1 class="text-4xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100 md:text-5xl">
+                {driver.data.driverFirstName} {driver.data.driverLastName}
               </h1>
-              <div class="space-y-3 text-lg">
-                <div class="flex items-center">
-                  <span class="w-32 dark:text-zinc-400">Number:</span>
-                  <span class="dark:text-zinc-400"
-                    >#{driver.data.driverNumber}</span
-                  >
-                </div>
-                <div class="flex items-center">
-                  <span class="w-32 dark:text-zinc-400">Team:</span>
-                  <span class="dark:text-zinc-400"
-                    >{driver.data.driverTeam}</span
-                  >
-                </div>
-                <div class="flex items-center">
-                  <span class="w-32 dark:text-zinc-400">Nationality:</span>
-                  <span class="dark:text-zinc-400"
-                    >{driver.data.nationality}</span
-                  >
-                </div>
-                <div class="flex items-center">
-                  <span class="w-32 dark:text-zinc-400">Age:</span>
-                  <span class="dark:text-zinc-400">{driver.data.age}</span>
-                </div>
+
+              <div class="grid gap-3 sm:grid-cols-2">
+                {
+                  heroStats.map((stat) => (
+                    <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-4 dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                      <div class="text-lg font-black text-zinc-900 dark:text-zinc-100 md:text-xl">
+                        {stat.value}
+                      </div>
+                      <div class="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Driver Statistics -->
+      <!-- Two Column Statistics Section -->
       <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
-        <div class="container mx-auto">
+        <div class="container mx-auto px-4">
           <h2 class="mb-8 text-center text-3xl font-bold dark:text-zinc-200">
-            Career Statistics
+            Driver Statistics
           </h2>
-          <div class="mx-auto max-w-7xl">
-            <div class="-mx-2 flex flex-wrap">
-              <div class="mb-6 w-1/2 px-2 md:w-1/4">
-                <StatCard
-                  value={driver.data.championships}
-                  label="Championships"
-                />
+          <div
+            class="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2"
+            style={`--team-accent:${teamAccent};`}
+          >
+            {/* Season Statistics Column */}
+            <div class="stats-panel relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/85 p-6 dark:border-zinc-700/70 dark:bg-zinc-900/80">
+              <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+              <div class="relative z-10">
+                <div class="mb-3 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+                <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+                <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+                <h3 class="mb-6 text-center text-xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+                  2024 Season
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                  {
+                    seasonStats.map((stat) => (
+                      <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-3 text-center dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                        <div class="text-xl font-black text-zinc-900 dark:text-zinc-100">
+                          {stat.value}
+                        </div>
+                        <div class="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-              <div class="mb-6 w-1/2 px-2 md:w-1/4">
-                <StatCard value={driver.data.grandPrixWins} label="Race Wins" />
-              </div>
-              <div class="mb-6 w-1/2 px-2 md:w-1/4">
-                <StatCard value={driver.data.podiums} label="Podiums" />
-              </div>
-              <div class="mb-6 w-1/2 px-2 md:w-1/4">
-                <StatCard
-                  value={driver.data.driverPoints}
-                  label="Career Points"
-                />
+            </div>
+            {/* Lifetime Statistics Column */}
+            <div class="stats-panel relative overflow-hidden rounded-md border border-zinc-300/80 bg-white/85 p-6 dark:border-zinc-700/70 dark:bg-zinc-900/80">
+              <div class="panel-grid-overlay pointer-events-none absolute inset-0 z-1"></div>
+              <div class="relative z-10">
+                <div class="mb-3 h-1.5 w-full bg-linear-to-r from-transparent via-(--team-accent) to-transparent"></div>
+                <div class="panel-corner panel-corner-top" aria-hidden="true"></div>
+                <div class="panel-corner panel-corner-bottom" aria-hidden="true"></div>
+                <h3 class="mb-6 text-center text-xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+                  Lifetime
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                  {
+                    lifetimeStats.map((stat) => (
+                      <div class="rounded-md border border-zinc-300/80 bg-zinc-50/85 p-3 text-center dark:border-zinc-700/70 dark:bg-zinc-800/75">
+                        <div class="text-xl font-black text-zinc-900 dark:text-zinc-100">
+                          {stat.value}
+                        </div>
+                        <div class="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-600 dark:text-zinc-400">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           </div>
@@ -133,15 +233,87 @@ const { Content } = await render(driver);
       <!-- Driver Biography -->
       <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
         <div class="container mx-auto">
-          <div class="prose prose-lg dark:prose-invert max-w-none">
+          <div
+            class="prose prose-lg dark:prose-invert text-zinc-800 dark:text-zinc-300"
+          >
             <Content />
           </div>
         </div>
       </section>
 
-      <!-- Back Links -->
-      <SeasonButtons season="2024" />
+      {/* Last Updated Section */}
+      <section class="container mx-auto py-8">
+        <p class="text-zinc-600 dark:text-zinc-400">
+          {
+            driver.data.updatedDate && (
+              <>
+                Last updated:{" "}
+                <FormattedDate date={new Date(driver.data.updatedDate)} />
+              </>
+            )
+          }
+        </p>
+      </section>
+
+      {/* Back Link */}
+      <SeasonButtonsModular
+        leftHref="/seasons/2024/drivers/"
+        leftText="Back to 2024 Drivers"
+        rightHref="/seasons"
+        rightText="Back to Seasons"
+      />
     </main>
     <Footer />
+
+    <style>
+      .panel-grid-overlay {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgb(0 0 0 / 0.02) 0,
+          rgb(0 0 0 / 0.02) 2px,
+          transparent 2px,
+          transparent 12px
+        );
+      }
+
+      :global(.dark) .panel-grid-overlay {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgb(255 255 255 / 0.22) 0,
+          rgb(255 255 255 / 0.22) 2px,
+          transparent 2px,
+          transparent 12px
+        );
+      }
+
+      :global(.dark) .driver-profile-shell,
+      :global(.dark) .stats-panel {
+        background-color: rgb(9 9 11 / 0.9);
+      }
+
+      .panel-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid rgb(0 0 0 / 0.14);
+        opacity: 0.85;
+      }
+
+      .panel-corner-top {
+        right: 9px;
+        top: 9px;
+        transform: skew(18deg);
+      }
+
+      .panel-corner-bottom {
+        left: 9px;
+        bottom: 9px;
+        transform: skew(-18deg);
+      }
+
+      :global(.dark) .panel-corner {
+        border-top-color: rgb(255 255 255 / 0.16);
+      }
+    </style>
   </body>
 </html>
