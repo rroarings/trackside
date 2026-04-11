@@ -1,0 +1,353 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../../../../../components/BaseHead.astro";
+import Header from "../../../../../components/Header.astro";
+import Footer from "../../../../../components/Footer.astro";
+import Breadcrumbs from "../../../../../components/Breadcrumbs.astro";
+import { Icon } from "astro-icon/components";
+import { SITE_TITLE } from "../../../../../consts";
+import { getSlugFromEntry } from "../../../../../utils/slugUtils";
+
+const normalizeName = (value: string) => value.trim().toLowerCase();
+
+const SESSION_OPTIONS = [
+  { id: "race", label: "Race Result" },
+  { id: "practice-1", label: "Practice 1" },
+  { id: "practice-2", label: "Practice 2" },
+  { id: "practice-3", label: "Practice 3" },
+  { id: "qualifying", label: "Qualifying" },
+  { id: "sprint", label: "Sprint" },
+  { id: "fastest-laps", label: "Fastest Laps" },
+] as const;
+
+type SessionId = (typeof SESSION_OPTIONS)[number]["id"];
+type RaceEntry = CollectionEntry<"races">;
+type DriverEntry = CollectionEntry<"drivers">;
+type ConstructorEntry = CollectionEntry<"constructors">;
+type ResultRow = NonNullable<RaceEntry["data"]["raceResults"]>[number];
+
+export async function getStaticPaths() {
+  const SESSION_IDS = [
+    "race",
+    "practice-1",
+    "practice-2",
+    "practice-3",
+    "qualifying",
+    "sprint",
+    "fastest-laps",
+  ] as const;
+
+  const races = await getCollection(
+    "races",
+    ({ data }: { data: RaceEntry["data"] }) => data.raceWeekend === "Race",
+  );
+
+  return races.flatMap((race: RaceEntry) =>
+    SESSION_IDS.map((session) => ({
+      params: {
+        season: race.data.season,
+        raceSlug: getSlugFromEntry(race),
+        session,
+      },
+      props: { race },
+    })),
+  );
+}
+
+const { race } = Astro.props as { race: RaceEntry };
+const { session: sessionParam } = Astro.params;
+const season = race.data.season;
+const raceSlug = getSlugFromEntry(race);
+const basePath = `/results/${season}/races/${raceSlug}`;
+
+const activeSession: SessionId = SESSION_OPTIONS.some(
+  (s) => s.id === sessionParam,
+)
+  ? (sessionParam as SessionId)
+  : "race";
+
+const seasonRaces = (await getCollection(
+  "races",
+  ({ data }: { data: RaceEntry["data"] }) =>
+    data.season === season && data.raceWeekend === "Race",
+)).sort((a: RaceEntry, b: RaceEntry) => a.data.raceNumber - b.data.raceNumber);
+
+const seasonDrivers = await getCollection(
+  "drivers",
+  ({ data }: { data: DriverEntry["data"] }) => data.season === season,
+);
+const seasonConstructors = await getCollection(
+  "constructors",
+  ({ data }: { data: ConstructorEntry["data"] }) => data.season === season,
+);
+
+const driverSlugByFullName = new Map(
+  seasonDrivers.map((driver: DriverEntry) => [
+    normalizeName(`${driver.data.driverFirstName} ${driver.data.driverLastName}`),
+    getSlugFromEntry(driver),
+  ]),
+);
+
+const constructorSlugByName = new Map(
+  seasonConstructors.map((team: ConstructorEntry) => [
+    normalizeName(team.data.constructorName),
+    getSlugFromEntry(team),
+  ]),
+);
+
+const sessionRowsMap: Record<SessionId, ResultRow[]> = {
+  race: race.data.raceResults ?? [],
+  "practice-1": race.data.practice1Results ?? [],
+  "practice-2": race.data.practice2Results ?? [],
+  "practice-3": race.data.practice3Results ?? [],
+  qualifying: race.data.qualifyingResults ?? [],
+  sprint: race.data.sprintResults ?? [],
+  "fastest-laps": race.data.fastestLapResults ?? [],
+};
+
+const activeRows = sessionRowsMap[activeSession];
+const visibleSessions = SESSION_OPTIONS.filter(
+  (s) => s.id !== "sprint" || race.data.hasSprint,
+);
+const activeLabel =
+  SESSION_OPTIONS.find((option) => option.id === activeSession)?.label ??
+  "Race Result";
+
+const dateLabel = race.data.raceWeekendDateRange
+  ? race.data.raceWeekendDateRange
+  : new Date(race.data.raceDate).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+
+const countryFlagMap: Record<string, string> = {
+  Australia: "au",
+  China: "cn",
+  Japan: "jp",
+  Bahrain: "bh",
+  "Saudi Arabia": "sa",
+  Miami: "us",
+  "Emilia Romagna": "it",
+  Monaco: "mc",
+  Spain: "es",
+  Canada: "ca",
+  Austria: "at",
+  "Great Britain": "gb",
+  Hungary: "hu",
+  Belgium: "be",
+  Netherlands: "nl",
+  Italy: "it",
+  Azerbaijan: "az",
+  Singapore: "sg",
+  "United States": "us",
+  Mexico: "mx",
+  Brazil: "br",
+  "Las Vegas": "us",
+  Qatar: "qa",
+  "Abu Dhabi": "ae",
+};
+
+const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
+  <head>
+    <BaseHead
+      title={`${race.data.raceName} ${activeLabel} | ${SITE_TITLE}`}
+      description={`${activeLabel} for ${race.data.raceName} in the ${season} Formula 1 season`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Results", href: "/results" },
+          { text: season, href: "/results" },
+          { text: race.data.trackCountry },
+        ]}
+      />
+
+      <section class="container mx-auto mb-12 mt-8 px-4">
+        <div class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 px-5 py-6 text-zinc-100 sm:px-8 sm:py-7">
+          <div class="mb-6 flex flex-wrap items-center gap-3">
+            <div class="w-full sm:w-auto">
+              <label for="race-select" class="sr-only">Select race</label>
+              <div class="relative">
+                <select
+                  id="race-select"
+                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-200 bg-zinc-900 px-4 py-2 pr-10 text-sm font-semibold text-zinc-100 sm:w-auto"
+                >
+                  {
+                    seasonRaces.map((raceOption: RaceEntry) => {
+                      const optionSlug = getSlugFromEntry(raceOption);
+                      return (
+                        <option
+                          value={
+                            activeSession === "race"
+                              ? `/results/${season}/races/${optionSlug}`
+                              : `/results/${season}/races/${optionSlug}/${activeSession}`
+                          }
+                          selected={optionSlug === raceSlug}
+                        >
+                          {raceOption.data.trackCountry}
+                        </option>
+                      );
+                    })
+                  }
+                </select>
+                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                  <Icon name="mdi:chevron-down" size={18} />
+                </span>
+              </div>
+            </div>
+
+            <div class="w-full sm:w-auto">
+              <label for="session-select" class="sr-only">Select session</label>
+              <div class="relative">
+                <select
+                  id="session-select"
+                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-200 bg-zinc-900 px-4 py-2 pr-10 text-sm font-semibold text-zinc-100 sm:w-auto"
+                >
+                  {
+                    visibleSessions.map((option) => (
+                      <option
+                        value={
+                          option.id === "race"
+                            ? basePath
+                            : `${basePath}/${option.id}`
+                        }
+                        selected={option.id === activeSession}
+                      >
+                        {option.label}
+                      </option>
+                    ))
+                  }
+                </select>
+                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                  <Icon name="mdi:chevron-down" size={18} />
+                </span>
+              </div>
+            </div>
+
+            <div class="ml-auto hidden items-center justify-center rounded-full border border-zinc-600 p-2 sm:flex">
+              <span class={`fi fi-${flagCode} rounded-sm`} />
+            </div>
+          </div>
+
+          <h1 class="max-w-4xl text-3xl font-black uppercase leading-tight tracking-tight sm:text-5xl">
+            {race.data.raceName} - {activeLabel}
+          </h1>
+
+          <p class="mt-5 text-sm font-bold uppercase text-zinc-300 sm:text-base">
+            {dateLabel}
+          </p>
+          <p class="text-zinc-300">
+            {race.data.trackName}, {race.data.trackLocation}
+          </p>
+
+          <div class="mt-7 overflow-hidden rounded-xl border border-zinc-800 bg-black">
+            <table class="w-full text-sm">
+              <thead class="border-b border-zinc-800">
+                <tr>
+                  {[
+                    "Pos.",
+                    "No.",
+                    "Driver",
+                    "Team",
+                    "Laps",
+                    "Time / Retired",
+                    "Pts.",
+                  ].map((heading) => (
+                    <th class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-widest text-zinc-300">
+                      {heading}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  activeRows.length > 0 ? (
+                    activeRows.map((row: ResultRow) => {
+                      const driverSlug = driverSlugByFullName.get(
+                        normalizeName(row.driver),
+                      );
+                      const teamSlug = constructorSlugByName.get(
+                        normalizeName(row.team),
+                      );
+                      return (
+                        <tr class="border-b border-zinc-900 last:border-b-0">
+                          <td class="px-4 py-4 text-base font-black text-zinc-100">
+                            {row.position}
+                          </td>
+                          <td class="px-4 py-4 text-base font-black text-zinc-100">
+                            {row.carNumber ?? "-"}
+                          </td>
+                          <td class="px-4 py-4 font-semibold text-zinc-100">
+                            {driverSlug ? (
+                              <a
+                                href={`/seasons/${season}/drivers/${driverSlug}`}
+                                class="hover:text-rose-400"
+                              >
+                                {row.driver}
+                              </a>
+                            ) : (
+                              row.driver
+                            )}
+                          </td>
+                          <td class="px-4 py-4 text-zinc-100">
+                            {teamSlug ? (
+                              <a
+                                href={`/seasons/${season}/constructors/${teamSlug}`}
+                                class="hover:text-rose-400"
+                              >
+                                {row.team}
+                              </a>
+                            ) : (
+                              row.team
+                            )}
+                          </td>
+                          <td class="px-4 py-4 text-zinc-100">{row.laps ?? "-"}</td>
+                          <td class="px-4 py-4 font-mono text-zinc-100">
+                            {row.timeOrRetired ?? "-"}
+                          </td>
+                          <td class="px-4 py-4 text-zinc-100">{row.points ?? "-"}</td>
+                        </tr>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td colspan={7} class="px-4 py-10 text-center text-zinc-400">
+                        {activeLabel} data is not available yet for this Grand Prix.
+                      </td>
+                    </tr>
+                  )
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+
+    <script>
+      const raceSelect = document.getElementById("race-select") as HTMLSelectElement;
+      const sessionSelect = document.getElementById(
+        "session-select",
+      ) as HTMLSelectElement;
+
+      raceSelect?.addEventListener("change", () => {
+        window.location.href = raceSelect.value;
+      });
+
+      sessionSelect?.addEventListener("change", () => {
+        window.location.href = sessionSelect.value;
+      });
+    </script>
+  </body>
+</html>

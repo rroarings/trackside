@@ -126,12 +126,106 @@ const races = defineCollection({
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
+      raceWeekendDateRange: z.string().optional(),
+      raceResults: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      practice1Results: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      practice2Results: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      practice3Results: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      qualifyingResults: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      sprintResults: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      fastestLapResults: z
+        .array(
+          z.object({
+            position: z.number(),
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrRetired: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
       time: z.string().optional(),
       fastestLapConstructor: z.string().optional(),
       fastestLapDriver: z.string().optional(),
       fastestLapTime: z.string().optional(),
       heroImage: image().optional(),
+      laps: z.number().default(0).optional(),
       pubDate: z.coerce.date(),
+      hasSprint: z.boolean().default(false).optional(),
       raceCompleted: z.boolean().default(false),
       raceDate: z.coerce.date(),
       raceName: z.string(),

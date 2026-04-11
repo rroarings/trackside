@@ -1,0 +1,474 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { Icon } from "astro-icon/components";
+import { SITE_TITLE } from "../../consts";
+import { getCollection } from "astro:content";
+
+const season = "2026";
+const normalizeName = (value: string) => value.trim().toLowerCase();
+
+// Races — completed only, sorted by raceNumber
+const allRaces = await getCollection(
+  "races",
+  ({ data }) => data.season === season && data.raceWeekend === "Race",
+);
+const completedRaces = allRaces
+  .filter((r) => r.data.raceCompleted)
+  .sort((a, b) => a.data.raceNumber - b.data.raceNumber);
+
+// Drivers — sorted by championship position
+const drivers = await getCollection(
+  "drivers",
+  ({ data }) => data.season === season,
+);
+const sortedDrivers = [...drivers].sort(
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
+
+// Constructors — sorted by championship position
+const constructors = await getCollection(
+  "constructors",
+  ({ data }) => data.season === season,
+);
+const sortedConstructors = [...constructors].sort(
+  (a, b) => a.data.championshipPosition - b.data.championshipPosition,
+);
+
+const driverSlugByFullName = new Map(
+  sortedDrivers.map((driver) => [
+    normalizeName(`${driver.data.driverFirstName} ${driver.data.driverLastName}`),
+    driver.id.split("/").pop() ?? "",
+  ]),
+);
+
+const constructorSlugByName = new Map(
+  sortedConstructors.map((team) => [
+    normalizeName(team.data.constructorName),
+    team.id.split("/").pop() ?? "",
+  ]),
+);
+
+// Country → ISO 3166-1 alpha-2 flag code
+const countryFlagMap: Record<string, string> = {
+  Australia: "au",
+  China: "cn",
+  Japan: "jp",
+  Bahrain: "bh",
+  "Saudi Arabia": "sa",
+  Miami: "us",
+  "Emilia Romagna": "it",
+  Monaco: "mc",
+  Spain: "es",
+  Canada: "ca",
+  Austria: "at",
+  "Great Britain": "gb",
+  Hungary: "hu",
+  Belgium: "be",
+  Netherlands: "nl",
+  Italy: "it",
+  Azerbaijan: "az",
+  Singapore: "sg",
+  "United States": "us",
+  Mexico: "mx",
+  Brazil: "br",
+  "Las Vegas": "us",
+  Qatar: "qa",
+  "Abu Dhabi": "ae",
+};
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-100 dark:bg-zinc-900">
+  <head>
+    <BaseHead
+      title={`${season} F1 Results | ${SITE_TITLE}`}
+      description={`${season} Formula 1 season results — races, driver standings, constructor standings and fastest lap awards`}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Breadcrumbs
+        items={[
+          { text: "Home", href: "/" },
+          { text: "Results" },
+        ]}
+      />
+
+      <section class="container mx-auto mb-12 mt-8 px-4">
+        <!-- Year selector -->
+        <div class="mb-4">
+          <div class="relative inline-block">
+            <select
+              id="year-select"
+              class="cursor-pointer appearance-none rounded-full border border-zinc-300 bg-white py-1.5 pl-4 pr-10 text-sm font-semibold text-zinc-900 shadow-sm transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:border-zinc-500"
+              aria-label="Select season year"
+            >
+              <option value="2026" selected>2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+            </select>
+            <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+              <Icon name="mdi:chevron-down" size={18} />
+            </span>
+          </div>
+        </div>
+
+        <!-- Tab nav — left-aligned with bottom border -->
+        <div
+          class="mb-8 border-b border-zinc-200 dark:border-zinc-700"
+          role="tablist"
+          aria-label="Results sections"
+        >
+          {
+            [
+              { id: "races", label: "Races" },
+              { id: "drivers", label: "Drivers" },
+              { id: "teams", label: "Teams" },
+              { id: "awards", label: "Awards" },
+            ].map((tab) => (
+              <button
+                role="tab"
+                data-tab={tab.id}
+                class="results-tab relative -mb-px mr-1 px-5 py-2.5 text-sm font-semibold text-zinc-500 cursor-pointer transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                aria-selected="false"
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+
+        <!-- Dynamic heading — updated by JS on tab switch -->
+        <h1
+          id="results-heading"
+          class="mb-6 text-4xl font-black uppercase tracking-tight text-zinc-900 dark:text-zinc-100"
+        >
+          {season} Race Results
+        </h1>
+
+        <!-- ── RACES PANEL ── -->
+        <div id="tab-races" class="results-panel" role="tabpanel">
+          {
+            completedRaces.length === 0 ? (
+              <p class="text-zinc-500 dark:text-zinc-400">
+                No completed races yet.
+              </p>
+            ) : (
+              <div class="overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700">
+                <table class="w-full text-sm">
+                  <thead class="bg-zinc-50 dark:bg-zinc-800">
+                    <tr>
+                      {["Grand Prix", "Date", "Winner", "Team", "Laps", "Time"].map(
+                        (h) => (
+                          <th class="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                            {h}
+                          </th>
+                        ),
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+                    {completedRaces.map((race) => {
+                      const flagCode =
+                        countryFlagMap[race.data.trackCountry] ?? "un";
+                      const raceSlug = race.id.split("/").pop() ?? "";
+                      const winningDriverSlug = driverSlugByFullName.get(
+                        normalizeName(race.data.winningDriver),
+                      );
+                      const winningConstructorSlug = constructorSlugByName.get(
+                        normalizeName(race.data.winningConstructor),
+                      );
+                      const date = new Date(race.data.raceDate);
+                      const formattedDate = date.toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                      });
+                      return (
+                        <tr class="bg-white transition-colors hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800/60">
+                          <td class="px-4 py-3">
+                            <a
+                              href={`/results/${season}/races/${raceSlug}`}
+                              class="inline-flex items-center gap-2 font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                            >
+                              <span
+                                class={`fi fi-${flagCode} shrink-0 rounded-sm`}
+                              />
+                              {race.data.trackCountry}
+                            </a>
+                          </td>
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
+                            {formattedDate}
+                          </td>
+                          <td class="px-4 py-3 font-semibold text-zinc-900 dark:text-zinc-100">
+                            {winningDriverSlug ? (
+                              <a
+                                href={`/seasons/${season}/drivers/${winningDriverSlug}`}
+                                class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                              >
+                                {race.data.winningDriver}
+                              </a>
+                            ) : (
+                              race.data.winningDriver
+                            )}
+                          </td>
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
+                            {winningConstructorSlug ? (
+                              <a
+                                href={`/seasons/${season}/constructors/${winningConstructorSlug}`}
+                                class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                              >
+                                {race.data.winningConstructor}
+                              </a>
+                            ) : (
+                              race.data.winningConstructor
+                            )}
+                          </td>
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
+                            {race.data.laps ?? "—"}
+                          </td>
+                          <td class="px-4 py-3 font-mono text-zinc-900 dark:text-zinc-100">
+                            {race.data.time ?? "—"}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )
+          }
+        </div>
+
+        <!-- ── DRIVERS PANEL ── -->
+        <div id="tab-drivers" class="results-panel hidden" role="tabpanel">
+          <div
+            class="overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700"
+          >
+            <table class="w-full text-sm">
+              <thead class="bg-zinc-50 dark:bg-zinc-800">
+                <tr>
+                  {
+                    ["Pos", "Driver", "Nationality", "Team", "Pts"].map((h) => (
+                      <th class="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                        {h}
+                      </th>
+                    ))
+                  }
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+                {
+                  sortedDrivers.map((driver) => {
+                    const teamSlug = constructorSlugByName.get(
+                      normalizeName(driver.data.driverTeam),
+                    );
+                    return (
+                    <tr class="bg-white transition-colors hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800/60">
+                      <td class="w-12 px-4 py-3 font-black text-zinc-900 dark:text-zinc-100">
+                        {driver.data.championshipPosition}
+                      </td>
+                      <td class="px-4 py-3">
+                        <a
+                          href={`/seasons/${season}/drivers/${driver.id.split("/").pop()}`}
+                          class="font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                        >
+                          {driver.data.driverFirstName}{" "}
+                          {driver.data.driverLastName}
+                        </a>
+                      </td>
+                      <td class="px-4 py-3">
+                        <span class="inline-flex items-center gap-2 text-zinc-900 dark:text-zinc-100">
+                          <span
+                            class={`fi fi-${driver.data.countryCode} shrink-0 rounded-sm`}
+                          />
+                          {driver.data.nationality}
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
+                        {teamSlug ? (
+                          <a
+                            href={`/seasons/${season}/constructors/${teamSlug}`}
+                            class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                          >
+                            {driver.data.driverTeam}
+                          </a>
+                        ) : (
+                          driver.data.driverTeam
+                        )}
+                      </td>
+                      <td class="px-4 py-3 font-black text-zinc-900 dark:text-zinc-100">
+                        {driver.data.driverPoints}
+                      </td>
+                    </tr>
+                    );
+                  })
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ── TEAMS PANEL ── -->
+        <div id="tab-teams" class="results-panel hidden" role="tabpanel">
+          <div
+            class="overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700"
+          >
+            <table class="w-full text-sm">
+              <thead class="bg-zinc-50 dark:bg-zinc-800">
+                <tr>
+                  {
+                    ["Pos", "Team", "Pts"].map((h) => (
+                      <th class="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                        {h}
+                      </th>
+                    ))
+                  }
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+                {
+                  sortedConstructors.map((team) => (
+                    <tr class="bg-white transition-colors hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800/60">
+                      <td class="w-12 px-4 py-3 font-black text-zinc-900 dark:text-zinc-100">
+                        {team.data.championshipPosition}
+                      </td>
+                      <td class="px-4 py-3">
+                        <a
+                          href={`/seasons/${season}/constructors/${team.id.split("/").pop()}`}
+                          class="font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                        >
+                          {team.data.constructorName}
+                        </a>
+                      </td>
+                      <td class="px-4 py-3 font-black text-zinc-900 dark:text-zinc-100">
+                        {team.data.constructorPoints}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ── AWARDS PANEL ── -->
+        <div id="tab-awards" class="results-panel hidden" role="tabpanel">
+          {
+            completedRaces.length === 0 ? (
+              <p class="text-zinc-500 dark:text-zinc-400">
+                No completed races yet.
+              </p>
+            ) : (
+              <div class="overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700">
+                <table class="w-full text-sm">
+                  <thead class="bg-zinc-50 dark:bg-zinc-800">
+                    <tr>
+                      {["Grand Prix", "Driver", "Team", "Fastest Lap"].map(
+                        (h) => (
+                          <th class="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                            {h}
+                          </th>
+                        ),
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+                    {completedRaces.map((race) => {
+                      const flagCode =
+                        countryFlagMap[race.data.trackCountry] ?? "un";
+                      return (
+                        <tr class="bg-white transition-colors hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800/60">
+                          <td class="px-4 py-3">
+                            <span class="inline-flex items-center gap-2 font-semibold text-zinc-900 dark:text-zinc-100">
+                              <span
+                                class={`fi fi-${flagCode} shrink-0 rounded-sm`}
+                              />
+                              {race.data.trackCountry}
+                            </span>
+                          </td>
+                          <td class="px-4 py-3 font-semibold text-zinc-900 dark:text-zinc-100">
+                            {race.data.fastestLapDriver || "—"}
+                          </td>
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
+                            {race.data.fastestLapConstructor || "—"}
+                          </td>
+                          <td class="px-4 py-3 font-mono text-zinc-900 dark:text-zinc-100">
+                            {race.data.fastestLapTime || "—"}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+
+    <script>
+      const HEADINGS: Record<string, string> = {
+        races: "2026 Race Results",
+        drivers: "2026 Driver Standings",
+        teams: "2026 Constructor Standings",
+        awards: "2026 DHL Fastest Lap Award",
+      };
+
+      const tabs = document.querySelectorAll<HTMLButtonElement>(".results-tab");
+      const panels =
+        document.querySelectorAll<HTMLDivElement>(".results-panel");
+      const heading = document.getElementById("results-heading");
+
+      function activateTab(id: string) {
+        tabs.forEach((t) => {
+          const active = t.dataset.tab === id;
+          t.setAttribute("aria-selected", String(active));
+          if (active) {
+            t.classList.add(
+              "border-b-2",
+              "border-rose-500",
+              "text-zinc-900",
+              "dark:text-zinc-100",
+            );
+            t.classList.remove("text-zinc-500", "dark:text-zinc-400");
+          } else {
+            t.classList.remove(
+              "border-b-2",
+              "border-rose-500",
+              "text-zinc-900",
+              "dark:text-zinc-100",
+            );
+            t.classList.add("text-zinc-500", "dark:text-zinc-400");
+          }
+        });
+        panels.forEach((p) => {
+          p.classList.toggle("hidden", p.id !== `tab-${id}`);
+        });
+        if (heading && HEADINGS[id]) heading.textContent = HEADINGS[id];
+      }
+
+      activateTab("races");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => activateTab(tab.dataset.tab!));
+      });
+
+      // Year dropdown navigation
+      const yearSelect = document.getElementById(
+        "year-select",
+      ) as HTMLSelectElement;
+      yearSelect?.addEventListener("change", () => {
+        window.location.href =
+          yearSelect.value === "2026"
+            ? "/results"
+            : `/results/${yearSelect.value}`;
+      });
+    </script>
+  </body>
+</html>

@@ -20,7 +20,7 @@ const currentSeason = "2026";
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white/95 py-2 shadow-sm backdrop-blur-sm dark:bg-zinc-800/95"
+  class="sticky top-0 z-50 border-t-[3px] border-rose-600 bg-white/95 py-2 shadow-sm backdrop-blur-sm dark:bg-zinc-800/95"
 >
   <nav class="container mx-auto px-4" aria-label="Main navigation">
     <div class="flex h-16 items-center justify-between">
@@ -50,7 +50,7 @@ const currentSeason = "2026";
           href="/"
           class:list={[
             "transition-colors duration-200 dark:text-zinc-200",
-            isActive("/") && "text-blue-600 dark:text-blue-400",
+            isActive("/") && "text-rose-600 dark:text-rose-400",
           ]}
         >
           Home
@@ -60,10 +60,20 @@ const currentSeason = "2026";
           href="/blog"
           class:list={[
             "transition-colors duration-200 dark:text-zinc-200",
-            isActive("/blog") && "text-blue-600 dark:text-blue-400",
+            isActive("/blog") && "text-rose-600 dark:text-rose-400",
           ]}
         >
           Blog
+        </HeaderLink>
+
+        <HeaderLink
+          href="/results"
+          class:list={[
+            "transition-colors duration-200 dark:text-zinc-200",
+            isActive("/results") && "text-rose-600 dark:text-rose-400",
+          ]}
+        >
+          Results
         </HeaderLink>
 
         <!-- Seasons Mega Menu -->
@@ -71,7 +81,7 @@ const currentSeason = "2026";
           <button
             class:list={[
               "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
-              isActive("/seasons") && "text-blue-600 dark:text-blue-400",
+              isActive("/seasons") && "text-rose-600 dark:text-rose-400",
             ]}
             aria-expanded="false"
             aria-haspopup="true"
@@ -91,20 +101,20 @@ const currentSeason = "2026";
             >
               <!-- Current Season Highlight -->
               <div
-                class="bg-linear-to-r border-b border-zinc-100 from-blue-50 to-zinc-50 p-4 dark:border-zinc-700 dark:from-blue-900/20 dark:to-zinc-800"
+                class="bg-linear-to-r border-b border-zinc-100 from-rose-50 to-zinc-50 p-4 dark:border-zinc-700 dark:from-rose-900/20 dark:to-zinc-800"
               >
                 <a
                   href={`/seasons/${currentSeason}`}
                   class="group/current flex items-center gap-3"
                 >
                   <div
-                    class="flex size-10 items-center justify-center rounded-lg bg-blue-600 text-white"
+                    class="flex size-10 items-center justify-center rounded-lg bg-rose-600 text-white"
                   >
                     <Icon name="mdi:flag-checkered" size={20} />
                   </div>
                   <div>
                     <div
-                      class="font-semibold text-zinc-900 group-hover/current:text-blue-600 dark:text-zinc-100 dark:group-hover/current:text-blue-400"
+                      class="font-semibold text-zinc-900 group-hover/current:text-rose-600 dark:text-zinc-100 dark:group-hover/current:text-rose-400"
                     >
                       {currentSeason} Season
                       <span
@@ -141,10 +151,21 @@ const currentSeason = "2026";
                 </a>
                 <a
                   href={`/seasons/${currentSeason}/races`}
-                  class="col-span-2 flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
                   <Icon name="mdi:calendar" size={18} class="text-zinc-500" />
                   Race Calendar
+                </a>
+                <a
+                  href="/results"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                >
+                  <Icon
+                    name="mdi:trophy-outline"
+                    size={18}
+                    class="text-zinc-500"
+                  />
+                  Results
                 </a>
               </div>
 
@@ -173,7 +194,7 @@ const currentSeason = "2026";
               <div class="border-t border-zinc-100 p-2 dark:border-zinc-700">
                 <a
                   href="/seasons"
-                  class="flex items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                  class="flex items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20"
                 >
                   View all seasons
                   <Icon name="mdi:arrow-right" size={16} />
@@ -188,7 +209,7 @@ const currentSeason = "2026";
           <button
             class:list={[
               "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
-              isActive("/learn") && "text-blue-600 dark:text-blue-400",
+              isActive("/learn") && "text-rose-600 dark:text-rose-400",
             ]}
             aria-expanded="false"
             aria-haspopup="true"
@@ -267,7 +288,7 @@ const currentSeason = "2026";
           <button
             class:list={[
               "nav-dropdown-trigger inline-flex items-center gap-1 py-2 font-medium transition-colors duration-200 dark:text-zinc-200",
-              isActive("/about") && "text-blue-600 dark:text-blue-400",
+              isActive("/about") && "text-rose-600 dark:text-rose-400",
             ]}
             aria-expanded="false"
             aria-haspopup="true"
@@ -343,7 +364,7 @@ const currentSeason = "2026";
       <div class="md:hidden">
         <button
           type="button"
-          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          class="mobile-menu-button inline-flex items-center justify-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500 dark:text-zinc-300 dark:hover:bg-zinc-700"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="Toggle navigation menu"
@@ -378,7 +399,7 @@ const currentSeason = "2026";
           class:list={[
             "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
             isActive("/")
-              ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+              ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
               : "text-zinc-700 hover:bg-zinc-50",
           ]}>Home</a
         >
@@ -389,9 +410,20 @@ const currentSeason = "2026";
           class:list={[
             "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
             isActive("/blog")
-              ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+              ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
               : "text-zinc-700 hover:bg-zinc-50",
           ]}>Blog</a
+        >
+
+        <!-- Results -->
+        <a
+          href="/results"
+          class:list={[
+            "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
+            isActive("/results")
+              ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
+              : "text-zinc-700 hover:bg-zinc-50",
+          ]}>Results</a
         >
 
         <!-- Mobile Seasons Section -->
@@ -400,7 +432,7 @@ const currentSeason = "2026";
             class:list={[
               "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/seasons")
-                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
                 : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
@@ -419,7 +451,7 @@ const currentSeason = "2026";
               <!-- Current Season Highlight -->
               <a
                 href={`/seasons/${currentSeason}`}
-                class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20"
               >
                 <Icon name="mdi:flag-checkered" size={16} />
                 {currentSeason} Season
@@ -429,7 +461,7 @@ const currentSeason = "2026";
                 >
               </a>
               <!-- Quick Links -->
-              <div class="grid grid-cols-3 gap-1 py-1">
+              <div class="grid grid-cols-2 gap-1 py-1">
                 <a
                   href={`/seasons/${currentSeason}/drivers`}
                   class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
@@ -445,6 +477,11 @@ const currentSeason = "2026";
                   class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
                   >Races</a
                 >
+                <a
+                  href="/results"
+                  class="rounded-lg px-2 py-1.5 text-center text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-700"
+                  >Results</a
+                >
               </div>
               <!-- Past Seasons -->
               <a
@@ -459,7 +496,7 @@ const currentSeason = "2026";
               >
               <a
                 href="/seasons"
-                class="block rounded-lg px-3 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                class="block rounded-lg px-3 py-2 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20"
                 >View all seasons →</a
               >
             </div>
@@ -472,7 +509,7 @@ const currentSeason = "2026";
             class:list={[
               "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/learn")
-                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
                 : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
@@ -513,7 +550,7 @@ const currentSeason = "2026";
             class:list={[
               "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors dark:text-zinc-200 dark:hover:bg-zinc-700",
               isActive("/about")
-                ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                ? "bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
                 : "text-zinc-700 hover:bg-zinc-50",
             ]}
             aria-expanded="false"
