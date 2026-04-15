@@ -5,22 +5,19 @@
 // - leftText (string) - text content for the left button
 // - rightHref (string) - href for the right button
 // - rightText (string) - text content for the right button
+import Button from "./Button.astro";
+
 const {
   leftHref = "#",
   leftText = "Back",
   rightHref = "#",
   rightText = "Back to seasons",
 } = Astro.props;
-
-const buttonClass =
-  "inline-block border-2 transition-colors duration-300 py-2 px-4 rounded text-white";
-const leftBtnClass = `${buttonClass} bg-rose-600 border-rose-400 dark:border-rose-500 dark:hover:bg-rose-800 dark:hover:border-rose-600 hover:bg-rose-700`;
-const rightBtnClass = `${buttonClass} bg-zinc-600 dark:border-zinc-500 dark:hover:bg-zinc-800 hover:bg-zinc-700`;
 ---
 
 <section class="container space-x-2 space-y-2 py-8 text-center">
-  <a href={leftHref} class={leftBtnClass}>
+  <Button href={leftHref} variant="primary">
     {leftText}
-  </a>
-  <a href={rightHref} class={rightBtnClass}>{rightText}</a>
+  </Button>
+  <Button href={rightHref} variant="secondary">{rightText}</Button>
 </section>

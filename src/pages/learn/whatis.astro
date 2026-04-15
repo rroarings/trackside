@@ -98,7 +98,7 @@ const championshipCards = [
     icon: "mdi:racing-helmet",
     count: "22",
     countLabel: "Drivers Racing",
-    battleLabel: "Title Battle",
+    battleLabel: "Driver Battle",
     accentBarClass: "bg-rose-600",
     accentTextClass: "text-rose-600 dark:text-rose-400",
   },
@@ -203,7 +203,7 @@ const championshipCards = [
             World Championships at stake
           </h2>
           <p
-            class="mx-auto mb-12 max-w-4xl text-center text-zinc-800 dark:text-zinc-300"
+            class="mx-auto mb-12 max-w-4xl leading-loose text-center text-zinc-800 dark:text-zinc-300"
           >
             Formula 1 is not just about individual races; it's a season-long
             competition to crown the best. It is as much about teamwork as
@@ -255,6 +255,7 @@ const championshipCards = [
       <!-- Technology Section -->
       <div id="technology">
         <TwoColumnSection
+          eyebrow="Engineering"
           title="The Technology"
           content={`
 					<p>
@@ -263,12 +264,14 @@ const championshipCards = [
 					`}
           imageSrc={cn02}
           imageAlt="F1 Technology"
+          tone="neutral"
         />
       </div>
 
       <!-- Spectacle Section -->
       <div id="spectacle">
         <TwoColumnSection
+          eyebrow="Race Weekend"
           title="The Spectacle"
           content={`
 						<p>
@@ -278,12 +281,14 @@ const championshipCards = [
           imageSrc={cn02}
           imageAlt="F1 Race Weekend"
           reversed={true}
+          tone="neutral"
         />
       </div>
 
       <!-- Why It Matters Section -->
       <div id="why-it-matters">
         <TwoColumnSection
+          eyebrow="Culture"
           title="Why It Matters"
           content={`
 						<p>
@@ -292,12 +297,14 @@ const championshipCards = [
 					`}
           imageSrc={cn02}
           imageAlt="F1 Impact"
+          tone="neutral"
         />
       </div>
 
       <!-- The Future Section -->
       <div id="future">
         <TwoColumnSection
+          eyebrow="Outlook"
           title="The Future"
           content={`
 						<p>
@@ -307,6 +314,7 @@ const championshipCards = [
           imageSrc={cn02}
           imageAlt="F1 Race Weekend"
           reversed={true}
+          tone="neutral"
         />
       </div>
 

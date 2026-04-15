@@ -7,6 +7,7 @@ import TwoColumnSection from "../components/TwoColumnSection.astro";
 import Standings from "../components/Standings.astro";
 import LatestPosts from "../components/LatestPosts.astro";
 import FeaturesGrid from "../components/FeaturesGrid.astro";
+import Button from "../components/Button.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
@@ -104,26 +105,18 @@ const features = [
               class="mt-9 flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-5 sm:space-y-0"
             >
               <!-- Primary Button -->
-              <a
-                href="/seasons/2025"
-                class="inline-block rounded border-2 border-rose-400 bg-rose-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-rose-700 dark:border-rose-500 dark:hover:border-rose-600 dark:hover:bg-rose-800"
-                role="button"
-              >
+              <Button href="/seasons/2025" variant="primary" size="md">
                 Explore the 2025 Season
-              </a>
+              </Button>
               <!-- Secondary Button -->
-              <a
-                href="/blog"
-                class="inline-flex items-center justify-center rounded border-2 border-transparent bg-zinc-600 px-4 py-2 text-white transition-all duration-300 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
-                role="button"
-              >
+              <Button href="/blog" variant="secondary" size="md">
                 Read Our Blog
-              </a>
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* Hero video */}
+        <!-- Hero video -->
         <div>
           <div class="relative mx-auto mt-4 overflow-hidden md:mt-8">
             <div class="rounded-xl shadow-lg lg:mx-auto lg:max-w-7xl">
@@ -297,8 +290,7 @@ const features = [
       <!-- Latest Highlight Card -->
       <section class="w-full py-10">
         <div class="mx-auto px-4">
-          <a
-            href="/seasons/2025"
+          <article
             class="bg-linear-to-br group relative block overflow-hidden rounded-2xl border border-zinc-300 from-white via-zinc-100 to-zinc-200 shadow-sm transition-all duration-300 hover:shadow-lg dark:border-zinc-700 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800"
           >
             <span
@@ -313,7 +305,7 @@ const features = [
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 320px, 384px"
                   quality={92}
                   class="h-64 w-full object-cover md:h-full md:w-80 lg:w-96"
-                  loading="eager"
+                  loading="lazy"
                 />
                 <div
                   class="bg-linear-to-t absolute inset-x-0 bottom-0 h-24 from-zinc-950/70 to-transparent"
@@ -358,16 +350,14 @@ const features = [
                   </span>
                 </div>
                 <div class="mt-7">
-                  <span
-                    class="inline-flex items-center gap-2 rounded border-2 border-rose-500 bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-rose-700 dark:border-rose-500 dark:bg-rose-700 dark:hover:bg-rose-800"
-                  >
+                  <Button href="/seasons/2025" variant="primary" class="gap-2">
                     Read Highlight
                     <Icon name="mdi:arrow-right" size={16} />
-                  </span>
+                  </Button>
                 </div>
               </div>
             </div>
-          </a>
+          </article>
         </div>
       </section>
 
@@ -414,7 +404,7 @@ const features = [
         </div>
       </section>
 
-      <!-- Race Spotlight Section -->
+      <!-- Race Calendar Section -->
       <section class="bg-zinc-100 py-12 dark:bg-zinc-900">
         <div class="container mx-auto px-4">
           <header class="mb-12 text-center">
@@ -441,7 +431,6 @@ const features = [
         content={`<p>Check our FAQs for details about the site, data sources, and how Trackside is maintained. If you can't find an answer, reach out via the contact link.</p>`}
         ctaText="View FAQs"
         ctaLink="/faqs"
-        background="white"
         imageSrc={race01}
         imageAlt="FAQ"
         reversed={true}
