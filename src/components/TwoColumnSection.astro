@@ -2,17 +2,21 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import type { ImageMetadata } from "astro";
+import Button from "./Button.astro";
 
 interface Props {
   title: string;
   content?: string;
   description?: string;
+  eyebrow?: string;
   ctaText?: string;
   ctaLink?: string;
+  ctaVariant?: "primary" | "secondary";
   imageSrc?: ImageMetadata;
   imageAlt?: string;
   reversed?: boolean;
   background?: "white" | "zinc";
+  tone?: "neutral" | "rose" | "sky";
   imageLoading?: "eager" | "lazy";
 }
 
@@ -20,62 +24,120 @@ const {
   title,
   content,
   description,
+  eyebrow,
   ctaText,
   ctaLink,
+  ctaVariant = "secondary",
   imageSrc,
   imageAlt = "",
   reversed = false,
+  background = "zinc",
+  tone = "neutral",
   imageLoading = "lazy",
 } = Astro.props;
+
+const sectionBgClass =
+  background === "white" ? "bg-white dark:bg-zinc-950" : "bg-zinc-100 dark:bg-zinc-900";
+
+const toneClassMap = {
+  neutral: {
+    panel:
+      "border-zinc-300 bg-linear-to-br from-white via-zinc-100 to-zinc-200 dark:border-zinc-700 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800",
+    eyebrow:
+      "border-zinc-300 bg-zinc-100 text-zinc-700 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-300",
+    accent: "bg-zinc-500 dark:bg-zinc-400",
+    media:
+      "border-zinc-300/80 shadow-zinc-400/20 dark:border-zinc-700 dark:shadow-zinc-950/40",
+  },
+  rose: {
+    panel:
+      "border-rose-200 bg-linear-to-br from-white via-rose-50 to-zinc-100 dark:border-rose-900/60 dark:from-zinc-900 dark:via-rose-950/20 dark:to-zinc-900",
+    eyebrow:
+      "border-rose-200 bg-rose-100 text-rose-700 dark:border-rose-500/40 dark:bg-rose-900/30 dark:text-rose-300",
+    accent: "bg-rose-500 dark:bg-rose-400",
+    media:
+      "border-rose-200/80 shadow-rose-400/20 dark:border-rose-900/60 dark:shadow-zinc-950/40",
+  },
+  sky: {
+    panel:
+      "border-sky-200 bg-linear-to-br from-white via-sky-50 to-zinc-100 dark:border-sky-900/60 dark:from-zinc-900 dark:via-sky-950/20 dark:to-zinc-900",
+    eyebrow:
+      "border-sky-200 bg-sky-100 text-sky-700 dark:border-sky-500/40 dark:bg-sky-900/30 dark:text-sky-300",
+    accent: "bg-sky-500 dark:bg-sky-400",
+    media:
+      "border-sky-200/80 shadow-sky-400/20 dark:border-sky-900/60 dark:shadow-zinc-950/40",
+  },
+} as const;
+
+const toneClasses = toneClassMap[tone];
 ---
 
-<section class="overflow-x-hidden bg-zinc-100 py-12 dark:bg-zinc-900">
+<section class={`overflow-x-hidden py-14 sm:py-16 ${sectionBgClass}`}>
   <div class="mx-auto max-w-7xl px-4">
     <div
-      class={`w-full flex flex-col md:flex-row lg:flex-row gap-8 items-center md:items-start ${reversed ? "md:flex-row-reverse lg:flex-row-reverse" : ""}`}
+      class={`group w-full rounded-2xl border p-6 shadow-sm transition-shadow duration-300 hover:shadow-md sm:p-8 lg:p-10 ${toneClasses.panel} ${reversed ? "md:flex-row-reverse lg:flex-row-reverse" : ""} flex flex-col gap-10 md:flex-row md:items-center lg:gap-12`}
     >
       <!-- Text Content -->
-      <div class={`flex-1 md:w-1/2 min-w-0 w-full space-y-6 `}>
-        <h2 class="font-bold dark:text-zinc-100">{title}</h2>
+      <div class={`w-full min-w-0 space-y-5 md:w-1/2 md:flex-1 sm:space-y-6`}>
+        {
+          eyebrow && (
+            <p
+              class={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${toneClasses.eyebrow}`}
+            >
+              <span class={`h-1.5 w-1.5 rounded-full ${toneClasses.accent}`} aria-hidden="true"></span>
+              {eyebrow}
+            </p>
+          )
+        }
+        <h2 class="max-w-2xl text-3xl font-bold leading-[1.08] tracking-[-0.02em] text-zinc-900 sm:text-4xl dark:text-zinc-100">
+          {title}
+        </h2>
         {
           content ? (
             <div
-              class="leading-loose text-zinc-800 dark:text-zinc-300"
+              class="text-base leading-loose text-zinc-700 dark:text-zinc-300"
               set:html={content}
             />
           ) : description ? (
-            <p class="text-zinc-600 dark:text-zinc-300">{description}</p>
+            <p class="text-base leading-loose text-zinc-700 dark:text-zinc-300">
+              {description}
+            </p>
           ) : null
         }
         {
           ctaText && ctaLink && (
-            <a
-              href={ctaLink}
-              class="inline-flex items-center rounded border-2 border-transparent bg-zinc-600 px-4 py-2 text-white transition-all duration-300 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
-            >
+            <Button href={ctaLink} variant={ctaVariant} class="mt-1 gap-1.5">
               <span>{ctaText}</span>
               <Icon
                 name="mdi:chevron-right"
                 aria-hidden="true"
-                class="h-6 w-6 shrink-0 text-zinc-50 transition-all duration-200"
+                class="h-5 w-5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
               />
-            </a>
+            </Button>
           )
         }
       </div>
 
       <!-- Image -->
-      <div class={`flex-1 md:flex-none md:w-1/2 min-w-0 w-full space-y-6 `}>
+      <div class={`w-full min-w-0 md:w-1/2 md:flex-none`}>
         {
           imageSrc ? (
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              widths={[640, 960, 1344]}
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 672px"
-              class="h-64 w-full max-w-2xl rounded-lg object-cover md:h-80 lg:h-96"
-              loading={imageLoading}
-            />
+            <div
+              class={`relative overflow-hidden rounded-2xl border shadow-xl ${toneClasses.media}`}
+            >
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                widths={[640, 960, 1344]}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 672px"
+                class="h-72 w-full max-w-2xl object-cover transition-transform duration-500 group-hover:scale-[1.03] md:h-80 lg:h-96"
+                loading={imageLoading}
+              />
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-zinc-950/35 to-transparent"
+                aria-hidden="true"
+              ></div>
+            </div>
           ) : (
             <div class="flex h-96 w-full max-w-2xl items-center justify-center rounded-3xl border-4 border-white bg-zinc-200 dark:border-zinc-900">
               <span class="text-lg text-zinc-400">[Placeholder Image]</span>
