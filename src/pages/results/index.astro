@@ -51,6 +51,22 @@ const constructorSlugByName = new Map(
   ]),
 );
 
+// Team primary colors for the colored dot indicator
+const teamColorMap: Record<string, string> = {
+  McLaren: "#FF8000",
+  Ferrari: "#E8002D",
+  Mercedes: "#27F4D2",
+  Williams: "#64C4FF",
+  "Red Bull Racing": "#3671C6",
+  "Kick Sauber": "#52E252",
+  "Racing Bulls": "#6692FF",
+  "Aston Martin": "#229971",
+  Haas: "#B6BABD",
+  Alpine: "#FF87BC",
+  Cadillac: "#CC0000",
+  Audi: "#BB0000",
+};
+
 // Country → ISO 3166-1 alpha-2 flag code
 const countryFlagMap: Record<string, string> = {
   Australia: "au",
@@ -111,7 +127,7 @@ const countryFlagMap: Record<string, string> = {
               <option value="2025">2025</option>
               <option value="2024">2024</option>
             </select>
-            <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+            <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-900 dark:text-white">
               <Icon name="mdi:chevron-down" size={18} />
             </span>
           </div>
@@ -219,12 +235,24 @@ const countryFlagMap: Record<string, string> = {
                             {winningConstructorSlug ? (
                               <a
                                 href={`/seasons/${season}/constructors/${winningConstructorSlug}`}
-                                class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                                class="inline-flex items-center gap-2 text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                               >
+                                <span
+                                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                                  style={`background-color: ${teamColorMap[race.data.winningConstructor] ?? "#71717a"}`}
+                                  aria-hidden="true"
+                                />
                                 {race.data.winningConstructor}
                               </a>
                             ) : (
-                              race.data.winningConstructor
+                              <span class="inline-flex items-center gap-2">
+                                <span
+                                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                                  style={`background-color: ${teamColorMap[race.data.winningConstructor] ?? "#71717a"}`}
+                                  aria-hidden="true"
+                                />
+                                {race.data.winningConstructor}
+                              </span>
                             )}
                           </td>
                           <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
@@ -292,12 +320,24 @@ const countryFlagMap: Record<string, string> = {
                         {teamSlug ? (
                           <a
                             href={`/seasons/${season}/constructors/${teamSlug}`}
-                            class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                            class="inline-flex items-center gap-2 text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                           >
+                            <span
+                              class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                              style={`background-color: ${teamColorMap[driver.data.driverTeam] ?? "#71717a"}`}
+                              aria-hidden="true"
+                            />
                             {driver.data.driverTeam}
                           </a>
                         ) : (
-                          driver.data.driverTeam
+                          <span class="inline-flex items-center gap-2">
+                            <span
+                              class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                              style={`background-color: ${teamColorMap[driver.data.driverTeam] ?? "#71717a"}`}
+                              aria-hidden="true"
+                            />
+                            {driver.data.driverTeam}
+                          </span>
                         )}
                       </td>
                       <td class="px-4 py-3 font-black text-zinc-900 dark:text-zinc-100">
@@ -339,8 +379,13 @@ const countryFlagMap: Record<string, string> = {
                       <td class="px-4 py-3">
                         <a
                           href={`/seasons/${season}/constructors/${team.id.split("/").pop()}`}
-                          class="font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                          class="inline-flex items-center gap-2 font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                         >
+                          <span
+                            class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                            style={`background-color: ${teamColorMap[team.data.constructorName] ?? "#71717a"}`}
+                            aria-hidden="true"
+                          />
                           {team.data.constructorName}
                         </a>
                       </td>
@@ -394,7 +439,16 @@ const countryFlagMap: Record<string, string> = {
                             {race.data.fastestLapDriver || "—"}
                           </td>
                           <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
-                            {race.data.fastestLapConstructor || "—"}
+                            {race.data.fastestLapConstructor ? (
+                              <span class="inline-flex items-center gap-2">
+                                <span
+                                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                                  style={`background-color: ${teamColorMap[race.data.fastestLapConstructor] ?? "#71717a"}`}
+                                  aria-hidden="true"
+                                />
+                                {race.data.fastestLapConstructor}
+                              </span>
+                            ) : "—"}
                           </td>
                           <td class="px-4 py-3 font-mono text-zinc-900 dark:text-zinc-100">
                             {race.data.fastestLapTime || "—"}
