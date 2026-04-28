@@ -7,15 +7,19 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "normalize:races-frontmatter": "node scripts/normalize-races-frontmatter.mjs src/content/races/2026"
+  },
+  "overrides": {
+    "vite": "^7"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.1.11",
     "accessible-astro-components": "^5.1.2",
-    "astro": "^5.17.1",
+    "astro": "^6.1.8",
     "astro-icon": "^1.1.5",
     "flag-icons": "^7.5.0",
     "sharp": "^0.34.2",
