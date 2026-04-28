@@ -1,5 +1,11 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+
+const resultPositionSchema = z.union([
+  z.number(),
+  z.enum(["NC", "DNS", "DSQ", "DNQ", "DNF"]),
+]);
 
 const blog = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -130,7 +136,7 @@ const races = defineCollection({
       raceResults: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
@@ -143,51 +149,67 @@ const races = defineCollection({
       practice1Results: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
             laps: z.number().optional(),
-            timeOrRetired: z.string().optional(),
-            points: z.number().optional(),
+            timeOrGap: z.string().optional(),
           }),
         )
         .optional(),
       practice2Results: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
             laps: z.number().optional(),
-            timeOrRetired: z.string().optional(),
-            points: z.number().optional(),
+            timeOrGap: z.string().optional(),
           }),
         )
         .optional(),
       practice3Results: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
             laps: z.number().optional(),
-            timeOrRetired: z.string().optional(),
-            points: z.number().optional(),
+            timeOrGap: z.string().optional(),
           }),
         )
         .optional(),
       qualifyingResults: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
             laps: z.number().optional(),
-            timeOrRetired: z.string().optional(),
+            timeOrGap: z.string().optional(),
+            q1: z.string().optional(),
+            q2: z.string().optional(),
+            q3: z.string().optional(),
+            points: z.number().optional(),
+          }),
+        )
+        .optional(),
+      sprintQualifyingResults: z
+        .array(
+          z.object({
+            position: resultPositionSchema,
+            carNumber: z.number().optional(),
+            driver: z.string(),
+            team: z.string(),
+            laps: z.number().optional(),
+            timeOrGap: z.string().optional(),
+            sq1: z.string().optional(),
+            sq2: z.string().optional(),
+            sq3: z.string().optional(),
             points: z.number().optional(),
           }),
         )
@@ -195,7 +217,7 @@ const races = defineCollection({
       sprintResults: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),
@@ -208,7 +230,7 @@ const races = defineCollection({
       fastestLapResults: z
         .array(
           z.object({
-            position: z.number(),
+            position: resultPositionSchema,
             carNumber: z.number().optional(),
             driver: z.string(),
             team: z.string(),

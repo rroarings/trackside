@@ -19,7 +19,7 @@ fastestLapDriver: ""
 fastestLapConstructor: ""
 fastestLapTime: ""
 raceNumber: 0
-raceCompleted: false
+raceCompleted: true
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/04bahrain/bh01.jpg"
 ---

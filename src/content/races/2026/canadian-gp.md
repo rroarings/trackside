@@ -20,6 +20,13 @@ fastestLapConstructor: ""
 fastestLapTime: ""
 raceNumber: 7
 raceCompleted: false
+raceResults: []
+practice1Results: []
+practice2Results: []
+practice3Results: []
+qualifyingResults: []
+sprintResults: []
+fastestLapResults: []
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/10canada/ca01.jpg"
 ---

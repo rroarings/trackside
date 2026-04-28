@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Cadillac 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Cadillac 2026 Constructor car"
-carModel: "CAD-01"
+carModel: "MAC-26"
 careerStats:
   firstEntry: 2026
   racesEntered: 0
@@ -13,7 +13,7 @@ careerStats:
 constructorName: "Cadillac"
 constructorPoints: 0
 description: "Cadillac joins the Formula 1 grid with a manufacturer-backed effort focused on sustainable powertrain development and a high-downforce chassis package."
-engineSupplier: "Cadillac"
+engineSupplier: "Ferrari"
 championshipPosition: 10
 season: "2026"
 teamDrivers: ["Sergio Perez", "Valtteri Bottas"]

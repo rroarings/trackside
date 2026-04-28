@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Alpine 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Alpine 2026 Constructor car"
-carModel: "A525"
+carModel: "A526"
 careerStats:
   firstEntry: 1986
   racesEntered: 388
@@ -19,7 +19,7 @@ constructorName: "Alpine"
 constructorPoints: 16
 dnf: 0
 description: "Alpine team description"
-engineSupplier: "Renault"
+engineSupplier: "Mercedes"
 fastestLaps: 10
 grandPrixWins: 0
 grandPrixPoints: 0

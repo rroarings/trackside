@@ -208,7 +208,7 @@ const countryFlagMap: Record<string, string> = {
                           <td class="px-4 py-3">
                             <a
                               href={`/results/${season}/races/${raceSlug}`}
-                              class="inline-flex items-center gap-2 font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                              class="inline-flex items-center gap-2 text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                             >
                               <span
                                 class={`fi fi-${flagCode} shrink-0 rounded-sm`}
@@ -219,7 +219,7 @@ const countryFlagMap: Record<string, string> = {
                           <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
                             {formattedDate}
                           </td>
-                          <td class="px-4 py-3 font-semibold text-zinc-900 dark:text-zinc-100">
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
                             {winningDriverSlug ? (
                               <a
                                 href={`/seasons/${season}/drivers/${winningDriverSlug}`}
@@ -302,7 +302,7 @@ const countryFlagMap: Record<string, string> = {
                       <td class="px-4 py-3">
                         <a
                           href={`/seasons/${season}/drivers/${driver.id.split("/").pop()}`}
-                          class="font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                          class="text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                         >
                           {driver.data.driverFirstName}{" "}
                           {driver.data.driverLastName}
@@ -379,7 +379,7 @@ const countryFlagMap: Record<string, string> = {
                       <td class="px-4 py-3">
                         <a
                           href={`/seasons/${season}/constructors/${team.id.split("/").pop()}`}
-                          class="inline-flex items-center gap-2 font-semibold text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
+                          class="inline-flex items-center gap-2 text-zinc-900 hover:text-rose-500 dark:text-zinc-100 dark:hover:text-rose-400"
                         >
                           <span
                             class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
@@ -428,14 +428,14 @@ const countryFlagMap: Record<string, string> = {
                       return (
                         <tr class="bg-white transition-colors hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800/60">
                           <td class="px-4 py-3">
-                            <span class="inline-flex items-center gap-2 font-semibold text-zinc-900 dark:text-zinc-100">
+                            <span class="inline-flex items-center gap-2 text-zinc-900 dark:text-zinc-100">
                               <span
                                 class={`fi fi-${flagCode} shrink-0 rounded-sm`}
                               />
                               {race.data.trackCountry}
                             </span>
                           </td>
-                          <td class="px-4 py-3 font-semibold text-zinc-900 dark:text-zinc-100">
+                          <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">
                             {race.data.fastestLapDriver || "—"}
                           </td>
                           <td class="px-4 py-3 text-zinc-900 dark:text-zinc-100">

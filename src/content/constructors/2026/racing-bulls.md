@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Racing Bulls 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Racing Bulls 2026 Constructor car"
-carModel: "VCARB 02"
+carModel: "VCARB 03"
 careerStats:
   firstEntry: 2004
   racesEntered: 395
@@ -19,7 +19,7 @@ constructorName: "Racing Bulls"
 constructorPoints: 14
 dnf: 0
 description: "Racing Bulls team description"
-engineSupplier: "Honda RBPT"
+engineSupplier: "Red Bull Ford"
 fastestLaps: 0
 grandPrixWins: 0
 grandPrixPoints: 0

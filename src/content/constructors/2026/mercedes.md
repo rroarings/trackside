@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Mercedes 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Mercedes 2026 Constructor car"
-carModel: "W16"
+carModel: "W17"
 careerStats:
   firstEntry: 1954
   racesEntered: 325

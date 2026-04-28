@@ -16,6 +16,7 @@ const SESSION_OPTIONS = [
   { id: "practice-1", label: "Practice 1" },
   { id: "practice-2", label: "Practice 2" },
   { id: "practice-3", label: "Practice 3" },
+  { id: "sprint-qualifying", label: "Sprint Qualifying" },
   { id: "qualifying", label: "Qualifying" },
   { id: "sprint", label: "Sprint" },
   { id: "fastest-laps", label: "Fastest Laps" },
@@ -25,7 +26,22 @@ type SessionId = (typeof SESSION_OPTIONS)[number]["id"];
 type RaceEntry = CollectionEntry<"races">;
 type DriverEntry = CollectionEntry<"drivers">;
 type ConstructorEntry = CollectionEntry<"constructors">;
-type ResultRow = NonNullable<RaceEntry["data"]["raceResults"]>[number];
+type ResultRow = {
+  position: number | "NC" | "DNS" | "DSQ" | "DNQ" | "DNF";
+  carNumber?: number;
+  driver: string;
+  team: string;
+  laps?: number;
+  timeOrRetired?: string;
+  timeOrGap?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  sq1?: string;
+  sq2?: string;
+  sq3?: string;
+  points?: number;
+};
 
 export async function getStaticPaths() {
   const SESSION_IDS = [
@@ -33,6 +49,7 @@ export async function getStaticPaths() {
     "practice-1",
     "practice-2",
     "practice-3",
+    "sprint-qualifying",
     "qualifying",
     "sprint",
     "fastest-laps",
@@ -96,20 +113,41 @@ const constructorSlugByName = new Map(
   ]),
 );
 
+const teamColorMap: Record<string, string> = {
+  McLaren: "#FF8000",
+  Ferrari: "#E8002D",
+  Mercedes: "#27F4D2",
+  Williams: "#64C4FF",
+  "Red Bull Racing": "#3671C6",
+  "Kick Sauber": "#52E252",
+  "Racing Bulls": "#6692FF",
+  "Aston Martin": "#229971",
+  Haas: "#B6BABD",
+  Alpine: "#FF87BC",
+  Cadillac: "#CC0000",
+  Audi: "#BB0000",
+};
+
 const sessionRowsMap: Record<SessionId, ResultRow[]> = {
   race: race.data.raceResults ?? [],
   "practice-1": race.data.practice1Results ?? [],
   "practice-2": race.data.practice2Results ?? [],
   "practice-3": race.data.practice3Results ?? [],
+  "sprint-qualifying": race.data.sprintQualifyingResults ?? [],
   qualifying: race.data.qualifyingResults ?? [],
   sprint: race.data.sprintResults ?? [],
   "fastest-laps": race.data.fastestLapResults ?? [],
 };
 
 const activeRows = sessionRowsMap[activeSession];
-const visibleSessions = SESSION_OPTIONS.filter(
-  (s) => s.id !== "sprint" || race.data.hasSprint,
-);
+const visibleSessions = SESSION_OPTIONS.filter((s) => {
+  if (race.data.hasSprint) {
+    // Sprint weekends: one practice session plus sprint qualifying and sprint.
+    return s.id !== "practice-2" && s.id !== "practice-3";
+  }
+
+  return s.id !== "sprint" && s.id !== "sprint-qualifying";
+});
 const activeLabel =
   SESSION_OPTIONS.find((option) => option.id === activeSession)?.label ??
   "Race Result";
@@ -173,14 +211,14 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
       />
 
       <section class="container mx-auto mb-12 mt-8 px-4">
-        <div class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 px-5 py-6 text-zinc-100 sm:px-8 sm:py-7">
+        <div class="overflow-hidden rounded-2xl border border-zinc-200 bg-white px-5 py-6 text-zinc-900 sm:px-8 sm:py-7 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100">
           <div class="mb-6 flex flex-wrap items-center gap-3">
             <div class="w-full sm:w-auto">
               <label for="race-select" class="sr-only">Select race</label>
               <div class="relative">
                 <select
                   id="race-select"
-                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-200 bg-zinc-900 px-4 py-2 pr-10 text-sm font-semibold text-zinc-100 sm:w-auto"
+                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-300 bg-white px-4 py-2 pr-10 text-sm font-semibold text-zinc-900 shadow-sm sm:w-auto dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
                 >
                   {
                     seasonRaces.map((raceOption: RaceEntry) => {
@@ -200,7 +238,7 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
                     })
                   }
                 </select>
-                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-900 dark:text-white">
                   <Icon name="mdi:chevron-down" size={18} />
                 </span>
               </div>
@@ -211,7 +249,7 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
               <div class="relative">
                 <select
                   id="session-select"
-                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-200 bg-zinc-900 px-4 py-2 pr-10 text-sm font-semibold text-zinc-100 sm:w-auto"
+                  class="w-full cursor-pointer appearance-none rounded-full border border-zinc-300 bg-white px-4 py-2 pr-10 text-sm font-semibold text-zinc-900 shadow-sm sm:w-auto dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
                 >
                   {
                     visibleSessions.map((option) => (
@@ -228,13 +266,13 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
                     ))
                   }
                 </select>
-                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-900 dark:text-white">
                   <Icon name="mdi:chevron-down" size={18} />
                 </span>
               </div>
             </div>
 
-            <div class="ml-auto hidden items-center justify-center rounded-full border border-zinc-600 p-2 sm:flex">
+            <div class="ml-auto hidden items-center justify-center rounded-full border border-zinc-300 bg-zinc-50 p-2 sm:flex dark:border-zinc-600 dark:bg-zinc-900">
               <span class={`fi fi-${flagCode} rounded-sm`} />
             </div>
           </div>
@@ -243,30 +281,51 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
             {race.data.raceName} - {activeLabel}
           </h1>
 
-          <p class="mt-5 text-sm font-bold uppercase text-zinc-300 sm:text-base">
+          <p class="mt-5 text-sm font-bold uppercase text-zinc-600 sm:text-base dark:text-zinc-300">
             {dateLabel}
           </p>
-          <p class="text-zinc-300">
+          <p class="text-zinc-600 dark:text-zinc-300">
             {race.data.trackName}, {race.data.trackLocation}
           </p>
 
-          <div class="mt-7 overflow-hidden rounded-xl border border-zinc-800 bg-black">
+          <div class="mt-7 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-black">
             <table class="w-full text-sm">
-              <thead class="border-b border-zinc-800">
+              <thead class="border-b border-zinc-200 dark:border-zinc-800">
                 <tr>
-                  {[
-                    "Pos.",
-                    "No.",
-                    "Driver",
-                    "Team",
-                    "Laps",
-                    "Time / Retired",
-                    "Pts.",
-                  ].map((heading) => (
-                    <th class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-widest text-zinc-300">
-                      {heading}
-                    </th>
-                  ))}
+                  {(() => {
+                    const isPractice = ["practice-1", "practice-2", "practice-3"].includes(
+                      activeSession,
+                    );
+                    const isSprintQualifying = activeSession === "sprint-qualifying";
+                    const isQualifying = activeSession === "qualifying";
+                    const headings = isPractice
+                      ? [
+                          "Pos.",
+                          "No.",
+                          "Driver",
+                          "Team",
+                          "Time / Gap",
+                          "Laps",
+                        ]
+                      : isSprintQualifying
+                        ? ["Pos.", "No.", "Driver", "Team", "SQ1", "SQ2", "SQ3"]
+                      : isQualifying
+                        ? ["Pos.", "No.", "Driver", "Team", "Q1", "Q2", "Q3"]
+                      : [
+                          "Pos.",
+                          "No.",
+                          "Driver",
+                          "Team",
+                          "Laps",
+                          "Time / Retired",
+                          "Pts.",
+                        ];
+                    return headings.map((heading) => (
+                      <th class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-300">
+                        {heading}
+                      </th>
+                    ));
+                  })()}
                 </tr>
               </thead>
               <tbody>
@@ -279,19 +338,24 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
                       const teamSlug = constructorSlugByName.get(
                         normalizeName(row.team),
                       );
+                      const isPractice = ["practice-1", "practice-2", "practice-3"].includes(
+                        activeSession,
+                      );
+                      const isSprintQualifying = activeSession === "sprint-qualifying";
+                      const isQualifying = activeSession === "qualifying";
                       return (
-                        <tr class="border-b border-zinc-900 last:border-b-0">
-                          <td class="px-4 py-4 text-base font-black text-zinc-100">
+                        <tr class="border-b border-zinc-200 last:border-b-0 dark:border-zinc-900">
+                          <td class="px-4 py-4 text-base text-zinc-900 dark:text-zinc-100">
                             {row.position}
                           </td>
-                          <td class="px-4 py-4 text-base font-black text-zinc-100">
+                          <td class="px-4 py-4 text-base text-zinc-900 dark:text-zinc-100">
                             {row.carNumber ?? "-"}
                           </td>
-                          <td class="px-4 py-4 font-semibold text-zinc-100">
+                          <td class="px-4 py-4 text-zinc-900 dark:text-zinc-100">
                             {driverSlug ? (
                               <a
                                 href={`/seasons/${season}/drivers/${driverSlug}`}
-                                class="hover:text-rose-400"
+                                class="hover:text-rose-600 dark:hover:text-rose-400"
                               >
                                 {row.driver}
                               </a>
@@ -299,29 +363,82 @@ const flagCode = countryFlagMap[race.data.trackCountry] ?? "un";
                               row.driver
                             )}
                           </td>
-                          <td class="px-4 py-4 text-zinc-100">
+                          <td class="px-4 py-4 text-zinc-900 dark:text-zinc-100">
                             {teamSlug ? (
                               <a
                                 href={`/seasons/${season}/constructors/${teamSlug}`}
-                                class="hover:text-rose-400"
+                                class="inline-flex items-center gap-2 hover:text-rose-600 dark:hover:text-rose-400"
                               >
+                                <span
+                                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                                  style={`background-color: ${teamColorMap[row.team] ?? "#71717a"}`}
+                                  aria-hidden="true"
+                                />
                                 {row.team}
                               </a>
                             ) : (
-                              row.team
+                              <span class="inline-flex items-center gap-2">
+                                <span
+                                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                                  style={`background-color: ${teamColorMap[row.team] ?? "#71717a"}`}
+                                  aria-hidden="true"
+                                />
+                                {row.team}
+                              </span>
                             )}
                           </td>
-                          <td class="px-4 py-4 text-zinc-100">{row.laps ?? "-"}</td>
-                          <td class="px-4 py-4 font-mono text-zinc-100">
-                            {row.timeOrRetired ?? "-"}
-                          </td>
-                          <td class="px-4 py-4 text-zinc-100">{row.points ?? "-"}</td>
+                          {isPractice ? (
+                            <>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.timeOrGap ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 text-zinc-900 dark:text-zinc-100">
+                                {row.laps ?? "-"}
+                              </td>
+                            </>
+                          ) : isSprintQualifying ? (
+                            <>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.sq1 ?? row.q1 ?? row.timeOrGap ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.sq2 ?? row.q2 ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.sq3 ?? row.q3 ?? "-"}
+                              </td>
+                            </>
+                          ) : isQualifying ? (
+                            <>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.q1 ?? row.timeOrGap ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.q2 ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.q3 ?? "-"}
+                              </td>
+                            </>
+                          ) : (
+                            <>
+                              <td class="px-4 py-4 text-zinc-900 dark:text-zinc-100">
+                                {row.laps ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 font-mono text-zinc-900 dark:text-zinc-100">
+                                {row.timeOrRetired ?? "-"}
+                              </td>
+                              <td class="px-4 py-4 text-zinc-900 dark:text-zinc-100">
+                                {row.points ?? "-"}
+                              </td>
+                            </>
+                          )}
                         </tr>
                       );
                     })
                   ) : (
                     <tr>
-                      <td colspan={7} class="px-4 py-10 text-center text-zinc-400">
+                      <td colspan={7} class="px-4 py-10 text-center text-zinc-500 dark:text-zinc-400">
                         {activeLabel} data is not available yet for this Grand Prix.
                       </td>
                     </tr>
