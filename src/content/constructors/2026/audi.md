@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Audi 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Audi 2026 Constructor car"
-carModel: ""
+carModel: "R26"
 careerStats:
   firstEntry: 1993
   racesEntered: 611
@@ -19,7 +19,7 @@ constructorName: "Audi"
 constructorPoints: 2
 dnf: 0
 description: "Audi team description"
-engineSupplier: "Ferrari"
+engineSupplier: "Audi"
 fastestLaps: 0
 grandPrixWins: 0
 grandPrixPoints: 0

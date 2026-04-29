@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Haas 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Haas 2026 Constructor car"
-carModel: "VF-25"
+carModel: "VF-26"
 careerStats:
   firstEntry: 2016
   racesEntered: 210

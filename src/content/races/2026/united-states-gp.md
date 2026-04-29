@@ -2,7 +2,7 @@
 raceName: "Formula 1 MSC Cruises United States Grand Prix 2026"
 trackName: "Circuit of The Americas"
 trackLocation: "Austin, Texas"
-trackCountry: "United States"
+trackCountry: "Texas"
 trackImage: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageLarge: "../../../assets/circuits/06miami/mi01.jpg"
 trackImageAlt: "Circuit of The Americas"
@@ -20,6 +20,13 @@ fastestLapConstructor: ""
 fastestLapTime: ""
 raceNumber: 19
 raceCompleted: false
+raceResults: []
+practice1Results: []
+practice2Results: []
+practice3Results: []
+qualifyingResults: []
+sprintResults: []
+fastestLapResults: []
 pubDate: "January 02, 2026"
 heroImage: "../../../assets/circuits/06miami/mi01.jpg"
 ---

@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Ferrari 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Ferrari 2026 Constructor car"
-carModel: "SF-25"
+carModel: "SF-26"
 careerStats:
   firstEntry: 1950
   racesEntered: 1119

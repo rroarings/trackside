@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "McLaren 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "McLaren 2026 Constructor car"
-carModel: "MCL39"
+carModel: "MCL40"
 careerStats:
   firstEntry: 1966
   racesEntered: 994

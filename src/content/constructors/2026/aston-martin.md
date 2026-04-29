@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Aston Martin 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Aston Martin 2026 Constructor car"
-carModel: "AMR25"
+carModel: "AMR26"
 careerStats:
   firstEntry: 1959
   racesEntered: 148
@@ -19,7 +19,7 @@ constructorName: "Aston Martin"
 constructorPoints: 0
 dnf: 0
 description: "Aston Martin team description"
-engineSupplier: "Mercedes"
+engineSupplier: "Honda"
 fastestLaps: 0
 grandPrixWins: 0
 grandPrixPoints: 0

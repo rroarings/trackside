@@ -21,6 +21,7 @@ const nowUTC = toUTCMidnight(new Date());
 const raceDateUTC = toUTCMidnight(new Date(race.data.raceDate));
 const sevenDaysFromNowUTC = new Date(nowUTC);
 sevenDaysFromNowUTC.setDate(nowUTC.getDate() + 7);
+const isRaceCompleted = race.data.raceCompleted || raceDateUTC < nowUTC;
 
 const lastCompletedRaceDate =
   completedRaces.length > 0
@@ -35,7 +36,7 @@ const currentSeason = new Date().getFullYear().toString();
 const isCurrentSeason = race.data.season === currentSeason;
 const isPreviousRace =
   isCurrentSeason &&
-  race.data.raceCompleted &&
+  isRaceCompleted &&
   raceDateUTC.getTime() === lastCompletedRaceDate;
 
 const raceDateObj = new Date(race.data.raceDate);
@@ -76,7 +77,7 @@ const getStatusLabel = () => {
       iconToneClass: "text-sky-600 dark:text-sky-400",
     };
   }
-  if (race.data.raceCompleted) {
+  if (isRaceCompleted) {
     return {
       label: "Completed",
       chipClass: "border-emerald-300/90 bg-emerald-500 text-white",

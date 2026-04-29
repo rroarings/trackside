@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Red Bull Racing 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Red Bull Racing 2026 Constructor car"
-carModel: "RB21"
+carModel: "RB22"
 careerStats:
   firstEntry: 2005
   racesEntered: 412
@@ -19,7 +19,7 @@ constructorName: "Red Bull Racing"
 constructorPoints: 15
 dnf: 0
 description: "Red Bull Racing team description"
-engineSupplier: "Honda RBPT"
+engineSupplier: "Red Bull Ford"
 fastestLaps: 0
 grandPrixWins: 0
 grandPrixPoints: 0

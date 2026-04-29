@@ -3,7 +3,7 @@ carImage: "../../../assets/car-2026-placeholder.png"
 carImageAlt: "Williams 2026 Constructor car"
 carImageLarge: "../../../assets/car-2026-placeholder.png"
 carImageLargeAlt: "Williams 2026 Constructor car"
-carModel: "RB21"
+carModel: "FW48"
 careerStats:
   firstEntry: 1977
   racesEntered: 847
